@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Noto Sans';
+    src: local(NotoSans-Regular);
+    src: url('../fonts/NotoSans.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Questrial';
+    src: local(Questrial-Regular);
+    src: url('../fonts/Questrial.otf') format('opentype');
+}
+
+body {
+    font-family: Noto Sans;
+}
