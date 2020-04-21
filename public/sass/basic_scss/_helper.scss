@@ -52,12 +52,6 @@ $weights: 400, 500, 600, 700, 800;
 }
 
 /* ===================
-Cursor
-======================= */
-.pointer{ cursor: pointer; }
-.select-none{ user-select: none; }
-
-/* ===================
 Indexing
 ======================= */
 $indexes: 1, 9, 99, 999;
@@ -69,6 +63,13 @@ $indexes: 1, 9, 99, 999;
         z-index: -#{$index};
     }
 }
+
+/* ========================
+Cursor, Selection and Link
+============================ */
+.pointer{ cursor: pointer; }
+.select-none{ user-select: none; }
+.link-underline{ text-decoration: underline }
 
 
 /* ===================

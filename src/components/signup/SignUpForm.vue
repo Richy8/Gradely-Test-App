@@ -56,7 +56,7 @@
         <label for="phoneNumber">PHONE NUMBER</label>
         <div class="input-group">
           <div class="input-group-prepend">
-            <span class="input-group-text font-13 title-black">+ 234</span>
+            <span class="input-group-text font-13 title-black transparent-bg">+ 234</span>
           </div>
           <input
             type="number"
@@ -73,15 +73,15 @@
         <label for="password">PASSWORD</label>
         <div class="input-group">
           <input
-            :type="passwordType"
+            :type="passwordType ? 'password' : text"
             v-model="form.password"
             class="form-control font-13 title-black"
             id="password"
             placeholder="Create a Password"
           >
           <div class="input-group-append">
-            <span class="input-group-text font-13 title-black pointer">
-              <b-icon icon="eye" class="title-black" @click="viewPassword"></b-icon>
+            <span class="input-group-text font-13 title-black pointer transparent-bg">
+              <b-icon icon="eye" class="title-black" @click="passwordType = !passwordType"></b-icon>
             </span>
           </div>
         </div>
@@ -121,15 +121,8 @@ export default {
         phone: "",
         password: ""
       },
-      passwordType: "password"
+      passwordType: true
     };
-  },
-  methods: {
-    // METHOD TO VIEW PASSWORD
-    viewPassword() {
-      this.passwordType =
-        this.passwordType === "password" ? "text" : "password";
-    }
   }
 };
 </script>

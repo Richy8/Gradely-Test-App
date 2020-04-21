@@ -8,6 +8,7 @@ $cyan-light: #DBF5F8;
 $navy-blue-light: #2A4F77;
 $gradely-teal: #60D2B0; 
 $dark-ash: #555555;
+$transparent: transparent;
 
 // App Color Pallete
 $app-color: () !default;
@@ -21,6 +22,7 @@ $app-color: map-merge((
 "navy-blue-light": $navy-blue-light,
 "gradely-teal": $gradely-teal,
 "dark-ash": $dark-ash,
+"transparent": $transparent,
 ), $app-color);
 
 /*------------------------------------*\
@@ -36,6 +38,14 @@ $color in $app-color {
         background-color: $color !important;
     }
 }
+
+/*-----------------------*\
+	TRANSPARENT BG
+\*-----------------------*/
+.transparent-bg {
+    background-color: transparent !important; 
+}
+
 
 /*------------------------------------*\
 	Social Brand Color Palette

@@ -1,0 +1,81 @@
+//=====================
+// MEDIA BREAK POINTS
+//=====================
+$xs: 450px; // EXTRA SMALL DEVICE
+$sm: 576px; // SMALL DEVICE
+$md: 768px; // MEDIUM DEVICE
+$lg: 992px; //TABLET DEVICE
+$xl: 1200px; // DESKTOP 
+
+
+//============================
+// RESPONSIVE MIN WIDTH QUERY
+//============================
+@mixin render_min($breakpoint) {
+    @if $breakpoint==xs {
+        @media only screen and (min-width: $xs) {
+            @content;
+        }
+    } 
+    @else if $breakpoint==sm {
+        @media only screen and (min-width: $sm) {
+            @content;
+        }
+    } 
+    @else if $breakpoint==md {
+        @media only screen and (min-width: $md) {
+            @content;
+        }
+    } 
+    @else if $breakpoint==lg {
+        @media only screen and (min-width: $lg) {
+            @content;
+        }
+    } 
+    @else if $breakpoint==xl {
+        @media only screen and (min-width: $xl) {
+            @content;
+        }
+    } 
+}
+
+//============================
+// RESPONSIVE MAX WIDTH QUERY
+//============================
+@mixin render_max($breakpoint) {
+    @if $breakpoint==xs {
+        @media only screen and (max-width: $xs) {
+            @content;
+        }
+    } 
+    @else if $breakpoint==sm {
+        @media only screen and (max-width: $sm) {
+            @content;
+        }
+    } 
+    @else if $breakpoint==md {
+        @media only screen and (max-width: $md) {
+            @content;
+        }
+    } 
+    @else if $breakpoint==lg {
+        @media only screen and (max-width: $lg) {
+            @content;
+        }
+    } 
+    @else if $breakpoint==xl {
+        @media only screen and (max-width: $xl) {
+            @content;
+        }
+    } 
+}
+
+
+//=====================================
+// RESPONSIVE CUSTOM WIDTH MEDIA QUERY
+//=====================================
+@mixin render_min_max($min, $max) {
+    @media(min-width: $min) and (max-width: $max) {
+        @content;
+    }
+}

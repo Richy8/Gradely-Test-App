@@ -1,8 +1,49 @@
 /* ===================
 FULL WIDTH AND HEIGHT
 ======================= */
-@mixin full_width_height() {
+@mixin full_width_height {
     position: absolute;
     width: 100%;
     height: 100%;
+    object-fit: cover;
+}
+
+/* ==============
+FLEX ROW CENTER
+================== */
+@mixin flex_row_center {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ==============
+FLEX ROW BETWEEN
+================== */
+@mixin flex_row_between {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ==================
+FLEX COLUMN CENTER
+==================== */
+@mixin flex_column_center {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =================
+FLEX COLUMN BETWEEN
+==================== */
+@mixin flex_column_between {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
 }

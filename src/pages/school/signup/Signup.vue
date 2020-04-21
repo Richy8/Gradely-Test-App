@@ -1,14 +1,14 @@
 <template>
   <!-- SIGNUP PAGE  -->
-  <section class="signup-section">
+  <section class="signup-section position-relative overflow-auto">
     <b-container fluid>
-      <b-row class="container-row">
+      <b-row class="container-row position-relative">
         <!-- LEFT PANE -->
-        <b-col md="5" class="left-pane d-none d-md-block p-0 z-depth-3">
+        <b-col md="5" class="left-pane position-fixed d-none d-md-block p-0 z-depth-3">
           <img
             src="https://res.cloudinary.com/richy-jones/image/upload/v1587381343/GRADELY_ASSETS/SignupBg.png"
             alt="LeftPaneImg"
-            class="left-pane-content pane-img"
+            class="left-pane-content"
           >
           <!-- IMG OVERLAY -->
           <div class="left-pane-content pane-img-overlay"></div>
@@ -39,7 +39,7 @@
           <div class="right-pane d-flex flex-column justify-content-start align-items-center">
             <div class="right-pane-content">
               <!-- BRAND MOCKUP -->
-              <div class="brand-mockup">
+              <div class="brand-mockup position-relative">
                 <img
                   src="https://res.cloudinary.com/richy-jones/image/upload/v1587388460/GRADELY_ASSETS/GradelyMockup.png"
                   alt="Gradely.Ng"
@@ -54,7 +54,7 @@
               <div class="section-two">
                 <h4>
                   Already have an account?
-                  <a href class="login-link orange-light">Login</a>
+                  <a href class="login-link link-underline orange-light">Login</a>
                 </h4>
               </div>
 

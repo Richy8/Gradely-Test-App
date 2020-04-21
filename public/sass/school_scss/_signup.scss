@@ -1,22 +1,15 @@
 .signup-section {
-    position: relative;
     width: 100%;
     height: 100vh;
-    overflow: auto;
 
     .container-row {
         height: 100vh;
-        position: relative;
 
         // LEFT PANE
         .left-pane {
-            position: fixed;
             height: 100vh;
             .left-pane-content {
-               @include full_width_height();
-            }
-            .pane-img {
-                object-fit: cover;
+               @include full_width_height;
             }
             .pane-img-overlay {
                 background: $gradely-blue;
@@ -24,7 +17,7 @@
                 opacity: .9;
             }
             .content-box {
-                @include full_width_height();
+                @include full_width_height;
                 .content {
                     width: 100%;
                     .section-one {
@@ -33,14 +26,30 @@
                         line-height: 1.375rem;
                         text-transform: uppercase;
                         color: $navy-blue;
+
+                        /* EXTRA LARGE DEVICE */
+                        @include render_max(xl) {
+                            font-weight: 600;
+                            font-size: 0.8125rem;
+                            line-height: 1.125rem;
+                        }
+
                     }
                     .section-two {
                         font-weight: 600;
-                        font-size: 32px;
+                        font-size: 2rem;
                         line-height: 140%;
                         color: #FFFFFF;
                         margin-bottom: 1.375rem;
                         letter-spacing: .03em;
+
+                        /* EXTRA LARGE DEVICE */
+                        @include render_max(xl) {
+                            font-size: 1.5rem;
+                            line-height: 150%;
+                            letter-spacing: .012em;
+                        }
+
                     }
                     .section-three {
                         font-size: 0.9375rem;
@@ -49,6 +58,15 @@
                         li {
                             margin-bottom: 0.875rem;
                         }
+
+                        /* EXTRA LARGE DEVICE */
+                        @include render_max(xl) {
+                            font-size: 0.7813rem;
+                            li {
+                                margin-bottom: 0.75rem;
+                            }
+                        }
+
                     }
                 }
             }
@@ -56,25 +74,73 @@
 
         // RIGHT PANE
         .right-pane {
-            @include full_width_height();
+            @include full_width_height;
 
             .right-pane-content {
                 padding: 5% 0;
                 width: 50%;
 
+                /* EXTRA LARGE DEVICE */
+                @include render_max(xl){
+                    padding: 10% 0;
+                    width: 68%;
+                }
+
+                /* LARGE DEVICE */
+                @include render_max(lg){
+                    width: 78%;
+                }
+
+                /* MEDIUM DEVICE */
+                @include render_max(md){
+                    width: 60%;
+                }
+
+                /* SMALL DEVICE */
+                @include render_max(sm){
+                    width: 80%;
+                }
+
+                /* EXTRA SMALL DEVICE */
+                @include render_max(xs){
+                    width: 90%;
+                }
+
                 .brand-mockup {
-                    position: relative;
                     left: 0;
                     width: 10.9375rem;
                     height: 2.875rem;
                     margin-bottom: 0.75rem;
                     img {
-                       @include full_width_height();
+                       @include full_width_height;
+                    }
+
+                    /* EXTRA LARGE DEVICE */
+                    @include render_max(xl){
+                        width: 8.75rem;
+                        height: 2.375rem;
+                    }
+
+                    /* MEDIUM DEVICE */
+                    @include render_max(md){
+                        width: 9.375rem;
+                        height: 2.5rem;
+                    }
+
+                    /* SMALL DEVICE */
+                    @include render_max(sm){
+                        height: 2.625rem;
+                    }
+
+                    /* EXTRA SMALL DEVICE */
+                    @include render_max(xs){
+                        width: 8.75rem;
+                        height: 2.1875rem;
                     }
                 }
 
                 .section-one {
-                    margin-bottom: 13px;
+                    margin-bottom: 0.8125rem;
                     h3 {
                         font-family: Questrial;
                         font-weight: 600;
@@ -83,16 +149,69 @@
                         color: $title-black;
                         letter-spacing: 0.05em;
                     }
+
+                    /* EXTRA LARGE DEVICE */
+                    @include render_max(xl){
+                        margin-bottom: 0.75rem;
+                        h3 {
+                            font-weight: 500;
+                            font-size: 0.9688rem;
+                            line-height: 1.25rem;
+                            letter-spacing: 0.03em;
+                        }
+                    }
+
+                    /* MEDIUM DEVICE */
+                    @include render_max(md){
+                        h3 {
+                            font-size: 1.0625rem;
+                        }
+                    }
+
+                    /* SMALL DEVICE */
+                    @include render_max(sm){
+                        h3 {
+                            font-size: 1.0313rem;
+                        }
+                    }
+
+                    /* EXTRA SMALL DEVICE */
+                    @include render_max(xs){
+                        margin-bottom: 0.625rem;
+                        h3 {
+                            font-size: 1rem;
+                        }
+                    }
                 }
 
                 .section-two {
                     h4 {
                         font-weight: normal;
                         font-size: 0.85rem;
-                        line-height: 20px;
+                        line-height: 1.25rem;
                         letter-spacing: 0.05em;
-                        .login-link {
-                            text-decoration: underline;
+
+                        /* MEDIUM DEVICE */
+                        @include render_max(xl){
+                            font-size: 0.7813rem;
+                            line-height: 0.75rem;
+                            letter-spacing: 0.03em;
+                        }
+
+                        /* MEDIUM DEVICE */
+                        @include render_max(md){
+                            font-size: 0.8438rem;
+                        }
+
+                        /* SMALL DEVICE */
+                        @include render_max(sm){
+                            font-size: 0.8125rem;
+                        }
+
+                        /* EXTRA SMALL DEVICE */
+                        @include render_max(xs) {
+                            font-size: 0.75rem;
+                            line-height: 0.8125rem;
                         }
                     }
                 }
@@ -106,438 +225,106 @@
                             line-height: 1rem;
                             text-transform: uppercase;
                             color: $label-black;
-                        }
-                        .fullname {
-                            display: flex;
-                            flex-flow: row wrap;
-                            justify-content: space-between;
-                            align-items: center;
-                            width: 100%;
-                            .firstname, .lastname {
-                                width: 48.5%;
+
+                            
+                            /* EXTRA LARGE DEVICE */
+                            @include render_max(xl){
+                                font-weight: 400;
+                                font-size: 0.625rem;
+                                line-height: 0.875rem;
+                            }
+                            
+                            /* MEDIUM DEVICE */
+                            @include render_max(md){
+                                font-size: 0.6719rem;
+                            }
+
+                            /* SMALL DEVICE */
+                            @include render_max(sm){
+                                font-size: 0.6563rem;
+                            }
+
+                            /* EXTRA SMALL DEVICE */
+                            @include render_max(xs) {
+                                font-size: 0.625rem;
                             }
                         }
-                        .input-group {
-                            .input-group-text {
-                                background: transparent !important;
+                        .fullname {
+                            @include flex_row_between;
+                            width: 100%;
+                            .firstname, .lastname {
+                                width: 48%;
+                            }
+
+                            /* LARGE DEVICE */
+                            @include render_max(lg){
+                                @include flex_column_center;
+                                .firstname, .lastname {
+                                    width: 100%;
+                                }
+                                .lastname {
+                                    margin-top: 0.9375rem;
+                                }
+                            }
+                            
+                        }
+
+                        /* EXTRA LARGE DEVICE */
+                        @include render_max(xl){
+                            input, .input-group-text {
+                                font-size: 0.75rem !important;
+                            }
+                        }
+
+                        /* MEDIUM DEVICE */
+                        @include render_max(md){
+                            input, .input-group-text {
+                                font-size: 0.7969rem !important;
+                            }
+                        }
+
+                        /* SMALL DEVICE */
+                        @include render_max(sm){
+                            input, .input-group-text {
+                                font-size: 0.7813rem !important;
+                            }
+                        }
+
+                        /* EXTRA SMALL DEVICE */
+                        @include render_max(xs){
+                            input, .input-group-text {
+                                font-size: 0.75rem !important;
                             }
                         }
                         button {
-                            padding: 12px 35px !important;
-                            font-size: 11px !important;
-                        }
-                    }
-                }
-
-            }
-        }
-    }
-}
-
-/****************************/
-//MEDIA QUERY FOR SIGNUP PAGE
-/*****************************/
-
-// DESKTOP
-@media(max-width: 1200px) {
-    .signup-section {
-        .container-row {
-
-            .left-pane {
-                .content-box {
-                    .content {
-                        .section-one {
-                            font-weight: 600;
-                            font-size: 13px;
-                            line-height: 18px;
-                        }
-                        .section-two {
-                            font-weight: 600;
-                            font-size: 24px;
-                            line-height: 150%;
-                            margin-bottom: 1.375rem;
-                            letter-spacing: .012em;
-                        }
-                        .section-three {
-                            font-size: 0.7813rem;
-                            font-weight: 400;
-                            li {
-                                margin-bottom: 12px;
-                            }
-                        }
-                    }
-                }
-            }
-            // RIGHT PANE
-            .right-pane {
-    
-                .right-pane-content {
-                    padding: 10% 0;
-                    width: 68%;
-    
-                    .brand-mockup {
-                        position: relative;
-                        width: 140px;
-                        height: 38px;
-                        margin-bottom: 13px;
-                    }
-    
-                    .section-one {
-                        margin-bottom: 12px;
-                        h3 {
-                            font-weight: 500;
-                            font-size: 15.5px;
-                            line-height: 20px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-two {
-                        h4 {
-                            font-size: 12.5px;
-                            line-height: 12px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-three {
-                        margin-top: 15px;
-                        form {
-                            label {
-                                font-weight: 400;
-                                font-size: 10px;
-                                line-height: 14px;
-                            }
-                            .fullname {
-                                flex-flow: row wrap;
-                                justify-content: space-between;
-                                .firstname, .lastname {
-                                    width: 48%;
-                                }
-                            }
-                            input, .input-group-text {
-                                font-size: 12px !important;
-                            }
-                            button {
+                            padding: 0.75rem 2.1875rem !important;
+                            font-size: 0.6875rem !important;
+                            
+                            /* EXTRA LARGE DEVICE */
+                            @include render_max(xl){
                                 font-weight: 600 !important;
-                                padding: 12px 25px !important;
-                                font-size: 11px !important;
+                                padding: 0.75rem 1.5625rem !important;
+                                font-size: 0.6875rem !important;
                             }
-                        }
-                    }
-    
-                }
-            }
-        }
-    }
-}
 
-// TABLET DEVICE
-@media(max-width: 992px) {
-    .signup-section {
-        .container-row {
+                            /* LARGE DEVICE */
+                            @include render_max(lg){
+                                font-size: 9px !important;
+                            }
 
-            .left-pane {
-                .content-box {
-                    .content {
-                        .section-one {
-                            font-weight: 600;
-                            font-size: 13px;
-                            line-height: 18px;
-                        }
-                        .section-two {
-                            font-weight: 600;
-                            font-size: 24px;
-                            line-height: 150%;
-                            margin-bottom: 1.375rem;
-                            letter-spacing: .012em;
-                        }
-                        .section-three {
-                            font-size: 0.7813rem;
-                            font-weight: 400;
-                            li {
-                                margin-bottom: 12px;
+                            /* MEDIUM DEVICE */
+                            @include render_max(md){
+                                font-size: 0.625rem !important;
+                            }
+
+                            /* EXTRA SMALL DEVICE */
+                            @include render_max(xs){
+                                font-size: 0.5625rem !important;
                             }
                         }
                     }
                 }
-            }
-            // RIGHT PANE
-            .right-pane {
-    
-                .right-pane-content {
-                    padding: 10% 0;
-                    width: 78%;
-    
-                    .brand-mockup {
-                        position: relative;
-                        width: 140px;
-                        height: 38px;
-                        margin-bottom: 13px;
-                    }
-    
-                    .section-one {
-                        margin-bottom: 12px;
-                        h3 {
-                            font-weight: 500;
-                            font-size: 15.5px;
-                            line-height: 20px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-two {
-                        h4 {
-                            font-size: 12.5px;
-                            line-height: 12px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-three {
-                        margin-top: 15px;
-                        form {
-                            label {
-                                font-weight: 400;
-                                font-size: 10px;
-                                line-height: 14px;
-                            }
-                            .fullname {
-                                flex-flow: column wrap;
-                                justify-content: center;
-                                .firstname, .lastname {
-                                    width: 100%;
-                                }
-                                .lastname {
-                                    margin-top: 15px;
-                                }
-                            }
-                            input, .input-group-text {
-                                font-size: 12px !important;
-                            }
-                            button {
-                                font-weight: 600 !important;
-                                padding: 12px 25px !important;
-                                font-size: 11px !important;
-                            }
-                        }
-                    }
-    
-                }
-            }
-        }
-    }
-}
 
-// MEDIUM DEVICE
-@media(max-width: 768px) {
-    .signup-section {
-        .container-row {
-            // RIGHT PANE
-            .right-pane {
-    
-                .right-pane-content {
-                    padding: 10% 0;
-                    width: 60%;
-    
-                    .brand-mockup {
-                        position: relative;
-                        width: 150px;
-                        height: 40px;
-                        margin-bottom: 13px;
-                    }
-    
-                    .section-one {
-                        margin-bottom: 12px;
-                        h3 {
-                            font-weight: 500;
-                            font-size: 17px;
-                            line-height: 20px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-two {
-                        h4 {
-                            font-size: 13.5px;
-                            line-height: 12px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-three {
-                        margin-top: 15px;
-                        form {
-                            label {
-                                font-weight: 400;
-                                font-size: 10.75px;
-                                line-height: 14px;
-                            }
-                            .fullname {
-                                flex-flow: column wrap;
-                                justify-content: center;
-                                .firstname, .lastname {
-                                    width: 100%;
-                                }
-                                .lastname {
-                                    margin-top: 15px;
-                                }
-                            }
-                            input, .input-group-text {
-                                font-size: 12.75px !important;
-                            }
-                            button {
-                                font-weight: 600 !important;
-                                padding: 12px 25px !important;
-                                font-size: 11.5px !important;
-                            }
-                        }
-                    }
-    
-                }
-            }
-        }
-    }
-}
-
-// SMALL DEVICE
-@media(max-width: 576px) {
-    .signup-section {
-        .container-row {
-            // RIGHT PANE
-            .right-pane {
-    
-                .right-pane-content {
-                    padding: 10% 0;
-                    width: 80%;
-    
-                    .brand-mockup {
-                        position: relative;
-                        width: 150px;
-                        height: 42px;
-                        margin-bottom: 13px;
-                    }
-    
-                    .section-one {
-                        margin-bottom: 12px;
-                        h3 {
-                            font-weight: 500;
-                            font-size: 16.5px;
-                            line-height: 20px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-two {
-                        h4 {
-                            font-size: 13px;
-                            line-height: 12px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-three {
-                        margin-top: 15px;
-                        form {
-                            label {
-                                font-weight: 400;
-                                font-size: 10.5px;
-                                line-height: 14px;
-                            }
-                            .fullname {
-                                flex-flow: column wrap;
-                                justify-content: center;
-                                .firstname, .lastname {
-                                    width: 100%;
-                                }
-                                .lastname {
-                                    margin-top: 15px;
-                                }
-                            }
-                            input, .input-group-text {
-                                font-size: 12.5px !important;
-                            }
-                            button {
-                                font-weight: 600 !important;
-                                padding: 12px 25px !important;
-                                font-size: 11px !important;
-                            }
-                        }
-                    }
-    
-                }
-            }
-        }
-    }
-}
-
-// EXTRA SMALL DEVICE
-@media(max-width: 450px) {
-    .signup-section {
-        .container-row {
-            // RIGHT PANE
-            .right-pane {
-    
-                .right-pane-content {
-                    padding: 10% 0;
-                    width: 90%;
-    
-                    .brand-mockup {
-                        position: relative;
-                        width: 140px;
-                        height: 35px;
-                        margin-bottom: 12px;
-                    }
-    
-                    .section-one {
-                        margin-bottom: 10px;
-                        h3 {
-                            font-weight: 500;
-                            font-size: 16px;
-                            line-height: 20px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-two {
-                        h4 {
-                            font-size: 12px;
-                            line-height: 13px;
-                            letter-spacing: 0.03em;
-                        }
-                    }
-    
-                    .section-three {
-                        margin-top: 15px;
-                        form {
-                            label {
-                                font-weight: 400;
-                                font-size: 10px;
-                                line-height: 14px;
-                            }
-                            .fullname {
-                                flex-flow: column wrap;
-                                justify-content: center;
-                                .firstname, .lastname {
-                                    width: 100%;
-                                }
-                                .lastname {
-                                    margin-top: 15px;
-                                }
-                            }
-                            input, .input-group-text {
-                                font-size: 12px !important;
-                            }
-                            button {
-                                font-weight: 600 !important;
-                                padding: 12px 25px !important;
-                                font-size: 10px !important;
-
-                            }
-                        }
-                    }
-    
-                }
             }
         }
     }
