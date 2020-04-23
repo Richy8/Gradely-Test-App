@@ -43,6 +43,11 @@
   "browserslist": [
     "> 1%",
     "last 2 versions",
-    "not dead"
+    "not dead",
+    "defaults",
+    "Firefox > 20",
+    "> 5%",
+    "cover 99.5%",
+    "ie 6-8"
   ]
 }

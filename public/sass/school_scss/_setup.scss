@@ -1,0 +1,410 @@
+// PLACEHOLDER
+%column-style{
+    height: auto;
+    width: 100%;
+    border: 0.0625rem solid $off-white-dark;
+    background: #fff;
+    margin-bottom: 0.375rem;
+    padding: 0.625rem 1.0313rem;
+}
+
+%title-style{
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-bottom: 0.3125rem;
+
+    // TABLET DEVICE
+    @include render_max(lg){
+        font-size: 0.8125rem;
+        line-height: 1.125rem;
+    }
+
+    // SMALL DEVICE
+    @include render_max(sm){
+        font-size: 0.75rem;
+        line-height: 1rem;
+    }
+}
+
+%text-style{
+    font-size: 0.75rem;
+    line-height: 1.0625rem;
+
+    // TABLET DEVICE
+    @include render_max(lg){
+        font-size: 0.7125rem;
+        line-height: 1rem;
+    }
+}
+
+// INTERNAL MIXIN
+@mixin radio-button($margin_top) {
+    margin-right: 0.9375rem;
+    .radio-input {
+        @include equal_min_edge(16);
+        border: 0.0313rem solid rgb(139, 138, 138);
+        margin-top: #{$margin_top};
+        border-radius: 50%;
+
+        // TABLET DEVICE
+        @include render_max(lg){
+            @include equal_min_edge(13);
+        }
+    }
+    .style_checked {
+        border: 0.0313rem solid $orange-light;
+        &:after {
+            content: "";
+            @include equal_min_edge(8);
+            @include transform_center;
+            border-radius: 50%;
+            background-color: $orange-light;
+
+            // TABLET DEVICE
+            @include render_max(lg){
+                @include equal_min_edge(5);
+            }
+        }
+    }
+}
+
+.setup-section {
+    @include section_stretch;
+
+    .title-row {
+        margin-top: 3.125rem;
+        .title-block {
+            .setup-title {
+                font-weight: 600;
+                font-size: 1.625rem;
+                line-height: 2.375rem;
+
+                // TABLET DEVICE
+                @include render_max(lg){
+                    font-size: 1.5rem;
+                    line-height: 2.125rem;
+                }
+
+                // SMALL DEVICE
+                @include render_max(sm){
+                    font-size: 1.4375rem;
+                    line-height: 2rem;
+                }
+
+                // EXTRA SMALL DEVICE
+                @include render_max(xs){
+                    font-size: 1.375rem;
+                    line-height: 1.875rem;
+                }
+            }
+            .setup-nav-block {
+                .setup-nav {
+                    @include equal_min_edge(10);
+                    background-color: $off-white-dark;
+                    border-radius: 50%;
+                    margin: 0 0.2047rem;
+
+                     // TABLET DEVICE
+                    @include render_max(lg){
+                        @include equal_min_edge(9);
+                        margin: 0 0.1875rem;
+                    }
+                }
+                .active {
+                    background-color: $orange-light;
+                }
+            }
+        }
+    }
+
+    .setup-form-row {
+        margin-top: 1.875rem;
+        .card-block {
+            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+
+            .card-top {
+                .form-content {
+                    margin: 2.1875rem auto 1.875rem;
+                    padding: auto 0 !important;
+
+                    // TABLET DEVICE
+                    @include render_max(lg){
+                        margin: 1.75rem auto 1.375rem;
+                    }
+
+                    .form-title {
+                        font-size: 1.0625rem;
+                        line-height: 1.375rem;
+                        margin-bottom: 1.5625rem;
+
+                        // TABLET DEVICE
+                        @include render_max(lg){
+                            font-size: 0.9375rem;
+                            line-height: 1.125rem;
+                            margin-bottom: 1.25rem;
+                        }
+
+                        // EXTRA SMALL DEVICE
+                        @include render_max(xs){
+                            font-size: 0.875rem;
+                            line-height: 1rem;
+                        }
+
+                    }
+
+                    p {
+                        font-size: 0.8125rem;
+                        line-height: 150%;
+                        margin-top: -0.625rem;
+
+                        // SMALL DEVICE
+                        @include render_max(sm){
+                            font-size: 0.75rem;
+                            line-height: 135%;
+                        }
+                    }
+
+                    // CURRICULUM
+                    .curriculums {
+                        .curriculum {
+                            @extend %column-style;
+
+                            .checkbox {
+                                margin-right: 0.9375rem;
+                                .check-input {
+                                   @include equal_min_edge(15);
+                                   border: 0.0313rem solid rgb(139, 138, 138);
+                                   border-radius: 0.1875rem;
+                                   margin-top: 0.25rem;
+
+                                    // TABLET DEVICE
+                                    @include render_max(lg){
+                                        @include equal_min_edge(12);
+                                    }
+                                }
+                                .checked {
+                                    background: $orange-light;
+                                    border: 0.0313rem solid $orange-light;
+                                }
+                               
+                            }
+                            .curriculum-content {
+                                .curriculum-title {
+                                   @extend %title-style;
+                                }
+                                .curriculum-text {
+                                    @extend %text-style;
+                                }
+                            }
+                            &:hover {
+                                cursor: pointer;
+                                background:rgba(219, 245, 248, .6);
+                            }
+                        }
+                        .selected {
+                            border: 0.0625rem solid $orange-light !important;
+                        }
+                    }
+
+                    // CLASSES
+                    .classes {
+                        .form-group {
+                            height: auto;
+                            label {
+                                font-weight: 600;
+                                font-size: 0.75rem;
+                                line-height: 0.9375rem;
+                                padding: 0 0.5rem;
+
+                                // MEDIUM DEVICE
+                                @include render_max(md){
+                                    font-size: 0.6875rem;
+                                }
+                            }
+                            .select {
+                                font-size: 13px;
+                                padding: 7px 10px;
+                                border: 1px solid $off-white-dark;
+                                color: $label-black;
+                                background: #fff;
+                                z-index: 999;
+                                margin: auto 9px;
+                                
+                                &:hover {
+                                    cursor: pointer;
+                                }
+
+                                &:after {
+                                    content: "";
+                                    @include equal_min_edge(10);
+                                    border-top: 0.0813rem solid $title-black;
+                                    border-right: 0.0813rem solid $title-black;
+                                    position: absolute;
+                                    top: 42%;
+                                    right: 3.5%;
+                                    transform: translateY(-50%) rotate(135deg);
+                                    transition: transform .3s ease-in-out;
+                                }
+                            }
+                        
+                            .option {
+                                border: 1px solid $off-white-dark;
+                                font-size: 13px;
+                                color: $label-black;
+                                margin: auto 9px;
+                                position: relative;
+                                z-index: 9;
+                                top:-20px;
+                                height: 0;
+                                visibility: hidden;
+                                overflow: hidden;
+                                transition: all .3s ease-in-out;
+
+                                .option-text {
+                                    padding: 5px 10px;
+
+                                    &:hover {
+                                        background-color: $cyan-light;
+                                        cursor: pointer;
+                                    }
+                                }
+                            }
+                            .selected {
+                                border: 1px solid $orange-light;
+                                &:after {
+                                    border-top: 0.0938rem solid $orange-light;
+                                    border-right: 0.0938rem solid $orange-light;
+                                    top: 52%;
+                                    transform: translateY(-50%) rotate(315deg)
+                                }
+                            }
+                            .clicked {
+                                top: 0;
+                                height: auto;
+                                visibility: visible;
+                                overflow: auto;
+                            }
+
+                            // NAMING STYLE
+                            .naming-style {
+                                .style {
+                                   @extend %column-style;
+                                    .radiobtn {
+                                        @include radio-button(0.25rem);
+                                    }
+                                    .style-content {
+                                        .style-title {
+                                            @extend %title-style;
+                                        }
+                                        .style-text {
+                                            @extend %text-style;
+                                        }
+                                    }
+                                    &:hover {
+                                        cursor: pointer;
+                                        background:rgba(219, 245, 248, .6);
+                                    }
+                                }
+                                .style_selected {
+                                    border: 0.0625rem solid $orange-light !important;
+                                }
+                            }
+
+                            // CLASS STRUCTURE STYLE
+                            .structure {
+                                @extend %column-style;
+                                border: 0rem solid transparent;
+                                padding: 3px 0.5rem;
+                                .radiobtn {
+                                    @include radio-button(-0.0625rem);
+                                }
+                                .structure-text {
+                                    font-size: 0.8125rem;
+                                    line-height: 1rem;
+
+                                    // SMALL DEVICE
+                                    @include render_max(sm){
+                                        font-size: 0.75rem;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    //CLASS TEMPLATES
+                    .class-template {
+                        margin-top: 40px;
+                        .label-half {
+                            width: 40%;
+                            font-weight: 600;
+                            font-size: 0.75rem;
+                            line-height: 0.8125rem;
+                        }
+                        .text-half {
+                            width: 60%;
+                            font-weight: 600;
+                            font-size: 0.7937rem;
+                            line-height: 0.875rem;
+                        }
+                        .input-half {
+                            input {
+                                color: $label-black;
+                                font-size: 0.8125rem;
+                                &::placeholder {
+                                    color: $label-black;
+                                }
+                                &:focus {
+                                    border: 1px solid $orange-light !important;
+                                    box-shadow: 0 0 2px $orange-light !important;
+                                }
+                            }
+                            .help-text {
+                                font-size: 0.7188rem;
+                                line-height: 0.875rem;
+                                font-weight: 200;
+                                margin-top: 0.4375rem;
+                            }
+                        }
+                        .add-branch {
+                            span{
+                                font-weight: 500;
+                                font-size: 13px;
+                                line-height: 15px;
+                            }
+                        }
+                    }
+                }
+            }
+            .card-bottom {
+                background-color: $cyan-light;
+                padding: 0.625rem 2.8125rem;
+
+                // SMALL DEVICE
+                @include render_max(sm){
+                    padding: 0.625rem 1.5625rem;
+                }
+
+                // EXTRA SMALL DEVICE
+                @include render_max(xs){
+                    padding: 0.625rem 1.25rem;
+                }
+                .btn {
+                    border-radius: 1.875rem;
+                    font-size: 0.6563rem;
+                    font-weight: bold;
+                    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important; 
+
+                    &:hover {
+                        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; 
+                    }
+
+                    // TABLET DEVICE
+                    @include render_max(lg){
+                        font-size: 0.5625rem;
+                    }
+                }
+            }
+        }
+    }
+}
