@@ -30,10 +30,10 @@
                 </div>
             </div>
 
-            <div class="w-100 d-flex justify-content-start align-items-start class-template mt-3" v-for="(branch, index) in branches" :key=index>
+            <div class="w-100 d-flex justify-content-start align-items-start class-template mt-3" v-for="(branch, index) in new_branch" :key=index>
                 <div class="label-half mt-2"></div>
                 <div class="text-half input-half">
-                    <input type="text" class="form-control" placeholder="Class Branch">
+                    <input type="text" class="form-control" placeholder="Class Branch" @input="logData($event, index, branch.title)">
                 </div>
             </div>
 
@@ -62,13 +62,23 @@ export default {
                 branch_a: "",
                 branch_b: ""
             },
-            branches: 0
+            branches: 0,
+            new_branch: []
         };
     },
 
     methods: {
         addBranch() {
             this.branches = this.branches+1;
+            let branch_key = `branch_${this.branches-1}`;
+            let branch_obj = {};
+            branch_obj[branch_key] = "";
+            branch_obj.title = `branch_${this.branches-1}`;
+            this.new_branch.push(branch_obj);
+        },
+
+        logData($event, index, title){
+            this.new_branch[index][title] = $event.target.value;
         }
     }
 };

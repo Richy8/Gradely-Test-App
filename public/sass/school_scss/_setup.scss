@@ -156,12 +156,21 @@
                     p {
                         font-size: 0.8125rem;
                         line-height: 150%;
-                        margin-top: -0.625rem;
+                        margin-top: -10px;
+
+                        // MEDIUM DEVICE
+                        @include render_max(md){
+                            font-size: 0.75rem;
+                        }
 
                         // SMALL DEVICE
                         @include render_max(sm){
-                            font-size: 0.75rem;
-                            line-height: 135%;
+                            margin: -0.5rem 20px auto;
+                        }
+
+                        // EXTRA SMALL DEVICE
+                        @include render_max(xs){
+                            margin: -0.5rem 0.3125rem auto;
                         }
                     }
 
@@ -340,17 +349,62 @@
                             font-weight: 600;
                             font-size: 0.75rem;
                             line-height: 0.8125rem;
+
+                            // LARGE DEVICE
+                            @include render_max(lg){
+                                width: 35%;
+                                font-weight: 500;
+                                font-size: 0.625rem;
+                                line-height: 0.75rem;
+                            }
+
+                            // MEDIUM DEVICE
+                            @include render_max(md){
+                                font-weight: 600;
+                                font-size: 0.6875rem;
+                                padding-left: 0.625rem;
+                            }
+
+                            // EXTRA SMALL DEVICE
+                            @include render_max(xs){
+                                font-size: 0.625rem;
+                                padding-left: 0;
+                            }
                         }
                         .text-half {
                             width: 60%;
                             font-weight: 600;
                             font-size: 0.7937rem;
                             line-height: 0.875rem;
+
+                            // LARGE DEVICE
+                            @include render_max(lg){
+                                width: 65%;
+                                font-size: 0.75rem;
+                            }
+
+                            // MEDIUM DEVICE
+                            @include render_max(md){
+                                font-size: 0.8125rem;
+                                padding-right: 0.625rem;
+                            }
+
+                            // EXTRA SMALL DEVICE
+                            @include render_max(xs){
+                                font-size: 0.6875rem;
+                                padding-right: 0;
+                            }
                         }
                         .input-half {
                             input {
                                 color: $label-black;
                                 font-size: 0.8125rem;
+
+                                // EXTRA SMALL DEVICE
+                                @include render_max(xs){
+                                    font-size: 0.6875rem;
+                                }
+
                                 &::placeholder {
                                     color: $label-black;
                                 }
@@ -364,6 +418,11 @@
                                 line-height: 0.875rem;
                                 font-weight: 200;
                                 margin-top: 0.4375rem;
+
+                                // EXTRA SMALL DEVICE
+                                @include render_max(xs){
+                                    font-size: 0.6563rem;
+                                }
                             }
                         }
                         .add-branch {
@@ -371,6 +430,195 @@
                                 font-weight: 500;
                                 font-size: 13px;
                                 line-height: 15px;
+
+                                // EXTRA SMALL DEVICE
+                                @include render_max(xs){
+                                    font-size: 0.75rem;
+                                }
+                            }
+                        }
+                    }
+
+                    // YOUR CLASSES
+                    .your-classes {
+                        .accordion {
+                            position: relative;
+                            overflow: hidden;
+                            border: 0.0625rem solid #E5E5E5;
+
+                            .accordion-top {
+                                padding: 0.75rem 1.25rem;
+                                border-radius: 0.3125rem;
+                                background-color: #E5E5E5;
+                                .caret {
+                                    position: relative;
+                                    min-width: 1.875rem;
+                                    width: 1.875rem;
+                                    &:after{
+                                        content: "";
+                                        position: absolute;
+                                        @include equal_min_edge(9);
+                                        border-top: 0.0938rem solid $title-black;
+                                        border-right: 0.0938rem solid $title-black;
+                                        margin-right: 0.625rem;
+                                        transform: rotate(135deg);
+                                    }
+                                }
+                                .toggle_caret {
+                                    &:after {
+                                        margin-top: 5px;
+                                        transform: rotate(315deg)
+                                    }
+                                }
+
+                                .accordion-title {
+                                    font-size: 14px;
+                                    line-height: 16px;
+                                    font-weight: 500;
+                                    margin-bottom: 6px;
+                                }
+                                .accordion-subtitle {
+                                    font-weight: normal;
+                                    font-size: 11px;
+                                    line-height: 13px;
+                                }
+
+                                &:hover {
+                                    background-color: rgb(211, 211, 211);
+                                }
+                            }
+
+                            .accordion-bottom {
+                                background-color: #FFF;
+                                height: auto;
+                                overflow: auto;
+                                transition: all .3s ease-in-out;
+                                .class-structure {
+                                    @include custom_min_edge(145, 116);
+                                    border: 0.0625rem solid #D5D5D5;
+                                    box-shadow: 0 0 0.125rem #D5D5D5;
+                                    margin: 0.8125rem 0 0.625rem 0.8125rem;
+                                    .color-top {
+                                        width: 100%;
+                                        height: 0.375rem;
+                                        background-color: $gradely-teal;
+                                    }
+                                    .branch-name {
+                                        font-size: 0.8125rem;
+                                        line-height: 0.9375rem;
+                                        font-weight: bold;
+                                    }
+                                    .class-code {
+                                        background-color: #e0dfdf;
+                                        font-size: 0.6062rem;
+                                        line-height: 0.875rem;
+                                        border-radius: 0.1875rem;
+                                        font-weight : normal;
+                                    }
+
+                                    &:hover {
+                                        border: 0.0313rem solid $orange-light;
+                                    }
+                                }
+                            }
+                            .toggle_dropdown {
+                                height: 0;
+                                overflow: hidden;
+                                display: none;
+                            }
+                        }
+                    }
+
+                    // ADD TEACHER
+                    .add-teacher {
+                        box-sizing: border-box;
+                        background: #fff;
+                        border: 0.0625rem solid $off-white-dark;
+                        padding: 1.25rem;
+
+                        .tip-title {
+                            font-size: 0.875rem;
+                            line-height: 1.1875rem;
+                            font-weight: bold;
+                            margin-bottom: 1.25rem;
+                        }
+
+                        .tip {
+                            .tip-number, .tip-text, .tip-link {
+                                font-weight: bold;
+                                font-size: 0.875rem;
+                                line-height: 1.1875rem;
+                            }
+                            .tip-text {
+                                font-weight: normal;
+                                margin-bottom: 0.375rem;
+                            }
+                        }
+                    }
+
+                    // INVITE TEACHERS
+                    .invite-teacher {
+                        margin-top: 20px;
+                        .button {
+                            font-weight: 700;
+                            font-size: 0.875rem;
+                            line-height: 1.1875rem;
+                            background: #fff;
+                            border: 0.0625rem solid #959595;
+                            padding: 0.75rem 1.75rem;
+                            margin-bottom: 1.6875rem;
+                        }
+
+                        .teachers-title {
+                            font-weight: 600;
+                            font-size: 0.9375rem;
+                            line-height: 1.1875rem;
+                            margin-bottom: 0.9375rem;
+                        }
+
+                        .teachers-list {
+                            padding: 0.5rem 0;
+                            border-bottom: 1.2px solid #dbdada;
+
+                            .basic-info {
+                                width: 50%;
+                                .avatar {
+                                    position: relative;
+                                    @include equal_min_edge(48);
+                                    border-radius: 0.3125rem;
+                                    .avatar-text {
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        font-size: 1rem;
+                                        font-weight: bold;
+                                        line-height: 1.375rem;
+                                        letter-spacing: 0.05em;  
+                                    }
+                                }
+                                .teacher-info {
+                                    .name {
+                                        font-weight: bold;
+                                        font-size: 1rem;
+                                        line-height: 1.375rem;
+                                    }
+                                    .email {
+                                        font-weight: normal;
+                                        font-size: 0.8125rem;
+                                        line-height: 1.125rem;
+                                    }
+                                }
+                            }
+
+                            .class-name {
+                                font-weight: 500;
+                                font-size: 14px;
+                                line-height: 19px;
+                                width: 25%;
+                            }
+                            .close-icon {
+                                width: 25%;
                             }
                         }
                     }

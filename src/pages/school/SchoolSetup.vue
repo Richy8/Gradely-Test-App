@@ -63,6 +63,9 @@
 import Curriculum from "@/components/setup/Curriculum";
 import Classes from "@/components/setup/Classes";
 import ClassTemplate from "@/components/setup/ClassTemplate";
+import YourClasses from "@/components/setup/YourClasses";
+import AddTeachers from "@/components/setup/AddTeachers";
+import InviteTeachers from "@/components/setup/InviteTeachers";
 
 export default {
   name: "SchoolSetup",
@@ -70,7 +73,10 @@ export default {
   components: {
     Curriculum,
     Classes,
-    ClassTemplate
+    ClassTemplate,
+    YourClasses,
+    AddTeachers,
+    InviteTeachers
   },
 
   data() {
