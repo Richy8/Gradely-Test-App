@@ -1,7 +1,7 @@
 <template>
 <b-container>
     <b-row>
-        <b-col cols="12" md="8" offset-md="2" class="form-content">
+        <b-col cols="12" lg="8" offset-lg="2" class="form-content">
             <div class="form-title title-black w-100 text-center">Setup your classes</div>
 
             <div class="classes">
@@ -83,7 +83,6 @@ export default {
         return {
             form: {
                 school_type: "",
-                school_value: "",
                 grade_style: false,
                 local_style: false,
                 single: false,
@@ -118,13 +117,11 @@ export default {
             let value = $event.target.getAttribute("value");
             if (value !== null) {
                 this.form.school_type = content;
-                this.form.school_value = value;
                 this.school_type_data.length = 0;
                 this.school_type_data.push({
                     school_type: value
                 });
                 this.handleSelect();
-                console.log(this.school_type_data[0]);
             }
         },
 
@@ -132,10 +129,9 @@ export default {
         checkSelection() {
             let school_option = this.options.filter(item => item.selected === true);
             this.form.school_type = school_option[0].text;
-            this.form.school_value = school_option[0].value;
             this.school_type_data.length = 0;
             this.school_type_data.push({
-                school_type: this.form.school_value
+                school_type: school_option[0].value
             });
         },
 

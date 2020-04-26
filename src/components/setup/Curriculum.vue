@@ -1,7 +1,7 @@
 <template>
 <b-container>
     <b-row>
-        <b-col cols="12" md="10" lg="8" offset-md="1" offset-lg="2" class="form-content">
+        <b-col cols="12" lg="8" offset-lg="2" class="form-content">
             <div class="form-title title-black w-100 text-center">Select your school curriculum</div>
 
             <!-- CURRICULUMS -->

@@ -55,7 +55,6 @@
         </b-col>
       </b-row>
     </b-container>
-    <div class="setup-title"></div>
   </section>
 </template>
 

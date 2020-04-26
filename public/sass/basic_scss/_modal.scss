@@ -1,0 +1,89 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0,.5);
+    transition: all .3s ease-in-out;
+
+    .modal-box {
+        position: absolute;
+        top: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: auto;
+        background: #FFFFFF;
+        border: 1px solid #F5F5F5;
+        box-sizing: border-box;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+        border-radius: 20px;
+        padding: 18px 0;
+        transition: top .5s ease-in-out;
+        animation-name: animateTop;
+        animation-duration: 0.4s;
+        animation-timing-function: ease-in-out;
+
+        .close-btn {
+            position: absolute;
+            z-index: 999;
+            top: 5px;
+            right: 20px;
+            background-color:rgb(228, 227, 227);
+            @include equal_min_edge(27);
+            border-radius: 50%;
+            cursor: pointer;
+
+            &:hover {
+                background-color:rgb(214, 214, 214);
+            }
+        }
+    }
+
+    @keyframes animateTop {
+        from{top:-300px; opacity: 0}
+        to{top: 50px; opacity: 1}
+    }
+
+    .modal-sm {
+        width: 30%;
+
+        @include render_max(xl) {
+            width: 45%;
+        }
+
+        @include render_max(lg) {
+            width: 50%;
+        }
+
+        @include render_max(md) {
+            width: 85%;
+        }
+
+        @include render_max(sm) {
+            width: 95%;
+        }
+    }
+    .modal-md {
+        width: 35%;
+        
+        @include render_max(xl) {
+            width: 45%;
+        }
+
+        @include render_max(lg) {
+            width: 50%;
+        }
+
+        @include render_max(md) {
+            width: 70%;
+        }
+
+        @include render_max(sm) {
+            width: 90%;
+        }
+    }
+    
+}

@@ -16,7 +16,7 @@
                 <!-- TEACHER LIST -->
                 <div class="teachers-list w-100 d-flex justify-content-between align-items-center">
                     <div class="basic-info d-flex justify-content-start align-items-center">
-                        <div class="avatar bg-danger mr-3">
+                        <div class="avatar bg-danger">
                             <div class="avatar-text white-text">AY</div>
                         </div>
                         <div class="teacher-info">
@@ -31,7 +31,7 @@
 
                  <div class="teachers-list w-100 d-flex justify-content-between align-items-center">
                     <div class="basic-info d-flex justify-content-start align-items-center">
-                        <div class="avatar bg-primary mr-3">
+                        <div class="avatar bg-primary">
                             <div class="avatar-text white-text">AY</div>
                         </div>
                         <div class="teacher-info">
@@ -46,7 +46,7 @@
 
                  <div class="teachers-list w-100 d-flex justify-content-between align-items-center">
                     <div class="basic-info d-flex justify-content-start align-items-center">
-                        <div class="avatar bg-success mr-3">
+                        <div class="avatar bg-success">
                             <div class="avatar-text white-text">AY</div>
                         </div>
                         <div class="teacher-info">
@@ -61,7 +61,7 @@
 
                  <div class="teachers-list w-100 d-flex justify-content-between align-items-center">
                     <div class="basic-info d-flex justify-content-start align-items-center">
-                        <div class="avatar navy-blue-bg mr-3">
+                        <div class="avatar navy-blue-bg">
                             <div class="avatar-text white-text">AY</div>
                         </div>
                         <div class="teacher-info">

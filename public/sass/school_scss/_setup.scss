@@ -450,6 +450,11 @@
                                 padding: 0.75rem 1.25rem;
                                 border-radius: 0.3125rem;
                                 background-color: #E5E5E5;
+
+                                @include render_max(lg){
+                                    padding: 0.5625rem 1rem;
+                                }
+
                                 .caret {
                                     position: relative;
                                     min-width: 1.875rem;
@@ -462,6 +467,11 @@
                                         border-right: 0.0938rem solid $title-black;
                                         margin-right: 0.625rem;
                                         transform: rotate(135deg);
+                                        transition: all .3s ease-in-out;
+
+                                        @include render_max(lg){
+                                            @include equal_min_edge(7);
+                                        }
                                     }
                                 }
                                 .toggle_caret {
@@ -472,15 +482,26 @@
                                 }
 
                                 .accordion-title {
-                                    font-size: 14px;
-                                    line-height: 16px;
+                                    font-size: 0.875rem;
+                                    line-height: 1rem;
                                     font-weight: 500;
-                                    margin-bottom: 6px;
+                                    margin-bottom: 0.375rem;
+
+                                    @include render_max(lg){
+                                        font-size: 0.8125rem;
+                                        line-height: 0.9375rem;
+                                        margin-bottom: 0.25rem;
+                                    }
                                 }
                                 .accordion-subtitle {
                                     font-weight: normal;
-                                    font-size: 11px;
-                                    line-height: 13px;
+                                    font-size: 0.6875rem;
+                                    line-height: 0.8125rem;
+
+                                    @include render_max(lg){
+                                        font-size: 0.625rem;
+                                        line-height: 0.75rem;
+                                    }
                                 }
 
                                 &:hover {
@@ -498,6 +519,11 @@
                                     border: 0.0625rem solid #D5D5D5;
                                     box-shadow: 0 0 0.125rem #D5D5D5;
                                     margin: 0.8125rem 0 0.625rem 0.8125rem;
+
+                                    @include render_max(lg){
+                                        @include custom_min_edge(135, 106);
+                                    }
+
                                     .color-top {
                                         width: 100%;
                                         height: 0.375rem;
@@ -507,6 +533,12 @@
                                         font-size: 0.8125rem;
                                         line-height: 0.9375rem;
                                         font-weight: bold;
+
+                                        @include render_max(lg){
+                                            font-size: 0.75rem;
+                                            line-height: 0.875rem;
+                                            font-weight: 500;
+                                        }
                                     }
                                     .class-code {
                                         background-color: #e0dfdf;
@@ -514,6 +546,11 @@
                                         line-height: 0.875rem;
                                         border-radius: 0.1875rem;
                                         font-weight : normal;
+
+                                        @include render_max(lg){
+                                            font-size: 0.5625rem;
+                                            line-height: 0.8125rem;
+                                        }
                                     }
 
                                     &:hover {
@@ -541,6 +578,16 @@
                             line-height: 1.1875rem;
                             font-weight: bold;
                             margin-bottom: 1.25rem;
+
+                            @include render_max(lg) {
+                                font-size: 0.8125rem;
+                                line-height: 1rem;
+                            }
+
+                            @include render_max(md) {
+                                font-size: 0.75rem;
+                                line-height: 0.9375rem;
+                            }
                         }
 
                         .tip {
@@ -548,6 +595,16 @@
                                 font-weight: bold;
                                 font-size: 0.875rem;
                                 line-height: 1.1875rem;
+
+                                @include render_max(lg) {
+                                    font-size: 0.8125rem;
+                                    line-height: 1rem;
+                                }
+
+                                @include render_max(md) {
+                                    font-size: 0.75rem;
+                                    line-height: 0.9375rem;
+                                }
                             }
                             .tip-text {
                                 font-weight: normal;
@@ -558,7 +615,15 @@
 
                     // INVITE TEACHERS
                     .invite-teacher {
-                        margin-top: 20px;
+                        margin-top: 1.25rem;
+
+                        @include render_max(xl){
+                            margin-top: 1.125rem;
+                        }
+
+                        @include render_max(sm){
+                            margin-top: 1.0625rem;
+                        }
                         .button {
                             font-weight: 700;
                             font-size: 0.875rem;
@@ -567,6 +632,23 @@
                             border: 0.0625rem solid #959595;
                             padding: 0.75rem 1.75rem;
                             margin-bottom: 1.6875rem;
+
+                            @include render_max(xl){
+                                font-weight: 600;
+                                font-size: 0.7813rem;
+                                line-height: 0.9375rem;
+                                padding: 0.625rem 1.375rem;
+                            }
+
+                            @include render_max(lg){
+                                font-size: 0.7188rem;
+                                padding: 0.5625rem 1.1875rem;
+                            }
+
+                            @include render_max(sm){
+                                font-size: 0.625rem;
+                                padding: 0.5rem 1.0625rem;
+                            }
                         }
 
                         .teachers-title {
@@ -574,18 +656,59 @@
                             font-size: 0.9375rem;
                             line-height: 1.1875rem;
                             margin-bottom: 0.9375rem;
+
+                            @include render_max(xl){
+                                font-weight: 600;
+                                font-size: 0.875rem;
+                                line-height: 1rem;
+                                margin-bottom: 0.875rem;
+                            }
+
+                            @include render_max(lg){
+                                font-size: 0.8125rem;
+                            }
+
+                            @include render_max(sm){
+                                font-size: 0.7188rem;
+                            }
                         }
 
                         .teachers-list {
                             padding: 0.5rem 0;
-                            border-bottom: 1.2px solid #dbdada;
+                            border-bottom: 0.075rem solid #dbdada;
+
+                            @include render_max(lg){
+                                padding: 0.625rem 0;
+                            }
+
+                            @include render_max(sm){
+                                padding: 0.5rem 0;
+                            }
 
                             .basic-info {
                                 width: 50%;
+
+                                @include render_max(sm){
+                                    width: 64%;
+                                }
                                 .avatar {
                                     position: relative;
                                     @include equal_min_edge(48);
                                     border-radius: 0.3125rem;
+                                    margin-right: 0.3438rem;
+
+                                    @include render_max(xl) {
+                                        @include equal_min_edge(45);
+                                    }
+
+                                    @include render_max(lg){
+                                        @include equal_min_edge(42);
+                                    }
+
+                                    @include render_max(sm){
+                                        @include equal_min_edge(36);
+                                    }
+
                                     .avatar-text {
                                         position: absolute;
                                         top: 50%;
@@ -594,7 +717,20 @@
                                         font-size: 1rem;
                                         font-weight: bold;
                                         line-height: 1.375rem;
-                                        letter-spacing: 0.05em;  
+                                        letter-spacing: 0.05em;
+
+                                        @include render_max(xl) {
+                                            font-size: 0.875rem;
+                                            line-height: 1.125rem;
+                                        } 
+                                        
+                                        @include render_max(lg) {
+                                            font-size: 0.7813rem;
+                                        } 
+
+                                        @include render_max(sm){
+                                            font-size: 0.625rem;
+                                        }
                                     }
                                 }
                                 .teacher-info {
@@ -602,11 +738,33 @@
                                         font-weight: bold;
                                         font-size: 1rem;
                                         line-height: 1.375rem;
+
+                                        @include render_max(xl) {
+                                            font-size: 0.9063rem;
+                                            line-height: 1.125rem;
+                                        }
+                                        
+                                        @include render_max(lg) {
+                                            font-size: 0.8438rem;
+                                        }
+
+                                        @include render_max(sm){
+                                            font-size: 0.75rem;
+                                        }
                                     }
                                     .email {
                                         font-weight: normal;
                                         font-size: 0.8125rem;
                                         line-height: 1.125rem;
+
+                                        @include render_max(xl) {
+                                            font-size: 0.7188rem;
+                                            line-height: 0.9375rem;
+                                        } 
+
+                                        @include render_max(lg) {
+                                            font-size: 0.625rem;
+                                        }  
                                     }
                                 }
                             }
@@ -616,9 +774,31 @@
                                 font-size: 14px;
                                 line-height: 19px;
                                 width: 25%;
+
+                                @include render_max(xl){
+                                    font-size: 0.7813rem;
+                                    line-height: 0.9375rem;
+                                }
+
+                                @include render_max(lg){
+                                    font-size: 0.7188rem;
+                                }
+
+                                @include render_max(sm){
+                                    font-size: 0.6625rem;
+                                    width: 18%;
+                                }
                             }
                             .close-icon {
                                 width: 25%;
+
+                                @include render_max(xl){
+                                    font-size: 0.75rem;
+                                }
+
+                                @include render_max(sm){
+                                    width: 18%;
+                                }
                             }
                         }
                     }
@@ -651,6 +831,194 @@
                     @include render_max(lg){
                         font-size: 0.5625rem;
                     }
+                }
+            }
+        }
+    }
+}
+
+// MODAL STYLING
+.modal-title-block {
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    margin-top: 0.5rem;
+
+    @include render_max(md) {
+        font-weight: 600;
+        font-size: 0.7813rem;
+    }
+}
+
+.modal-body-block {
+    margin-top: 1.75rem;
+    width: 100%;
+    .form-group{
+        position: relative;
+        width: 100%;
+        margin-bottom: 1.5625rem;
+        label {
+            position: absolute;
+            top: -0.75rem;
+            left: 0.9375rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: #fff;
+            padding: 0.3125rem;
+
+            @include render_max(md) {
+                font-size: 0.6563rem;
+            }
+        }
+        input {
+            padding: 1.4375rem 0.625rem 20px !important;
+            font-size: 0.8438rem;
+            width: 100%;
+            border: 1px solid $off-white-dark !important;
+
+            @include render_max(md) {
+                padding: 20px 0.625rem 1.125rem !important;
+                font-size: 0.75rem;
+            }
+
+            &::placeholder {
+                font-weight: normal;
+                font-size: 0.8438rem;
+                line-height: 1.1875rem;
+                color: #c2c2c2;
+
+                @include render_max(md) {
+                    font-size: 0.75rem;
+                }
+            }
+
+            &:focus {
+                border: 0.0625rem solid $orange-light !important;
+                box-shadow: 0 0 0.125rem $orange-light !important;
+            }
+        }
+
+        .select-label {
+            position: absolute;
+            top: -0.75rem;
+            left: 0.9375rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background-color: #fff;
+            padding: 0.1875rem 0.3125rem;
+            z-index: 1;
+
+            @include render_max(md) {
+                top: -0.625rem;
+                font-size: 0.6563rem;
+            }
+        }
+        .select-input {
+            position: relative;
+            border-radius: 0.3125rem;
+            background: #fff;
+            color: #858585;
+            width: 100%;
+            border: 0.0625rem solid $off-white-dark;
+            padding: 0.9375rem 0.625rem 0.625rem !important;
+            font-size: 0.8438rem;
+
+            @include render_max(md) {
+                font-size: 0.75rem;
+                padding: 0.75rem 0.625rem 0.5rem !important;
+            }
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:after {
+                content: "";
+                @include equal_min_edge(10);
+                border-top: 0.0813rem solid $title-black;
+                border-right: 0.0813rem solid $title-black;
+                position: absolute;
+                top: 42%;
+                right: 3.5%;
+                transform: translateY(-50%) rotate(135deg);
+                transition: transform .3s ease-in-out;
+
+                @include render_max(md) {
+                    @include equal_min_edge(8.5);
+                }
+            }
+        }
+
+        .clicked {
+            border: 0.0625rem solid $orange-light !important;
+            box-shadow: 0 0 0.125rem $orange-light !important;
+
+            &:after {
+                border-top: 0.0938rem solid $orange-light;
+                border-right: 0.0938rem solid $orange-light;
+                top: 52%;
+                transform: translateY(-50%) rotate(315deg)
+            }
+        }
+
+        .select-options {
+            position: relative;
+            top: -100px;
+            opacity: 0;
+            height: 0;
+            display: none;
+            border-radius: 0 0 0.3125rem 0.3125rem;
+            background: #fff;
+            width: 100%;
+            border: 0.0625rem solid $off-white-dark;
+            padding: 3px;
+            transition: all .3s ease-in-out;
+
+            .option {
+                font-size: 0.8438rem;
+                padding: 0.375rem 0.625rem !important;
+                margin-bottom: 0.0625rem;
+
+                @include render_max(md) {
+                    font-size: 0.75rem;
+                    padding: 0.3125rem 0.625rem !important;
+                }
+
+                &:last-of-type{
+                    margin-bottom: 0;
+                }
+
+                &:hover {
+                    background-color: $cyan-light;
+                    cursor: pointer;
+                }
+
+            }
+        }
+
+        .selected {
+            display: block;
+            top: 0;
+            opacity: 1;
+            height: auto;
+        }
+
+        .btn {
+            font-weight: 700;
+            font-size: 0.6875rem;
+            line-height: 1rem;
+            padding: 0.7813rem 1.875rem;
+
+            @include render_max(md){
+                font-size: 0.625rem;
+                padding: 0.7188rem 1.75rem;
+            }
+            
+            i{
+                font-size: 0.8125rem;
+
+                @include render_max(md){
+                    font-size: 0.75rem;
                 }
             }
         }

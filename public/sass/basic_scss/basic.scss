@@ -10,8 +10,17 @@
 /*Mixin Style*/
 @import 'mixin';
 
+/* Font Awesome Style */
+@import 'fa_sass/fontawesome.scss';
+@import 'fa_sass/solid.scss';
+@import 'fa_sass/regular.scss';
+@import 'fa_sass/brands.scss';
+
 /*Helper Style*/
 @import 'helper';
+
+/* MODAL STYLE */
+@import 'modal';
 
 
 
