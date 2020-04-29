@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import Home from "@/pages/Home"
 import schoolRoutes from "./schoolRoutes.js";
 
 Vue.use(VueRouter);
@@ -10,6 +11,7 @@ const routes = [
   {
     path: "/",
     name: "Home",
+    component: Home,
     meta: {
       title: 'Welcome to Gradely.Ng'
     }
