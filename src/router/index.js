@@ -10,9 +10,6 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    redirect: {
-      name: "Signup"
-    },
     meta: {
       title: 'Welcome to Gradely.Ng'
     }
