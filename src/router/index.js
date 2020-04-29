@@ -13,6 +13,13 @@ const routes = [
     meta: {
       title: 'Welcome to Gradely.Ng'
     }
+  },
+  {
+    path: "/About",
+    name: "About",      
+    meta: {
+      title: 'About page of Gradely'
+    }
   }
 ];
 
