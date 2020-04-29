@@ -142,10 +142,6 @@ export default {
                 $event.target.parentElement.parentElement.firstElementChild.classList.toggle('toggle_caret');
                 $event.target.parentElement.parentElement.nextElementSibling.classList.toggle('toggle_dropdown');
             }
-        },
-
-        addBranch() {
-
         }
     }
 };

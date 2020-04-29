@@ -5,14 +5,14 @@
       <b-row class="container-row position-relative">
         <!-- LEFT PANE -->
         <b-col md="5" class="left-pane position-fixed d-none d-md-block p-0 z-depth-3">
-          <img src=@/assets/SignupBg.png alt="LeftPaneImg" class="left-pane-content">
+          <img src="@/assets/images/SignupBg.png" alt="LeftPaneImg" class="left-pane-content">
           <!-- IMG OVERLAY -->
           <div class="left-pane-content pane-img-overlay"></div>
           <!-- LEFT PANE CONTENT -->
           <div
             class="content-box px-md-4 p-lg-5 d-flex flex-column justify-content-center align-items-center"
           >
-            <div class="content">
+            <div class="content fadeInRight" v-wow data-wow-delay="0.2s" data-wow-duration="2s">
               <span class="section-one">Gradely for schools</span>
               <h3 class="section-two">Come a step closer to the future of Education</h3>
               <ul class="section-three list-unstyled">
@@ -37,7 +37,7 @@
               <!-- BRAND MOCKUP -->
               <div class="brand-mockup position-relative">
                 <img
-                  src=@/assets/Gradely.png
+                  src="@/assets/images/Gradely.png"
                   alt="Gradely.Ng"
                 >
               </div>
@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import SignUpForm from "@/components/signup/SignUpForm";
+import SignUpForm from "@/components/school/signup/SignUpForm";
 
 export default {
   name: "Signup",
@@ -78,7 +78,7 @@ export default {
   },
 
   data() {
-
+   
   }
 };
 </script>

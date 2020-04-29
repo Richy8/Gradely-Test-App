@@ -59,12 +59,12 @@
 </template>
 
 <script>
-import Curriculum from "@/components/setup/Curriculum";
-import Classes from "@/components/setup/Classes";
-import ClassTemplate from "@/components/setup/ClassTemplate";
-import YourClasses from "@/components/setup/YourClasses";
-import AddTeachers from "@/components/setup/AddTeachers";
-import InviteTeachers from "@/components/setup/InviteTeachers";
+import Curriculum from "@/components/school/setup/Curriculum";
+import Classes from "@/components/school/setup/Classes";
+import ClassTemplate from "@/components/school/setup/ClassTemplate";
+import YourClasses from "@/components/school/setup/YourClasses";
+import AddTeachers from "@/components/school/setup/AddTeachers";
+import InviteTeachers from "@/components/school/setup/InviteTeachers";
 
 export default {
   name: "SchoolSetup",

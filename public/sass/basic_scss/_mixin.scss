@@ -8,6 +8,16 @@ FULL WIDTH AND HEIGHT
     object-fit: cover;
 }
 
+/* =============================
+FULL WIDTH AND HEIGHT CONTAINED
+================================ */
+@mixin full_width_contain {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
 @mixin section_stretch {
     top: 0;
     bottom: 0;
@@ -42,12 +52,32 @@ FLEX ROW CENTER
 }
 
 /* ==============
+FLEX ROW START
+================== */
+@mixin flex_row_start {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* ==============
 FLEX ROW BETWEEN
 ================== */
 @mixin flex_row_between {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+    align-items: center;
+}
+
+/* ==============
+FLEX ROW AROUND
+================== */
+@mixin flex_row_around {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
     align-items: center;
 }
 
