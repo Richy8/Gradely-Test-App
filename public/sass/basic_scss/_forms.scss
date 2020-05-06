@@ -1,0 +1,335 @@
+/* =================
+    FORM STYLING
+==================== */
+
+// INPUT PLACEHOLDER
+input {
+    &::placeholder {
+        color: $border_grey_dark;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+// FORM GROUP
+.form-group {
+    position: relative;
+    margin-bottom: 1.5625rem;
+}
+
+// FORM LABEL
+.control-label {
+    text-transform: none;
+    font-size: 1em;
+    padding-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0.4688rem;
+    line-height: 1.4rem;
+    color: $color_grey_dark;
+    
+    [class*="checkbox"] &, [class*="radio"] & {
+        color: inherit;
+    }
+}
+
+// HELP BLOCK
+.help-block {
+    font-size: .85em;
+    color: $color_grey_dark;
+    font-style: italic;
+    margin: 0.4688rem 0;
+}
+
+// INPUT ERROR
+.text-error, .has-error {
+    font-size: 12px;
+    color: red;
+}
+
+// REQUIRED STYLING
+.required::after {
+    content: "*";
+    font-size: 1.025em;
+    padding-left: 3px;
+    color: $brand_red;
+}
+
+// INPUT DISABLED
+input[disabled] {
+    background-color: $color_grey_light;
+}
+
+// FORM INPUT STYLING
+.form-control {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    line-height: normal;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    margin: 0;
+    outline: 0;
+    width: 100%;
+    min-height: 2.8125rem;
+    position: relative;
+    border: 0.0625rem solid $border_grey;
+    border-radius: 0.3125rem;
+    overflow: hidden;
+    color: $color_text;
+    text-indent: 0.0006rem;
+    appearance: none;
+    box-shadow: 0 0 0 transparent;
+    box-shadow: unset;
+    vertical-align: middle;
+    
+    &.width_auto {
+        width: auto;
+        min-width: 15.625rem;
+    }
+
+    &.input-rounded {
+        border-radius: 1.875rem;
+        padding-left: 0.9375rem;
+    }
+
+    &:focus {
+        outline: 0;
+        border-color: $brand_accent;
+        box-shadow: none;
+    }
+}
+
+// INPUT GROUP AND ADDONS
+.input-group {
+    position: relative;
+    z-index: 1;
+
+    & > .form-control {
+        border-radius: 5px !important
+    }
+
+    +.input-group {
+        margin-top: 1em;
+    }
+}
+
+.input-group-addon {
+    position: absolute;
+    right: 0;
+    background: transparent;
+    color: $border_grey_light;
+    font-size: .925em;
+    padding: 0 15px;
+    align-self: center;
+    height: 100%;
+    line-height: 45px;
+    z-index: 9;
+    border-radius: 0 5px 5px 0;
+}
+
+// SELECT FORM STYLING 
+select.form-control {
+    background: white url(../img/icons/arrow-down.png) right center no-repeat;
+    &:focus {
+        outline: none;
+        background: white url(../img/icons/arrow-down.png) right center no-repeat;
+    }
+}
+
+// INPUT FORM PREFIXED AND SURFIXED
+.inputaffixed {
+    @include flex_row_between_nowrap;
+    flex: 1;
+    border: 1px solid $border_grey;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+    background-color: white;
+
+    &:focus-within {
+        border: 1px solid $brand_accent;
+    }
+}
+
+.inputfixture {
+    flex-shrink: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+
+    .inputPrefixed & {
+        border-right: 1px solid $border_grey;
+    }
+
+    .inputSurfixed & {
+        order: 2;
+        border-left: 1px solid $border_grey;
+    }
+}
+
+.inputControl{
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    flex-grow: 1;
+    padding: 10px 12px;
+}
+
+// INPUT RADIO STYLING
+input[type="radio"],
+.radio input[type="radio"],
+.radio-inline input[type="radio"] {
+    position: relative;
+    margin-top: 3px;
+    margin-right: 7.5px;
+    vertical-align: top;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+
+    .controlSummary & {
+        margin-top: 6px;
+    }
+
+    &:focus {
+        outline: none;
+    }
+    &:before,
+    &:after {
+        content: "";
+        display: block;
+        @include equal_min_edge(24);
+        border-radius: 50%;
+        transition: all 240ms;
+    }
+    &:before {
+        position: absolute;
+        left: 0;
+        top: -3px;
+        background-color: $brand_accent;
+        transform: scale(0);
+    }
+    &:after {
+        position: relative;
+        top: -3px;
+        border: 2px solid $border_grey_dark;
+    }
+    &:checked:before {
+       transform: scale(.5);
+    }
+    &:checked:after {
+        border-color: $brand_accent;
+    }
+    &:disabled:after,
+    &:disabled:checked:after,
+    &:disabled:checked:before {
+        border-color: $border_grey_dark;
+    }
+}
+
+// INPUT CHECKBOX STYLING
+input[type="checkbox"],
+.checkbox input[type="checkbox"],
+.checkbox-inline input[type="checkbox"] {
+    position: relative;
+    border: none;
+    margin-bottom: -0.375rem;
+    cursor: pointer;
+    appearance: none;
+
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        background-color: $border_grey_light;
+        border-color: transparent;
+        @include equal_min_edge(21);
+        margin-right: 4px;
+    }
+    &:after {
+        content: "";
+        display: block;
+        @include equal_min_edge(21);
+        margin-top: -0.125rem;
+        margin-right: 0.4688rem;
+        border: 0.125rem solid $border_grey_dark;
+        border-radius: 0.1875rem;
+        transition: all 240ms;
+        overflow: hidden;
+    }
+    &:checked:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0.4375rem;
+        display: table;
+        @include custom_min_edge(6, 14);
+        border: 0.125rem solid $color_white;
+        border-top-width: 0;
+        border-left-width: 0;
+        transform: rotate(45deg);
+    }
+    &:checked:after {
+        background-color: $brand_primary;
+        border-color: $brand_primary;
+    }
+    &:disabled:after {
+        border-color: $border_grey_dark;
+    }
+    &:disabled:checked:after {
+        background-color: $border_grey_light;
+        border-color: transparent;
+    }
+
+    &:disabled:checked:before {
+        border-color: $border_grey_dark;
+    }
+}
+
+// CHECK BOXT LABEL STYLING
+.checkbox {
+    .label_text {
+        position: relative;
+        top: -5px;
+    }
+}
+
+// CHECK BOX AND RADIO INLINE STYLING
+.radio-inline,
+.checkbox-inline {
+    padding: 10px 0 5px;
+    display: inline-flex;
+    align-items: center;
+
+    + .radio-inline,
+    + .checkbox-inline {
+        margin-left: 30px;
+    }
+}
+
+label {
+    font-weight: normal;
+    &.radio-inline {
+        +label {
+            margin-left: 30px;
+        }
+    }
+    &.checkbox-inline {
+        margin: 5px 0;
+        margin-bottom: 0 !important;
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: top;
+    }
+}
+
+// INPUT FILE STYLING
+.inputFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+

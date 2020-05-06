@@ -5,9 +5,14 @@
 </template>
 
 <script>
+// import {load_script} from "@/assets/externalFunc.js";
 
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    // this.$nextTick(() => );
+    // load_script('script.js');
+  }
 }
 </script>
 

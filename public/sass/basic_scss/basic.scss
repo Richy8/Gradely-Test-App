@@ -16,8 +16,11 @@
 @import 'fa_sass/regular.scss';
 @import 'fa_sass/brands.scss';
 
-/*Helper Style*/
-@import 'helper';
+/*Custom Icons*/
+@import 'custom_icons';
+
+/*Utility Style*/
+@import 'utilities';
 
 /*Hint Style*/
 @import 'hint_scss/hint.scss';
@@ -25,6 +28,14 @@
 /* MODAL STYLE */
 @import 'modal';
 
+/* AVATAR STYLE */
+@import 'avatar';
 
+/* FORM STYLE */
+@import 'forms';
 
+/* SECTION STYLE */
+@import 'section';
 
+/* NAVIGATION STYLE */
+@import 'navigation';

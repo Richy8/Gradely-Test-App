@@ -1,0 +1,5 @@
+// OVERLAY
+.box-overlay {
+    position: absolute;
+    @include section_stretch();
+}

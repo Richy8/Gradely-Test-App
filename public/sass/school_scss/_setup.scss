@@ -1,1024 +1,190 @@
-// PLACEHOLDER
-%column-style{
-    height: auto;
-    width: 100%;
-    border: 0.0625rem solid $off-white-dark;
-    background: #fff;
-    margin-bottom: 0.375rem;
-    padding: 0.625rem 1.0313rem;
-}
-
-%title-style{
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    margin-bottom: 0.3125rem;
-
-    // TABLET DEVICE
-    @include render_max(lg){
-        font-size: 0.8125rem;
-        line-height: 1.125rem;
-    }
-
-    // SMALL DEVICE
-    @include render_max(sm){
-        font-size: 0.75rem;
-        line-height: 1rem;
-    }
-}
-
-%text-style{
-    font-size: 0.75rem;
-    line-height: 1.0625rem;
-
-    // TABLET DEVICE
-    @include render_max(lg){
-        font-size: 0.7125rem;
-        line-height: 1rem;
-    }
-}
-
-// INTERNAL MIXIN
-@mixin radio-button($margin_top) {
-    margin-right: 0.9375rem;
-    .radio-input {
-        @include equal_min_edge(16);
-        border: 0.0313rem solid rgb(139, 138, 138);
-        margin-top: #{$margin_top};
-        border-radius: 50%;
-
-        // TABLET DEVICE
-        @include render_max(lg){
-            @include equal_min_edge(13);
-        }
-    }
-    .style_checked {
-        border: 0.0313rem solid $orange-light;
-        &:after {
-            content: "";
-            @include equal_min_edge(8);
-            @include transform_center;
-            border-radius: 50%;
-            background-color: $orange-light;
-
-            // TABLET DEVICE
-            @include render_max(lg){
-                @include equal_min_edge(5);
-            }
-        }
-    }
+// FORM TITLE PLACEHOLDER
+%form-title {
+    font-size: 14px;
+    line-height: 19px;
+    margin-bottom: 11.5px;
+    text-transform: uppercase;
 }
 
 .setup-section {
-    @include section_stretch;
+    position: fixed;
+    @include section_stretch();
+    overflow: auto;
+    background-color: rgba($border_grey_light, .7);
 
-    .title-row {
-        margin-top: 3.125rem;
-        .title-block {
-            .setup-title {
-                font-weight: 600;
-                font-size: 1.625rem;
-                line-height: 2.375rem;
+    .setup-container {
+        position: absolute;
+        margin-top: 70px;
+        margin-bottom: 70px;
+        width: 54%;
+        left: 50%;
+        transform: translateX(-50%);
 
-                // TABLET DEVICE
-                @include render_max(lg){
-                    font-size: 1.5rem;
-                    line-height: 2.125rem;
-                }
+        @include breakpoint_max(lg) {
+            width: 65%;
+        }
 
-                // SMALL DEVICE
-                @include render_max(sm){
-                    font-size: 1.4375rem;
-                    line-height: 2rem;
-                }
+        @include breakpoint_max(md) {
+            width: 80%;
+        }
 
-                // EXTRA SMALL DEVICE
-                @include render_max(xs){
-                    font-size: 1.375rem;
-                    line-height: 1.875rem;
-                }
+        @include breakpoint_max(md) {
+            width: 90%;
+            left: 55%;
+            transform: translateX(-52%);
+        }
+
+        @include breakpoint_max(xs) {
+            width: 100%;
+            left: 55%;
+            transform: translateX(-52%);
+        }
+
+        .title {
+            font-size: 32px;
+            line-height: 44px;
+            margin-bottom: 40px;
+
+            @include breakpoint_max(xl) {
+                font-size: 30px;
             }
-            .setup-nav-block {
-                .setup-nav {
-                    @include equal_min_edge(10);
-                    background-color: $off-white-dark;
-                    border-radius: 50%;
-                    margin: 0 0.2047rem;
 
-                     // TABLET DEVICE
-                    @include render_max(lg){
-                        @include equal_min_edge(9);
-                        margin: 0 0.1875rem;
-                    }
-                }
-                .active {
-                    background-color: $orange-light;
-                }
+            @include breakpoint_max(lg) {
+                font-size: 29px;
+            }
+
+            @include breakpoint_max(md) {
+                font-size: 27px;
             }
         }
-    }
 
-    .setup-form-row {
-        margin-top: 1.875rem;
-        .card-block {
-            box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.15);
+        .setup-box {
+            overflow: hidden;
+            box-shadow: 0px 0px 6px rgba(58, 58, 58, 0.1);
 
-            .card-top {
-                .form-content {
-                    margin: 2.1875rem auto 1.875rem;
-                    padding: auto 0 !important;
+            .setup-top {
+                padding-top: 40px;
+                padding-left: 95px;
+                padding-right: 95px;
 
-                    // TABLET DEVICE
-                    @include render_max(lg){
-                        margin: 1.75rem auto 1.375rem;
+                @include breakpoint_max(xl) {
+                    padding-left: 80px;
+                    padding-right: 80px;
+                }
+
+                @include breakpoint_max(lg) {
+                    padding-left: 60px;
+                    padding-right: 60px;
+                }
+
+                @include breakpoint_max(md) {
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+                .title {
+                    font-weight: normal;
+                    font-size: 21px;
+                    line-height: 29px;
+                    margin-bottom: 38px;
+
+                    @include breakpoint_max(xl) {
+                        font-size: 20px;
                     }
 
-                    .form-title {
-                        font-size: 1.0625rem;
-                        line-height: 1.375rem;
-                        margin-bottom: 1.5625rem;
-
-                        // TABLET DEVICE
-                        @include render_max(lg){
-                            font-size: 0.9375rem;
-                            line-height: 1.125rem;
-                            margin-bottom: 1.25rem;
-                        }
-
-                        // EXTRA SMALL DEVICE
-                        @include render_max(xs){
-                            font-size: 0.875rem;
-                            line-height: 1rem;
-                        }
-
+                    @include breakpoint_max(lg) {
+                        font-size: 19px;
                     }
 
-                    p {
-                        font-size: 0.8125rem;
-                        line-height: 150%;
-                        margin-top: -10px;
-
-                        // MEDIUM DEVICE
-                        @include render_max(md){
-                            font-size: 0.75rem;
-                        }
-
-                        // SMALL DEVICE
-                        @include render_max(sm){
-                            margin: -0.5rem 20px auto;
-                        }
-
-                        // EXTRA SMALL DEVICE
-                        @include render_max(xs){
-                            margin: -0.5rem 0.3125rem auto;
-                        }
+                    @include breakpoint_max(md) {
+                        font-size: 17px;
                     }
+                }
 
-                    // CURRICULUM
-                    .curriculums {
-                        .curriculum {
-                            @extend %column-style;
-
-                            .checkbox {
-                                margin-right: 0.9375rem;
-                                .check-input {
-                                   @include equal_min_edge(15);
-                                   border: 0.0313rem solid rgb(139, 138, 138);
-                                   border-radius: 0.1875rem;
-                                   margin-top: 0.25rem;
-
-                                    // TABLET DEVICE
-                                    @include render_max(lg){
-                                        @include equal_min_edge(12);
-                                    }
-                                }
-                                .checked {
-                                    background: $orange-light;
-                                    border: 0.0313rem solid $orange-light;
-                                }
-                               
-                            }
-                            .curriculum-content {
-                                .curriculum-title {
-                                   @extend %title-style;
-                                }
-                                .curriculum-text {
-                                    @extend %text-style;
-                                }
-                            }
-                            &:hover {
-                                cursor: pointer;
-                                background:rgba(219, 245, 248, .6);
-                            }
-                        }
-                        .selected {
-                            border: 0.0625rem solid $orange-light !important;
-                        }
+                .school-type {
+                    margin-bottom: 34.5px;
+                    .title {
+                        @extend %form-title;
                     }
-
-                    // CLASSES
-                    .classes {
-                        .form-group {
-                            height: auto;
-                            label {
-                                font-weight: 600;
-                                font-size: 0.75rem;
-                                line-height: 0.9375rem;
-                                padding: 0 0.5rem;
-
-                                // MEDIUM DEVICE
-                                @include render_max(md){
-                                    font-size: 0.6875rem;
-                                }
-                            }
-                            .select {
-                                font-size: 13px;
-                                padding: 7px 10px;
-                                border: 1px solid $off-white-dark;
-                                color: $label-black;
-                                background: #fff;
-                                z-index: 999;
-                                margin: auto 9px;
-                                
-                                &:hover {
-                                    cursor: pointer;
-                                }
-
-                                &:after {
-                                    content: "";
-                                    @include equal_min_edge(10);
-                                    border-top: 0.0813rem solid $title-black;
-                                    border-right: 0.0813rem solid $title-black;
-                                    position: absolute;
-                                    top: 42%;
-                                    right: 3.5%;
-                                    transform: translateY(-50%) rotate(135deg);
-                                    transition: transform .3s ease-in-out;
-                                }
-                            }
-                        
-                            .option {
-                                border: 1px solid $off-white-dark;
-                                font-size: 13px;
-                                color: $label-black;
-                                margin: auto 9px;
-                                position: relative;
-                                z-index: 9;
-                                top:-20px;
-                                height: 0;
-                                visibility: hidden;
-                                overflow: hidden;
-                                transition: all .3s ease-in-out;
-
-                                .option-text {
-                                    padding: 5px 10px;
-
-                                    &:hover {
-                                        background-color: $cyan-light;
-                                        cursor: pointer;
-                                    }
-                                }
-                            }
-                            .selected {
-                                border: 1px solid $orange-light;
-                                &:after {
-                                    border-top: 0.0938rem solid $orange-light;
-                                    border-right: 0.0938rem solid $orange-light;
-                                    top: 52%;
-                                    transform: translateY(-50%) rotate(315deg)
-                                }
-                            }
-                            .clicked {
-                                top: 0;
-                                height: auto;
-                                visibility: visible;
-                                overflow: auto;
-                            }
-
-                            // NAMING STYLE
-                            .naming-style {
-                                .style {
-                                   @extend %column-style;
-                                    .radiobtn {
-                                        @include radio-button(0.25rem);
-                                    }
-                                    .style-content {
-                                        .style-title {
-                                            @extend %title-style;
-                                        }
-                                        .style-text {
-                                            @extend %text-style;
-                                        }
-                                    }
-                                    &:hover {
-                                        cursor: pointer;
-                                        background:rgba(219, 245, 248, .6);
-                                    }
-                                }
-                                .style_selected {
-                                    border: 0.0625rem solid $orange-light !important;
-                                }
-                            }
-
-                            // CLASS STRUCTURE STYLE
-                            .structure {
-                                @extend %column-style;
-                                border: 0rem solid transparent;
-                                padding: 3px 0.5rem;
-                                .radiobtn {
-                                    @include radio-button(-0.0625rem);
-                                }
-                                .structure-text {
-                                    font-size: 0.8125rem;
-                                    line-height: 1rem;
-
-                                    // SMALL DEVICE
-                                    @include render_max(sm){
-                                        font-size: 0.75rem;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    //CLASS TEMPLATES
-                    .class-template {
-                        margin-top: 40px;
-                        .label-half {
-                            width: 40%;
-                            font-weight: 600;
-                            font-size: 0.75rem;
-                            line-height: 0.8125rem;
-
-                            // LARGE DEVICE
-                            @include render_max(lg){
-                                width: 35%;
-                                font-weight: 500;
-                                font-size: 0.625rem;
-                                line-height: 0.75rem;
-                            }
-
-                            // MEDIUM DEVICE
-                            @include render_max(md){
-                                font-weight: 600;
-                                font-size: 0.6875rem;
-                                padding-left: 0.625rem;
-                            }
-
-                            // EXTRA SMALL DEVICE
-                            @include render_max(xs){
-                                font-size: 0.625rem;
-                                padding-left: 0;
-                            }
-                        }
-                        .text-half {
-                            width: 60%;
-                            font-weight: 600;
-                            font-size: 0.7937rem;
-                            line-height: 0.875rem;
-
-                            // LARGE DEVICE
-                            @include render_max(lg){
-                                width: 65%;
-                                font-size: 0.75rem;
-                            }
-
-                            // MEDIUM DEVICE
-                            @include render_max(md){
-                                font-size: 0.8125rem;
-                                padding-right: 0.625rem;
-                            }
-
-                            // EXTRA SMALL DEVICE
-                            @include render_max(xs){
-                                font-size: 0.6875rem;
-                                padding-right: 0;
-                            }
-                        }
-                        .input-half {
-                            input {
-                                color: $label-black;
-                                font-size: 0.8125rem;
-
-                                // EXTRA SMALL DEVICE
-                                @include render_max(xs){
-                                    font-size: 0.6875rem;
-                                }
-
-                                &::placeholder {
-                                    color: $label-black;
-                                }
-                                &:focus {
-                                    border: 1px solid $orange-light !important;
-                                    box-shadow: 0 0 2px $orange-light !important;
-                                }
-                            }
-                            .help-text {
-                                font-size: 0.7188rem;
-                                line-height: 0.875rem;
-                                font-weight: 200;
-                                margin-top: 0.4375rem;
-
-                                // EXTRA SMALL DEVICE
-                                @include render_max(xs){
-                                    font-size: 0.6563rem;
-                                }
-                            }
-                        }
-                        .add-branch {
-                            span{
-                                font-weight: 500;
-                                font-size: 13px;
-                                line-height: 15px;
-
-                                // EXTRA SMALL DEVICE
-                                @include render_max(xs){
-                                    font-size: 0.75rem;
-                                }
-                            }
-                        }
-                    }
-
-                    // YOUR CLASSES
-                    .your-classes {
-                        .accordion {
-                            position: relative;
-                            overflow: hidden;
-                            border: 0.0625rem solid #E5E5E5;
-
-                            .accordion-top {
-                                padding: 0.75rem 1.25rem;
-                                border-radius: 0.3125rem;
-                                background-color: #E5E5E5;
-
-                                @include render_max(lg){
-                                    padding: 0.5625rem 1rem;
-                                }
-
-                                .caret {
-                                    position: relative;
-                                    min-width: 1.875rem;
-                                    width: 1.875rem;
-                                    &:after{
-                                        content: "";
-                                        position: absolute;
-                                        @include equal_min_edge(9);
-                                        border-top: 0.0938rem solid $title-black;
-                                        border-right: 0.0938rem solid $title-black;
-                                        margin-right: 0.625rem;
-                                        transform: rotate(135deg);
-                                        transition: all .3s ease-in-out;
-
-                                        @include render_max(lg){
-                                            @include equal_min_edge(7);
-                                        }
-                                    }
-                                }
-                                .toggle_caret {
-                                    &:after {
-                                        margin-top: 5px;
-                                        transform: rotate(315deg)
-                                    }
-                                }
-
-                                .accordion-title {
-                                    font-size: 0.875rem;
-                                    line-height: 1rem;
-                                    font-weight: 500;
-                                    margin-bottom: 0.375rem;
-
-                                    @include render_max(lg){
-                                        font-size: 0.8125rem;
-                                        line-height: 0.9375rem;
-                                        margin-bottom: 0.25rem;
-                                    }
-                                }
-                                .accordion-subtitle {
-                                    font-weight: normal;
-                                    font-size: 0.6875rem;
-                                    line-height: 0.8125rem;
-
-                                    @include render_max(lg){
-                                        font-size: 0.625rem;
-                                        line-height: 0.75rem;
-                                    }
-                                }
-
-                                &:hover {
-                                    background-color: rgb(211, 211, 211);
-                                }
-                            }
-
-                            .accordion-bottom {
-                                background-color: #FFF;
-                                height: auto;
-                                overflow: auto;
-                                transition: all .3s ease-in-out;
-                                .class-structure {
-                                    @include custom_min_edge(145, 116);
-                                    border: 0.0625rem solid #D5D5D5;
-                                    box-shadow: 0 0 0.125rem #D5D5D5;
-                                    margin: 0.8125rem 0 0.625rem 0.8125rem;
-
-                                    @include render_max(lg){
-                                        @include custom_min_edge(135, 106);
-                                    }
-
-                                    .color-top {
-                                        width: 100%;
-                                        height: 0.375rem;
-                                        background-color: $gradely-teal;
-                                    }
-                                    .branch-name {
-                                        font-size: 0.8125rem;
-                                        line-height: 0.9375rem;
-                                        font-weight: bold;
-
-                                        @include render_max(lg){
-                                            font-size: 0.75rem;
-                                            line-height: 0.875rem;
-                                            font-weight: 500;
-                                        }
-                                    }
-                                    .class-code {
-                                        background-color: #e0dfdf;
-                                        font-size: 0.6062rem;
-                                        line-height: 0.875rem;
-                                        border-radius: 0.1875rem;
-                                        font-weight : normal;
-
-                                        @include render_max(lg){
-                                            font-size: 0.5625rem;
-                                            line-height: 0.8125rem;
-                                        }
-                                    }
-
-                                    &:hover {
-                                        border: 0.0313rem solid $orange-light;
-                                    }
-                                }
-                            }
-                            .toggle_dropdown {
-                                height: 0;
-                                overflow: hidden;
-                                display: none;
-                            }
-                        }
-                    }
-
-                    // ADD TEACHER
-                    .add-teacher {
-                        box-sizing: border-box;
-                        background: #fff;
-                        border: 0.0625rem solid $off-white-dark;
-                        padding: 1.25rem;
-
-                        .tip-title {
-                            font-size: 0.875rem;
-                            line-height: 1.1875rem;
-                            font-weight: bold;
-                            margin-bottom: 1.25rem;
-
-                            @include render_max(lg) {
-                                font-size: 0.8125rem;
-                                line-height: 1rem;
-                            }
-
-                            @include render_max(md) {
-                                font-size: 0.75rem;
-                                line-height: 0.9375rem;
-                            }
-                        }
-
-                        .tip {
-                            .tip-number, .tip-text, .tip-link {
-                                font-weight: bold;
-                                font-size: 0.875rem;
-                                line-height: 1.1875rem;
-
-                                @include render_max(lg) {
-                                    font-size: 0.8125rem;
-                                    line-height: 1rem;
-                                }
-
-                                @include render_max(md) {
-                                    font-size: 0.75rem;
-                                    line-height: 0.9375rem;
-                                }
-                            }
-                            .tip-text {
-                                font-weight: normal;
-                                margin-bottom: 0.375rem;
-                            }
-                        }
-                    }
-
-                    // INVITE TEACHERS
-                    .invite-teacher {
-                        margin-top: 1.25rem;
-
-                        @include render_max(xl){
-                            margin-top: 1.125rem;
-                        }
-
-                        @include render_max(sm){
-                            margin-top: 1.0625rem;
-                        }
-                        .button {
-                            font-weight: 700;
-                            font-size: 0.875rem;
-                            line-height: 1.1875rem;
-                            background: #fff;
-                            border: 0.0625rem solid #959595;
-                            padding: 0.75rem 1.75rem;
-                            margin-bottom: 1.6875rem;
-
-                            @include render_max(xl){
-                                font-weight: 600;
-                                font-size: 0.7813rem;
-                                line-height: 0.9375rem;
-                                padding: 0.625rem 1.375rem;
-                            }
-
-                            @include render_max(lg){
-                                font-size: 0.7188rem;
-                                padding: 0.5625rem 1.1875rem;
-                            }
-
-                            @include render_max(sm){
-                                font-size: 0.625rem;
-                                padding: 0.5rem 1.0625rem;
-                            }
-                        }
-
-                        .teachers-title {
-                            font-weight: 600;
-                            font-size: 0.9375rem;
-                            line-height: 1.1875rem;
-                            margin-bottom: 0.9375rem;
-
-                            @include render_max(xl){
-                                font-weight: 600;
-                                font-size: 0.875rem;
-                                line-height: 1rem;
-                                margin-bottom: 0.875rem;
-                            }
-
-                            @include render_max(lg){
-                                font-size: 0.8125rem;
-                            }
-
-                            @include render_max(sm){
-                                font-size: 0.7188rem;
-                            }
-                        }
-
-                        .teachers-list {
-                            padding: 0.5rem 0;
-                            border-bottom: 0.075rem solid #dbdada;
-
-                            @include render_max(lg){
-                                padding: 0.625rem 0;
-                            }
-
-                            @include render_max(sm){
-                                padding: 0.5rem 0;
-                            }
-
-                            .basic-info {
-                                width: 50%;
-
-                                @include render_max(sm){
-                                    width: 64%;
-                                }
-                                .avatar {
-                                    position: relative;
-                                    @include equal_min_edge(48);
-                                    border-radius: 0.3125rem;
-                                    margin-right: 0.3438rem;
-
-                                    @include render_max(xl) {
-                                        @include equal_min_edge(45);
-                                    }
-
-                                    @include render_max(lg){
-                                        @include equal_min_edge(42);
-                                    }
-
-                                    @include render_max(sm){
-                                        @include equal_min_edge(36);
-                                    }
-
-                                    .avatar-text {
-                                        position: absolute;
-                                        top: 50%;
-                                        left: 50%;
-                                        transform: translate(-50%, -50%);
-                                        font-size: 1rem;
-                                        font-weight: bold;
-                                        line-height: 1.375rem;
-                                        letter-spacing: 0.05em;
-
-                                        @include render_max(xl) {
-                                            font-size: 0.875rem;
-                                            line-height: 1.125rem;
-                                        } 
-                                        
-                                        @include render_max(lg) {
-                                            font-size: 0.7813rem;
-                                        } 
-
-                                        @include render_max(sm){
-                                            font-size: 0.625rem;
-                                        }
-                                    }
-                                }
-                                .teacher-info {
-                                    .name {
-                                        font-weight: bold;
-                                        font-size: 1rem;
-                                        line-height: 1.375rem;
-
-                                        @include render_max(xl) {
-                                            font-size: 0.9063rem;
-                                            line-height: 1.125rem;
-                                        }
-                                        
-                                        @include render_max(lg) {
-                                            font-size: 0.8438rem;
-                                        }
-
-                                        @include render_max(sm){
-                                            font-size: 0.75rem;
-                                        }
-                                    }
-                                    .email {
-                                        font-weight: normal;
-                                        font-size: 0.8125rem;
-                                        line-height: 1.125rem;
-
-                                        @include render_max(xl) {
-                                            font-size: 0.7188rem;
-                                            line-height: 0.9375rem;
-                                        } 
-
-                                        @include render_max(lg) {
-                                            font-size: 0.625rem;
-                                        }  
-                                    }
-                                }
-                            }
-
-                            .class-name {
-                                font-weight: 500;
+                    .item {
+                        margin-bottom: 16px;
+                        label {
+                            @include flex_row_start_nowrap;
+                            .label_title {
+                                display: block;
                                 font-size: 14px;
-                                line-height: 19px;
-                                width: 25%;
+                                color: $color_text;
 
-                                @include render_max(xl){
-                                    font-size: 0.7813rem;
-                                    line-height: 0.9375rem;
-                                }
-
-                                @include render_max(lg){
-                                    font-size: 0.7188rem;
-                                }
-
-                                @include render_max(sm){
-                                    font-size: 0.6625rem;
-                                    width: 18%;
-                                }
-                            }
-                            .close-icon {
-                                width: 25%;
-
-                                @include render_max(xl){
-                                    font-size: 0.75rem;
-                                }
-
-                                @include render_max(sm){
-                                    width: 18%;
+                                @include breakpoint_max(xs) {
+                                    font-size: 13px;
                                 }
                             }
                         }
                     }
                 }
-            }
-            .card-bottom {
-                background-color: $cyan-light;
-                padding: 0.625rem 2.8125rem;
-
-                // SMALL DEVICE
-                @include render_max(sm){
-                    padding: 0.625rem 1.5625rem;
-                }
-
-                // EXTRA SMALL DEVICE
-                @include render_max(xs){
-                    padding: 0.625rem 1.25rem;
-                }
-                .btn {
-                    border-radius: 1.875rem;
-                    font-size: 0.6563rem;
-                    font-weight: bold;
-                    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 1px 5px 0 rgba(0, 0, 0, 0.12) !important; 
-
-                    &:hover {
-                        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12) !important; 
+                
+                .naming-style {
+                    margin-bottom: 80px;
+                    .title {
+                        @extend %form-title;
                     }
+                    .item {
+                        margin-bottom: 10px;
+                        label {
+                            border: 1px solid $border_grey;
+                            padding: 15px 20px 20px;
+                            box-sizing: border-box;
+                            @include flex_row_start_nowrap;
 
-                    // TABLET DEVICE
-                    @include render_max(lg){
-                        font-size: 0.5625rem;
+                            @include breakpoint_max(xs) {
+                                padding: 14px 17px 17px;
+                            }
+
+                            input {
+                                margin-right: 20px;
+
+                                @include breakpoint_max(xs) {
+                                    margin-right: 17px;
+                                }
+                            }
+
+                            .title {
+                                font-size: 15px;
+                                line-height: 22px;
+                                margin-bottom: 10px;
+
+                                @include breakpoint_max(lg) {
+                                    font-size: 14px;
+                                }
+
+                                @include breakpoint_max(xs) {
+                                    font-size: 13px;
+                                }
+                            }
+
+                            .subtitle {
+                                font-size: 12px;
+                                line-height: 16px;
+                            }
+                        }
                     }
                 }
-            }
-        }
-    }
-}
 
-// MODAL STYLING
-.modal-title-block {
-    font-weight: 700;
-    font-size: 0.875rem;
-    line-height: 1.5rem;
-    margin-top: 0.5rem;
-
-    @include render_max(md) {
-        font-weight: 600;
-        font-size: 0.7813rem;
-    }
-}
-
-.modal-body-block {
-    margin-top: 1.75rem;
-    width: 100%;
-    .form-group{
-        position: relative;
-        width: 100%;
-        margin-bottom: 1.5625rem;
-        label {
-            position: absolute;
-            top: -0.75rem;
-            left: 0.9375rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            background-color: #fff;
-            padding: 0.3125rem;
-
-            @include render_max(md) {
-                font-size: 0.6563rem;
-            }
-        }
-        input {
-            padding: 1.4375rem 0.625rem 20px !important;
-            font-size: 0.8438rem;
-            width: 100%;
-            border: 1px solid $off-white-dark !important;
-
-            @include render_max(md) {
-                padding: 20px 0.625rem 1.125rem !important;
-                font-size: 0.75rem;
             }
 
-            &::placeholder {
-                font-weight: normal;
-                font-size: 0.8438rem;
-                line-height: 1.1875rem;
-                color: #c2c2c2;
+            .setup-bottom {
+                @include flex_row_between_nowrap;
+                background: #DBF5F8;
+                padding: 15px 40px;
 
-                @include render_max(md) {
-                    font-size: 0.75rem;
-                }
-            }
-
-            &:focus {
-                border: 0.0625rem solid $orange-light !important;
-                box-shadow: 0 0 0.125rem $orange-light !important;
-            }
-        }
-
-        .select-label {
-            position: absolute;
-            top: -0.75rem;
-            left: 0.9375rem;
-            font-size: 0.75rem;
-            font-weight: 600;
-            background-color: #fff;
-            padding: 0.1875rem 0.3125rem;
-            z-index: 1;
-
-            @include render_max(md) {
-                top: -0.625rem;
-                font-size: 0.6563rem;
-            }
-        }
-        .select-input {
-            position: relative;
-            border-radius: 0.3125rem;
-            background: #fff;
-            color: #858585;
-            width: 100%;
-            border: 0.0625rem solid $off-white-dark;
-            padding: 0.9375rem 0.625rem 0.625rem !important;
-            font-size: 0.8438rem;
-
-            @include render_max(md) {
-                font-size: 0.75rem;
-                padding: 0.75rem 0.625rem 0.5rem !important;
-            }
-
-            &:hover {
-                cursor: pointer;
-            }
-
-            &:after {
-                content: "";
-                @include equal_min_edge(10);
-                border-top: 0.0813rem solid $title-black;
-                border-right: 0.0813rem solid $title-black;
-                position: absolute;
-                top: 42%;
-                right: 3.5%;
-                transform: translateY(-50%) rotate(135deg);
-                transition: transform .3s ease-in-out;
-
-                @include render_max(md) {
-                    @include equal_min_edge(8.5);
-                }
-            }
-        }
-
-        .clicked {
-            border: 0.0625rem solid $orange-light !important;
-            box-shadow: 0 0 0.125rem $orange-light !important;
-
-            &:after {
-                border-top: 0.0938rem solid $orange-light;
-                border-right: 0.0938rem solid $orange-light;
-                top: 52%;
-                transform: translateY(-50%) rotate(315deg)
-            }
-        }
-
-        .select-options {
-            position: relative;
-            top: -100px;
-            opacity: 0;
-            height: 0;
-            display: none;
-            border-radius: 0 0 0.3125rem 0.3125rem;
-            background: #fff;
-            width: 100%;
-            border: 0.0625rem solid $off-white-dark;
-            padding: 3px;
-            transition: all .3s ease-in-out;
-
-            .option {
-                font-size: 0.8438rem;
-                padding: 0.375rem 0.625rem !important;
-                margin-bottom: 0.0625rem;
-
-                @include render_max(md) {
-                    font-size: 0.75rem;
-                    padding: 0.3125rem 0.625rem !important;
+                @include breakpoint_max(sm) {
+                    .btn {
+                        font-size: 10px !important;    
+                    }
                 }
 
-                &:last-of-type{
-                    margin-bottom: 0;
-                }
-
-                &:hover {
-                    background-color: $cyan-light;
-                    cursor: pointer;
-                }
-
-            }
-        }
-
-        .selected {
-            display: block;
-            top: 0;
-            opacity: 1;
-            height: auto;
-        }
-
-        .btn {
-            font-weight: 700;
-            font-size: 0.6875rem;
-            line-height: 1rem;
-            padding: 0.7813rem 1.875rem;
-
-            @include render_max(md){
-                font-size: 0.625rem;
-                padding: 0.7188rem 1.75rem;
-            }
-            
-            i{
-                font-size: 0.8125rem;
-
-                @include render_max(md){
-                    font-size: 0.75rem;
+                @include breakpoint_max(sm) {
+                    padding: 15px 25px;
                 }
             }
         }

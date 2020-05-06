@@ -1,0 +1,151 @@
+.welcome-dialog-section {
+    position: fixed;
+    @include section_stretch();
+    overflow: auto;
+
+    .welcome-container {
+        position: absolute;
+        width: 53.5%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        @include breakpoint_max(xl) {
+            width: 58%;
+        }
+
+        @include breakpoint_max(lg) {
+            width: 70%;
+        }
+
+        @include breakpoint_max(md) {
+            width: 100%;
+        }
+
+        .banner {
+            position: relative;
+            height: 400px;
+            margin-bottom: 30px;
+
+            @include breakpoint_max(xl) {
+                height: 340px;
+            }
+
+            @include breakpoint_max(md) {
+                height: 410px;
+            }
+
+            @include breakpoint_max(sm) {
+                height: 330px;
+            }
+            
+            .banner-overlay {
+                overflow: hidden;
+                .img {
+                    @include img_cover;
+
+                    &-luminous {
+                        mix-blend-mode: luminosity;
+                    }
+                }
+            }
+
+            .display-img {
+                position: absolute;
+                bottom: 0;
+                width: 90%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .brand-icon {
+                position: absolute;
+                @include center;
+
+                @include breakpoint_max(xs) {
+                    width: 115px;
+                    height: 110px;
+                }
+            }
+            
+        }
+
+        .welcome-block {
+            margin-bottom: 30px;
+            padding-left: 130px;
+            padding-right: 130px;
+
+            @include breakpoint_max(xl) {
+                padding-left: 110px;
+                padding-right: 110px;
+            }
+
+            @include breakpoint_max(lg) {
+                padding-left: 80px;
+                padding-right: 80px;
+            }
+
+            @include breakpoint_max(md) {
+                padding-left: 140px;
+                padding-right: 140px;
+            }
+
+            @include breakpoint_max(sm) {
+                padding-left: 80px;
+                padding-right: 80px;
+            }
+
+            @include breakpoint_max(xs) {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .welcome-title {
+                font-size: 21px;
+                line-height: 29px;
+                margin-bottom: 15px;
+                text-align: center;
+
+                @include breakpoint_max(md) {
+                    font-size: 20px;
+                }
+            }
+            .welcome-text {
+                font-size: 14px;
+                line-height: 22px;
+
+                @include breakpoint_max(xs) {
+                    font-size: 13px;
+                }
+            }
+        }
+
+        .navigation-block {
+            margin-bottom: 30px;
+            button {
+                margin-bottom: 30px;
+
+                @include breakpoint_max(xs) {
+                    font-size: 11.5px;
+                }
+            }
+
+            .navigations {
+                .nav {
+                    @include equal_min_edge(10);
+                    margin-right: 10px;
+                    &:last-of-type {
+                        margin-right: 0;
+                    }
+
+                    @include breakpoint_max(xs) {
+                        @include equal_min_edge(9);
+                        margin-right: 9px;
+                    }
+                }
+                .active {
+                    background-color: $brand_accent !important;
+                }
+            }
+        }
+    }
+}

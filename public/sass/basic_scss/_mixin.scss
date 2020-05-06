@@ -1,28 +1,74 @@
 /* ===================
 FULL WIDTH AND HEIGHT
 ======================= */
-@mixin full_width_height {
+@mixin img_cover {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
+/* ===================
+CENTER POSITIONING
+======================= */
+@mixin center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* =============================
 FULL WIDTH AND HEIGHT CONTAINED
 ================================ */
-@mixin full_width_contain {
+@mixin img_contain {
     position: absolute;
     width: 100%;
     height: 100%;
     object-fit: contain;
 }
 
+/* =================
+STRETCHED SECTION
+==================== */
 @mixin section_stretch {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+/* =================
+TRANSFORM CENTER
+==================== */
+@mixin transform_center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+@mixin clearfix {
+    &:before,
+    &:after {
+        content: "";
+        display: table;
+    }
+    &:after {
+        clear: both;
+    }
+    *zoom: 1;
+}
+
+/* =================
+FIXED FULL HEIGHT
+==================== */
+@mixin fixed_full_section {
+    position: fixed;
+    top: 0;
+    left: 0;
     height: 100%;
     width: 100%;
 }
@@ -44,9 +90,16 @@ FULL WIDTH AND HEIGHT CONTAINED
 /* ==============
 FLEX ROW CENTER
 ================== */
-@mixin flex_row_center {
+@mixin flex_row_center_wrap {
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin flex_row_center_nowrap {
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: center;
     align-items: center;
 }
@@ -54,9 +107,16 @@ FLEX ROW CENTER
 /* ==============
 FLEX ROW START
 ================== */
-@mixin flex_row_start {
+@mixin flex_row_start_wrap {
     display: flex;
     flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+@mixin flex_row_start_nowrap {
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: flex-start;
     align-items: center;
 }
@@ -64,9 +124,16 @@ FLEX ROW START
 /* ==============
 FLEX ROW BETWEEN
 ================== */
-@mixin flex_row_between {
+@mixin flex_row_between_wrap {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@mixin flex_row_between_nowrap {
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -74,9 +141,16 @@ FLEX ROW BETWEEN
 /* ==============
 FLEX ROW AROUND
 ================== */
-@mixin flex_row_around {
+@mixin flex_row_around_wrap {
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+@mixin flex_row_around_nowrap {
+    display: flex;
+    flex-flow: row nowrap;
     justify-content: space-around;
     align-items: center;
 }
@@ -86,28 +160,20 @@ FLEX COLUMN CENTER
 ==================== */
 @mixin flex_column_center {
     display: flex;
-    flex-flow: column wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 /* =================
-FLEX COLUMN BETWEEN
+FLEX COLUMN START
 ==================== */
-@mixin flex_column_between {
+@mixin flex_column_start {
     display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 
-/* =================
-TRANSFORM CENTER
-==================== */
-@mixin transform_center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
+

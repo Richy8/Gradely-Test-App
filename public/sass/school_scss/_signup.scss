@@ -1,330 +1,175 @@
 .signup-section {
-    width: 100%;
-    height: 100vh;
+    .left-pane {
+        @include fixed_full_section();
+        width: 40%;
 
-    .container-row {
-        height: 100vh;
-
-        // LEFT PANE
-        .left-pane {
-            height: 100vh;
-            .left-pane-content {
-               @include full_width_height;
-            }
-            .pane-img-overlay {
-                background: $gradely-blue;
-                mix-blend-mode: normal;
-                opacity: .9;
-            }
-            .content-box {
-                @include full_width_height;
-                .content {
-                    width: 100%;
-                    .section-one {
-                        font-weight: bold;
-                        font-size: 0.9375rem;
-                        line-height: 1.375rem;
-                        text-transform: uppercase;
-                        color: $navy-blue;
-
-                        /* EXTRA LARGE DEVICE */
-                        @include render_max(xl) {
-                            font-weight: 600;
-                            font-size: 0.8125rem;
-                            line-height: 1.125rem;
-                        }
-
-                    }
-                    .section-two {
-                        font-weight: 600;
-                        font-size: 2rem;
-                        line-height: 140%;
-                        color: #FFFFFF;
-                        margin-bottom: 1.375rem;
-                        letter-spacing: .03em;
-
-                        /* EXTRA LARGE DEVICE */
-                        @include render_max(xl) {
-                            font-size: 1.5rem;
-                            line-height: 150%;
-                            letter-spacing: .012em;
-                        }
-
-                    }
-                    .section-three {
-                        font-size: 0.9375rem;
-                        color: $title_black;
-                        font-weight: 400;
-                        li {
-                            margin-bottom: 0.875rem;
-                        }
-
-                        /* EXTRA LARGE DEVICE */
-                        @include render_max(xl) {
-                            font-size: 0.7813rem;
-                            li {
-                                margin-bottom: 0.75rem;
-                            }
-                        }
-
-                    }
-                }
-            }
+        img {
+            @include img_cover();
         }
 
-        // RIGHT PANE
-        .right-pane {
-            @include full_width_height;
+        .box-overlay {
+            position: absolute;
+            @include section_stretch();
+            opacity: .9;
+            mix-blend-mode: normal;
+        }
 
-            .right-pane-content {
-                padding: 5% 0;
-                width: 50%;
+        .content-box {
+            position: absolute;
+            @include flex_row_start_nowrap();
+            padding-left: 50px;
+            padding-right: 50px;
 
-                /* EXTRA LARGE DEVICE */
-                @include render_max(xl){
-                    padding: 10% 0;
-                    width: 68%;
+            @include breakpoint_max(lg) {
+                padding-left: 35px;
+                padding-right: 35px;
+            }
+
+            .content-one {
+                font-size: 16px;
+                font-style: normal;
+                line-height: 22px;
+                text-transform: uppercase;
+                margin-bottom: 10px;
+
+                @include breakpoint_max(xl) {
+                    font-size: 14px;
                 }
+            }
+            .content-two {
+                font-style: normal;
+                font-size: 32px;
+                line-height: 165%;
+                margin-bottom: 30px;
 
-                /* LARGE DEVICE */
-                @include render_max(lg){
-                    width: 78%;
+                @include breakpoint_max(xl) {
+                    font-size: 28px;
                 }
+            }
+            .content-three {
+                li {
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 18px;
+                    line-height: 165%;
+                    margin-bottom: 13px;
 
-                /* MEDIUM DEVICE */
-                @include render_max(md){
-                    width: 60%;
-                }
-
-                /* SMALL DEVICE */
-                @include render_max(sm){
-                    width: 80%;
-                }
-
-                /* EXTRA SMALL DEVICE */
-                @include render_max(xs){
-                    width: 90%;
-                }
-
-                .brand-mockup {
-                    left: 0;
-                    width: 10.9375rem;
-                    height: 2.875rem;
-                    margin-bottom: 0.75rem;
-                    img {
-                       @include full_width_height;
-                    }
-
-                    /* EXTRA LARGE DEVICE */
-                    @include render_max(xl){
-                        width: 8.75rem;
-                        height: 2.375rem;
-                    }
-
-                    /* MEDIUM DEVICE */
-                    @include render_max(md){
-                        width: 9.375rem;
-                        height: 2.5rem;
-                    }
-
-                    /* SMALL DEVICE */
-                    @include render_max(sm){
-                        height: 2.625rem;
-                    }
-
-                    /* EXTRA SMALL DEVICE */
-                    @include render_max(xs){
-                        width: 8.75rem;
-                        height: 2.1875rem;
+                    @include breakpoint_max(xl) {
+                        font-size: 16px;
                     }
                 }
+            }
 
-                .section-one {
-                    margin-bottom: 0.8125rem;
-                    h3 {
-                        font-family: Questrial;
-                        font-weight: 600;
-                        font-size: 1.311rem;
-                        line-height: 1.5625rem;
-                        color: $title-black;
-                        letter-spacing: 0.05em;
-                    }
+        }
+    }
 
-                    /* EXTRA LARGE DEVICE */
-                    @include render_max(xl){
-                        margin-bottom: 0.75rem;
-                        h3 {
-                            font-weight: 500;
-                            font-size: 0.9688rem;
-                            line-height: 1.25rem;
-                            letter-spacing: 0.03em;
-                        }
-                    }
+    .sign-up-container {
+        position: absolute;
+        width: 60%;
+        right: 0;
 
-                    /* MEDIUM DEVICE */
-                    @include render_max(md){
-                        h3 {
-                            font-size: 1.0625rem;
-                        }
-                    }
+        @include breakpoint_max(md) {
+            width: 100%;
+        }
 
-                    /* SMALL DEVICE */
-                    @include render_max(sm){
-                        h3 {
-                            font-size: 1.0313rem;
-                        }
-                    }
+        .sign-up-box {
+            width: 68%;
+            margin: 80px auto;
 
-                    /* EXTRA SMALL DEVICE */
-                    @include render_max(xs){
-                        margin-bottom: 0.625rem;
-                        h3 {
-                            font-size: 1rem;
-                        }
-                    }
+            @include breakpoint_max(lg) {
+                width: 76%;
+            }
+
+            @include breakpoint_max(sm) {
+                width: 80%;
+            }
+
+            @include breakpoint_max(xs) {
+                width: 85%;
+            }
+
+            .brand-logo {
+                position: relative;
+                left: -2px;
+                width: 226px;
+                height: 60px;
+                margin-bottom: 24px;
+
+                @include breakpoint_max(xl) {
+                    width: 210px;
+                    height: 55px;
                 }
 
-                .section-two {
-                    h4 {
-                        font-weight: normal;
-                        font-size: 0.85rem;
-                        line-height: 1.25rem;
-                        letter-spacing: 0.05em;
+                @include breakpoint_max(sm) {
+                    width: 190px;
+                    height: 53px;
+                }
+    
+                @include breakpoint_max(xs) {
+                    width: 180px;
+                    height: 50px;
+                }
+            }
+            .text-info-one {
+                font-style: normal;
+                font-size: 28px;
+                line-height: 128.75%;
+                margin-bottom: 9px;
 
-                        /* MEDIUM DEVICE */
-                        @include render_max(xl){
-                            font-size: 0.7813rem;
-                            line-height: 0.75rem;
-                            letter-spacing: 0.03em;
-                        }
-
-                        /* MEDIUM DEVICE */
-                        @include render_max(md){
-                            font-size: 0.8438rem;
-                        }
-
-                        /* SMALL DEVICE */
-                        @include render_max(sm){
-                            font-size: 0.8125rem;
-                        }
-
-                        /* EXTRA SMALL DEVICE */
-                        @include render_max(xs) {
-                            font-size: 0.75rem;
-                            line-height: 0.8125rem;
-                        }
-                    }
+                @include breakpoint_max(xl) {
+                    font-size: 26px;
                 }
 
-                .section-three {
-                    margin-top: 1.25rem;
-                    form {
-                        label {
-                            font-weight: 500;
-                            font-size: 0.691rem;
-                            line-height: 1rem;
-                            text-transform: uppercase;
-                            color: $label-black;
-
-                            
-                            /* EXTRA LARGE DEVICE */
-                            @include render_max(xl){
-                                font-weight: 400;
-                                font-size: 0.625rem;
-                                line-height: 0.875rem;
-                            }
-                            
-                            /* MEDIUM DEVICE */
-                            @include render_max(md){
-                                font-size: 0.6719rem;
-                            }
-
-                            /* SMALL DEVICE */
-                            @include render_max(sm){
-                                font-size: 0.6563rem;
-                            }
-
-                            /* EXTRA SMALL DEVICE */
-                            @include render_max(xs) {
-                                font-size: 0.625rem;
-                            }
-                        }
-                        .fullname {
-                            @include flex_row_between;
-                            width: 100%;
-                            .firstname, .lastname {
-                                width: 48%;
-                            }
-
-                            /* LARGE DEVICE */
-                            @include render_max(lg){
-                                @include flex_column_center;
-                                .firstname, .lastname {
-                                    width: 100%;
-                                }
-                                .lastname {
-                                    margin-top: 0.9375rem;
-                                }
-                            }
-                            
-                        }
-
-                        /* EXTRA LARGE DEVICE */
-                        @include render_max(xl){
-                            input, .input-group-text {
-                                font-size: 0.75rem !important;
-                            }
-                        }
-
-                        /* MEDIUM DEVICE */
-                        @include render_max(md){
-                            input, .input-group-text {
-                                font-size: 0.7969rem !important;
-                            }
-                        }
-
-                        /* SMALL DEVICE */
-                        @include render_max(sm){
-                            input, .input-group-text {
-                                font-size: 0.7813rem !important;
-                            }
-                        }
-
-                        /* EXTRA SMALL DEVICE */
-                        @include render_max(xs){
-                            input, .input-group-text {
-                                font-size: 0.75rem !important;
-                            }
-                        }
-                        button {
-                            padding: 0.75rem 2.1875rem !important;
-                            font-size: 0.6875rem !important;
-                            
-                            /* EXTRA LARGE DEVICE */
-                            @include render_max(xl){
-                                font-weight: 600 !important;
-                                padding: 0.75rem 1.5625rem !important;
-                                font-size: 0.6875rem !important;
-                            }
-
-                            /* LARGE DEVICE */
-                            @include render_max(lg){
-                                font-size: 9px !important;
-                            }
-
-                            /* MEDIUM DEVICE */
-                            @include render_max(md){
-                                font-size: 0.625rem !important;
-                            }
-
-                            /* EXTRA SMALL DEVICE */
-                            @include render_max(xs){
-                                font-size: 0.5625rem !important;
-                            }
-                        }
-                    }
+                @include breakpoint_max(sm) {
+                    font-size: 24px;
                 }
 
+                @include breakpoint_max(xs) {
+                    font-size: 23px;
+                }
+            }
+            .text-info-two {
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 22px;
+                margin-bottom: 40px;
+
+                @include breakpoint_max(xl) {
+                    font-size: 14px;
+                }
+
+                @include breakpoint_max(sm) {
+                    font-size: 13px;
+                }
+            }
+
+            .signup-form {
+                label {
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: $color_grey_dark;
+                    text-transform: uppercase;
+
+                    @include breakpoint_max(xl) {
+                        font-size: 12px;
+                    }
+                }
+                .disclaimer-block {
+                    font-size: 14px;
+                    line-height: 165%;
+                    color: #555555;
+
+                    @include breakpoint_max(xl) {
+                        font-size: 12px;
+                    }
+
+                    @include breakpoint_max(md) {
+                        font-size: 13px;
+                    }
+                }
             }
         }
     }

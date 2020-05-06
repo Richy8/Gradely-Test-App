@@ -1,0 +1,74 @@
+/* ==========================================================
+Remove Chrome Input Field's Unwanted Yellow Background Color
+============================================================= */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 62.5rem #E0F7FA inset !important;
+    box-shadow: 0 0 0 62.5rem #E0F7FA inset !important;
+}
+
+/* ===================
+Border Radius
+======================= */
+$radius: 5, 10, 15, 20, 25, 30;
+@each $value in $radius {
+    .rounded-#{$value} {
+        border-radius: #{$value/16}rem !important;
+    }
+}
+@each $value in $radius {
+    .rounded-top-#{$value} {
+        border-radius: #{$value/16}rem #{$value/16}rem 0 0 !important;
+    }
+}
+@each $value in $radius {
+    .rounded-bottom-#{$value} {
+        border-radius: 0 0 #{$value/16}rem #{$value/16}rem !important;
+    }
+}
+
+/* ===================
+Font Sizes
+======================= */
+@for $i from 10 through 15 {
+    .font-#{$i} {
+        font-size: #{$i/16}rem !important;
+    }
+    .font-#{$i}-5 {
+        font-size: #{($i+0.5)/16}rem !important;
+    }
+} 
+
+/* ===================
+Font Weight
+======================= */
+$weights: 400, 500, 600, 700, 800, 900;
+@each $weight in $weights {
+    .font-weight-#{$weight} {
+        font-weight: #{$weight} !important;
+    }
+}
+
+/* ===================
+Indexing
+======================= */
+$indexes: 1, 9, 99, 999;
+@each $index in $indexes {
+    .index-#{$index} {
+        z-index: #{$index};
+    }
+    .index--#{$index} {
+        z-index: -#{$index};
+    }
+}
+
+/* ========================
+Cursor, Selection and Link
+============================ */
+.pointer{ cursor: pointer; }
+.select-none{ user-select: none; }
+.link-underline{ text-decoration: underline }
+
+

@@ -1,11 +1,9 @@
 .modal-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    background-color: rgba(0, 0, 0,.5);
+    @include section_stretch();
+    overflow: hidden !important;
+    z-index: 2000;
+    background-color: rgba($brand_black, .9);
     transition: all .3s ease-in-out;
 
     .modal-box {
@@ -15,29 +13,46 @@
         transform: translateX(-50%);
         width: auto;
         height: auto;
-        background: #FFFFFF;
-        border: 1px solid #F5F5F5;
+        background: #fff;
         box-sizing: border-box;
-        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
-        border-radius: 20px;
-        padding: 18px 0;
+        border-radius: 15px;
+        padding: 15px 0;
         transition: top .5s ease-in-out;
         animation-name: animateTop;
         animation-duration: 0.4s;
         animation-timing-function: ease-in-out;
 
         .close-btn {
-            position: absolute;
-            z-index: 999;
-            top: 5px;
-            right: 20px;
-            background-color:rgb(228, 227, 227);
-            @include equal_min_edge(27);
+            position: relative;
+            background-color: $color_white;
+            @include equal_min_edge(30);
             border-radius: 50%;
             cursor: pointer;
+            transition: all .6s ease-in-out;
+
+            &::before, &::after {
+                content: "";
+                position: absolute;
+                @include center();
+                @include equal_min_edge(14);
+                transition: all .4s ease-in-out;
+            }
+
+            &::before {
+                border-left: 1.5px solid rgb(156, 156, 156);
+                transform: translate(-2.5px, -3px) rotate(45deg);
+            }
+
+            &::after {
+                border-right: 1.5px solid rgb(156, 156, 156);
+                transform: translate(-11px, -3px) rotate(-45deg);
+            }
 
             &:hover {
-                background-color:rgb(214, 214, 214);
+                background-color:rgba($brand_inverse, .2);
+                &::before, &::after {
+                    border-color: rgb(116, 116, 116);
+                }
             }
         }
     }
@@ -50,38 +65,38 @@
     .modal-sm {
         width: 30%;
 
-        @include render_max(xl) {
+        @include breakpoint_max(xl) {
             width: 45%;
         }
 
-        @include render_max(lg) {
+        @include breakpoint_max(lg) {
             width: 50%;
         }
 
-        @include render_max(md) {
+        @include breakpoint_max(md) {
             width: 85%;
         }
 
-        @include render_max(sm) {
+        @include breakpoint_max(sm) {
             width: 95%;
         }
     }
     .modal-md {
-        width: 35%;
+        width: 36%;
         
-        @include render_max(xl) {
+        @include breakpoint_max(xl) {
             width: 45%;
         }
 
-        @include render_max(lg) {
+        @include breakpoint_max(lg) {
             width: 50%;
         }
 
-        @include render_max(md) {
+        @include breakpoint_max(md) {
             width: 70%;
         }
 
-        @include render_max(sm) {
+        @include breakpoint_max(sm) {
             width: 90%;
         }
     }

@@ -1,0 +1,554 @@
+a {
+    text-decoration: none;
+    transition: all .6s ease-in-out;
+    color: inherit;
+    
+    &:hover,
+    &:focus {
+        color: $brand_accent;
+        text-decoration: none;
+    }
+    
+    &:focus {
+        outline: thin dotted $brand_accent;
+        .no-touch & {
+            outline: none;
+        }
+    }
+}
+
+a:link,
+button {
+    -webkit-tap-highlight-color: rgba($brand_accent, .35);
+    -moz-tap-highlight-color: rgba($brand_accent, .35);
+}
+
+button {
+    outline: 0;
+    padding: 0;
+    border: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    color: inherit;
+    background: 0 0;
+    cursor: pointer;
+    text-align: center;
+    transition: all .6s ease-in-out;
+
+    &:focus, &:visited {
+        outline: none;
+    }
+}
+
+.btn {
+    border-radius: 40px;
+    padding: 10px 22px;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    font-weight: 700;
+    background-color: transparent;
+    color: white;
+    fill: $border_grey_light;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    box-shadow: 0px 0px 0px transparent;
+    transition: all .6s ease-in-out;
+    text-decoration: none !important;
+    
+    @include breakpoint_min(md) {
+        min-width: 100px;
+        padding: 12px 32px;
+
+        .btn_user_act &{
+            padding: 12px 22px;
+            line-height: 1;
+        }
+        
+        + .btn {
+            margin-left: 1.5rem;
+        }
+    }
+    
+    &:hover,
+    &:focus {
+        text-decoration: none !important;
+        box-shadow: 2px 5px 10px 0 rgba($brand_black, .4);
+        .no-touch & {
+            outline: none;
+        }
+    }
+}
+
+.btn-white {
+    background-color: #ffffff !important;
+    color: $brand_black !important;
+    &:hover,
+    &:focus {
+        background-color: $brand_accent !important;
+        color: $brand_black !important;
+    }
+}
+
+.btn-primary {
+    background-color: $brand_primary !important;
+    &:hover,
+    &:focus {
+        background-color: $brand_accent !important;
+        color: $brand_black !important;
+    }
+}
+
+.btn-accent {
+    background-color: $brand_accent !important;
+    color: $brand_black !important;
+    &:hover,
+    &:focus {
+        background-color: $brand_primary !important;
+        color: #ffffff !important;
+    }
+}
+
+.btn-secondary {
+    background-color: $brand_accent !important;
+    color: $brand_black !important;
+    fill: $brand_black !important;
+
+    &:hover,
+    &:focus {
+        background-color: $brand_primary !important;
+        fill: $color_white !important;
+    }
+}
+
+.btn-inverse {
+    background-color: $brand_inverse;
+    color: $brand_primary;
+    &:hover,
+    &:focus {
+        background-color: $brand_black;
+        color: $brand_accent;
+    }
+}
+
+.btn-default {
+    background-color: transparent;
+    color: $color_text;
+
+    &:hover,
+    &:focus,
+    &:visited {
+        background-color: $border_grey_light;
+        color: $brand_black;
+    }
+}
+
+.btn-secondary-outline {
+    background-color: transparent !important;
+    color: $brand_accent !important;
+    border-color: $brand_accent !important;
+
+    &:hover, &:focus {
+        color: $color_white !important;
+        background-color: $brand_primary !important;
+    }
+}
+
+.btn-primary-outline {
+    background-color: transparent !important;
+    color: $brand_primary !important;
+    border: 2px solid $brand_primary !important;
+
+    &:hover, &:focus {
+        color: $color_white !important;
+        background-color: $brand_primary !important;
+        border-color: transparent !important;
+    }
+}
+
+.btn-default-outline {
+    background-color: transparent;
+    color: $color_text;
+    border: 2px solid $border_grey;
+
+    &:hover, &:focus {
+        color: $color_white;
+        background-color: $brand_primary;
+        border-color: transparent;
+    }
+}
+
+
+.btn-inverse-outline {
+    background-color: transparent;
+    color: $brand_inverse;
+    border: 2px solid $brand_inverse;
+
+    &:hover, &:focus {
+        color: $color_white;
+        background-color: $brand_inverse;
+        border-color: transparent;
+    }
+}
+
+.btn-sm.btn,
+.btn-group-sm>.btn {
+    font-size: 12px;
+    padding: 8.5px 1.5em;
+}
+
+.btn-lg.btn,
+.btn-group-lg>.btn {
+    padding: 15px 4em;
+    font-size: 14px;
+}
+
+.btn-icon {
+    @include equal_min_edge(32);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    fill: $brand_black;
+    opacity: .75;
+    border: none;
+    background-color: transparent;
+    
+    &:hover, &:hover {
+        background-color: $brand_inverse_light;
+        opacity: 1;
+    }
+}
+
+.btn-link {
+    cursor: pointer;
+    font-size: 1em;
+    display: inline-block;
+    text-decoration: underline;
+    color: $brand_accent;
+        
+    &:hover,
+    &:focus {
+        color: $brand_black;
+        text-decoration: none;
+    }
+    
+    &:active, &[disabled] {
+        color: $border_grey_dark;
+        outline: none;
+    }
+}
+
+.social_links {
+    padding-bottom: 15px;
+    clear: both;
+    
+    .postShare & {
+        padding-bottom: 0;
+    }
+
+    a {
+        display: inline-block;
+        font-size: 18px;
+        fill: $brand_primary;
+        color: $brand_primary;
+        vertical-align: bottom;
+        transition: all .6s ease-in-out;
+        
+        +a {
+            margin-left: 15px;
+        }
+        &:hover {
+            fill: $brand_accent;
+            color: $brand_accent;
+        }
+    }
+}
+
+.dialogDismiss {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    display: flex;
+    z-index: 1000;
+}
+
+.pageClose {
+    position: fixed;
+    @include breakpoint_min(md) {
+        top: 30px;
+        right: 40px;
+    }
+}
+
+.close_dialog {
+    z-index: 5;
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    text-align: center;
+    border-radius: 50%;
+    position: relative;
+
+    &::before,
+    &::after {
+        position: absolute;
+        content: "";
+        width: 2px;
+        background: $border_grey_dark;
+        height: 14px;
+        top: 50%;
+        left: 50%;
+        margin: -7px 0 0 -1px;
+    }
+    &::before {
+        transform: rotate(-45deg);
+    }
+    &::after {
+        transform: rotate(45deg);
+    }
+    &:hover,
+    &:focus {
+        background-color: $brand_inverse_light;
+        &::before,
+        &::after {
+            background-color: $brand_black;
+        }
+    }
+}
+
+.closeLabel {
+    display: block;
+    margin-bottom: 10px;
+    position: relative;
+    bottom: -35px;
+    opacity: .65;
+}
+
+.cls_lg {
+    @include equal_min_edge(48);
+
+    &::before, &::after {
+        height: 24px;
+        margin-top: -12px;
+    }
+}
+
+.to-top {
+    display: inline-block;
+    @include equal_min_edge(30);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 15px;
+    right: 3.5%;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    // background: rgba($brand_primary, .6) url(../img/top-arrow.svg) no-repeat center 50%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s 0s, visibility 0s .3s;
+    z-index: 30000;
+    .no-touch & {
+        &:hover,
+        &:focus {
+            background-color: $brand_primary;
+            opacity: 1;
+        }
+    }
+    &.is-visible,
+    &.fade-out,
+    .no-touch &:hover {
+        transition: opacity .3s, visibility 0s;
+    }
+    &.is-visible {
+        /* the button becomes visible */
+        visibility: visible;
+        opacity: 1;
+    }
+    &.fade-out {
+        /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+        opacity: .5;
+    }
+}
+
+.nav-tabs {
+    box-shadow: inset 0 -1px 0 $border_grey;
+
+    > li {
+        margin-bottom: 0;
+
+        > a {
+            color: rgba($color_text, .5);
+
+            &:hover, &:focus {
+                color: rgba($color_text, 1);
+                box-shadow: none;
+            }
+        }
+
+        &.active > a  {
+            color: rgba($color_text, 1);
+            box-shadow: inset 0 -2px 0 $color_text;
+        }
+    }
+}
+
+/* pager */
+.pager {
+    display: block;
+    @include clearfix;
+
+    >* {
+        vertical-align: middle;
+        display: inline-block;
+    }
+}
+
+.pager_item {
+    display: inline-block;
+    margin-right: 10px;
+
+    a {
+        display: block;
+        padding: 4.5px 12px;
+        border-radius: 40px;
+        text-transform: capitalize;
+        color: $brand_primary;
+
+        &:hover {
+            background-color: $border_grey;
+        }
+    }
+    &.active a {
+        pointer-events: none;
+        font-weight: 700;
+        background-color: $border_grey;
+    }
+}
+
+.breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    background-color: transparent;
+    align-items: center;
+
+    > .active {
+        pointer-events: none;
+        opacity: .65;
+    }
+}
+
+.breadcrumb-item {
+    color: inherit;
+    display: flex;
+    font-weight: 400;
+    align-items: center;
+    letter-spacing: -0.015em; 
+
+    + .breadcrumb-item {
+        &::before {
+            padding: 0 7.5px;
+            content: "/";
+            font-size: 1.25em;
+            color: $border_grey_dark;
+        }
+    }
+}
+
+/*Custom pager*/
+
+.list_pager {
+    clear: both;
+    @include flex_row_center_wrap();
+}
+
+.pager_block {
+    max-width: 300px;
+    text-align: center;
+    margin: auto;
+}
+
+.pager_label {
+    font-size: 14px;
+    letter-spacing: .5px;
+    color: $border_grey_dark;
+}
+
+.pager_progress_indicator {
+    margin-top: 7.5px;
+    height: 6px;
+}
+
+.pager_controls {
+    @include flex_row_center_nowrap;
+    margin-top: 15px;
+}
+
+.btn-nav {
+    padding: 7.5px 18px;
+    border-radius: 40px;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $color_grey_dark;
+
+    + .btn-nav {
+        margin-left: 10px;
+    }
+
+    &:hover {
+        color: $color_text;
+        background-color: $brand_inverse_light;
+    }
+}
+
+.actionsTray {
+    clear: both;
+    padding: 10px 15px;
+    border-radius: 6px;
+    background-color: white;
+    border: 1px solid $border_grey_light;
+    @include flex_column_center();
+
+    @include breakpoint_max(md) {
+        @include flex_row_center_wrap();
+    }
+}
+
+.actionList {
+    @include flex_row_center_wrap();
+    overflow-x: auto;
+    padding: 5px 10px;
+}
+
+.actionsLabel {
+    padding: 5px 10px;
+    flex-shrink: 0;
+}
+
+.actionBtn {
+    display: block;
+    padding: 8px 18px;
+    font-size: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: $color_grey_dark;
+    border-radius: 40px;
+    transition: all .4s ease;
+    
+    &:hover,
+    &:focus {
+        color: $brand_black;
+        background-color: $brand_inverse_light;
+    }
+}
+
+.actionItem + .actionItem {
+    margin-left: 5px;
+} 

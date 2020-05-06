@@ -1,0 +1,204 @@
+/* SVG Icon systems */
+.cust_icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  vertical-align: middle;
+  fill: inherit;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+svg {
+    display: inline-block;
+    width: 100%;
+}
+
+.icon_xs {
+  width: 16px;
+  height: 16px;
+}
+
+.icon_sm {
+  width: 32px;
+  height: 32px;
+}
+
+.icon_md {
+  width: 48px;
+  height: 48px;
+}
+
+.icon_lg {
+  width: 64px;
+  height: 64px;
+}
+
+.icon_xl {
+    width: 64px;
+    height: 64px;
+}
+
+.currency {
+    font-style: normal;
+    &::before {
+        font-size: .65em;
+        color: $color_text;
+        font-family: sans-serif;
+        line-height: 1;
+        vertical-align: text-top;
+        margin-right: -5px;
+    }
+}
+
+.naira::before {
+    content: "\20A6";
+}
+
+.icon_info {
+  background-image: url(../img/icons/info.svg);
+}
+
+.icon_school {
+  background-image: url(../img/icons/School.svg);
+}
+
+.icon_parent {
+  background-image: url(../img/icons/parents.svg);
+}
+
+.icon_teacher {
+  background-image: url(../img/icons/teacher.svg);
+}
+
+.icon_curriculum {
+  background-image: url(../img/icons/curriculum.svg);
+}
+
+.icon_student {
+  background-image: url(../img/icons/student.svg);
+}
+
+.icon_class {
+  background-image: url(../img/icons/class.svg);
+}
+
+.icon_book {
+  background-image: url(../img/icons/book.svg);
+}
+
+.icon_video {
+  background-image: url(../img/icons/play.svg);
+}
+
+.icon_comment {
+  background-image: url(../img/icons/commentary.svg);
+}
+
+.icon_arrow_right {
+  background-image: url(../img/icons/arrow-right.svg);
+}
+
+.icon_close {
+  background-image: url(../img/icons/close.svg);
+}
+
+.icon_eye {
+  background-image: url(../img/icons/show.svg);
+
+  .show_pass & {
+    background-image: url(../img/icons/hide.svg);
+  }
+}
+
+.icon_user {
+  background-image: url(../img/icons/user_outline.svg);
+  width: 18px;
+  height: 18px;
+
+  .itemTop & {
+    background-image: url(../img/icons/user_filled.svg);
+  }
+}
+
+.map_pin {
+  background-image: url(../img/icons/map-pin.svg);
+}
+
+.phone {
+  background-image: url(../img/icons/phone.svg);
+}
+
+.icon_on {
+  background-image: url(../img/icons/done.svg);
+}
+
+.icon_off {
+  background-image: url(../img/icons/wrong.svg);
+}
+
+.icon_file {
+  background-image: url(../img/icons/file.svg);
+}
+
+.icon_sample {
+  background-image: url(../img/icons/file-text.svg);
+}
+
+.icon_camera {
+  background-image: url(../img/icons/camera.svg);
+}
+
+.icon_reply {
+  background-image: url(../img/icons/reply.svg);
+}
+
+.icon_mail {
+  background-image: url(../img/icons/mail.svg);
+}
+
+.icon_phone {
+  background-image: url(../img/icons/smartphone.svg);
+}
+
+.icon_map {
+  background-image: url(../img/icons/map.svg);
+}
+
+.icon_calendar {
+  background-image: url(../img/icons/calendar.svg);
+}
+
+.icon_link {
+  background-image: url(../img/icons/link.svg);
+}
+
+.icon_inbox {
+  background-image: url(../img/icons/inbox.svg);
+}
+
+.icon_play {
+  background-image: url(../img/icons/play-button.svg);
+}
+
+.icon_catchup {
+  background-image: url(../img/icons/grd_catchup.svg);
+}
+
+.icon_learn {
+  background-image: url(../img/icons/grd_learn.svg);
+}
+
+.icon_difficulty {
+  background-image: url(../img/icons/difficulty.svg);
+}
+
+.icon_timer {
+  background-image: url(../img/icons/duration.svg);
+}
+
+.icon_date {
+  background-image: url(../img/icons/calendar_white.svg);
+}
