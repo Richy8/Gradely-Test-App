@@ -3,7 +3,6 @@
     <!-- BANNER -->
     <div class="banner">
         <div class="banner-overlay box-overlay brand_primary_bg rounded-top-10">
-            
             <img src="@/assets/images/DisplayBanner.png" alt="Display Banner" class="img img-luminous">
         </div>
         <img src="@/assets/images/DialogTwo.png" alt="Classes at a glance" class="display-img">

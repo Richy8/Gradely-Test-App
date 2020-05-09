@@ -1,2 +1,0 @@
-
-global.$('.dash').hide();

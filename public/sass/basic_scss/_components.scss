@@ -1,0 +1,263 @@
+// BACKGROUND COLOR SETTER
+.bg-color-setter {
+    position: relative;
+    @include section_stretch();
+    overflow: auto;
+    min-height: 100%;
+    max-height: 100%;
+    height: 100%;
+}
+
+// OVERLAY
+.box-overlay {
+    position: absolute;
+    @include section_stretch();
+}
+
+// BADGE
+.badge-circle {
+    position: absolute;
+    display: inline-block;
+    @include equal_min_edge(8);
+    border-radius: 50%;
+}
+
+.badge-sm {
+    @include equal_min_edge(16);
+}
+
+// DONE AND UN-DONE SELECTION
+.undone, .done {
+    position: relative;
+    @include equal_min_edge(16.5);
+    border-radius: 50%;
+    border: 1px solid #C5C5C5;
+    box-sizing: border-box;
+
+    &:after {
+        content: "\f067";
+        @include transform_center;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 600;
+        color: $brand_accent;
+        font-size: 7.5px;
+    }
+
+    ~.label-text {
+        color: $border_grey_light;
+    }
+}
+
+.done {
+    @include equal_min_edge(15.5);
+    border: 0px solid transparent;
+    background-color: $brand_inverse;
+
+    &:after {
+        content: "\f00c";
+        color: #ffffff;
+    }
+
+    ~.label-text {
+        color: $brand_inverse;
+    }
+}
+
+// SMALL CARDS
+.small-card {
+    background: #FFFFFF;
+    border-radius: 5px;
+    height: auto;
+    margin-bottom: 10px;
+    padding: 14px 16px;
+
+    .card-row {
+        @include flex_row_between_nowrap;
+    }
+}
+
+// DROPDOWN BUTTON
+.dropdown-btn {
+    position: relative;
+    width: auto;
+    background: $brand_inverse_light;
+    border: 1px solid $brand_inverse;
+    box-sizing: border-box;
+    border-radius: 55px;
+    padding: 12px 17px;
+    color: $color_text;
+    font-size: 14px;
+    line-height: 19px;
+
+    .dropdown-btn-toggler {
+        background-image: url(../img/icons/caret-down.svg);
+        @include equal_min_edge(9);
+        vertical-align: middle;
+        margin: auto;
+        fill: inherit;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+.dropdown-btn-menu {
+    position: absolute;
+    right: 0;
+    top: 90%;
+    font-size: 1em;
+    box-sizing: border-box;
+    z-index: 1000;
+    height: auto;
+    width: 100%;
+    padding: 10px;
+    padding-bottom: 0;
+    margin: 0;
+    border-radius: 5px;
+    color: $color_grey_dark;
+    background-color: white;
+    box-shadow: 0 0 0 1px rgba(black,0.1), 0 3px 10px 0 rgba(black,0.2);
+    transition: all .6s ease-in-out;
+    animation: panel-slide-down .5s ease-in-out forwards;
+    overflow: hidden;
+    border: none;
+
+    li {
+        a {
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            font-size: 14px;
+            color: $color_ash;
+            text-transform: capitalize;
+            line-height: normal;
+            white-space: nowrap;
+
+            &:hover {
+                background: rgba($brand_inverse, .15);
+                color: $brand_black;
+            }
+        }
+    }
+}
+
+@keyframes panel-slide-down{
+    0%,30% { 
+        margin-top:-15px;
+        opacity:0
+    }
+    to {
+        margin-top:0;
+        opacity:1
+    }
+}
+
+// ACCORDION STYLING
+.accordion-top {
+    position: relative;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 5px;
+    border: none;
+    padding: 14px 15px;
+    z-index: 9;
+    @include flex_row_between_nowrap;
+}
+
+.accordion-bottom {
+    position: relative;
+    top: -5px;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    border: 1.2px solid $border_grey;
+    border-radius: 0 0 5px 5px;
+    transition: all .6s ease-in-out;
+    animation: panel-slide-down .5s ease-in-out forwards;
+    overflow: hidden;
+    padding: 19px 10px 30px;
+}
+
+// BRANCH CARD
+.branch-card {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 5px;
+    @include custom_min_edge(210, 160);
+    padding: 16px 15px;
+    overflow: hidden;
+    margin-right: 20px;
+
+    @include breakpoint_max(lg) {
+        @include custom_min_edge(190, 160);
+    }
+
+    @include breakpoint_max(sm) {
+        @include custom_min_edge(190, 150);
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 6px;
+        background-color: $brand_accent;
+    }
+
+    .branch-card-header {
+        @include flex_row_between_nowrap;
+        margin-bottom: 19px;
+
+        .branch-card-title {
+            font-weight: bold;
+            line-height: 22px;
+            color: $color_text;
+
+            @include breakpoint_max(lg) {
+                font-size: 15px;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 13px;
+            }
+        }
+
+        .branch-card-option {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+    }
+
+    .branch-card-code {
+        position: relative;
+        width: auto;
+        text-overflow: ellipsis;
+        padding: 6px 8px;
+        background: $color_white;
+        border-radius: 3px;
+        color: $color_grey_dark;
+        font-size: 14px;
+        line-height: 19px;
+        margin-bottom: 32px;
+
+        @include breakpoint_max(lg) {
+            font-size: 13px;
+        }
+
+        @include breakpoint_max(sm) {
+            margin-bottom: 22px;
+            font-size: 12px;
+        }
+    }
+
+    .branch-card-icon-row {
+        @include flex_row_between_nowrap;
+        padding-left: 13px;
+        padding-right: 13px;
+        margin-bottom: 16px;
+    }
+}
+

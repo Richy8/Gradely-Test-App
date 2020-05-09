@@ -1,176 +1,134 @@
 <template>
 <div>
-    <div class="navbar-section">
-        <!-- DESKTOP -->
-        <div class="container desktop">
-            <div class="row">
+    <div class="navbar-section position-fixed w-100 index-9 white">
 
-                <!-- BRAND ICON -->
-                <div class="col-3 brand-section">
-                    <img src="@/assets/images/Gradely.png" alt="Gradely.Ng">
+        <!-- DESKTOP SCREEN VIEW -->
+        <div class="container h-auto d-none d-md-block">
+            <div class="row d-flex justify-content-between align-items-center nowrap">
+                <!-- BRAND LOGO -->
+                <div class="brand-logo">
+                    <a href="/school/dashboard">
+                        <img src="@/assets/images/Gradely.png" alt="Gradely.ng">
+                    </a>
                 </div>
 
-                <!-- NAVIGATIONS -->
-                <div class="col-6 navigation">
-
-                    <!-- HOME -->
-                    <div class="nav active">
-                        <router-link to="/school">
-                            <span class="icon">
-                                <svg viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.95596 11.0168C10.092 11.1529 10.2824 11.2345 10.5 11.2345C10.6904 11.2345 10.8808 11.1529 11.0168 11.0168C11.1528 10.8808 11.2345 10.6904 11.2345 10.5C11.2345 10.2824 11.1528 10.092 11.0168 9.95596C10.8808 9.81995 10.6904 9.73834 10.5 9.73834C10.2824 9.73834 10.092 9.81995 9.95596 9.95596C9.81995 10.092 9.73834 10.2824 9.73834 10.5C9.73834 10.6904 9.81995 10.8808 9.95596 11.0168ZM8.89508 8.89508C9.30311 8.48705 9.87435 8.24223 10.5 8.24223C10.8536 8.24223 11.1801 8.32383 11.4793 8.45984L13.4106 6.5013C13.7098 6.22927 14.1995 6.22927 14.4715 6.5013C14.7707 6.80052 14.7707 7.29016 14.4715 7.56218L12.5402 9.52073C12.6762 9.81995 12.7578 10.1464 12.7578 10.5C12.7578 11.1256 12.4858 11.6697 12.0777 12.0777C11.6697 12.4858 11.1256 12.7578 10.5 12.7578C9.87435 12.7578 9.30311 12.4858 8.89508 12.0777C8.48705 11.6697 8.24223 11.1256 8.24223 10.5C8.24223 9.87435 8.48705 9.30311 8.89508 8.89508ZM17.3821 2.55699C15.7228 1.08808 13.5738 0.163212 11.2345 0V0.0272021V1.52332C11.2345 1.93135 10.908 2.28497 10.5 2.28497C10.0648 2.28497 9.73834 1.93135 9.73834 1.52332V0.0272021V0C7.39896 0.163212 5.2772 1.08808 3.59067 2.55699H3.61788L4.67876 3.61788C4.97798 3.9171 4.97798 4.37953 4.67876 4.67876C4.37953 4.97798 3.9171 4.97798 3.61788 4.67876L2.55699 3.61788H2.52979C1.08808 5.2772 0.163212 7.39896 0 9.73834H0.0272021H1.52332C1.93135 9.73834 2.28497 10.092 2.28497 10.5C2.28497 10.908 1.93135 11.2617 1.52332 11.2617H0.0272021H0C0.0816062 12.4313 0.353627 13.5466 0.78886 14.5803H20.1839C20.6192 13.5466 20.9184 12.4041 21 11.2345H20.9728H19.4767C19.0415 11.2345 18.715 10.908 18.715 10.5C18.715 10.0648 19.0415 9.73834 19.4767 9.73834H20.9728H21C20.8096 7.39896 19.8847 5.2772 18.443 3.61788L17.3821 4.67876C17.0829 4.97798 16.6205 4.97798 16.3212 4.67876C16.022 4.37953 16.022 3.9171 16.3212 3.61788L17.3821 2.55699Z" />
-                                </svg>
-                            </span>
-                            <span>Home</span>
+                <!-- NAVIGATION -->
+                <div class="nav-items d-flex justify-content-center align-items-center nowrap">
+                    <!-- HOME ICON -->
+                    <div class="nav-item">
+                        <router-link to="/school/dashboard" @mouseenter.native.self="navHover($event, 'home')" @mouseleave.native.self="navHover($event, 'home')">
+                            <div class="nav-icon cust_icon home_icon" :class="{'home_icon_color': home_active}" id="homeIcon"></div>
+                            <div class="nav-text">Home</div>
                         </router-link>
                     </div>
 
-                    <!-- TEACHERS -->
-                    <div class="nav">
-                        <router-link to="/school/teachers">
-                            <span class="icon">
-                                <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10.018 19.5663L5.18942 7.23975L4.62622 7.45974L9.45005 19.7738L10.018 19.5663Z" />
-                                    <path d="M9.89136 20.9016L10.7131 23L11.2766 22.7793L10.4597 20.6945L9.89136 20.9016Z" />
-                                    <path d="M4.50144 15.0899C4.43801 16.4231 6.48143 16.5353 8.12225 17.7797L6.47519 13.5745C5.7899 13.9657 5.1178 14.4614 4.50144 15.0899Z" />
-                                    <path d="M14.9135 12.2132C14.8636 12.2084 14.8141 12.2069 14.7643 12.2036C14.6139 12.5663 14.4335 13.0202 14.2458 13.5295C13.2687 13.8873 12.3758 13.7894 11.6693 13.5522C11.4716 13.0312 11.281 12.5674 11.1229 12.1981C11.0463 12.2029 10.9697 12.2069 10.8923 12.2132C10.0545 12.2986 9.02159 12.4904 7.95166 12.8885L11.3114 21.4659C11.7382 21.8344 12.2229 22.0471 12.9031 22.0218C14.8431 22.0958 15.2043 20.2515 17.104 18.2862C18.7928 16.5402 21.3752 16.5853 21.3041 15.0904C19.2845 13.0279 16.6706 12.3928 14.9135 12.2132ZM11.8607 14.0707C12.2024 14.159 12.5735 14.2173 12.9698 14.2173C13.3141 14.2173 13.6764 14.1741 14.0507 14.0736C13.5092 15.6268 12.9735 17.5492 12.9735 19.08C12.9735 17.5485 12.4198 15.6246 11.8607 14.0707Z" />
-                                    <path d="M17.7826 6.27593C17.7324 5.6383 17.7328 5.33433 17.717 5.1411C17.7174 5.12497 17.7196 5.11067 17.7203 5.09234C17.7277 5.02524 17.7269 4.9585 17.7196 4.89177C17.6675 2.73579 15.5709 1 12.9871 1C10.3713 1 8.25085 2.77905 8.25085 4.9728C8.25085 5.04614 8.25269 5.10774 8.25599 5.16457L8.25085 5.17337C8.25085 5.17337 8.25269 5.1818 8.25745 5.19757C8.26699 5.34423 8.28899 5.43113 8.32199 5.47513C8.37589 6.10873 8.15259 6.30086 8.30475 7.97835C8.46865 9.78747 9.06485 11.172 9.41941 11.2519C9.77544 11.3319 10.1788 11.3766 10.3214 11.1199C10.3555 11.0576 10.3658 10.9931 10.3595 10.926C10.3559 10.9216 10.3515 10.9175 10.3474 10.9131C10.3214 10.7049 10.1307 10.4724 9.92761 10.215C9.73328 9.96933 9.56938 9.23894 9.37284 8.59838C9.01755 8.49058 8.75208 8.07038 8.75208 7.56549C8.75208 7.27545 8.69195 6.85892 8.83312 6.66716C8.91231 6.55973 9.05311 6.52159 9.20051 6.50839C9.20345 6.43396 9.20675 6.35769 9.21078 6.27923C9.30135 5.9639 9.39301 5.6889 9.41318 5.5316C9.42381 5.4502 9.38458 5.36367 9.31675 5.28337C9.36368 5.0179 9.42784 4.78617 9.51621 4.64097C9.67644 4.37588 9.90047 4.23434 10.2125 4.23434C10.6103 4.23031 11.153 4.45911 11.8937 4.95997C12.2992 5.2346 12.6699 5.32517 13.0025 5.31013C13.7391 5.272 14.2876 4.71797 14.6128 4.49907C14.7001 4.44041 14.82 4.39641 14.9568 4.38101C14.9751 4.37881 14.9942 4.37771 15.0132 4.37661C15.0323 4.37551 15.0506 4.37478 15.0704 4.37478C15.5981 4.37111 16.305 4.81954 16.4759 6.50179C16.672 6.50253 16.8884 6.52306 16.9947 6.66716C17.1359 6.85892 17.0757 7.27545 17.0757 7.56549C17.0757 8.07001 16.811 8.49058 16.4557 8.59838C16.0381 9.37644 15.85 10.3888 15.7777 10.9982C15.7777 10.9982 15.8595 11.5035 16.3512 11.4503C16.8425 11.3975 16.6357 10.3994 16.9632 9.54804C17.2913 8.69664 17.5913 8.59068 17.7826 7.92518C17.974 7.26042 17.8648 7.31322 17.7826 6.27593Z" />
-                                    <path d="M15.5609 6.5H13.6876C13.3921 6.5 13.2164 6.80066 13.2164 7.09656V7.23333H12.4831V7.09656C12.4831 6.80066 12.3772 6.5 12.082 6.5H10.2087C9.91317 6.5 9.5498 6.80066 9.5498 7.09656V7.89919C9.5498 8.19509 9.91317 8.33332 10.2087 8.33332H12.082C12.3772 8.33332 12.4831 8.19509 12.4831 7.89919V7.59999H13.2164V7.89919C13.2164 8.19509 13.3921 8.33332 13.6876 8.33332H15.5609C15.8561 8.33332 16.1498 8.19509 16.1498 7.89919V7.09656C16.1498 6.80066 15.8561 6.5 15.5609 6.5Z" />
-                                </svg>
-                            </span>
-                            <span>Teachers</span>
+                    <!-- TEACHER ICON -->
+                    <div class="nav-item">
+                        <router-link to="/school/dashboard/teacher" @mouseenter.native.self="navHover($event, 'teacher')" @mouseleave.native.self="navHover($event, 'teacher')">
+                            <div class="nav-icon cust_icon teacher_icon" :class="{'teacher_icon_color': teacher_active}" id="teacherIcon"></div>
+                            <div class="nav-text">Teachers</div>
                         </router-link>
                     </div>
 
-                    <!-- PARENTS -->
-                    <div class="nav">
-                        <router-link to="/school/parents">
-                            <span class="icon">
-                                <svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.63636 0C3.86663 0 0 3.86664 0 8.63636C0 12.3101 2.12518 15.7483 5.35511 17.0028C3.35983 15.0361 2.27273 12.6326 2.27273 9.77273C2.27227 9.54391 2.4705 9.3325 2.69886 9.31818C5.75344 9.09191 8.43429 8.742 10.4688 7.81959C12.477 6.90927 14.0476 5.05977 14.7159 2.5C13.1553 0.953682 11.0069 0 8.63636 0ZM15.4332 3.30254C14.6147 5.81091 12.8906 7.72334 10.8452 8.65057C8.73072 9.60912 6.11318 9.94925 3.21733 10.1775C3.29321 12.9875 4.51086 15.1874 6.78267 17.0668C7.38064 17.1976 7.99909 17.2727 8.63636 17.2727C9.6375 17.2727 10.5973 17.0959 11.4915 16.7827C11.4075 16.4294 11.3636 16.0603 11.3636 15.6818C11.3636 13.0513 13.5058 10.9091 16.1364 10.9091C16.4128 10.9091 16.6893 10.9275 16.9531 10.973C17.1613 10.2302 17.2727 9.44566 17.2727 8.63636C17.2727 6.62414 16.5871 4.77093 15.4332 3.30254ZM12.2727 9.09091C12.7748 9.09091 13.1818 9.49793 13.1818 10C13.1818 10.5021 12.7748 10.9091 12.2727 10.9091C11.7706 10.9091 11.3636 10.5021 11.3636 10C11.3636 9.49793 11.7706 9.09091 12.2727 9.09091ZM6.36364 10.4545C6.86571 10.4545 7.27273 10.8616 7.27273 11.3636C7.27273 11.8657 6.86571 12.2727 6.36364 12.2727C5.86156 12.2727 5.45455 11.8657 5.45455 11.3636C5.45455 10.8616 5.86156 10.4545 6.36364 10.4545ZM19.5455 10.4545C19.0164 10.8073 18.4918 11.0229 18.2812 11.4205C18.3954 11.4781 18.5063 11.5388 18.6151 11.6051C18.7322 11.2216 19.2045 10.9659 19.5455 10.4545ZM16.1364 11.3636C13.7515 11.3636 11.8182 13.297 11.8182 15.6818C11.8182 18.0667 13.7515 20 16.1364 20C18.5212 20 20.4545 18.0667 20.4545 15.6818C20.4545 13.297 18.5212 11.3636 16.1364 11.3636ZM10.6676 12.9475C10.9837 12.9327 11.2374 13.326 11.0938 13.608C10.8581 14.0792 10.4035 14.2311 9.96449 14.3324C9.5255 14.4337 9.08177 14.477 8.66477 14.2685C8.45095 14.1625 8.35283 13.8715 8.45881 13.6577C8.5648 13.4438 8.85578 13.3457 9.0696 13.4517C9.10715 13.4706 9.45888 13.5139 9.75852 13.4447C10.0582 13.3756 10.2853 13.1865 10.277 13.2032C10.3814 13.0507 10.5353 12.957 10.6676 12.9475ZM14.3182 12.9545C14.6947 12.9545 15 13.2598 15 13.6363C15 14.0129 14.6947 14.3181 14.3182 14.3181C13.9416 14.3181 13.6364 14.0129 13.6364 13.6363C13.6364 13.2598 13.9416 12.9545 14.3182 12.9545ZM17.0455 13.6363C17.422 13.6363 17.7273 13.9416 17.7273 14.3181C17.7273 14.6947 17.422 15 17.0455 15C16.6689 15 16.3636 14.6947 16.3636 14.3181C16.3636 13.9416 16.6689 13.6363 17.0455 13.6363ZM13.1818 15L17.2727 16.5909C16.5909 17.5 15.4545 18.1818 14.3182 17.7272C13.1818 17.2727 12.9545 15.9091 13.1818 15Z" />
-                                </svg>
-                            </span>
-                            <span>Parents</span>
+                    <!-- PARENTS ICON -->
+                    <div class="nav-item">
+                        <router-link to="/school/dashboard/parent" @mouseenter.native.self="navHover($event, 'parent')" @mouseleave.native.self="navHover($event, 'parent')">
+                            <div class="nav-icon cust_icon parent_icon" :class="{'parent_icon_color': parent_active}" id="parentIcon"></div>
+                            <div class="nav-text">Parents</div>
                         </router-link>
                     </div>
 
-                    <!-- MESSAGES -->
-                    <div class="nav">
-                        <router-link to="/school/messages">
-                            <div class="icon">
-                                <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 20L4 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM7 9H5V7H7V9ZM11 9H9V7H11V9ZM15 9H13V7H15V9Z" />
-                                </svg>
-                            </div>
-                            <div>Messages</div>
+                    <!-- MESSAGES ICON -->
+                    <div class="nav-item">
+                        <router-link to="/school/dashboard/message" @mouseenter.native.self="navHover($event, 'message')" @mouseleave.native.self="navHover($event, 'message')">
+                            <div class="nav-icon cust_icon message_icon" :class="{'message_icon_color': message_active}" id="messageIcon"></div>
+                            <div class="nav-text">Messages</div>
                         </router-link>
                     </div>
                 </div>
 
                 <!-- MORE ICONS -->
-                <div class="col-3 more-icons d-flex justify-content-end align-items-center">
-                    <div class="icon pointer" title="search">
-                        <b-icon icon="search" class="label-black"></b-icon>
+                <div class="more-icons d-flex justify-content-end align-items-center">
+                    <div class="icon avatar avatar-square" @mouseenter.self="fillSearch($event)" @mouseleave.self="fillSearch($event)">
+                        <div class="avatar-img cust_icon search_icon icon_sm_mid"></div>
                     </div>
-                    <div class="icon pointer" title="notification">
-                        <b-icon icon="bell" class="label-black"></b-icon>
-                        <div class="notify"></div>
+
+                    <div class="icon avatar avatar-square" @mouseenter.self="fillBell($event)" @mouseleave.self="fillBell($event)">
+                        <div class="avatar-img cust_icon bell_icon icon_sm_mid"></div>
+                        <div class="badge-circle brand_red_bg index-9"></div>
                     </div>
-                    <div class="icon pointer" title="settings">
-                        <b-icon icon="gear" class="label-black"></b-icon>
+
+                    <div class="icon avatar avatar-square" @mouseenter.self="fillGear($event)" @mouseleave.self="fillGear($event)">
+                        <div class="avatar-img cust_icon gear_icon icon_sm_mid"></div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- MOBILE -->
-        <div class="container mobile">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-between align-items-center">
-                    <!-- SETTINGS ICON -->
-                    <div class="settings d-flex justify-content-start align-items-center">
-                        <div class="icon pointer" title="settings">
-                            <b-icon icon="gear" class="label-black"></b-icon>
-                        </div>
+        <!-- TABLET - MOBILE NAVIGATION VIEW -->
+        <div class="container h-auto d-md-none tablet">
+            <div class="row d-flex justify-content-between align-items-center nowrap">
+                <!-- GEAR ICON -->
+                <div class="gear-icon">
+                    <div class="icon avatar avatar-square" @mouseenter.self="fillGear($event)" @mouseleave.self="fillGear($event)">
+                        <div class="avatar-img cust_icon gear_icon icon_sm_mid"></div>
+                    </div>
+                </div>
+
+                <!-- BRAND LOGO -->
+                <div class="brand-logo">
+                    <a href="/school/dashboard">
+                        <img src="@/assets/images/Gradely.png" alt="Gradely.ng">
+                    </a>
+                </div>
+
+                <!-- MORE ICONS -->
+                <div class="more-icons d-flex justify-content-end align-items-center">
+                    <div class="icon avatar avatar-square" @mouseenter.self="fillSearch($event)" @mouseleave.self="fillSearch($event)">
+                        <div class="avatar-img cust_icon search_icon icon_sm_mid"></div>
                     </div>
 
-                    <!-- BRAND DESIGN -->
-                    <div class="brand">
-                        <img src="@/assets/images/Gradely.png" alt="Gradely.Ng">
+                    <div class="icon avatar avatar-square" @mouseenter.self="fillBell($event)" @mouseleave.self="fillBell($event)">
+                        <div class="avatar-img cust_icon bell_icon icon_sm_mid"></div>
+                        <div class="badge-circle brand_red_bg index-9"></div>
                     </div>
-
-                    <!-- MORE ICONS -->
-                    <div class="more-icons d-flex justify-content-end align-items-center">
-                        <div class="icon pointer" title="search">
-                            <b-icon icon="search" class="label-black"></b-icon>
-                        </div>
-                        <div class="icon pointer" title="notification">
-                            <b-icon icon="bell" class="label-black"></b-icon>
-                            <div class="notify"></div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
     </div>
 
     <!-- MOBILE NAVIGATIONS -->
-    <div class="mobile-nav">
-        <div class="navigations">
-            <!-- MOBILE HOME -->
-            <div class="nav active">
-                <router-link to="/school">
-                    <div class="icon">
-                        <svg viewBox="0 0 21 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.95596 11.0168C10.092 11.1529 10.2824 11.2345 10.5 11.2345C10.6904 11.2345 10.8808 11.1529 11.0168 11.0168C11.1528 10.8808 11.2345 10.6904 11.2345 10.5C11.2345 10.2824 11.1528 10.092 11.0168 9.95596C10.8808 9.81995 10.6904 9.73834 10.5 9.73834C10.2824 9.73834 10.092 9.81995 9.95596 9.95596C9.81995 10.092 9.73834 10.2824 9.73834 10.5C9.73834 10.6904 9.81995 10.8808 9.95596 11.0168ZM8.89508 8.89508C9.30311 8.48705 9.87435 8.24223 10.5 8.24223C10.8536 8.24223 11.1801 8.32383 11.4793 8.45984L13.4106 6.5013C13.7098 6.22927 14.1995 6.22927 14.4715 6.5013C14.7707 6.80052 14.7707 7.29016 14.4715 7.56218L12.5402 9.52073C12.6762 9.81995 12.7578 10.1464 12.7578 10.5C12.7578 11.1256 12.4858 11.6697 12.0777 12.0777C11.6697 12.4858 11.1256 12.7578 10.5 12.7578C9.87435 12.7578 9.30311 12.4858 8.89508 12.0777C8.48705 11.6697 8.24223 11.1256 8.24223 10.5C8.24223 9.87435 8.48705 9.30311 8.89508 8.89508ZM17.3821 2.55699C15.7228 1.08808 13.5738 0.163212 11.2345 0V0.0272021V1.52332C11.2345 1.93135 10.908 2.28497 10.5 2.28497C10.0648 2.28497 9.73834 1.93135 9.73834 1.52332V0.0272021V0C7.39896 0.163212 5.2772 1.08808 3.59067 2.55699H3.61788L4.67876 3.61788C4.97798 3.9171 4.97798 4.37953 4.67876 4.67876C4.37953 4.97798 3.9171 4.97798 3.61788 4.67876L2.55699 3.61788H2.52979C1.08808 5.2772 0.163212 7.39896 0 9.73834H0.0272021H1.52332C1.93135 9.73834 2.28497 10.092 2.28497 10.5C2.28497 10.908 1.93135 11.2617 1.52332 11.2617H0.0272021H0C0.0816062 12.4313 0.353627 13.5466 0.78886 14.5803H20.1839C20.6192 13.5466 20.9184 12.4041 21 11.2345H20.9728H19.4767C19.0415 11.2345 18.715 10.908 18.715 10.5C18.715 10.0648 19.0415 9.73834 19.4767 9.73834H20.9728H21C20.8096 7.39896 19.8847 5.2772 18.443 3.61788L17.3821 4.67876C17.0829 4.97798 16.6205 4.97798 16.3212 4.67876C16.022 4.37953 16.022 3.9171 16.3212 3.61788L17.3821 2.55699Z" />
-                        </svg>
-                    </div>
-                    <div>Home</div>
-                </router-link>
-            </div>
+    <div class="mobile-navigations index-99 w-100 h-auto white d-md-none">
+        <!-- HOME ICON -->
+        <div class="mobile-nav">
+            <router-link to="/school/dashboard" @mouseenter.native.self="navHover($event, 'home')" @mouseleave.native.self="navHover($event, 'home')">
+                <div class="nav-icon cust_icon home_icon" :class="{'home_icon_color': home_active}" id="homeMobileIcon"></div>
+                <div class="nav-text">Home</div>
+            </router-link>
+        </div>
 
-            <!-- MOBILE TEACHERS -->
-            <div class="nav">
-                <router-link to="/school/teachers">
-                    <div class="icon">
-                        <svg viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M10.018 19.5663L5.18942 7.23975L4.62622 7.45974L9.45005 19.7738L10.018 19.5663Z" />
-                            <path d="M9.89136 20.9016L10.7131 23L11.2766 22.7793L10.4597 20.6945L9.89136 20.9016Z" />
-                            <path d="M4.50144 15.0899C4.43801 16.4231 6.48143 16.5353 8.12225 17.7797L6.47519 13.5745C5.7899 13.9657 5.1178 14.4614 4.50144 15.0899Z" />
-                            <path d="M14.9135 12.2132C14.8636 12.2084 14.8141 12.2069 14.7643 12.2036C14.6139 12.5663 14.4335 13.0202 14.2458 13.5295C13.2687 13.8873 12.3758 13.7894 11.6693 13.5522C11.4716 13.0312 11.281 12.5674 11.1229 12.1981C11.0463 12.2029 10.9697 12.2069 10.8923 12.2132C10.0545 12.2986 9.02159 12.4904 7.95166 12.8885L11.3114 21.4659C11.7382 21.8344 12.2229 22.0471 12.9031 22.0218C14.8431 22.0958 15.2043 20.2515 17.104 18.2862C18.7928 16.5402 21.3752 16.5853 21.3041 15.0904C19.2845 13.0279 16.6706 12.3928 14.9135 12.2132ZM11.8607 14.0707C12.2024 14.159 12.5735 14.2173 12.9698 14.2173C13.3141 14.2173 13.6764 14.1741 14.0507 14.0736C13.5092 15.6268 12.9735 17.5492 12.9735 19.08C12.9735 17.5485 12.4198 15.6246 11.8607 14.0707Z" />
-                            <path d="M17.7826 6.27593C17.7324 5.6383 17.7328 5.33433 17.717 5.1411C17.7174 5.12497 17.7196 5.11067 17.7203 5.09234C17.7277 5.02524 17.7269 4.9585 17.7196 4.89177C17.6675 2.73579 15.5709 1 12.9871 1C10.3713 1 8.25085 2.77905 8.25085 4.9728C8.25085 5.04614 8.25269 5.10774 8.25599 5.16457L8.25085 5.17337C8.25085 5.17337 8.25269 5.1818 8.25745 5.19757C8.26699 5.34423 8.28899 5.43113 8.32199 5.47513C8.37589 6.10873 8.15259 6.30086 8.30475 7.97835C8.46865 9.78747 9.06485 11.172 9.41941 11.2519C9.77544 11.3319 10.1788 11.3766 10.3214 11.1199C10.3555 11.0576 10.3658 10.9931 10.3595 10.926C10.3559 10.9216 10.3515 10.9175 10.3474 10.9131C10.3214 10.7049 10.1307 10.4724 9.92761 10.215C9.73328 9.96933 9.56938 9.23894 9.37284 8.59838C9.01755 8.49058 8.75208 8.07038 8.75208 7.56549C8.75208 7.27545 8.69195 6.85892 8.83312 6.66716C8.91231 6.55973 9.05311 6.52159 9.20051 6.50839C9.20345 6.43396 9.20675 6.35769 9.21078 6.27923C9.30135 5.9639 9.39301 5.6889 9.41318 5.5316C9.42381 5.4502 9.38458 5.36367 9.31675 5.28337C9.36368 5.0179 9.42784 4.78617 9.51621 4.64097C9.67644 4.37588 9.90047 4.23434 10.2125 4.23434C10.6103 4.23031 11.153 4.45911 11.8937 4.95997C12.2992 5.2346 12.6699 5.32517 13.0025 5.31013C13.7391 5.272 14.2876 4.71797 14.6128 4.49907C14.7001 4.44041 14.82 4.39641 14.9568 4.38101C14.9751 4.37881 14.9942 4.37771 15.0132 4.37661C15.0323 4.37551 15.0506 4.37478 15.0704 4.37478C15.5981 4.37111 16.305 4.81954 16.4759 6.50179C16.672 6.50253 16.8884 6.52306 16.9947 6.66716C17.1359 6.85892 17.0757 7.27545 17.0757 7.56549C17.0757 8.07001 16.811 8.49058 16.4557 8.59838C16.0381 9.37644 15.85 10.3888 15.7777 10.9982C15.7777 10.9982 15.8595 11.5035 16.3512 11.4503C16.8425 11.3975 16.6357 10.3994 16.9632 9.54804C17.2913 8.69664 17.5913 8.59068 17.7826 7.92518C17.974 7.26042 17.8648 7.31322 17.7826 6.27593Z" />
-                            <path d="M15.5609 6.5H13.6876C13.3921 6.5 13.2164 6.80066 13.2164 7.09656V7.23333H12.4831V7.09656C12.4831 6.80066 12.3772 6.5 12.082 6.5H10.2087C9.91317 6.5 9.5498 6.80066 9.5498 7.09656V7.89919C9.5498 8.19509 9.91317 8.33332 10.2087 8.33332H12.082C12.3772 8.33332 12.4831 8.19509 12.4831 7.89919V7.59999H13.2164V7.89919C13.2164 8.19509 13.3921 8.33332 13.6876 8.33332H15.5609C15.8561 8.33332 16.1498 8.19509 16.1498 7.89919V7.09656C16.1498 6.80066 15.8561 6.5 15.5609 6.5Z" />
-                        </svg>
-                    </div>
-                    <div>Teachers</div>
-                </router-link>
-            </div>
+        <!-- TEACHER ICON -->
+        <div class="mobile-nav">
+            <router-link to="/" @mouseenter.native.self="navHover($event, 'teacher')" @mouseleave.native.self="navHover($event, 'teacher')">
+                <div class="nav-icon cust_icon teacher_icon" :class="{'teacher_icon_color': teacher_active}" id="teacherMobileIcon"></div>
+                <div class="nav-text">Teacher</div>
+            </router-link>
+        </div>
 
-            <!-- MOBILE PARENTS -->
-            <div class="nav">
-                <router-link to="/school/parents">
-                    <div class="icon">
-                        <svg viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8.63636 0C3.86663 0 0 3.86664 0 8.63636C0 12.3101 2.12518 15.7483 5.35511 17.0028C3.35983 15.0361 2.27273 12.6326 2.27273 9.77273C2.27227 9.54391 2.4705 9.3325 2.69886 9.31818C5.75344 9.09191 8.43429 8.742 10.4688 7.81959C12.477 6.90927 14.0476 5.05977 14.7159 2.5C13.1553 0.953682 11.0069 0 8.63636 0ZM15.4332 3.30254C14.6147 5.81091 12.8906 7.72334 10.8452 8.65057C8.73072 9.60912 6.11318 9.94925 3.21733 10.1775C3.29321 12.9875 4.51086 15.1874 6.78267 17.0668C7.38064 17.1976 7.99909 17.2727 8.63636 17.2727C9.6375 17.2727 10.5973 17.0959 11.4915 16.7827C11.4075 16.4294 11.3636 16.0603 11.3636 15.6818C11.3636 13.0513 13.5058 10.9091 16.1364 10.9091C16.4128 10.9091 16.6893 10.9275 16.9531 10.973C17.1613 10.2302 17.2727 9.44566 17.2727 8.63636C17.2727 6.62414 16.5871 4.77093 15.4332 3.30254ZM12.2727 9.09091C12.7748 9.09091 13.1818 9.49793 13.1818 10C13.1818 10.5021 12.7748 10.9091 12.2727 10.9091C11.7706 10.9091 11.3636 10.5021 11.3636 10C11.3636 9.49793 11.7706 9.09091 12.2727 9.09091ZM6.36364 10.4545C6.86571 10.4545 7.27273 10.8616 7.27273 11.3636C7.27273 11.8657 6.86571 12.2727 6.36364 12.2727C5.86156 12.2727 5.45455 11.8657 5.45455 11.3636C5.45455 10.8616 5.86156 10.4545 6.36364 10.4545ZM19.5455 10.4545C19.0164 10.8073 18.4918 11.0229 18.2812 11.4205C18.3954 11.4781 18.5063 11.5388 18.6151 11.6051C18.7322 11.2216 19.2045 10.9659 19.5455 10.4545ZM16.1364 11.3636C13.7515 11.3636 11.8182 13.297 11.8182 15.6818C11.8182 18.0667 13.7515 20 16.1364 20C18.5212 20 20.4545 18.0667 20.4545 15.6818C20.4545 13.297 18.5212 11.3636 16.1364 11.3636ZM10.6676 12.9475C10.9837 12.9327 11.2374 13.326 11.0938 13.608C10.8581 14.0792 10.4035 14.2311 9.96449 14.3324C9.5255 14.4337 9.08177 14.477 8.66477 14.2685C8.45095 14.1625 8.35283 13.8715 8.45881 13.6577C8.5648 13.4438 8.85578 13.3457 9.0696 13.4517C9.10715 13.4706 9.45888 13.5139 9.75852 13.4447C10.0582 13.3756 10.2853 13.1865 10.277 13.2032C10.3814 13.0507 10.5353 12.957 10.6676 12.9475ZM14.3182 12.9545C14.6947 12.9545 15 13.2598 15 13.6363C15 14.0129 14.6947 14.3181 14.3182 14.3181C13.9416 14.3181 13.6364 14.0129 13.6364 13.6363C13.6364 13.2598 13.9416 12.9545 14.3182 12.9545ZM17.0455 13.6363C17.422 13.6363 17.7273 13.9416 17.7273 14.3181C17.7273 14.6947 17.422 15 17.0455 15C16.6689 15 16.3636 14.6947 16.3636 14.3181C16.3636 13.9416 16.6689 13.6363 17.0455 13.6363ZM13.1818 15L17.2727 16.5909C16.5909 17.5 15.4545 18.1818 14.3182 17.7272C13.1818 17.2727 12.9545 15.9091 13.1818 15Z" />
-                        </svg>
-                    </div>
-                    <div>Parents</div>
-                </router-link>
-            </div>
+        <!-- PARENT ICON -->
+        <div class="mobile-nav">
+            <router-link to="/" @mouseenter.native.self="navHover($event, 'parent')" @mouseleave.native.self="navHover($event, 'parent')">
+                <div class="nav-icon cust_icon parent_icon" :class="{'parent_icon_color': parent_active}" id="parentMobileIcon"></div>
+                <div class="nav-text">Parents</div>
+            </router-link>
+        </div>
 
-            <!-- MOBILE MESSAGES -->
-            <div class="nav">
-                <router-link to="/school/messages">
-                    <div class="icon">
-                        <svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 0H2C0.9 0 0.00999999 0.9 0.00999999 2L0 20L4 16H18C19.1 16 20 15.1 20 14V2C20 0.9 19.1 0 18 0ZM7 9H5V7H7V9ZM11 9H9V7H11V9ZM15 9H13V7H15V9Z" />
-                        </svg>
-                    </div>
-                    <div>Messages</div>
-                </router-link>
-            </div>
-
+        <!-- MESSAGE ICON -->
+        <div class="mobile-nav">
+            <router-link to="/" @mouseenter.native.self="navHover($event, 'message')" @mouseleave.native.self="navHover($event, 'message')">
+                <div class="nav-icon cust_icon message_icon" :class="{'message_icon_color': message_active}" id="messageMobileIcon"></div>
+                <div class="nav-text">Messages</div>
+            </router-link>
         </div>
     </div>
 </div>
@@ -178,10 +136,122 @@
 
 <script>
 export default {
-    name: "Navbar"
-}
+    name: "Navbar",
+
+    data() {
+        return {
+            home_active: false,
+            teacher_active: false,
+            parent_active: false,
+            message_active: false,
+            active_route: ""
+        };
+    },
+
+    mounted() {
+        // SELECTORS
+        let homeIcon = document.getElementById("homeIcon");
+        let teacherIcon = document.getElementById("teacherIcon");
+        let parentIcon = document.getElementById("parentIcon");
+        let messageIcon = document.getElementById("messageIcon");
+        let homeMobileIcon = document.getElementById("homeMobileIcon");
+        let teacherMobileIcon = document.getElementById("teacherMobileIcon");
+        let parentMobileIcon = document.getElementById("parentMobileIcon");
+        let messageMobileIcon = document.getElementById("messageMobileIcon");
+
+        this.active_route = this.$router.currentRoute.name;
+
+        if (this.active_route === "SchoolDashboard") {
+            this.home_active = true;
+            homeIcon.parentElement.classList.add("active");
+            homeMobileIcon.parentElement.classList.add("active");
+        } else if (this.active_route === "SchoolDashboardTeacher") {
+            this.teacher_active = true;
+            teacherIcon.parentElement.classList.add("active");
+            teacherMobileIcon.parentElement.classList.add("active");
+        } else if (this.active_route === "SchoolDashboardParent") {
+            this.parent_active = true;
+            parentIcon.parentElement.classList.add("active");
+            parentMobileIcon.parentElement.classList.add("active");
+        } else if (this.active_route === "SchoolDashboardMessage") {
+            this.message_active = true;
+            messageIcon.parentElement.classList.add("active");
+            messageMobileIcon.parentElement.classList.add("active");
+        }
+    },
+
+    methods: {
+        navHover(event, nav) {
+            if (nav === "home") {
+                if (this.active_route !== "SchoolDashboard") {
+                    if (event.target.classList.contains("active")) {
+                        event.target.classList.remove("active");
+                        event.target.firstElementChild.classList.remove("home_icon_color");
+                    } else {
+                        event.target.classList.add("active");
+                        event.target.firstElementChild.classList.add("home_icon_color");
+                    }
+                }
+            } else if (nav === "teacher") {
+                if (this.active_route !== "SchoolDashboardTeacher") {
+                    if (event.target.classList.contains("active")) {
+                        event.target.classList.remove("active");
+                        event.target.firstElementChild.classList.remove(
+                            "teacher_icon_color"
+                        );
+                    } else {
+                        event.target.classList.add("active");
+                        event.target.firstElementChild.classList.add("teacher_icon_color");
+                    }
+                }
+            } else if (nav === "parent") {
+                if (this.active_route !== "SchoolDashboardParent") {
+                    if (event.target.classList.contains("active")) {
+                        event.target.classList.remove("active");
+                        event.target.firstElementChild.classList.remove(
+                            "parent_icon_color"
+                        );
+                    } else {
+                        event.target.classList.add("active");
+                        event.target.firstElementChild.classList.add("parent_icon_color");
+                    }
+                }
+            } else if (nav === "message") {
+                if (this.active_route !== "SchoolDashboardMessage") {
+                    if (event.target.classList.contains("active")) {
+                        event.target.classList.remove("active");
+                        event.target.firstElementChild.classList.remove(
+                            "message_icon_color"
+                        );
+                    } else {
+                        event.target.classList.add("active");
+                        event.target.firstElementChild.classList.add("message_icon_color");
+                    }
+                }
+            }
+        },
+
+        fillSearch(event) {
+            event.target.firstElementChild.classList.contains("search_icon_color") ?
+                event.target.firstElementChild.classList.remove("search_icon_color") :
+                event.target.firstElementChild.classList.add("search_icon_color");
+        },
+
+        fillBell(event) {
+            event.target.firstElementChild.classList.contains("bell_icon_color") ?
+                event.target.firstElementChild.classList.remove("bell_icon_color") :
+                event.target.firstElementChild.classList.add("bell_icon_color");
+        },
+
+        fillGear(event) {
+            event.target.firstElementChild.classList.contains("gear_icon_color") ?
+                event.target.firstElementChild.classList.remove("gear_icon_color") :
+                event.target.firstElementChild.classList.add("gear_icon_color");
+        }
+    }
+};
 </script>
 
-<style>
+<style lang="scss" scoped>
 
 </style>

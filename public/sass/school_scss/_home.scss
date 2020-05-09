@@ -1,0 +1,530 @@
+.school-home-section {
+    position: relative;
+    top: 60px;
+
+    .class-banner {
+        position: relative;
+        height: 223px;
+        margin-bottom: 50px;
+
+        @include breakpoint_max(md) {
+            height: 160px;
+        }
+
+        @include breakpoint_max(sm) {
+            height: 130px;
+        }
+
+        .banner-overlay {
+            overflow: hidden;
+
+            .img {
+                @include img_cover;
+
+                &-overlay {
+                    mix-blend-mode: overlay;
+                    opacity: .7;
+                }
+            }
+        }
+
+        .school-detail-info {
+            @include transform_center;
+            @include flex_row_start_nowrap;
+            height: auto;
+            width: 1140px;
+
+            @include breakpoint_max(xl) {
+                width: 960px;
+            }
+
+            @include breakpoint_max(lg) {
+                width: 720px;
+            }
+
+            @include breakpoint_max(md) {
+                width: 540px;
+            }
+
+            @include breakpoint_max(sm) {
+                width: 94%;
+            }
+
+            .avatar {
+                box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+                margin-right: 16px;
+            }
+
+            .school-name {
+                font-size: 32px;
+                line-height: 145%;
+                margin-bottom: 4px;
+
+                @include breakpoint_max(md) {
+                    font-size: 20px;
+                }
+
+                @include breakpoint_max(sm) {
+                    font-size: 14px;
+                    margin-bottom: 0px;
+                }
+            }
+            .school-location {
+                font-size: 16px;
+                line-height: 145%;
+                margin-bottom: 10px;
+
+                @include breakpoint_max(md) {
+                    font-size: 14px;
+                }
+
+                @include breakpoint_max(sm) {
+                    margin-bottom: 8px;
+                    font-size: 12px;
+                }
+            }
+            .profile-update-cta {
+                font-size: 12px;
+                line-height: 16px;
+                a {
+                    color: #FAA017;
+                    &:hover {
+                        color: #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    // SCHOOL HOME LEFT CONTENT
+    .left-content {
+        @include custom_min_edge(370, 630);
+
+        @include breakpoint_max(xl) {
+            @include custom_min_edge(316, 630);
+        }
+
+        @include breakpoint_max(lg) {
+            @include custom_min_edge(280, 630);
+        }
+
+        @include breakpoint_max(md) {
+            min-width: 100%;
+            min-height: auto;
+            width: 100%;
+            height: auto;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+        }
+
+        @include breakpoint_max(sm) {
+            min-width: 95%;
+            width: 88%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        // DEFAULT INFO
+        .hugo-img {
+            width: 208px;
+            height: 156px;
+            margin: 48px 81px 0;
+
+            @include breakpoint_max(xl) {
+                margin: 48px 60px 0;
+            }
+
+            @include breakpoint_max(lg) {
+                margin: 48px 30px 0;
+            }
+
+            @include breakpoint_max(md) {
+                margin: 48px 168px 0;
+            }
+        }
+
+        .welcome-section {
+            margin-bottom: 30.67px;
+            padding-left: 38px;
+            padding-right: 38px;
+
+            @include breakpoint_max(xl) {
+                padding-left: 25px;
+                padding-right: 25px;
+            }
+
+            @include breakpoint_max(lg) {
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+            @include breakpoint_max(md) {
+                padding-left: 50px;
+                padding-right: 50px;
+            }
+
+            .title {
+                font-size: 16px;
+                line-height: 22px;
+                margin-bottom: 10px;
+
+                @include breakpoint_max(lg) {
+                    font-size: 14.5px;
+                }
+
+                @include breakpoint_max(lg) {
+                    font-size: 16px;
+                }
+            }
+
+            .info {
+                font-weight: 100;
+                font-size: 14px;
+                line-height: 20px;
+
+                @include breakpoint_max(xl) {
+                    font-size: 12.5px;
+                }
+
+                @include breakpoint_max(lg) {
+                    font-size: 12px;
+                }
+
+                @include breakpoint_max(md) {
+                    font-size: 12.5px;
+                }
+            }
+        }
+
+        .activities {
+            padding-left: 42px;
+            padding-right: 42px;
+
+            @include breakpoint_max(xl) {
+                padding-left: 26px;
+                padding-right: 26px;
+            }
+
+            @include breakpoint_max(lg) {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+
+            @include breakpoint_max(md) {
+                padding-left: 42px;
+                padding-right: 42px;
+            }
+
+            a {
+                @include flex_row_start_nowrap;
+                padding-left: 2px;
+                padding-top: 14.67px;
+                padding-bottom: 14.67px;
+                color: $brand_inverse;
+                border-bottom: 1px solid rgba($brand_black, .35); 
+
+                .done, .undone {
+                    margin-right: 10px;
+                }
+                .label-text {
+                    font-weight: 100;
+                    font-size: 11px;
+                    line-height: 14px;
+                    word-spacing: -.01em;
+                    letter-spacing: .01em;
+                }
+            }
+        }
+
+        // CONTENT INFO
+        .content-title {
+            line-height: 22px;
+            margin: 18px 20px 20px;
+
+            @include breakpoint_max(xl) {
+                font-size: 14.5px;
+            }
+
+            @include breakpoint_max(md) {
+                margin: 18px 30px 20px;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 13px;
+            }
+        }
+
+        .small-card {
+            width: 330px;
+            margin-left: auto;
+            margin-right: auto;
+
+            @include breakpoint_max(xl) {
+                width: 285px;
+            }
+
+            @include breakpoint_max(lg) {
+                width: 260px;
+            }
+
+            @include breakpoint_max(md) {
+                width: 480px;
+            }
+
+            @include breakpoint_max(sm) {
+                width: 92%;
+            }
+
+            .title {
+                line-height: 22px;
+                color: $color_text;
+                margin-bottom: 4px;
+
+                @include breakpoint_max(xl) {
+                    font-size: 13.5px;
+                }
+
+                @include breakpoint_max(lg) {
+                    font-size: 12.5px;
+                }
+
+                @include breakpoint_max(md) {
+                    font-size: 13.5px;
+                }
+
+                @include breakpoint_max(sm) {
+                    font-size: 12.5px;
+                }
+            }
+            .card-meta {
+                font-size: 14px;
+                line-height: 19px;
+                color: $brand_inverse;
+
+                @include breakpoint_max(xl) {
+                    font-size: 12.5px;
+                }
+
+                @include breakpoint_max(lg) {
+                    font-size: 12px;
+                }
+
+                @include breakpoint_max(md) {
+                    font-size: 13.5px;
+                }
+
+                @include breakpoint_max(sm) {
+                    font-size: 12px;
+                }
+            }
+        }
+
+        .more {
+            margin-top: 34.83px;
+            margin-left: 25.67px;
+
+            .title {
+                margin-left: 11.67px;
+                font-size: 14px;
+                line-height: 19px;
+
+                @include breakpoint_max(lg) {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+
+    // SCHOOL HOME RIGHT CONTENT
+    .right-content {
+        width: 770px;
+        padding-left: 25px;
+        margin-bottom: 60px;
+
+        @include breakpoint_max(xl) {
+            width: 643.2px;
+        }
+
+        @include breakpoint_max(lg) {
+            width: 440px;
+        }
+
+        @include breakpoint_max(md) {
+            width: 100%;
+            padding-left: 0;
+        }
+
+        @include breakpoint_max(md) {
+            width: 95%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .title-row {
+            height: auto;
+            margin: auto 0;
+            margin-bottom: 20px;
+
+            .header-title {
+                font-size: 21px;
+                line-height: 165%;
+
+                @include breakpoint_max(lg) {
+                    font-size: 18px;
+                }
+
+                @include breakpoint_max(sm) {
+                    font-size: 16px;
+                }
+            }
+
+            .phone-section {
+                .dropdown-btn {
+                    @include flex_row_between_nowrap;
+                    margin-right: 20px;
+
+                    @include breakpoint_max(lg) {
+                        margin-right: 17px;
+                    }
+
+                    &:after {
+                        position: absolute;
+                        content:"";
+                        background: $border_grey;
+                        width: 1px;
+                        height: 28px;
+                        background-color: $border_grey;
+                        top: 8px;
+                        left: 55%;
+                        transform: translateX(-45%);
+                    }
+
+                    .part-one {
+                        margin-right: 13px;
+
+                        @include breakpoint_max(lg) {
+                            font-size: 13px;
+                        }
+
+                        @include breakpoint_max(sm) {
+                            font-size: 12px;
+                        }
+                    }
+
+                    .part-two {
+                        margin: auto 5px auto 13px; 
+                        &:hover{
+                            color: $color_text !important;
+                        }
+
+                        @include breakpoint_max(lg) {
+                            font-size: 13px;
+                        }
+
+                        @include breakpoint_max(sm) {
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+        }
+
+        // ACCORDION SECTION
+        .class-structure-section {
+            margin: 5px auto;
+            
+            .accordion-top {
+                .left {
+                    .icon {
+                        position: relative;
+                        margin-right: 25px;
+                        
+                        &:after {
+                            position: absolute;
+                            content: "";
+                            @include transform_center;
+                            @include equal_min_edge(9);
+                            border-top: 1px solid #000000;
+                            border-left: 1px solid #000000;
+                            transform: translateY(-6px) rotate(225deg);
+                            transition: transform .3s ease-in-out;
+                        }
+                    }
+
+                    .active {
+                        &:after {
+                            transform: translateY(-2px) rotate(45deg);
+                            
+                        }
+                    }
+
+                    .title {
+                        font-size: 16px;
+                        line-height: 22px;
+
+                        @include breakpoint_max(lg) {
+                            font-size: 14px;
+                        }
+
+                        @include breakpoint_max(sm) {
+                            font-size: 13px;
+                        }
+                    }
+                }
+                .right {
+                    font-size: 14px;
+                    line-height: 19px;
+
+                    @include breakpoint_max(lg) {
+                        font-size: 12px;
+                    }
+                }
+            }
+
+            .accordion-bottom {
+                .branches {
+                    @include flex_row_start_nowrap;
+                    -ms-overflow-style: none;
+                    &::-webkit-scrollbar {
+                        display: none;
+                    }
+                }
+
+                .add-branch {
+                    @include flex_row_start_nowrap;
+                    transition: all .75s ease-in-out;
+                    animation: panel-slide-down .75s ease-in-out forwards;
+                    .undone {
+                        @include equal_min_edge(24);
+                        margin-right: 10px;
+
+                        &:after {
+                            font-size: 10px;
+                        }
+                    }
+
+                    .label-text {
+                        font-size: 14px;
+                        line-height: 19px;
+                        transition: color .3s ease-in-out;
+
+                        @include breakpoint_max(lg) {
+                            font-size: 12px;
+                        }
+                    }
+
+                    &:hover {
+                        .label-text {
+                            color: $border_grey_dark !important;
+                        }
+                    }
+                }
+            }
+        }
+
+        // CLASS BRANCH SECTION
+        .class-branch-section {
+            margin-bottom: 20px;
+        }
+    }
+}

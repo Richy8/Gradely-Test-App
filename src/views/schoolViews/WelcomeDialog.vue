@@ -13,7 +13,8 @@
         <div
           class="navigation-block w-100 d-flex flex-column justify-content-start align-items-center"
         >
-          <button class="btn btn-accent" @click="nextTab">Next</button>
+          <button class="btn btn-accent next-btn" @click="nextTab">Next</button>
+          <button class="btn btn-accent done-btn d-none">Done</button>
 
           <div class="navigations d-flex justify-content-center align-items-start">
             <div
@@ -57,12 +58,28 @@ export default {
   methods: {
     nextTab() {
       this.tab = this.tabs[this.current_tab + 1];
-      this.current_tab == this.current_tab++;
+      this.current_tab === this.current_tab++;
+      this.checklastTab();
     },
 
     changeTab(tab, index) {
         this.tab = tab.name;
         this.current_tab = index;
+        this.checklastTab();
+    },
+
+    checklastTab(){
+        let nextBtn = document.querySelector('.next-btn');
+        let doneBtn = document.querySelector('.done-btn');
+
+        if (this.current_tab === 4) {
+            nextBtn.classList.add('d-none');
+            doneBtn.classList.remove('d-none');
+        }
+        else {
+            nextBtn.classList.remove('d-none');
+            doneBtn.classList.add('d-none');
+        }
     }
   }
 };

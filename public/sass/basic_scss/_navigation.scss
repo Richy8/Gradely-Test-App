@@ -106,6 +106,7 @@ button {
 .btn-accent {
     background-color: $brand_accent !important;
     color: $brand_black !important;
+    transition: all .3s ease-in-out;
     &:hover,
     &:focus {
         background-color: $brand_primary !important;

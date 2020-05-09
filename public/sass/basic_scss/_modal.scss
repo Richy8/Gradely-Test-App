@@ -32,8 +32,7 @@
 
             &::before, &::after {
                 content: "";
-                position: absolute;
-                @include center();
+                @include transform_center();
                 @include equal_min_edge(14);
                 transition: all .4s ease-in-out;
             }

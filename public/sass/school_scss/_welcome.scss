@@ -58,8 +58,7 @@
             }
 
             .brand-icon {
-                position: absolute;
-                @include center;
+                @include transform_center;
 
                 @include breakpoint_max(xs) {
                     width: 115px;

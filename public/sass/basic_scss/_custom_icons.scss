@@ -16,24 +16,44 @@ svg {
     width: 100%;
 }
 
+.icon_xxs {
+  @include equal_min_edge(9);
+}
+
 .icon_xs {
-  width: 16px;
-  height: 16px;
+  @include equal_min_edge(16);
+}
+
+.icon_sm_mid {
+  @include equal_min_edge(20);
+
+  @include breakpoint_max(xl) {
+    @include equal_min_edge(16);
+  }
+
+  @include breakpoint_max(lg) {
+    @include equal_min_edge(14);
+  }
+}
+
+.icon_sm_22 {
+  @include equal_min_edge(22);
+
+  @include breakpoint_max(sm) {
+    @include equal_min_edge(20);
+  }
 }
 
 .icon_sm {
-  width: 32px;
-  height: 32px;
+  @include equal_min_edge(32);
 }
 
 .icon_md {
-  width: 48px;
-  height: 48px;
+  @include equal_min_edge(48);
 }
 
 .icon_lg {
-  width: 64px;
-  height: 64px;
+  @include equal_min_edge(64);
 }
 
 .icon_xl {
@@ -98,7 +118,13 @@ svg {
 }
 
 .icon_arrow_right {
+  transition: all .3s ease-in-out;
   background-image: url(../img/icons/arrow-right.svg);
+}
+
+.icon_arrow_right_white {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/arrow-right-white.svg);
 }
 
 .icon_close {
@@ -201,4 +227,120 @@ svg {
 
 .icon_date {
   background-image: url(../img/icons/calendar_white.svg);
+}
+
+.calendar_accent_icon {
+  background-image: url(../img/icons/calendar_accent.svg);
+}
+
+.caret_right_icon {
+  background-image: url(../img/icons/caret-right.svg);
+}
+
+.caret_down_icon {
+  background-image: url(../img/icons/caret-down.svg);
+}
+
+.home_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/home-icon.svg);
+}
+
+.home_icon_color {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/home-icon-color.svg);
+}
+
+.teacher_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/teacher-icon.svg);
+}
+
+.teacher_icon_color {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/teacher-icon-color.svg);
+}
+
+.parent_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/parent-icon.svg);
+}
+
+.parent_icon_color {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/parent-icon-color.svg);
+}
+
+.message_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/message-icon.svg);
+}
+
+.message_icon_color {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/message-icon-color.svg);
+}
+
+.search_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/search-icon.svg);
+}
+
+.search_icon_color {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/search-icon-color.svg);
+}
+
+.bell_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/bell-icon.svg);
+}
+
+.bell_icon_color {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/bell-icon-color.svg);
+}
+
+.gear_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/settings-icon.svg);
+}
+
+.gear_icon_color {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/settings-icon-color.svg);
+}
+
+.h-ellipsis-icon {
+  background-image: url(../img/icons/ellipsis-h.svg);
+}
+
+.callout_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/callout.svg);
+}
+
+.callout_accent_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/callout-accent.svg);
+}
+
+.library_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/library.svg);
+}
+
+.library_accent_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/library-accent.svg);
+}
+
+.pie_chart_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/pie-chart.svg);
+}
+
+.pie_chart_accent_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/pie-chart-accent.svg);
 }

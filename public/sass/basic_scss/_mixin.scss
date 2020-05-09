@@ -8,15 +8,6 @@ FULL WIDTH AND HEIGHT
     object-fit: cover;
 }
 
-/* ===================
-CENTER POSITIONING
-======================= */
-@mixin center {
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
 /* =============================
 FULL WIDTH AND HEIGHT CONTAINED
 ================================ */
@@ -171,7 +162,7 @@ FLEX COLUMN START
 @mixin flex_column_start {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: flex-start;
 }
 

@@ -10,16 +10,18 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'mdbvue/lib/css/mdb.min.css';
 import 'mdbvue/lib/mdbvue.css';
 import vWow from 'v-wow';
+
 import '../public/css/app.css';
 
 import jQuery from 'jquery'
+global.$ = jQuery;    
+import '../public/js/script.js';
 
 Vue.component("vue-headful", vueHeadful);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(vWow);
 
-global.$ = jQuery;
 
 Vue.config.productionTip = false;
 

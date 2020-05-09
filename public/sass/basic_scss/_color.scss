@@ -18,6 +18,9 @@ $border_grey_light: #E5E5E5;
 $border_grey_dark: #959595;
 $brand_navy: #113255;
 $brand_tonic: #F6515B;
+$color_mid_blue: #004680;
+$color_ash: #555555;
+$off_white: #ebebeb; 
 
 // App Color Pallete
 $app-color: () !default;
@@ -40,7 +43,10 @@ $app-color: map-merge((
 "border_grey_light": $border_grey_light,
 "border_grey_dark": $border_grey_dark,
 "brand_navy": $brand_navy,
-"brand_tonic": $brand_tonic
+"brand_tonic": $brand_tonic,
+"color_mid_blue": $color_mid_blue,
+"color_ash": $color_ash,
+"off_white": $off_white
 ), $app-color);
 
 /*------------------------------------*\
