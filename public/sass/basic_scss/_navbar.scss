@@ -84,7 +84,7 @@
             .active {
                 position: relative;
                 color: #08384D !important;
-                font-weight: 500;
+                font-weight: 600;
                 transition: all .3s ease-in-out;
 
                 &:after {
@@ -186,5 +186,93 @@
             font-weight: bold;
             transition: all .3s ease-in-out;
         } 
+    }
+
+}
+
+
+// SETTINGS MENU SLIDE OUT
+.settings-panel {
+    position: fixed;
+    top: 50px;
+    right: 6px;
+    width: 320px;
+    z-index: 2000;
+    transition: all .6s ease-in-out;
+    animation: panel-slide-right .5s ease-in-out forwards;
+
+    @include breakpoint_max(lg){
+        width: 300px;
+    }
+
+    @include breakpoint_max(md) {
+        right: 100%;
+        left: 6px;
+        animation: panel-slide-left .5s ease-in-out forwards;
+    }
+
+    @include breakpoint_max(sm){
+        width: 280px;
+    }
+
+    .avatar {
+        margin-right: 15px;
+
+        .avatar-text {
+            font-size: 16px;
+
+            @include breakpoint_max(lg) {
+                font-size: 14px;
+            }
+        }
+    }
+
+    .name {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 4px;
+        letter-spacing: 0.02em;
+
+        @include breakpoint_max(lg) {
+            font-size: 14px;
+        }
+    }
+
+    .school {
+        font-size: 13px;
+        line-height: 18px;  
+        margin-bottom: 10px; 
+
+        @include breakpoint_max(lg) {
+            font-size: 12px;
+        }
+    }
+
+    .update-cta {
+        font-size: 14px;
+        line-height: 19px;
+        letter-spacing: 0.02em;
+
+        @include breakpoint_max(lg) {
+            font-size: 12px;
+        }
+    }
+
+    li {
+       .icon {
+           margin-right: 15.78px;
+           @include equal_min_edge(20);
+       }
+
+        .link-text {
+            font-size: 14px;
+            line-height: 19px;
+            letter-spacing: 0.02em;
+            color: $color_ash;
+
+            @include breakpoint_max(lg) {
+                font-size: 12px;
+            }
+        }
     }
 }

@@ -106,7 +106,18 @@ button {
 .btn-accent {
     background-color: $brand_accent !important;
     color: $brand_black !important;
-    transition: all .3s ease-in-out;
+    transition: all .5s ease-in-out;
+    &:hover,
+    &:focus {
+        background-color: $brand_primary !important;
+        color: #ffffff !important;
+    }
+}
+
+.btn-whitish {
+    background-color: #ffffff !important;
+    color: $brand_black !important;
+    transition: all .5s ease-in-out;
     &:hover,
     &:focus {
         background-color: $brand_primary !important;
@@ -183,6 +194,17 @@ button {
     }
 }
 
+.btn-grey-outline {
+    background-color: transparent;
+    color: $color_white;
+    border: .5px solid $border_grey;
+
+    &:hover, &:focus {
+        color: $color_deep_blue;
+        background-color: $brand_accent;
+        border-color: transparent;
+    }
+}
 
 .btn-inverse-outline {
     background-color: transparent;
@@ -288,8 +310,7 @@ button {
 
 .close_dialog {
     z-index: 5;
-    width: 30px;
-    height: 30px;
+    @include equal_min_edge(30);
     font-size: 10px;
     text-align: center;
     border-radius: 50%;
@@ -339,6 +360,69 @@ button {
     }
 }
 
+.cls_md {
+    @include equal_min_edge(32);
+
+    &::before, &::after {
+        height: 16px;
+        margin-top: -8px;
+    }
+}
+
+.cls_sm {
+    @include equal_min_edge(16);
+
+    &::before, &::after {
+        height: 8px;
+        margin-top: -4px;
+    }
+}
+
+// CLOSE BUTTON
+.close-btn {
+    position: relative;
+    background-color: $color_white;
+    @include equal_min_edge(30);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .6s ease-in-out;
+
+    &::before, &::after {
+        content: "";
+        @include transform_center();
+        @include equal_min_edge(14);
+        transition: all .4s ease-in-out;
+    }
+
+    &::before {
+        border-left: 1.5px solid rgb(156, 156, 156);
+        transform: translate(-2.5px, -3px) rotate(45deg);
+    }
+
+    &::after {
+        border-right: 1.5px solid rgb(156, 156, 156);
+        transform: translate(-11px, -3px) rotate(-45deg);
+    }
+
+    &:hover {
+        background-color:rgba($brand_inverse, .2);
+        &::before, &::after {
+            border-color: rgb(116, 116, 116);
+        }
+    }
+}
+
+.close-btn-sm {
+    @include equal_min_edge(24);
+
+    &::before, &::after {@include equal_min_edge(12)}
+
+    &::before {transform: translate(-2px, -2px) rotate(45deg)}
+
+    &::after {transform: translate(-9.5px, -2px) rotate(-45deg)}
+}
+
+// TO TOP
 .to-top {
     display: inline-block;
     @include equal_min_edge(30);
@@ -399,39 +483,53 @@ button {
     }
 }
 
-/* pager */
-.pager {
-    display: block;
-    @include clearfix;
-
-    >* {
-        vertical-align: middle;
-        display: inline-block;
-    }
+// PAGINATION
+.paging-block {
+    margin: 30px 0 10px;
+    width: auto;
+    height: auto;
+    @include flex_row_start_nowrap;
+    padding-top: auto;
+    padding-bottom: auto;
+    vertical-align: middle;
 }
 
-.pager_item {
-    display: inline-block;
-    margin-right: 10px;
+.paging-item, .paging-nav {
+    position: relative;
+    margin-right: 15px;
+    font-size: 14px;
+    line-height: 19px;
+    color: $color_grey_dark;
+    transition: all .3s ease-in-out;
+    cursor: pointer;
 
     a {
-        display: block;
-        padding: 4.5px 12px;
-        border-radius: 40px;
-        text-transform: capitalize;
-        color: $brand_primary;
-
-        &:hover {
-            background-color: $border_grey;
-        }
+        @include transform_center;
     }
-    &.active a {
-        pointer-events: none;
-        font-weight: 700;
-        background-color: $border_grey;
+
+    &:hover {
+        background:$border_grey;
+        a {color: $color_text}
     }
 }
 
+.paging-item {
+    @include equal_min_edge(30);
+    border-radius: 50%;
+}
+
+.paging-nav {
+    @include custom_min_edge(50, 30);
+    padding: 5px 7px;
+    border-radius: 2px;
+}
+
+.paging-active {
+    background: $border_grey;
+    color: $color_text;
+}
+
+// BREADCRUMB NAVIGATION
 .breadcrumb {
     padding: 0;
     margin-bottom: 0;

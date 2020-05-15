@@ -1,56 +1,83 @@
+// PLACEHOLDER
+%modal-styling {
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-bottom: 40px;
+    transform: translateX(-50%);
+    width: auto;
+    height: auto;
+    background: #fff;
+    box-sizing: border-box;
+    border-radius: 10px;
+    overflow: auto;
+    z-index: 3000;
+    transition: top .5s ease-in-out;
+    animation: panel-slide-down .6s ease-in-out forwards;
+}
+
 .modal-overlay {
     position: fixed;
     @include section_stretch();
-    overflow: hidden !important;
+    overflow: auto !important;
     z-index: 2000;
     background-color: rgba($brand_black, .9);
-    transition: all .3s ease-in-out;
+    transition: all .5s ease-in-out;
 
     .modal-box {
-        position: absolute;
-        top: 50px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: auto;
-        height: auto;
-        background: #fff;
-        box-sizing: border-box;
-        border-radius: 15px;
-        padding: 15px 0;
-        transition: top .5s ease-in-out;
-        animation-name: animateTop;
-        animation-duration: 0.4s;
-        animation-timing-function: ease-in-out;
+        @extend %modal-styling;
+        padding: 20px 0;
+        padding-top: 30px;
 
-        .close-btn {
+        .modal-title {
+            font-size: 16px;
+            line-height: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: $color_text;
+        }
+
+        .modal-body {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            padding-left: 22px;
+            padding-right: 22px;
+
+            .modal-body-row {
+                position: relative;
+                margin-bottom: 35px;
+
+                .label-compact {
+                   @include label_compact;
+                }
+            }
+        }
+    }
+
+    .modal-cover {
+        @extend %modal-styling;
+        top: 70px;
+        overflow: hidden;
+
+        .modal-cover-body {
             position: relative;
-            background-color: $color_white;
-            @include equal_min_edge(30);
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all .6s ease-in-out;
+            width: 100%;
+            height: auto;
+            overflow-y: auto;
+            overflow-x: hidden;
 
-            &::before, &::after {
-                content: "";
-                @include transform_center();
-                @include equal_min_edge(14);
-                transition: all .4s ease-in-out;
+            @include breakpoint_max(md) {
+                .pageClose {
+                    top: 30px;
+                    right: 30px;
+                }
             }
 
-            &::before {
-                border-left: 1.5px solid rgb(156, 156, 156);
-                transform: translate(-2.5px, -3px) rotate(45deg);
-            }
-
-            &::after {
-                border-right: 1.5px solid rgb(156, 156, 156);
-                transform: translate(-11px, -3px) rotate(-45deg);
-            }
-
-            &:hover {
-                background-color:rgba($brand_inverse, .2);
-                &::before, &::after {
-                    border-color: rgb(116, 116, 116);
+            @include breakpoint_max(sm) {
+                .pageClose {
+                    top: 27px;
                 }
             }
         }
@@ -61,8 +88,8 @@
         to{top: 50px; opacity: 1}
     }
 
-    .modal-sm {
-        width: 30%;
+    .modal-sm-md {
+        width: 38%;
 
         @include breakpoint_max(xl) {
             width: 45%;
@@ -70,6 +97,26 @@
 
         @include breakpoint_max(lg) {
             width: 50%;
+        }
+
+        @include breakpoint_max(md) {
+            width: 84%;
+        }
+
+        @include breakpoint_max(sm) {
+            width: 95%;
+        }
+    }
+
+    .modal-md {
+        width: 50%;
+
+        @include breakpoint_max(xl) {
+            width: 62%;
+        }
+
+        @include breakpoint_max(lg) {
+            width: 65%;
         }
 
         @include breakpoint_max(md) {
@@ -77,27 +124,13 @@
         }
 
         @include breakpoint_max(sm) {
-            width: 95%;
-        }
-    }
-    .modal-md {
-        width: 36%;
-        
-        @include breakpoint_max(xl) {
-            width: 45%;
-        }
-
-        @include breakpoint_max(lg) {
-            width: 50%;
-        }
-
-        @include breakpoint_max(md) {
-            width: 70%;
-        }
-
-        @include breakpoint_max(sm) {
-            width: 90%;
+            width: 97%;
         }
     }
     
+}
+
+// MODAL COVER OVELAY BACKGROUND
+.modal-cover-overlay {
+    background-color: rgba($brand_black, .7);
 }

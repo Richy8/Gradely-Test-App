@@ -1,8 +1,7 @@
 /* SVG Icon systems */
 .cust_icon {
   display: inline-block;
-  width: 24px;
-  height: 24px;
+  @include equal_min_edge(24);
   overflow: hidden;
   vertical-align: middle;
   fill: inherit;
@@ -26,14 +25,6 @@ svg {
 
 .icon_sm_mid {
   @include equal_min_edge(20);
-
-  @include breakpoint_max(xl) {
-    @include equal_min_edge(16);
-  }
-
-  @include breakpoint_max(lg) {
-    @include equal_min_edge(14);
-  }
 }
 
 .icon_sm_22 {
@@ -79,10 +70,6 @@ svg {
 
 .icon_info {
   background-image: url(../img/icons/info.svg);
-}
-
-.icon_school {
-  background-image: url(../img/icons/School.svg);
 }
 
 .icon_parent {
@@ -149,14 +136,6 @@ svg {
   }
 }
 
-.map_pin {
-  background-image: url(../img/icons/map-pin.svg);
-}
-
-.phone {
-  background-image: url(../img/icons/phone.svg);
-}
-
 .icon_on {
   background-image: url(../img/icons/done.svg);
 }
@@ -173,16 +152,8 @@ svg {
   background-image: url(../img/icons/file-text.svg);
 }
 
-.icon_camera {
-  background-image: url(../img/icons/camera.svg);
-}
-
 .icon_reply {
   background-image: url(../img/icons/reply.svg);
-}
-
-.icon_mail {
-  background-image: url(../img/icons/mail.svg);
 }
 
 .icon_phone {
@@ -197,24 +168,12 @@ svg {
   background-image: url(../img/icons/calendar.svg);
 }
 
-.icon_link {
-  background-image: url(../img/icons/link.svg);
-}
-
 .icon_inbox {
   background-image: url(../img/icons/inbox.svg);
 }
 
 .icon_play {
   background-image: url(../img/icons/play-button.svg);
-}
-
-.icon_catchup {
-  background-image: url(../img/icons/grd_catchup.svg);
-}
-
-.icon_learn {
-  background-image: url(../img/icons/grd_learn.svg);
 }
 
 .icon_difficulty {
@@ -311,6 +270,16 @@ svg {
   background-image: url(../img/icons/settings-icon-color.svg);
 }
 
+.gear_light_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/settings-icon-light.svg);
+}
+
+.gear_inverse_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/settings-inverse-icon.svg);
+}
+
 .h-ellipsis-icon {
   background-image: url(../img/icons/ellipsis-h.svg);
 }
@@ -343,4 +312,112 @@ svg {
 .pie_chart_accent_icon {
   transition: all .3s ease-in-out;
   background-image: url(../img/icons/pie-chart-accent.svg);
+}
+
+.school_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/school-new.svg);
+}
+
+.school_inverse_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/school-inverse-new.svg);
+}
+
+.sliders_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/sliders.svg);
+}
+
+.sliders_inverse_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/sliders-inverse.svg);
+}
+
+.help_circle_icon {
+  background-image: url(../img/icons/help-circle.svg);
+}
+
+.log_out_icon {
+  background-image: url(../img/icons/log-out.svg);
+}
+
+.plus_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/plus-icon.svg);
+}
+
+.plus_icon_light {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/plus-icon-light.svg);
+}
+
+.accept_icon_primary {
+  background-image: url(../img/icons/accept-icon-primary.svg);
+}
+
+.accept_icon_accent {
+  background-image: url(../img/icons/accept-icon-accent.svg);
+}
+
+.decline_icon_tonic {
+  background-image: url(../img/icons/decline-icon.svg);
+}
+
+.filter_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/filter-icon.svg);
+}
+
+.filter_icon_light {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/filter-icon-light.svg);
+}
+
+.chat_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/chat-icon.svg);
+}
+
+.chat_icon_dark {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/chat-icon-dark.svg);
+}
+
+.email_icon {
+  background-image: url(../img/icons/email-icon.svg);
+}
+
+.email_primary {
+  background-image: url(../img/icons/envelope-blue.svg);
+}
+
+.telephone_icon {
+  background-image: url(../img/icons/telephone-icon.svg);
+}
+
+.telephone_primary {
+  background-image: url(../img/icons/telephone-blue.svg);
+}
+
+.map_pin_primary {
+  background-image: url(../img/icons/map-pin-blue.svg);
+}
+
+.link_primary {
+  background-image: url(../img/icons/link-blue.svg);
+}
+
+.user_circle_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/user-circle.svg);
+}
+
+.user_circle_inverse_icon {
+  transition: all .3s ease-in-out;
+  background-image: url(../img/icons/user-circle-inverse.svg);
+}
+
+.camera_inverse_icon {
+  background-image: url(../img/icons/camera-inverse.svg);
 }

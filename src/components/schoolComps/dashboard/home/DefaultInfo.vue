@@ -13,10 +13,10 @@
 
         <!-- ACTIVITIES -->
         <div class="activities">
-            <router-link to="/" class="activity">
+            <div class="activity pointer w-100" @click="$emit('toggleTeacherModal')">
                 <div class="done"></div>
                 <div class="label-text">Add Teachers</div>
-            </router-link>
+            </div>
 
             <router-link to="/" class="activity">
                 <div class="undone"></div>
@@ -33,21 +33,21 @@
                 <div class="label-text">Setup your curriculum</div>
             </router-link>
         </div>
+
     </div>
 </template>
 
 <script>
 export default {
     name: "DefaultInfo",
-
     data(){
         return{
-
+          
         }
     },
 
     methods:{
-        
+     
     }
 }
 </script>

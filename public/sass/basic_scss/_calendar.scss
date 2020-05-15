@@ -1,0 +1,160 @@
+// CALENDAR PLUGIN STYLING
+.calendar-plugin {
+    position: relative;
+    box-sizing: border-box;
+    min-width: 100%;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding: 25px 20px 20px;
+    background: #FFFFFF;
+    border: 1px solid $border_grey;
+    border-radius: 10px;
+    margin-bottom: 27px;
+
+    .date-view {
+        width: 100%;
+        margin-bottom: 22.5px;
+        @include flex_row_between_nowrap;
+    }
+
+    .left-nav, .right-nav, .date-display {
+        transition: all .4s ease-in-out;
+        &:hover {color: $brand_primary !important;}
+    }
+    .date-display {
+        &:hover {color: $brand_accent !important}
+    }
+
+    // DAY VIEW SECTION
+    .days-view-section {
+        .week-view, .day-view {
+            width: 100%;
+            font-size: 14px;
+            line-height: 19px;
+
+            .week, .day-col {
+                width: 14.286%;
+                text-align: center;
+            }
+        }
+
+        .week-view {
+            @include flex_row_evenly_nowrap;
+            color: $border_grey_dark;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+            border-bottom: 1px solid $border_grey;
+        }
+
+        .day-view {
+            @include flex_row_evenly_wrap;
+            justify-content: flex-start;
+            color: $color_text;
+
+            .day-col {
+                position: relative;
+                @include flex_row_center_nowrap;
+                margin-bottom: 13.5px;
+                text-align: center;
+
+                .day {
+                    @include flex_row_center_nowrap;
+                    @include equal_min_edge(28);
+                    border-radius: 50%;
+                    cursor: pointer;
+                    user-select: none;
+                    transition: background-color .25s ease-in-out;
+
+                    &:hover {background-color: rgba($brand_accent, .3)}
+                }
+                .active {background: rgba($brand_inverse, .2)}
+            }
+        }
+    }
+
+    // YEARS VIEW SECTION
+    .years-view-section {
+        .years-view {
+            width: 100%;
+            height: 220px;
+            overflow: auto;
+            @include flex_row_evenly_wrap;
+            justify-content: flex-start;
+            font-size: 14px;
+            line-height: 19px;
+            -ms-overflow-style: none;
+            &::-webkit-scrollbar{
+                width: 10px;
+            }
+            &::-webkit-scrollbar-track {
+                background-color: #FFFFFF;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: $border_grey_light;
+            }
+
+            .years {
+                width: 20%;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                margin-bottom: 5px;
+                text-align: center;
+                border: none;
+                cursor: pointer;
+                user-select: none;
+                transition: background-color .25s ease-in-out;
+
+                &:hover {background-color: rgba($brand_accent, .3)}
+            }
+            .active {background: rgba($brand_inverse, .2)}
+        }
+    }
+
+    // CALENDAR DIVIDER
+    .calendar-divider {
+        width: 100%;
+        height: 6px;
+        border-top: 1px solid $border_grey;
+        border-bottom: 1px solid $border_grey;
+    }
+
+    // CREATE NEW SECTION
+    .create-view {
+        @include flex_row_start_nowrap;
+        width: 40%;
+        margin-top: 20px;
+
+        .undone {
+            @include equal_min_edge(26);
+            margin-right: 10px;
+
+            &:after {
+                font-size: 10px;
+            }
+        }
+
+        .label-text {
+            font-size: 14px;
+            line-height: 19px;
+            transition: color .3s ease-in-out;
+
+            @include breakpoint_max(lg) {
+                font-size: 12px;
+            }
+        }
+
+        &:hover {
+            .undone {
+                border: 1px solid $brand_primary;
+            }
+
+            .label-text {
+                color: $brand_primary !important;
+                text-decoration: underline;
+            }
+        }
+    }
+
+   
+}

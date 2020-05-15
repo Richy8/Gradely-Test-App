@@ -1,5 +1,8 @@
 import Vue from "vue";
-import {BootstrapVue, BootstrapVueIcons} from 'bootstrap-vue';
+import {
+  BootstrapVue,
+  BootstrapVueIcons
+} from 'bootstrap-vue';
 import App from "./App.vue";
 import router from "./router";
 import store from "./store";
@@ -14,14 +17,12 @@ import vWow from 'v-wow';
 import '../public/css/app.css';
 
 import jQuery from 'jquery'
-global.$ = jQuery;    
-import '../public/js/script.js';
+global.$ = jQuery;
 
 Vue.component("vue-headful", vueHeadful);
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(vWow);
-
 
 Vue.config.productionTip = false;
 

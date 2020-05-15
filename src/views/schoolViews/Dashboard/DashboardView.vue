@@ -1,7 +1,9 @@
 <template>
     <div>
         <Navbar/>
-        <router-view></router-view>
+        <transition name="slide-fade" mode="out-in">
+            <router-view></router-view>
+        </transition>
     </div>
 </template>
 
@@ -14,6 +16,16 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+    .slide-fade-enter-active {
+        transition: all .2s ease-in;
+    }
+    .slide-fade-leave-active {
+        transition: all .4s ease-out;   
+    }
+    .slide-fade-enter,
+    .slide-fade-leave-to {
+        transform: translateX(3px);
+        opacity: 0;
+    }
 </style>

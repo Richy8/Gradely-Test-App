@@ -1,11 +1,37 @@
-// BACKGROUND COLOR SETTER
-.bg-color-setter {
-    position: relative;
-    @include section_stretch();
-    overflow: auto;
-    min-height: 100%;
-    max-height: 100%;
-    height: 100%;
+// ANIMATIONS
+@keyframes panel-slide-down{
+    0%,30% { 
+        margin-top:-20px;
+        opacity:0
+    }
+    to {
+        margin-top:0;
+        opacity:1
+    }
+}
+
+@keyframes panel-slide-right{
+    0%,30% { 
+        margin-top: -30px;
+        margin-right:-25px;
+        opacity:0
+    }
+    to {
+        // margin-top:0;
+        opacity:1
+    }
+}
+
+@keyframes panel-slide-left{
+    0%,30% { 
+        margin-top: -30px;
+        margin-left:-25px;
+        opacity:0
+    }
+    to {
+        // margin-top:0;
+        opacity:1
+    }
 }
 
 // OVERLAY
@@ -63,8 +89,17 @@
     }
 }
 
+.undone-md,
+.done-md {
+    @include equal_min_edge(26);
+
+    &:after {
+        font-size: 9px;
+    }
+}
+
 // SMALL CARDS
-.small-card {
+.activity-card {
     background: #FFFFFF;
     border-radius: 5px;
     height: auto;
@@ -104,35 +139,51 @@
 .dropdown-btn-menu {
     position: absolute;
     right: 0;
-    top: 90%;
-    font-size: 1em;
     box-sizing: border-box;
     z-index: 1000;
     height: auto;
     width: 100%;
     padding: 10px;
-    padding-bottom: 0;
+    padding-bottom: 0 !important;
     margin: 0;
     border-radius: 5px;
     color: $color_grey_dark;
     background-color: white;
-    box-shadow: 0 0 0 1px rgba(black,0.1), 0 3px 10px 0 rgba(black,0.2);
+    box-shadow: 0 0 0 1px rgba(rgb(104, 104, 104),0.1), 0 3px 5px 0 rgba(rgb(104, 104, 104),0.2);
     transition: all .6s ease-in-out;
     animation: panel-slide-down .5s ease-in-out forwards;
     overflow: hidden;
     border: none;
 
+    @include breakpoint_max(xs) {
+        padding: 4px;
+    }
+
     li {
         a {
             padding: 10px;
             display: flex;
-            justify-content: flex-end;
+            justify-content: flex-start;
             width: 100%;
-            font-size: 14px;
+            font-size: 13.25px;
             color: $color_ash;
             text-transform: capitalize;
             line-height: normal;
             white-space: nowrap;
+
+            &:last-of-type {
+                margin-bottom: -2.5px !important;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 12px;
+                padding: 8px;
+            }
+
+            @include breakpoint_max(xs) {
+                font-size: 11px;
+                padding: 7.5px;
+            }
 
             &:hover {
                 background: rgba($brand_inverse, .15);
@@ -142,16 +193,60 @@
     }
 }
 
-@keyframes panel-slide-down{
-    0%,30% { 
-        margin-top:-15px;
-        opacity:0
+// DROP-DOWN PLACEMENT
+.placement-top {
+    top: -290% !important;
+}
+
+.placement-bottom {
+    top: 90%;
+}
+
+// SLIDE OUT MENU
+.slide-out-menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    z-index: 1000;
+    height: auto;
+    padding: 20px;
+    padding-bottom: 0px;
+    margin: 0;
+    border-radius: 5px;
+    color: $color_ash;
+    background-color: white;
+    box-shadow: 0 0 0 1px rgba(rgb(104, 104, 104),0.1), 0 3px 5px 0 rgba(rgb(104, 104, 104),0.2);
+    overflow: hidden;
+    border: none;
+
+    .panel-row {
+        margin-bottom: 23px;
     }
-    to {
-        margin-top:0;
-        opacity:1
+
+    li {
+        padding: 15px 10px;
+        width: 100%;
+        text-transform: capitalize;
+        font-size: 13.5px;
+        line-height: 19px;
+        white-space: nowrap;
+
+        @include breakpoint_max(lg) {
+            padding: 13px 8px;
+        }
+
+        &:last-of-type {
+            margin-bottom: -2.5px !important;
+        }
+
+        &:hover {
+            background: rgba($brand_inverse, .15);
+            color: $brand_black;
+        }
     }
 }
+
 
 // ACCORDION STYLING
 .accordion-top {
@@ -175,7 +270,7 @@
     border-radius: 0 0 5px 5px;
     transition: all .6s ease-in-out;
     animation: panel-slide-down .5s ease-in-out forwards;
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 19px 10px 30px;
 }
 
@@ -184,9 +279,9 @@
     position: relative;
     background-color: #ffffff;
     border-radius: 5px;
-    @include custom_min_edge(210, 160);
+    width: 210px;
+    height: auto;
     padding: 16px 15px;
-    overflow: hidden;
     margin-right: 20px;
 
     @include breakpoint_max(lg) {
@@ -205,9 +300,11 @@
         width: 100%;
         height: 6px;
         background-color: $brand_accent;
+        border-radius: 5px 5px 0 0;
     }
 
     .branch-card-header {
+        position: relative;
         @include flex_row_between_nowrap;
         margin-bottom: 19px;
 
@@ -241,7 +338,7 @@
         color: $color_grey_dark;
         font-size: 14px;
         line-height: 19px;
-        margin-bottom: 32px;
+        margin-bottom: 35px;
 
         @include breakpoint_max(lg) {
             font-size: 13px;
@@ -257,7 +354,234 @@
         @include flex_row_between_nowrap;
         padding-left: 13px;
         padding-right: 13px;
-        margin-bottom: 16px;
+        margin-bottom: 0px;
     }
 }
 
+//DASHBOARD PAGE STYLING
+.dashboard-header-row {
+    @include flex_row_between_nowrap;
+    margin-top: 50px;
+    margin-bottom: 40px;
+
+    @include breakpoint_max(sm) {
+        margin-top: 40px;
+    }
+
+    .page-title {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 165%;
+        color: $color_text;
+
+        @include breakpoint_max(lg) {
+            font-size: 30px;
+        }
+
+        @include breakpoint_max(md) {
+            font-size: 27px;
+        }
+
+        @include breakpoint_max(sm) {
+            font-size: 21px;
+        }
+    }
+}
+
+// TODO CARD AND ALERT CARD
+.todo-card, .alert-card {
+    position: relative;
+    background-color: #ffffff;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    border: none;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    &:hover {
+        background-color: #f8f8f8;
+    }
+    
+    .todo-label, .alert-label {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 6px;
+        height: 100%;
+    }
+
+    .todo-row, .alert-row {
+        @include flex_row_between_nowrap;
+        padding: 8px 20px;
+    }
+}
+
+// ALERT CARD
+.alert-card {
+    border-radius: 5px;
+
+    &:hover{ background-color: #FFFFFF; }
+    .alert-row { 
+        padding: 11px 26px; 
+        font-size: 14px;
+        line-height: 19px;
+        color: $color_text;
+
+        @include breakpoint_max(md) {
+            font-size: 13px;
+        }
+
+        @include breakpoint_max(sm) {
+            font-size: 12px;
+        }
+    }
+}
+
+// TEACHERS CARD
+.teacher-card {
+    position: relative;
+    width: 100%;
+    height: 226.84px;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 20px;
+    border: none;
+    margin-bottom: 30px;
+    overflow: hidden;
+
+    @include breakpoint_max(xl) {
+        height: 220px;
+    }
+
+    @include breakpoint_max(md) {
+        overflow: unset;
+        height: 210px;
+    }
+
+    @include breakpoint_max(sm) {
+        height: 160px;
+    }
+
+    .teacher-card-top {
+        position: relative;
+        top:0;
+        left: 0;
+        width: 100%;
+        padding: 30.84px 15px 22px;
+        @include flex_column_center;
+
+        .avatar {
+            margin-bottom: 20px;
+        }
+
+        .card-option {
+            position: absolute;
+            margin: 25px auto 0;
+            top: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+            width: 90%;
+
+            @include breakpoint_max(xs) {
+                width: 88%;
+            }
+        }
+    }
+
+    .teacher-card-bottom {
+        position: relative;
+        @include flex_row_between_nowrap;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30.86%;
+        background-color: #FCEACF;
+        padding: 14px 70px;
+
+        @include breakpoint_max(xl) {
+            padding: 10px 45px;
+        }
+
+        @include breakpoint_max(md) {
+            padding: 5px 65px;
+        }
+
+        @include breakpoint_max(sm) {
+            display: none;
+        }
+
+        .teacher-column {
+            @include flex_column_center;
+            margin-bottom: 7px;
+
+            @include breakpoint_max(xl) {
+                margin-bottom: 6px;
+            }
+        }
+    }
+}
+
+// VERIFICATION CARD
+.verify-card {
+    @include flex_row_between_nowrap;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    background: #FFFFFF;
+    border-radius: 2px;
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    padding-right: 3px;
+    margin-bottom: 5px;
+
+    @include breakpoint_max(md) {
+        padding: 10px;
+        padding-right: 3px;
+        padding-left: 13px;
+    }
+
+    .verify-detail {
+        @include flex_row_start_nowrap;
+        padding-right: 15px;
+    }
+
+    .verify-action {
+        @include flex_row_between_wrap;
+
+        @include breakpoint_max(lg) {
+            @include flex_column_center;
+        }
+
+        .approve-box {
+            background-color: #DBF5F8;
+            margin-right: 15px;
+            transition: background-color .3s ease-in-out;
+            &:hover{background-color: darken(#DBF5F8, 10%) }
+
+            @include breakpoint_max(lg) {
+                margin-right: 0px;
+                margin-bottom: 5px;
+            }
+        }
+        
+        .decline-box {
+            background-color: #FFDCDE;
+            margin-left: 15px;
+            transition: background-color .3s ease-in-out;
+            &:hover{background-color: darken(#FFDCDE, 5%)}
+
+            @include breakpoint_max(lg) {
+                margin-left: 0px;
+                margin-top: 5px;
+            }
+        }
+    }
+}
+
+// INDICATORS
+.indicator-icon {
+    position: relative;
+    @include equal_min_edge(15);
+    border-radius: 45px;
+}

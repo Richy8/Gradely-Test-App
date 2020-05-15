@@ -1,0 +1,173 @@
+.school-teacher-section {
+    position: relative;
+    top: 60px;
+
+    .container {
+        @include breakpoint_max(sm) {
+            padding-right: 15px !important;
+            padding-left: 15px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+    }
+
+    // ALERT CARD
+    .alert-card-component {
+        margin-bottom: 20px;
+    }
+
+    // TEACHER CARD DISPLAY
+    .teacher-card-display {
+        
+        .avatar {
+            .avatar-text {
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 19px;
+                letter-spacing: 0.05em;
+            }
+        }
+
+        .teacher-name {
+            margin-bottom: 2px;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 22px;
+            text-transform: capitalize;
+            overflow-wrap: break-word;
+
+            @include breakpoint_max(md) {
+                font-size: 15px;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 13.5px;
+            }
+
+            @include breakpoint_max(xs) {
+                font-size: 12px;
+            }
+        }
+
+        .teacher-email {
+            font-size: 13px;
+            line-height: 18px;
+
+            @include breakpoint_max(md) {
+                font-size: 12.5px;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 11px;
+            }
+
+            @include breakpoint_max(xs) {
+                font-size: 10px;
+                width: 130px;
+            }
+        }
+
+        .teacher-column {
+            .counter {
+                @include breakpoint_max(xl) {
+                    font-size: 15px;
+                }
+
+                @include breakpoint_max(md) {
+                    font-size: 14px;
+                }
+            }
+            .title {
+                @include breakpoint_max(xl) {
+                    font-size: 11px;
+                }
+
+                @include breakpoint_max(md) {
+                    font-size: 10px;
+                }
+            }
+        }
+    }
+
+    .pagination-section {
+        margin-top: -20px;
+        margin-bottom: 40px;
+
+        @include breakpoint_max(md) {
+            margin-bottom: 90px;
+        }
+    }
+}
+
+// VERIFY TEACHER MODAL
+.verify-teacher-modal {
+    width: 100%;
+
+    .verify-teacher-top {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        border-bottom: 1px solid $border_grey;
+
+        .approve-all, .decline-all {
+            font-size: 14px;
+            line-height: 19px;
+            font-weight: 500;
+            transition: color .3s ease-in-out;
+        }
+
+        .approve-all {
+            margin-right: 32px;
+            &:hover{
+                color: darken($brand_accent, 30%) !important;
+            }
+        }
+
+        .decline-all {
+            &:hover{
+                color: darken($brand_tonic, 30%) !important;
+            }
+        }
+    }
+
+    .verify-card {
+        .avatar {
+            margin-right: 15px;
+        }
+
+        .verify-info {
+            .name {
+                font-weight: 900;
+                font-size: 16px;
+                line-height: 22px;
+                margin-bottom: 2px;
+                text-transform: capitalize;
+
+                @include breakpoint_max(md) {
+                    font-size: 14px;
+                }
+
+                @include breakpoint_max(sm) {
+                    font-size: 13px;
+                }
+            }
+            .meta {
+                font-weight: normal;
+                font-size: 13px;
+                line-height: 18px;
+
+                @include breakpoint_max(md) {
+                    font-size: 12px;
+                }
+
+                @include breakpoint_max(sm) {
+                    font-size: 11.5px;
+                }
+            }
+        }
+
+    }
+}

@@ -1,22 +1,18 @@
 <template>
 <div>
     <div class="modal-overlay">
-        <div class="modal-box modal-md">
+        <div class="modal-box modal-sm-md" :class="modal_size">
             <div class="container">
                 <div class="row">
-                    <div class="col-12 px-sm-2 px-md-4 d-flex justify-content-between align-items-center">
-                        <div class="font-15-5 font-weight-800">
+                    <div class="col-12 px-sm-4 px-md-4 d-flex justify-content-between align-items-center">
+                        <div class="modal-title">
                             <slot name="modal-title"></slot>
                         </div>
-                        <div class="close-btn"></div>
+                        <div class="close-btn" @click="$emit('closeModal')"></div>
                     </div>
 
-                    <div class="col-12 px-sm-2 px-md-4 mt-4">
+                    <div class="col-12 modal-body">
                         <slot name="modal-body"></slot>
-                    </div>
-
-                    <div class="col-12 px-sm-2 px-md-4 mt-1">
-                        <slot name="modal-footer"></slot>
                     </div>
 
                 </div>
@@ -29,7 +25,14 @@
 
 <script>
 export default {
-    name: "Modal"
+    name: "Modal",
+
+    props: {
+        modal_size: {
+            type: String,
+            required: false
+        }
+    }
 }
 </script>
 

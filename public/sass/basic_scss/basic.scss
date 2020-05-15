@@ -25,14 +25,8 @@
 /*Hint Style*/
 @import 'hint_scss/hint.scss';
 
-/* MODAL STYLE */
-@import 'modal';
-
 /* AVATAR STYLE */
 @import 'avatar';
-
-/* FORM STYLE */
-@import 'forms';
 
 /* NAVIGATION STYLE */
 @import 'navigation';
@@ -40,5 +34,17 @@
 /* SECTION STYLE */
 @import 'components';
 
+/* FORM STYLE */
+@import 'forms';
+
+/* CALENDAR STYLE */
+@import 'calendar';
+
+/* MODAL STYLE */
+@import 'modal';
+
 /* NAVIGATION STYLE */
 @import 'navbar';
+
+// SETTINGS SIDE NAV
+@import "settings_sidenav";

@@ -2,19 +2,32 @@
     position: fixed;
     @include section_stretch();
     overflow: auto;
+    z-index: 2000;
+    background-color: rgba($brand_black, .9);
+    transition: all .4s ease-in-out;
+    
 
     .welcome-container {
         position: absolute;
+        overflow: auto;
         width: 53.5%;
+        top: 50%;
         left: 50%;
-        transform: translateX(-50%);
+        box-sizing: border-box;
+        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+        border-radius: 10px;
+        transform: translate(-50%, -50%);
+        -ms-overflow-style: none;
+        &::-webkit-scrollbar {
+            display: none;
+        }
 
         @include breakpoint_max(xl) {
             width: 58%;
         }
 
         @include breakpoint_max(lg) {
-            width: 70%;
+            width: 78%;
         }
 
         @include breakpoint_max(md) {
@@ -27,15 +40,15 @@
             margin-bottom: 30px;
 
             @include breakpoint_max(xl) {
-                height: 340px;
-            }
-
-            @include breakpoint_max(md) {
-                height: 410px;
+                height: 350px;
             }
 
             @include breakpoint_max(sm) {
-                height: 330px;
+                height: 320px;
+            }
+
+            @include breakpoint_max(xs) {
+                height: 280px;
             }
             
             .banner-overlay {
@@ -55,6 +68,22 @@
                 width: 90%;
                 left: 50%;
                 transform: translateX(-50%);
+
+                @include breakpoint_max(lg) {
+                    width: 65%;
+                }
+
+                @include breakpoint_max(lg) {
+                    width: 70%;
+                }
+
+                @include breakpoint_max(md) {
+                    width: 75%;
+                }
+
+                @include breakpoint_max(sm) {
+                    width: 98%;
+                }
             }
 
             .brand-icon {

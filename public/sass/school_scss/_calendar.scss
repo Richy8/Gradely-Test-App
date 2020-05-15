@@ -1,0 +1,89 @@
+.school-calendar-section {
+    position: relative;
+    top: 60px;
+
+    // CALENDAR COMPONENT STYLING
+    .left-layout {
+        .calendar-plugin-section {
+            padding-right: 20px;
+        }
+
+        .todo-label-list {
+            li {
+                margin-bottom: 14px;
+            }
+        }
+    }
+
+    // TODO TASK COMPONENT STYLING
+    .right-layout {
+        .right-first-row {
+            @include flex_row_between_nowrap;
+            margin-bottom: 34px;
+           
+            .left-avatar {
+                margin-right: 15px;
+
+                .avatar-with-meta {
+                    background-color: rgba($brand_inverse, .25);
+                }
+            }
+
+            .right-avatar {
+                i {
+                    font-size: 16px;
+                }
+            }
+        }
+
+        .right-second-row {
+            @include flex_row_between_nowrap;
+            margin-bottom: 13px;
+
+            .event-count {
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 19px;
+            }
+
+            .filter {
+                font-size: 12px;
+                padding: 5px 12px;
+            }
+        }
+
+        .todo-card-section {
+            margin-bottom: 5px;
+
+            .left-info {
+                @include flex_row_start_nowrap;
+
+                .todo-time {
+                    font-weight: normal;
+                    font-size: 14px;
+                    line-height: 19px;
+                    margin-right: 15px;
+                    text-align: left;
+                    width: 67px;
+                }
+
+                .todo-title {
+                    font-weight: bold;
+                    font-size: 15.5px;
+                    line-height: 22px;
+                    margin-bottom: 1.5px;
+                }
+                .todo-meta {
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+            .right-info {
+                font-weight: bold;
+                font-size: 13.5px;
+                line-height: 140%;
+                text-decoration: none;
+            }
+        }
+    }
+}

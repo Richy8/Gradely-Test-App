@@ -30,7 +30,7 @@
                 
                 <!-- CLOSE DIALOG -->
                 <div class="pageClose dialogDismiss">
-                    <button type="button" data-dismiss="alert" class="close_dialog cls_lg">   
+                    <button type="button" class="close_dialog cls_lg">   
                     </button>
                 </div>
 

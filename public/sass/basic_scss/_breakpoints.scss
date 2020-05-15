@@ -75,7 +75,7 @@ $xl: 1200px; // DESKTOP
 // RESPONSIVE CUSTOM WIDTH MEDIA QUERY
 //=====================================
 @mixin breakpoint_min_max($min, $max) {
-    @media(min-width: $min) and (max-width: $max) {
+    @media(min-width: #{$min}px) and (max-width: #{$max}px) {
         @content;
     }
 }
