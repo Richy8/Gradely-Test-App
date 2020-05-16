@@ -350,6 +350,11 @@
             @include breakpoint_max(xs) {
                 font-size: 11px;
             }
+            &:hover {
+                span {
+                    color: $brand_primary !important;
+                }
+            }
         }
     }
     .card-bottom {

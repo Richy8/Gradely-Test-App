@@ -20,7 +20,7 @@
           <label for="changeBanner" class="pointer">
             <input type="file" class="inputFile" id="changeBanner" hidden>
             <div class="d-flex justify-content-around align-items-center">
-              <div class="cust_icon icon_sm_mid camera_inverse_icon mr-2"></div>
+              <span class="icon icon-camera brand_inverse font-17-5 mr-2"></span>
               <div>CHANGE IMAGE</div>
             </div>
           </label>

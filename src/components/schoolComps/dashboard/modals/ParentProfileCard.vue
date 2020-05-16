@@ -22,7 +22,7 @@
               <!-- PHONE -->
               <div class="col col-one">
                 <!-- ICON -->
-                <div class="cust_icon telephone_icon icon_xs mr-2"></div>
+                <span class="icon-phone border_grey_dark mr-2"></span>
                 <!-- INFO -->
                 <div>
                   <div class="label">Phone Number</div>
@@ -33,7 +33,7 @@
               <!-- EMAIL -->
               <div class="col col-two">
                 <!-- ICON -->
-                <div class="cust_icon email_icon icon_xs mr-2"></div>
+                <span class="icon-email border_grey_dark mr-2"></span>
                 <!-- INFO -->
                 <div>
                   <div class="label">Email Address</div>
@@ -45,10 +45,8 @@
             <!-- MESSAGE BUTTON -->
             <button
               class="btn btn-md d-flex flex-center rounded-20 btn-grey-outline"
-              @mouseenter.self="btnHover($event, 'chat_icon_dark')"
-              @mouseleave.self="btnHover($event, 'chat_icon_dark')"
             >
-              <span class="cust_icon chat_icon icon_xs mr-3"></span>
+              <span class="icon-chat font-16 border_grey_dark mr-2"></span>
               SEND A MESSAGE
             </button>
           </div>

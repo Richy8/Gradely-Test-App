@@ -5,6 +5,7 @@
       <!-- PAGE TITLE -->
       <div class="container px-1">
         <div class="row">
+
           <div class="col-12 dashboard-header-row">
             <!-- PAGE TITLE -->
             <div class="page-title">Teachers</div>
@@ -13,11 +14,10 @@
             <div
               class="avatar avatar_md btn-accent right-avatar pointer"
               @click="toggleTeacherModal"
-              @mouseenter.self="btnHover($event, 'plus_icon_light')"
-              @mouseleave.self="btnHover($event, 'plus_icon_light')"
             >
-              <div class="cust_icon avatar-img plus_icon"></div>
+              <span class="icon icon-one icon-plus font-24"></span>
             </div>
+
           </div>
         </div>
       </div>

@@ -31,15 +31,11 @@
       </div>
     </div>
 
-    <router-link
-      to="/"
-      @mouseenter.native.self="btnHover($event)"
-      @mouseleave.native.self="btnHover($event)"
-    >
+    <a href="javascript:void(0)" @click="$emit('toggleSidebar')">
       <div class="avatar avatar_md brand_accent_bg btn-accent">
-        <div class="cust_icon avatar-img icon_arrow_right icon_xs"></div>
+        <span class="icon-arrow-right"></span>
       </div>
-    </router-link>
+    </a>
   </div>
 </template>
 
@@ -71,18 +67,6 @@ export default {
     selected(val) {
       this.dropdown_item = val;
       this.toggle_dropdown = !this.toggle_dropdown;
-    },
-
-    btnHover(event) {
-      event.target.firstElementChild.firstElementChild.classList.contains(
-        "icon_arrow_right_white"
-      )
-        ? event.target.firstElementChild.firstElementChild.classList.remove(
-            "icon_arrow_right_white"
-          )
-        : event.target.firstElementChild.firstElementChild.classList.add(
-            "icon_arrow_right_white"
-          );
     },
 
     onClose() {

@@ -58,12 +58,8 @@
               </div>
 
               <!-- ADD CALENDAR ICON -->
-              <div
-                class="avatar avatar_md btn-accent right-avatar pointer"
-                @mouseenter.self="btnHover($event, 'plus_icon_light')"
-                @mouseleave.self="btnHover($event, 'plus_icon_light')"
-              >
-                <div class="cust_icon avatar-img plus_icon"></div>
+              <div class="avatar avatar_md btn-accent right-avatar pointer">
+                <span class="icon icon-plus"></span>
               </div>
             </div>
 

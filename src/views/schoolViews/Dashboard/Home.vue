@@ -19,7 +19,7 @@
             <div class="school-name font-weight-bold color_white">Chrisland Intl. College</div>
             <div class="school-location brand_inverse_light">Lagos, Nigeria</div>
             <div class="profile-update-cta">
-              <router-link to="/" class>Update school profile</router-link>
+              <router-link to="/school/dashboard/settings" class>Update school profile</router-link>
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
         <div class="row mb-5 mb-sm-4">
           <!-- LEFT CONTENT -->
           <div class="left-content color_mid_blue_bg rounded-5">
-            <transition mode="out-in">
+            <transition name="fade" mode="out-in">
               <component :is="view" @toggleTeacherModal="toggleTeacherModal"></component>
             </transition>
           </div>
@@ -41,7 +41,7 @@
               <div class="header-title font-weight-bold color_text">My Classes</div>
               <div>
                 <!-- PHONE CALL COMPONENT -->
-                <PhoneCall/>
+                <PhoneCall @toggleSidebar="switchSidebar"></PhoneCall>
                 <!-- PHONE CALL COMPONENT -->
               </div>
             </div>
@@ -115,7 +115,8 @@ export default {
 
   data() {
     return {
-      view: DefaultInfo,
+      view: ContentInfo,
+      in_view: false,
       welcome_dialogue: true,
       toggle_teacher_modal: false,
       toggle_branch_modal: false,
@@ -142,10 +143,25 @@ export default {
 
     dialogueCompleted() {
       this.welcome_dialogue = !this.welcome_dialogue;
+    },
+
+    switchSidebar() {
+      this.in_view = !this.in_view;
+      (this.in_view === false) ? this.view = 'ContentInfo' : this.view = 'DefaultInfo';
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+   .fade-enter{
+        opacity: 0;
+    }
+    .fade-enter-active{
+        transition: opacity .2s ease-in;
+    }
+    .fade-leave-active{
+        transition: opacity .2s ease-out;
+        opacity: 0;
+    }
 </style>

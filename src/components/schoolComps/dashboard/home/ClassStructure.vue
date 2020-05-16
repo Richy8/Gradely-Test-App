@@ -3,10 +3,10 @@
     <!-- ACCORDION TOP -->
     <div class="accordion-top pointer" @click.self="toggleAccordion">
       <div class="left d-flex">
-        <div class="icon" :class="{'active': toggle_accordion}"></div>
-        <div class="title color_text">{{class_year}}</div>
+        <div class="icon" @click.self="toggleAccordion" :class="{'active': toggle_accordion}"></div>
+        <div class="title color_text" @click.self="toggleAccordion">{{class_year}}</div>
       </div>
-      <div class="right color_grey_dark">{{arms}}</div>
+      <div class="right color_grey_dark" @click.self="toggleAccordion">{{arms}}</div>
     </div>
 
     <div class="accordion-bottom" v-if="toggle_accordion">
@@ -41,10 +41,12 @@
       <!-- ADD BRANCH -->
       <div class="add-branch pointer">
         <div class="undone"></div>
-        <div class="label-text font-weight-bold brand_accent" @click="$emit('branchModal')">Add more Branches</div>
+        <div
+          class="label-text font-weight-bold brand_accent"
+          @click="$emit('branchModal')"
+        >Add more Branches</div>
       </div>
     </div>
-
   </div>
 </template>
 

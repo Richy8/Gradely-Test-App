@@ -299,6 +299,12 @@
         .contact-icon {
             margin-right: 15px;
             background: #DBF5F8;
+
+            .icon {
+                @include transform_center;
+                color: $brand_primary;
+                font-size: 17px;
+            }
         }
 
         .info {

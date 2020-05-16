@@ -32,7 +32,7 @@ $radius: 5, 10, 15, 20, 25, 30;
 /* ===================
 Font Sizes
 ======================= */
-@for $i from 10 through 15 {
+@for $i from 10 through 25 {
     .font-#{$i} {
         font-size: #{$i/16}rem !important;
     }

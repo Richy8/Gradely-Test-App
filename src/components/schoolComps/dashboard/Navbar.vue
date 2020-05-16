@@ -6,77 +6,41 @@
         <div class="row d-flex justify-content-between align-items-center nowrap">
           <!-- BRAND LOGO -->
           <div class="brand-logo">
-            <a href="/school/dashboard" @click="onRouteClick">
+            <router-link to="/school/dashboard">
               <img src="@/assets/images/Gradely.png" alt="Gradely.ng">
-            </a>
+            </router-link>
           </div>
 
           <!-- NAVIGATION -->
           <div class="nav-items d-flex justify-content-center align-items-center nowrap">
             <!-- HOME ICON -->
             <div class="nav-item">
-              <router-link
-                to="/school/dashboard"
-                @mouseenter.native.self="navHover($event, 'home')"
-                @mouseleave.native.self="navHover($event, 'home')"
-                :class="{'active': home_active}"
-              >
-                <div
-                  class="nav-icon cust_icon home_icon"
-                  :class="{'home_icon_color': home_active}"
-                  id="homeIcon"
-                ></div>
+              <router-link to="/school/dashboard" :class="{'active': home_active}">
+                <span class="icon-tachometer"></span>
                 <div class="nav-text">Home</div>
               </router-link>
             </div>
 
             <!-- TEACHER ICON -->
             <div class="nav-item">
-              <router-link
-                to="/school/dashboard/teacher"
-                @mouseenter.native.self="navHover($event, 'teacher')"
-                @mouseleave.native.self="navHover($event, 'teacher')"
-                :class="{'active': teacher_active}"
-              >
-                <div
-                  class="nav-icon cust_icon teacher_icon"
-                  :class="{'teacher_icon_color': teacher_active}"
-                  id="teacherIcon"
-                ></div>
+              <router-link to="/school/dashboard/teacher" :class="{'active': teacher_active}">
+                <span class="icon-teacher"></span>
                 <div class="nav-text">Teachers</div>
               </router-link>
             </div>
 
             <!-- PARENTS ICON -->
             <div class="nav-item">
-              <router-link
-                to="/school/dashboard/parent"
-                @mouseenter.native.self="navHover($event, 'parent')"
-                @mouseleave.native.self="navHover($event, 'parent')"
-                :class="{'active': parent_active}"
-              >
-                <div
-                  class="nav-icon cust_icon parent_icon"
-                  :class="{'parent_icon_color': parent_active}"
-                  id="parentIcon"
-                ></div>
+              <router-link to="/school/dashboard/parent" :class="{'active': parent_active}">
+                <span class="icon-parent-child"></span>
                 <div class="nav-text">Parents</div>
               </router-link>
             </div>
 
             <!-- MESSAGES ICON -->
             <div class="nav-item">
-              <router-link
-                to="/school/dashboard/message"
-                @mouseenter.native.self="navHover($event, 'message')"
-                @mouseleave.native.self="navHover($event, 'message')"
-                :class="{'active': message_active}"
-              >
-                <div
-                  class="nav-icon cust_icon message_icon"
-                  :class="{'message_icon_color': message_active}"
-                  id="messageIcon"
-                ></div>
+              <router-link to="/school/dashboard/message" :class="{'active': message_active}">
+                <span class="icon-message"></span>
                 <div class="nav-text">Messages</div>
               </router-link>
             </div>
@@ -84,35 +48,20 @@
 
           <!-- MORE ICONS -->
           <div class="more-icons d-flex justify-content-end align-items-center">
-            <div
-              class="icon avatar avatar-square"
-              @mouseenter.self="fillIcon($event, 'search_icon_color')"
-              @mouseleave.self="fillIcon($event, 'search_icon_color')"
-            >
-              <div class="avatar-img cust_icon search_icon icon_sm_mid"></div>
+            <div class="icon avatar avatar-square">
+              <span class="icon-search"></span>
             </div>
 
-            <div
-              class="icon avatar avatar-square"
-              @mouseenter.self="fillIcon($event, 'bell_icon_color')"
-              @mouseleave.self="fillIcon($event, 'bell_icon_color')"
-            >
-              <div class="avatar-img cust_icon bell_icon icon_sm_mid"></div>
+            <div class="icon avatar avatar-square">
+              <span class="icon-bell"></span>
               <div class="badge-circle brand_red_bg index-9"></div>
             </div>
 
-            <div
-              class="icon avatar avatar-square"
-              @mouseenter.self="fillIcon($event, 'gear_icon_color')"
-              @mouseleave.self="fillIcon($event, 'gear_icon_color')"
-            >
-              <div
-                class="avatar-img cust_icon gear_icon icon_sm_mid"
-                v-on-clickaway="onSlideOut"
-                @click.self="toggleSettings"
-              ></div>
+            <div class="icon avatar avatar-square">
+              <span class="icon-gear" v-on-clickaway="onSlideOut" @click.self="toggleSettings"></span>
             </div>
           </div>
+          <!-- MORE ICONS -->
         </div>
       </div>
 
@@ -121,42 +70,34 @@
         <div class="row d-flex justify-content-between align-items-center nowrap">
           <!-- GEAR ICON -->
           <div class="gear-icon">
-            <div
-              class="icon avatar avatar-square"
-              @mouseenter.self="fillIcon($event, 'gear_icon_color')"
-              @mouseleave.self="fillIcon($event, 'gear_icon_color')"
-            >
-              <div
-                class="avatar-img cust_icon gear_icon icon_sm_mid"
+            <div class="icon avatar avatar-square">
+              <span
+                class="icon-gear"
                 v-on-clickaway="onSlideOutMobile"
                 @click.self="toggleSettingsMobile"
-              ></div>
+              ></span>
             </div>
           </div>
 
           <!-- BRAND LOGO -->
           <div class="brand-logo">
-            <a href="/school/dashboard">
+            <router-link to="/school/dashboard">
               <img src="@/assets/images/Gradely.png" alt="Gradely.ng">
-            </a>
+            </router-link>
           </div>
 
           <!-- MORE ICONS -->
           <div class="more-icons d-flex justify-content-end align-items-center">
             <div
               class="icon avatar avatar-square"
-              @mouseenter.self="fillIcon($event, 'search_icon_color')"
-              @mouseleave.self="fillIcon($event, 'search_icon_color')"
             >
-              <div class="avatar-img cust_icon search_icon icon_sm_mid"></div>
+             <span class="icon-search"></span>
             </div>
 
             <div
               class="icon avatar avatar-square"
-              @mouseenter.self="fillIcon($event, 'bell_icon_color')"
-              @mouseleave.self="fillIcon($event, 'bell_icon_color')"
             >
-              <div class="avatar-img cust_icon bell_icon icon_sm_mid"></div>
+              <span class="icon-bell"></span>
               <div class="badge-circle brand_red_bg index-9"></div>
             </div>
           </div>
@@ -170,15 +111,9 @@
       <div class="mobile-nav">
         <router-link
           to="/school/dashboard"
-          @mouseenter.native.self="navHover($event, 'home')"
-          @mouseleave.native.self="navHover($event, 'home')"
           :class="{'active': home_active}"
         >
-          <div
-            class="nav-icon cust_icon home_icon"
-            :class="{'home_icon_color': home_active}"
-            id="homeMobileIcon"
-          ></div>
+          <span class="icon-tachometer"></span>
           <div class="nav-text">Home</div>
         </router-link>
       </div>
@@ -187,15 +122,9 @@
       <div class="mobile-nav">
         <router-link
           to="/school/dashboard/teacher"
-          @mouseenter.native.self="navHover($event, 'teacher')"
-          @mouseleave.native.self="navHover($event, 'teacher')"
           :class="{'active': teacher_active}"
         >
-          <div
-            class="nav-icon cust_icon teacher_icon"
-            :class="{'teacher_icon_color': teacher_active}"
-            id="teacherMobileIcon"
-          ></div>
+          <span class="icon-teacher"></span>
           <div class="nav-text">Teacher</div>
         </router-link>
       </div>
@@ -204,15 +133,9 @@
       <div class="mobile-nav">
         <router-link
           to="/school/dashboard/parent"
-          @mouseenter.native.self="navHover($event, 'parent')"
-          @mouseleave.native.self="navHover($event, 'parent')"
           :class="{'active': parent_active}"
         >
-          <div
-            class="nav-icon cust_icon parent_icon"
-            :class="{'parent_icon_color': parent_active}"
-            id="parentMobileIcon"
-          ></div>
+          <span class="icon-parent-child"></span>
           <div class="nav-text">Parents</div>
         </router-link>
       </div>
@@ -221,15 +144,9 @@
       <div class="mobile-nav">
         <router-link
           to="/school/dashboard/message"
-          @mouseenter.native.self="navHover($event, 'message')"
-          @mouseleave.native.self="navHover($event, 'message')"
           :class="{'active': message_active}"
         >
-          <div
-            class="nav-icon cust_icon message_icon"
-            :class="{'message_icon_color': message_active}"
-            id="messageMobileIcon"
-          ></div>
+          <span class="icon-message"></span>
           <div class="nav-text">Messages</div>
         </router-link>
       </div>
@@ -243,7 +160,6 @@
 
 <script>
 import SettingsPanel from "@/components/schoolComps/dashboard/modals/SettingsPanel";
-import { navHover } from "@/components/schoolComps/dashboard/mixins/navbarHover";
 import { mixin as clickaway } from "vue-clickaway";
 
 export default {
@@ -251,7 +167,7 @@ export default {
   components: {
     SettingsPanel
   },
-  mixins: [navHover, clickaway],
+  mixins: [clickaway],
   data() {
     return {
       home_active: false,
@@ -286,12 +202,6 @@ export default {
       url === "SchoolDashboardMessage"
         ? (this.message_active = true)
         : (this.message_active = false);
-    },
-
-    fillIcon(event, icon) {
-      event.target.firstElementChild.classList.contains(icon)
-        ? event.target.firstElementChild.classList.remove(icon)
-        : event.target.firstElementChild.classList.add(icon);
     },
 
     toggleSettings() {

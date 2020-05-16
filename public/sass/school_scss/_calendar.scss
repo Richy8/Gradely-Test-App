@@ -30,8 +30,16 @@
             }
 
             .right-avatar {
-                i {
-                    font-size: 16px;
+                position: relative;
+                .icon {
+                    @include transform_center;
+                    font-size: 21px;
+                    color: #000;
+                    transition: color .3s ease-in-out;
+                }
+
+                &:hover{
+                    .icon {color: #fff}
                 }
             }
         }

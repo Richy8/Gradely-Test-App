@@ -10,7 +10,7 @@
 
         <!-- SETTINGS ROUTER VIEW -->
         <div class="col-12 offset-md-1 col-md-8 settings-display">
-          <transition name="slide-fade" mode="out-in">
+          <transition name="fade" mode="out-in">
             <router-view></router-view>
           </transition>
         </div>
@@ -40,15 +40,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.slide-fade-enter-active {
-  transition: all 0.2s ease-in;
-}
-.slide-fade-leave-active {
-  transition: all 0.4s ease-out;
-}
-.slide-fade-enter,
-.slide-fade-leave-to {
-  transform: translateX(3px);
-  opacity: 0;
-}
+   .fade-enter{
+        opacity: 0;
+    }
+    .fade-enter-active{
+        transition: opacity .2s ease-in;
+    }
+    .fade-leave-active{
+        transition: opacity .2s ease-out;
+        opacity: 0;
+    }
 </style>

@@ -69,6 +69,7 @@
                     margin-bottom: 0px;
                 }
             }
+
             .school-location {
                 font-size: 16px;
                 line-height: 145%;
@@ -83,11 +84,14 @@
                     font-size: 12px;
                 }
             }
+
             .profile-update-cta {
                 font-size: 12px;
                 line-height: 16px;
+
                 a {
                     color: #FAA017;
+
                     &:hover {
                         color: #ffffff;
                     }
@@ -217,11 +221,13 @@
                 padding-top: 14.67px;
                 padding-bottom: 14.67px;
                 color: $brand_inverse;
-                border-bottom: 1px solid rgba($brand_black, .35); 
+                border-bottom: 1px solid rgba($brand_black, .35);
 
-                .done, .undone {
+                .done,
+                .undone {
                     margin-right: 10px;
                 }
+
                 .label-text {
                     font-weight: 100;
                     font-size: 11px;
@@ -292,6 +298,7 @@
                     font-size: 12.5px;
                 }
             }
+
             .card-meta {
                 font-size: 14px;
                 line-height: 19px;
@@ -315,21 +322,37 @@
             }
         }
 
-        .more {
+        .link-to-calendar {
+            position: relative;
+            width: 120px;
             margin-top: 34.83px;
             margin-left: 25.67px;
+
+            span {
+                font-size: 20px;
+                color: #FFF;
+                transition: color .3s ease-in-out;
+            }
 
             .title {
                 margin-left: 11.67px;
                 font-size: 14px;
                 line-height: 19px;
+                color: #FFF;
+                transition: color .3s ease-in-out;
 
                 @include breakpoint_max(lg) {
                     font-size: 12px;
                 }
+            }
 
-                &:hover {
-                    color: $brand-accent !important;
+            &:hover {
+                span {
+                    color: $brand_accent
+                }
+
+                .title {
+                    color: $brand-accent;
                     text-decoration: underline;
                 }
             }
@@ -390,7 +413,7 @@
 
                     &:after {
                         position: absolute;
-                        content:"";
+                        content: "";
                         background: $border_grey;
                         width: 1px;
                         height: 28px;
@@ -413,8 +436,9 @@
                     }
 
                     .part-two {
-                        margin: auto 5px auto 13px; 
-                        &:hover{
+                        margin: auto 5px auto 13px;
+
+                        &:hover {
                             color: $color_text !important;
                         }
 
@@ -427,19 +451,36 @@
                         }
                     }
                 }
+
+                a {
+                    position: relative;
+
+                    span {
+                        @include transform_center;
+                        font-size: 16px;
+                        color: #000;
+                        transition: color .3s ease-in-out;
+                    }
+
+                    &:hover {
+                        span {
+                            color: #fff;
+                        }
+                    }
+                }
             }
         }
 
         // ACCORDION SECTION
         .class-structure-section {
             margin: 5px auto;
-            
+
             .accordion-top {
                 .left {
                     .icon {
                         position: relative;
                         margin-right: 25px;
-                        
+
                         &:after {
                             position: absolute;
                             content: "";
@@ -455,7 +496,7 @@
                     .active {
                         &:after {
                             transform: translateY(-2px) rotate(45deg);
-                            
+
                         }
                     }
 
@@ -472,6 +513,7 @@
                         }
                     }
                 }
+
                 .right {
                     font-size: 14px;
                     line-height: 19px;
@@ -485,9 +527,12 @@
             .accordion-bottom {
                 .branches {
                     @include flex_row_start_nowrap;
-                    -ms-overflow-style: none;
-                    &::-webkit-scrollbar {
-                        display: none;
+
+                    @include breakpoint_max(md) {
+                        -ms-overflow-style: none;
+                        &::-webkit-scrollbar {
+                            display: none;
+                        }
                     }
                 }
 
@@ -495,7 +540,7 @@
                     @include flex_row_start_nowrap;
                     width: 25%;
                     position: absolute;
-                    bottom: 25px;
+                    bottom: 5px;
                     transition: all .75s ease-in-out;
                     animation: panel-slide-down .75s ease-in-out forwards;
 
@@ -538,7 +583,7 @@
 
         // CLASS BRANCH SECTION
         .class-branch-section {
-            margin-bottom: 42px;
+            margin-bottom: 50px;
         }
     }
 }

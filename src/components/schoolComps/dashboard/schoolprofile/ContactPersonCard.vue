@@ -25,7 +25,7 @@
                 <div class="d-flex justify-content-start align-items-center nowrap">
                     <!-- ICON -->
                     <div class="avatar contact-icon">
-                        <div class="cust_icon avatar-img icon_xs map_pin_primary"></div>
+                        <span class="icon icon-map-pin-sm"></span>
                     </div>
 
                     <!-- INFO -->
@@ -44,7 +44,7 @@
                 <div class="d-flex justify-content-start align-items-center nowrap bottom-10">
                     <!-- ICON -->
                     <div class="avatar contact-icon">
-                        <div class="cust_icon avatar-img icon_xs telephone_primary"></div>
+                        <span class="icon icon-phone"></span>
                     </div>
 
                     <!-- INFO -->
@@ -57,7 +57,7 @@
                 <div class="d-flex justify-content-start align-items-center nowrap bottom-10">
                     <!-- ICON -->
                     <div class="avatar contact-icon">
-                        <div class="cust_icon avatar-img icon_xs email_primary"></div>
+                        <span class="icon icon-email"></span>
                     </div>
 
                     <!-- INFO -->
@@ -70,7 +70,7 @@
                 <div class="d-flex justify-content-start align-items-center nowrap bottom-0">
                     <!-- ICON -->
                     <div class="avatar contact-icon">
-                        <div class="cust_icon avatar-img icon_xs link_primary"></div>
+                        <span class="icon icon-link"></span>
                     </div>
 
                     <!-- INFO -->

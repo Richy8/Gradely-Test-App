@@ -90,7 +90,7 @@
           <div class="col-12 px-0 col-md-8 col-lg-9 col-xl-8 form-group-item position-relative">
             <datepicker placeholder="Choose a Date" v-model="form.date_established" input-class="form-control white"></datepicker>
             <div class="set-icon">
-              <span><i class="cust_icon icon_calendar"></i> </span>
+              <span class="icon-calendar font-24 border_grey_dark"></span>
             </div> 
           </div>
         </div>

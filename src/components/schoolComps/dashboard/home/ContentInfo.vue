@@ -42,9 +42,9 @@
 
     <!-- MORE ICON -->
     <router-link to="/school/dashboard/calendar">
-        <div class="more d-flex justify-content-start align-items-center nowrap">
-            <div class="cust_icon calendar_accent_icon icon_sm_mid"></div>
-            <div class="title color_white">See All</div>
+        <div class="link-to-calendar d-flex justify-content-start align-items-center nowrap">
+            <span class="icon-calendar"></span>
+            <div class="title">See All</div>
         </div>
     </router-link>
 

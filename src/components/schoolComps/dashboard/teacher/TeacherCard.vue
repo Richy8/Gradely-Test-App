@@ -6,12 +6,11 @@
       <div class="teacher-card-top rounded-top-20">
         <!-- CARD OPTIONS -->
         <div class="card-option">
-          <div
-            class="cust_icon h-ellipsis-icon icon_sm_mid pointer"
+          <span
+            class="icon-ellipsis-h font-20 pointer"
             v-on-clickaway="onDrop"
             @click="toggleDropdown"
-          ></div>
-
+          ></span>
           <!-- DRODOWN MENU -->
           <div class="dropdown-btn-menu placement-bottom" v-if="card_option">
             <ul class="list-unstyled">
@@ -70,7 +69,7 @@ export default {
     fullname: String,
     email: String,
     classes: Number,
-    subject: Number,
+    subject: Number
   },
 
   mixins: [clickaway],
@@ -100,5 +99,5 @@ export default {
 };
 </script>
 
-<style> 
+<style>
 </style>

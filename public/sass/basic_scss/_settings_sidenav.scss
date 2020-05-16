@@ -65,6 +65,7 @@
                     @include breakpoint_max(md) {
                         width: auto;
                         padding: 10px 28px;
+                        margin-right: 10px;
                     }
 
                     .cust_icon {
@@ -79,7 +80,23 @@
                             margin-right: 13px;
                         }
                     }
-    
+                    
+                    .icon {
+                        display: block;
+                        font-size: 25px;
+                        color: $border_grey_dark;
+                        margin-right: 15.78px;
+
+                        @include breakpoint_max(lg) {
+                            margin-right: 12px;
+                            font-size: 20px;
+                        }
+
+                        @include breakpoint_max(md) {
+                            margin-right: 13px;
+                        }
+                    }
+
                     .link-title {
                         font-weight: normal;
                         font-size: 14px;
@@ -102,6 +119,11 @@
 
                     &:hover {
                         background: #ffffff;
+
+                        .icon {
+                            color: $brand_inverse;
+                        }
+
                         .link-title {
                             font-weight: bold;
                             color: #113255;
@@ -111,6 +133,11 @@
 
                 .active {
                     background: #ffffff;
+
+                    .icon {
+                        color: $brand_inverse;
+                    }
+
                     .link-title {
                         font-weight: bold;
                         color: #113255;

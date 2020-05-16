@@ -195,14 +195,12 @@
 
 .control-label {
     font-size: 14px;
-    font-weight: 400;
-    color: #4e4e4e;
-    text-shadow: 0 .25px, .25px 0, .25px .25px;
+    font-weight: 600;
+    color: #3a3a3a;
     text-transform: uppercase;
 
     @include breakpoint_max(lg) {
         font-size: 12.5px;
-        text-shadow: unset;
         font-weight: 500;
     }
 }

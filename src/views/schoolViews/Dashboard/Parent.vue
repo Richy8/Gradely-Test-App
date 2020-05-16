@@ -12,21 +12,13 @@
             <!-- FILTER AND ADD TEACHER INFO -->
             <div class="d-flex">
               <!-- FILTER ICON -->
-              <div
-                class="avatar avatar_md btn-whitish left-avatar pointer"
-                @mouseenter.self="btnHover($event, 'filter_icon_light')"
-                @mouseleave.self="btnHover($event, 'filter_icon_light')"
-              >
-                <div class="cust_icon avatar-img filter_icon"></div>
+              <div class="avatar avatar_md btn-whitish left-avatar pointer">
+                <span class="icon icon-two icon-filter-icon"></span>
               </div>
 
               <!-- ADD ICON -->
-              <div
-                class="avatar avatar_md btn-accent right-avatar pointer"
-                @mouseenter.self="btnHover($event, 'plus_icon_light')"
-                @mouseleave.self="btnHover($event, 'plus_icon_light')"
-              >
-                <div class="cust_icon avatar-img plus_icon"></div>
+              <div class="avatar avatar_md btn-accent right-avatar pointer">
+                <span class="icon icon-one icon-plus"></span>
               </div>
             </div>
           </div>
@@ -165,10 +157,10 @@ export default {
   },
 
   data() {
-    return{
+    return {
       subscribe_form: false,
       profile_card: false
-    }
+    };
   },
 
   mounted() {

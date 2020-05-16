@@ -24,11 +24,11 @@
       <div class="verify-action">
         <!-- APPROVE ICON -->
         <div class="avatar approve-box d-flex flex-center pointer">
-          <div class="cust_icon accept_icon_primary"></div>
+          <span class="icon-accept brand_primary font-24"></span>
         </div>
         <!-- DECLINE ICON -->
         <div class="avatar decline-box d-flex flex-center pointer">
-          <div class="cust_icon decline_icon_tonic"></div>
+          <span class="icon-decline brand_tonic font-24"></span>
         </div>
       </div>
     </div>

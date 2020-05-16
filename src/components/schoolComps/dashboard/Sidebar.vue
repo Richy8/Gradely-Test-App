@@ -9,11 +9,9 @@
       <div class="side-item">
         <router-link
           to="/school/dashboard/settings"
-          @mouseenter.native.self="sideMenuHover($event, 'school_inverse_icon')"
-          @mouseleave.native.self="sideMenuHover($event, 'school_inverse_icon')"
           :class="{'active': profile_active}"
         >
-          <div class="cust_icon school_icon" :class="{'school_inverse_icon': profile_active}"></div>
+          <span class="icon icon-school"></span>
           <div class="link-title">School Profile</div>
         </router-link>
       </div>
@@ -22,14 +20,9 @@
       <div class="side-item">
         <router-link
           to="/school/dashboard/settings/user"
-          @mouseenter.native.self="sideMenuHover($event, 'user_circle_inverse_icon')"
-          @mouseleave.native.self="sideMenuHover($event, 'user_circle_inverse_icon')"
           :class="{'active': personal_active}"
         >
-          <div
-            class="cust_icon user_circle_icon"
-            :class="{'user_circle_inverse_icon': personal_active}"
-          ></div>
+         <span class="icon icon-user-circle"></span>
           <div class="link-title">Personal Information</div>
         </router-link>
       </div>
@@ -38,11 +31,9 @@
       <div class="side-item">
         <router-link
           to="/school/dashboard/settings/preferences"
-          @mouseenter.native.self="sideMenuHover($event, 'sliders_inverse_icon')"
-          @mouseleave.native.self="sideMenuHover($event, 'sliders_inverse_icon')"
           :class="{'active': preference_active}"
         >
-          <div class="cust_icon sliders_icon" :class="{'sliders_inverse_icon': preference_active}"></div>
+          <span class="icon icon-sliders"></span>
           <div class="link-title">School Preferences</div>
         </router-link>
       </div>
@@ -51,11 +42,9 @@
       <div class="side-item">
         <router-link
           to="/school/dashboard/settings/account_settings"
-          @mouseenter.native.self="sideMenuHover($event, 'gear_inverse_icon')"
-          @mouseleave.native.self="sideMenuHover($event, 'gear_inverse_icon')"
           :class="{'active': account_active}"
         >
-          <div class="cust_icon gear_light_icon" :class="{'gear_inverse_icon': account_active}"></div>
+          <span class="icon icon-gear"></span>
           <div class="link-title">Account Settings</div>
         </router-link>
       </div>
@@ -99,12 +88,6 @@ export default {
       url === "SchoolSettingsAccount"
         ? (this.account_active = true)
         : (this.account_active = false);
-    },
-
-    sideMenuHover(event, icon) {
-      event.target.firstElementChild.classList.contains(icon)
-        ? event.target.firstElementChild.classList.remove(icon)
-        : event.target.firstElementChild.classList.add(icon);
     },
 
     onSideClick() {

@@ -18,17 +18,17 @@
                 <div class="label-text">Add Teachers</div>
             </div>
 
-            <router-link to="/" class="activity">
+            <router-link to="" class="activity">
                 <div class="undone"></div>
                 <div class="label-text">Invite Parents</div>
             </router-link>
 
-            <router-link to="/" class="activity">
+            <router-link to="" class="activity">
                 <div class="undone"></div>
                 <div class="label-text">Update your school profile</div>
             </router-link>
 
-            <router-link to="/" class="activity">
+            <router-link to="" class="activity">
                 <div class="undone"></div>
                 <div class="label-text">Setup your curriculum</div>
             </router-link>

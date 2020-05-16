@@ -8,11 +8,11 @@
           <!-- BRANCH CARD TITLE -->
           <div class="branch-card-title">{{class_branch}}</div>
           <div class="branch-card-option">
-            <div
-              class="cust_icon h-ellipsis-icon icon_sm_mid pointer"
+            <span
+              class="icon-ellipsis-h font-20 pointer"
               v-on-clickaway="onDrop"
               @click="toggleDropdown"
-            ></div>
+            ></span>
             <!-- DROP DOWN MENU -->
             <div class="dropdown-btn-menu placement-bottom" v-if="branch_options">
               <ul class="list-unstyled">
@@ -42,28 +42,18 @@
         <!-- BRANCH CARD ICON ROW -->
         <div class="branch-card-icon-row">
           <!-- CALL OUT ICON LINK -->
-          <router-link
-            to="/"
-            @mouseenter.native.self="iconHover($event, 'callout_accent_icon')"
-            @mouseleave.native.self="iconHover($event, 'callout_accent_icon')"
-          >
-            <div class="cust_icon icon_sm_22 pointer callout_icon"></div>
+          <router-link to="/">
+            <span class="branch-icon icon-callout"></span>
           </router-link>
+
           <!-- LIBRARY ICON LINK -->
-          <router-link
-            to="/"
-            @mouseenter.native.self="iconHover($event, 'library_accent_icon')"
-            @mouseleave.native.self="iconHover($event, 'library_accent_icon')"
-          >
-            <div class="cust_icon icon_sm_22 pointer library_icon"></div>
+          <router-link to="/">
+            <span class="branch-icon icon-library"></span>
           </router-link>
+          
           <!-- PIE CHART ICON LINK -->
-          <router-link
-            to="/"
-            @mouseenter.native.self="iconHover($event, 'pie_chart_accent_icon')"
-            @mouseleave.native.self="iconHover($event, 'pie_chart_accent_icon')"
-          >
-            <div class="cust_icon icon_sm_22 pointer pie_chart_icon"></div>
+          <router-link to="/">
+            <span class="branch-icon icon-pie-chart"></span>
           </router-link>
         </div>
       </div>
@@ -93,12 +83,6 @@ export default {
   methods: {
     toggleDropdown() {
       this.branch_options = !this.branch_options;
-    },
-
-    iconHover(event, icon) {
-      event.target.firstElementChild.classList.contains(icon)
-        ? event.target.firstElementChild.classList.remove(icon)
-        : event.target.firstElementChild.classList.add(icon);
     },
 
     onDrop() {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <Navbar/>
-        <transition name="slide-fade" mode="out-in">
+        <transition name="fade" mode="out-in">
             <router-view></router-view>
         </transition>
     </div>
@@ -17,15 +17,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .slide-fade-enter-active {
-        transition: all .2s ease-in;
+   .fade-enter{
+        opacity: 0;
     }
-    .slide-fade-leave-active {
-        transition: all .4s ease-out;   
+    .fade-enter-active{
+        transition: opacity .2s ease-in;
     }
-    .slide-fade-enter,
-    .slide-fade-leave-to {
-        transform: translateX(3px);
+    .fade-leave-active{
+        transition: opacity .2s ease-out;
         opacity: 0;
     }
 </style>
