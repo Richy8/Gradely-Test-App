@@ -4,11 +4,11 @@
     <div class="banner">
         <div class="banner-overlay box-overlay rounded-top-10">
             <img :src="require('@/assets/images/'+ banner +'')" class="img">
-            <img src="@/assets/images/DisplayBanner.png" class="hidden">
-            <img src="@/assets/images/DialogOne.png" class="hidden">
-            <img src="@/assets/images/DialogTwo.png" class="hidden">
-            <img src="@/assets/images/DialogThree.png" class="hidden">
-            <img src="@/assets/images/DialogFour.png" class="hidden">
+            <img src="@/assets/images/DisplayBanner.png" class="d-none" width="0" height="0">
+            <img src="@/assets/images/DialogOne.png" class="d-none" width="0" height="0">
+            <img src="@/assets/images/DialogTwo.png" class="d-none" width="0" height="0">
+            <img src="@/assets/images/DialogThree.png" class="d-none" width="0" height="0">
+            <img src="@/assets/images/DialogFour.png" class="d-none" width="0" height="0">
         </div>
         <!-- BRAND ICON -->
         <img :src="require('@/assets/images/'+ display_img +'')" class="brand-icon">
