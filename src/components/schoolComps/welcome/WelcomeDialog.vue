@@ -4,12 +4,6 @@
       <div class="welcome-container white">
         <transition name="fade" mode="out-in">
           <keep-alive>
-            <img src="@/assets/images/DisplayBanner.png">
-            <img src="@/assets/images/DialogOne.png">
-            <img src="@/assets/images/DialogTwo.png">
-            <img src="@/assets/images/DialogThree.png">
-            <img src="@/assets/images/DialogFour.png">
-
             <!-- COMPONENT BLOCK -->
             <!-- <component :is="tab"></component> -->
             <DialogOne
