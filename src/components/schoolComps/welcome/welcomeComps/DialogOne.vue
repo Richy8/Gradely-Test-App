@@ -3,10 +3,10 @@
     <!-- BANNER -->
     <div class="banner">
         <div class="banner-overlay box-overlay rounded-top-10">
-            <img src="@/assets/images/DialogOne.png" alt="Welcome to Gradely" class="img">
+            <img :src="require('@/assets/images/'+ banner +'')" class="img">
         </div>
         <!-- BRAND ICON -->
-        <img src="@/assets/images/GradelyIcon.png" alt="Gradely.ng" class="brand-icon">
+        <img :src="require('@/assets/images/'+ display_img +'')" class="brand-icon">
     </div>
 
     <!-- WELCOME BLOCK -->
@@ -19,7 +19,8 @@
 
 <script>
 export default {
-    name: "DialogOne"
+    name: "DialogOne",
+    props: ['banner', 'display_img']
 }
 </script>
 

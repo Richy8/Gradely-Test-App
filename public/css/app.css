@@ -13239,6 +13239,9 @@ label.checkbox-inline {
 
 .welcome-dialog-section .welcome-container .banner .banner-overlay {
   overflow: hidden;
+  -webkit-border-radius: 10px 10px 0 0;
+     -moz-border-radius: 10px 10px 0 0;
+          border-radius: 10px 10px 0 0;
 }
 
 .welcome-dialog-section .welcome-container .banner .banner-overlay .img {

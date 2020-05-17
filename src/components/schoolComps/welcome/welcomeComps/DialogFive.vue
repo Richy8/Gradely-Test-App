@@ -3,9 +3,9 @@
     <!-- BANNER -->
     <div class="banner">
         <div class="banner-overlay box-overlay brand_inverse_bg rounded-top-10">
-            <img src="@/assets/images/DisplayBanner.png" alt="Display Banner" class="img img-luminous">
+            <img :src="require('@/assets/images/'+ banner +'')" class="img img-luminous">
         </div>
-        <img src="@/assets/images/DialogFour.png" alt="Library of Learning Resources" class="display-img">
+        <img :src="require('@/assets/images/'+ display_img +'')" class="display-img">
     </div>
 
     <!-- WELCOME BLOCK -->
@@ -18,7 +18,8 @@
 
 <script>
 export default {
-    name: "DialogFive"
+    name: "DialogFive",
+    props: ['banner', 'display_img']
 }
 </script>
 

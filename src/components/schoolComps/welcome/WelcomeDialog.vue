@@ -4,13 +4,37 @@
       <div class="welcome-container white">
         <transition name="fade" mode="out-in">
           <keep-alive>
-            <img src="@/assets/images/DisplayBanner.png" class="hidden">
-            <img src="@/assets/images/DialogOne.png" class="hidden">
-            <img src="@/assets/images/DialogTwo.png" class="hidden">
-            <img src="@/assets/images/DialogThree.png" class="hidden">
-            <img src="@/assets/images/DialogFour.png" class="hidden">
             <!-- COMPONENT BLOCK -->
-            <component :is="tab"></component>
+            <!-- <component :is="tab"></component> -->
+            <DialogOne
+              v-if="current_tab === 0"
+              banner="DialogOne.png"
+              display_img="GradelyIcon.png"
+            ></DialogOne>
+            
+            <DialogTwo
+              v-else-if="current_tab === 1"
+              banner="DisplayBanner.png"
+              display_img="DialogTwo.png"
+            ></DialogTwo>
+
+            <DialogThree
+              v-else-if="current_tab === 2"
+              banner="DisplayBanner.png"
+              display_img="DialogThree.png"
+            ></DialogThree>
+
+            <DialogFour
+              v-else-if="current_tab === 3"
+              banner="DisplayBanner.png"
+              display_img="DialogFour.png"
+            ></DialogFour>
+
+            <DialogFive
+              v-else-if="current_tab === 4"
+              banner="DisplayBanner.png"
+              display_img="DialogFour.png"
+            ></DialogFive>
             <!-- COMPONENT BLOCK -->
           </keep-alive>
         </transition>
@@ -91,14 +115,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-   .fade-enter{
-        opacity: 0;
-    }
-    .fade-enter-active{
-        transition: opacity .2s ease-in;
-    }
-    .fade-leave-active{
-        transition: opacity .2s ease-out;
-        opacity: 0;
-    }
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 0.2s ease-in;
+}
+.fade-leave-active {
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+}
 </style>
