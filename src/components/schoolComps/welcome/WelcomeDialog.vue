@@ -11,7 +11,7 @@
               banner="DialogOne.png"
               display_img="GradelyIcon.png"
             ></DialogOne>
-            
+
             <DialogTwo
               v-else-if="current_tab === 1"
               banner="DisplayBanner.png"
@@ -85,6 +85,10 @@ export default {
     };
   },
 
+  created() {
+    this.preloadImages(['DisplayBanner.png', 'DialogOne.png', 'DialogTwo.png', 'DialogThree.png', 'DialogThree.png', 'DialogFour.png']);
+  },
+
   methods: {
     nextTab() {
       this.tab = this.tabs[this.current_tab + 1];
@@ -108,6 +112,26 @@ export default {
       } else {
         nextBtn.classList.remove("d-none");
         doneBtn.classList.add("d-none");
+      }
+    },
+
+    preloadImages(array) {
+      // if (!preloadImages.list) {
+      //   preloadImages.list = [];
+      // }
+      let list = [];
+      for (let i = 0; i < array.length; i++) {
+        let img = new Image();
+        img.onload = function() {
+          let index = list.indexOf(this);
+          if (index !== -1) {
+            // remove image from the array once it's loaded
+            // for memory consumption reasons
+            list.splice(index, 1);
+          }
+        };
+        list.push(img);
+        img.src = array[i];
       }
     }
   }

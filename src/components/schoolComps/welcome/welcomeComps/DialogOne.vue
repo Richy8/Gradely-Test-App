@@ -4,6 +4,11 @@
     <div class="banner">
         <div class="banner-overlay box-overlay rounded-top-10">
             <img :src="require('@/assets/images/'+ banner +'')" class="img">
+            <img src="@/assets/images/DisplayBanner.png">
+            <img src="@/assets/images/DialogOne.png">
+            <img src="@/assets/images/DialogTwo.png">
+            <img src="@/assets/images/DialogThree.png">
+            <img src="@/assets/images/DialogFour.png">
         </div>
         <!-- BRAND ICON -->
         <img :src="require('@/assets/images/'+ display_img +'')" class="brand-icon">
