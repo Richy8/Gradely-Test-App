@@ -4,6 +4,12 @@
       <div class="welcome-container white">
         <transition name="fade" mode="out-in">
           <keep-alive>
+            <img src="@/assets/images/DisplayBanner.png">
+            <img src="@/assets/images/DialogOne.png">
+            <img src="@/assets/images/DialogTwo.png">
+            <img src="@/assets/images/DialogThree.png">
+            <img src="@/assets/images/DialogFour.png">
+
             <!-- COMPONENT BLOCK -->
             <!-- <component :is="tab"></component> -->
             <DialogOne
@@ -85,9 +91,7 @@ export default {
     };
   },
 
-  created() {
-    this.preloadImages(['DisplayBanner.png', 'DialogOne.png', 'DialogTwo.png', 'DialogThree.png', 'DialogThree.png', 'DialogFour.png']);
-  },
+  mounted() {},
 
   methods: {
     nextTab() {
@@ -112,26 +116,6 @@ export default {
       } else {
         nextBtn.classList.remove("d-none");
         doneBtn.classList.add("d-none");
-      }
-    },
-
-    preloadImages(array) {
-      // if (!preloadImages.list) {
-      //   preloadImages.list = [];
-      // }
-      let list = [];
-      for (let i = 0; i < array.length; i++) {
-        let img = new Image();
-        img.onload = function() {
-          let index = list.indexOf(this);
-          if (index !== -1) {
-            // remove image from the array once it's loaded
-            // for memory consumption reasons
-            list.splice(index, 1);
-          }
-        };
-        list.push(img);
-        img.src = array[i];
       }
     }
   }
