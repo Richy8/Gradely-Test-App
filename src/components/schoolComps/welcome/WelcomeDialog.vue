@@ -2,10 +2,17 @@
   <div>
     <div class="welcome-dialog-section">
       <div class="welcome-container white">
-        <transition name="slide-fade" mode="out-in">
-          <!-- COMPONENT BLOCK -->
-          <component :is="tab"></component>
-          <!-- COMPONENT BLOCK -->
+        <transition name="fade" mode="out-in">
+          <keep-alive>
+            <img src="@/assets/images/DisplayBanner.png" class="hidden">
+            <img src="@/assets/images/DialogOne.png" class="hidden">
+            <img src="@/assets/images/DialogTwo.png" class="hidden">
+            <img src="@/assets/images/DialogThree.png" class="hidden">
+            <img src="@/assets/images/DialogFour.png" class="hidden">
+            <!-- COMPONENT BLOCK -->
+            <component :is="tab"></component>
+            <!-- COMPONENT BLOCK -->
+          </keep-alive>
         </transition>
 
         <!-- NAVIGATION BLOCK -->
@@ -62,41 +69,36 @@ export default {
     },
 
     changeTab(tab, index) {
-        this.tab = tab.name;
-        this.current_tab = index;
-        this.checklastTab();
+      this.tab = tab.name;
+      this.current_tab = index;
+      this.checklastTab();
     },
 
-    checklastTab(){
-        let nextBtn = document.querySelector('.next-btn');
-        let doneBtn = document.querySelector('.done-btn');
+    checklastTab() {
+      let nextBtn = document.querySelector(".next-btn");
+      let doneBtn = document.querySelector(".done-btn");
 
-        if (this.current_tab === 4) {
-            nextBtn.classList.add('d-none');
-            doneBtn.classList.remove('d-none');
-        }
-        else {
-            nextBtn.classList.remove('d-none');
-            doneBtn.classList.add('d-none');
-        }
+      if (this.current_tab === 4) {
+        nextBtn.classList.add("d-none");
+        doneBtn.classList.remove("d-none");
+      } else {
+        nextBtn.classList.remove("d-none");
+        doneBtn.classList.add("d-none");
+      }
     }
   }
 };
 </script>
 
 <style lang="scss" scoped>
-.slide-fade-leave-active {
-  transition: all 0.5s ease-out;
-}
-.slide-fade-enter-active {
-    transition: all 0.5s;
-}
-
-.slide-fade-leave-to {
-  transform: translateX(-10px);
-  opacity: 0;
-}
-.slide-fade-enter {
-    transform: translateX(5px);
-}
+   .fade-enter{
+        opacity: 0;
+    }
+    .fade-enter-active{
+        transition: opacity .2s ease-in;
+    }
+    .fade-leave-active{
+        transition: opacity .2s ease-out;
+        opacity: 0;
+    }
 </style>

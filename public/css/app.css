@@ -14297,6 +14297,12 @@ label.checkbox-inline {
   padding-right: 20px;
 }
 
+.school-calendar-section .left-layout .calendar-plugin-section .dropdown-btn-menu {
+  width: 220px;
+  left: 8px;
+  top: 420px;
+}
+
 .school-calendar-section .left-layout .todo-label-list li {
   margin-bottom: 14px;
 }
@@ -14360,6 +14366,10 @@ label.checkbox-inline {
   color: #fff;
 }
 
+.school-calendar-section .right-layout .right-first-row .dropdown-btn-menu {
+  width: 220px;
+}
+
 .school-calendar-section .right-layout .right-second-row {
   display: -webkit-box;
   display: -webkit-flex;
@@ -14397,6 +14407,30 @@ label.checkbox-inline {
   padding: 5px 12px;
 }
 
+.school-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu {
+  width: 180px;
+}
+
+.school-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu .filter-by {
+  margin-bottom: -5px;
+  cursor: inherit;
+  font-size: 11.5px;
+  color: #959595;
+}
+
+.school-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu .filter-by:hover {
+  background: none;
+}
+
+.school-calendar-section .right-layout .right-second-row .filter .filter-by-class {
+  width: 400px;
+}
+
+.school-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name {
+  width: 30%;
+  font-size: 13.5px;
+}
+
 .school-calendar-section .right-layout .todo-card-section {
   margin-bottom: 5px;
 }
@@ -14428,7 +14462,7 @@ label.checkbox-inline {
 
 .school-calendar-section .right-layout .todo-card-section .left-info .todo-time {
   font-weight: normal;
-  font-size: 14px;
+  font-size: 13.5px;
   line-height: 19px;
   margin-right: 15px;
   text-align: left;
@@ -14437,7 +14471,7 @@ label.checkbox-inline {
 
 .school-calendar-section .right-layout .todo-card-section .left-info .todo-title {
   font-weight: bold;
-  font-size: 15.5px;
+  font-size: 15px;
   line-height: 22px;
   margin-bottom: 1.5px;
 }
@@ -16541,5 +16575,250 @@ label.checkbox-inline {
   right: 10px;
   top: 8px;
   z-index: 999;
+}
+
+.preference-tabs .tab-active::after, .preference-tabs .tab:hover::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #F2AB3E;
+}
+
+.preference-tabs {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 35px;
+  width: 100%;
+  border-bottom: 1px solid #d5d5d5;
+  margin-bottom: 32px;
+  overflow: auto;
+  -ms-overflow-style: none;
+}
+
+.preference-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.preference-tabs .tab {
+  position: relative;
+  width: auto;
+  white-space: nowrap;
+  padding-left: 14.25px;
+  padding-right: 14.25px;
+  padding-bottom: 8px;
+  color: #959595;
+  font-size: 14px;
+  line-height: 19px;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+@media only screen and (max-width: 991px) {
+  .preference-tabs .tab {
+    font-size: 13px;
+  }
+}
+
+.preference-tabs .tab-active {
+  color: #353535;
+  font-weight: 500;
+}
+
+.preference-tabs .tab:hover {
+  color: #353535;
+}
+
+.school-preference .preference-card {
+  width: 470px;
+}
+
+@media only screen and (max-width: 991px) {
+  .school-preference .preference-card {
+    width: 100%;
+  }
+}
+
+.school-preference .preference-card .label {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+     -moz-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  border: 1px solid #d5d5d5;
+  background: #FFFFFF;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 18px 22px 14px;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.school-preference .preference-card .label-sm {
+  padding: 12px 22px 8px;
+}
+
+.school-preference .preference-card .label input {
+  margin-right: 12px;
+  margin-top: 4.5px;
+}
+
+.school-preference .preference-card .label .title {
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: #353535;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+}
+
+@media only screen and (max-width: 991px) {
+  .school-preference .preference-card .label .title {
+    font-size: 14.5px;
+  }
+}
+
+.school-preference .preference-card .label .title-sm {
+  margin-top: 2.5px;
+  font-size: 14.5px;
+}
+
+@media only screen and (max-width: 991px) {
+  .school-preference .preference-card .label .title-sm {
+    font-size: 14px;
+  }
+}
+
+.school-preference .preference-card .label .description {
+  font-size: 12.5px;
+  line-height: 18.5px;
+  color: #757575;
+}
+
+@media only screen and (max-width: 991px) {
+  .school-preference .preference-card .label .description {
+    font-size: 11.5px;
+  }
+}
+
+.school-preference .preference-card .label-active {
+  border: 1px solid #F2AB3E;
+}
+
+.school-preference .preference-request {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+     -moz-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 470px;
+  background: #FFFFFF;
+  border: 1px dashed #959595;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  font-size: 14px;
+  line-height: 19px;
+  color: #353535;
+  padding: 10px 22px;
+  margin-bottom: 60px;
+}
+
+@media only screen and (max-width: 991px) {
+  .school-preference .preference-request {
+    width: 100%;
+    font-size: 13px;
+  }
+}
+
+.school-preference .preference-request .icon {
+  font-size: 24px;
+  color: #959595;
+  margin-right: 10px;
+}
+
+@media only screen and (max-width: 991px) {
+  .school-preference .preference-request .icon {
+    font-size: 22px;
+  }
+}
+
+.school-preference .preference-request .help-text {
+  margin-top: 2px;
 }
 /*# sourceMappingURL=app.css.map */

@@ -308,6 +308,7 @@
 .delete-acct {
     margin-top: 30px;
     margin-bottom: 30px;
+
     p {
         font-size: 14.5px;
         line-height: 170%;
@@ -322,6 +323,169 @@
         position: absolute;
         right: 10px;
         top: 8px;
-        z-index:999;
+        z-index: 999;
+    }
+}
+
+// SCHOOL PREFERENCES
+%pref_tab_styling {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $brand_accent;
+}
+
+.preference-tabs {
+    @include flex_row_start_nowrap;
+    margin-top: 35px;
+    width: 100%;
+    border-bottom: 1px solid #d5d5d5;
+    margin-bottom: 32px;
+    overflow: auto;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab {
+        position: relative;
+        width: auto;
+        white-space: nowrap;
+        padding-left: 14.25px;
+        padding-right: 14.25px;
+        padding-bottom: 8px;
+        color: $border_grey_dark;
+        font-size: 14px;
+        line-height: 19px;
+        cursor: pointer;
+        user-select: none;
+
+        @include breakpoint_max(lg) {
+            font-size: 13px;
+        }
+
+        &-active {
+            color: $color_text;
+            font-weight: 500;
+
+            &::after {
+                @extend %pref_tab_styling;
+            }
+        }
+
+        &:hover {
+            color: $color_text;
+
+            &::after {
+                @extend %pref_tab_styling;
+            }
+        }
+    }
+}
+
+// CURRICULUM PREF
+.school-preference {
+    .preference-card {
+        width: 470px;
+
+        @include breakpoint_max(lg) {
+            width: 100%;
+        }
+
+        .label {
+            @include flex_row_start_nowrap;
+            align-items: flex-start;
+            border: 1px solid #d5d5d5;
+            background: #FFFFFF;
+            box-sizing: border-box;
+            padding: 18px 22px 14px;
+            border-radius: 5px;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 10px;
+            cursor: pointer;
+
+            &-sm {
+                padding: 12px 22px 8px;
+            }
+
+            input {
+                margin-right: 12px;
+                margin-top: 4.5px;
+            }
+
+            .title {
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 22px;
+                color: $color_text;
+                margin-bottom: 10px;
+                text-transform: capitalize;
+
+                @include breakpoint_max(lg) {
+                    font-size: 14.5px;
+                }
+
+                &-sm {
+                    margin-top: 2.5px;
+                    font-size: 14.5px;
+
+                    @include breakpoint_max(lg) {
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            .description {
+                font-size: 12.5px;
+                line-height: 18.5px;
+                color: #757575;
+
+                @include breakpoint_max(lg) {
+                    font-size: 11.5px;
+                }
+            }
+
+            &-active {
+                border: 1px solid $brand_accent;
+            }
+        }
+    }
+
+    .preference-request {
+        @include flex_row_start_nowrap;
+        align-items: flex-start;
+        width: 470px;
+        background: #FFFFFF;
+        border: 1px dashed #959595;
+        box-sizing: border-box;
+        font-size: 14px;
+        line-height: 19px;
+        color: #353535;
+        padding: 10px 22px;
+        margin-bottom: 60px;
+
+        @include breakpoint_max(lg) {
+            width: 100%;
+            font-size: 13px;
+        }
+
+        .icon {
+            font-size: 24px;
+            color: $border_grey_dark;
+            margin-right: 10px;
+
+            @include breakpoint_max(lg) {
+                font-size: 22px;
+            }
+        }
+
+        .help-text {
+            margin-top: 2px;
+        }
+
     }
 }

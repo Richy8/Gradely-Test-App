@@ -1,5 +1,5 @@
 <template>
-  <div class="calendar-plugin-section">
+  <div class="calendar-plugin-section position-relative">
     <!-- CALENDAR PLUGIN -->
     <div class="calendar-plugin">
       <!-- DATE VIEW -->
@@ -32,20 +32,40 @@
       <div class="calendar-divider"></div>
 
       <!-- CREATE VIEW -->
-      <div class="create-view pointer">
+      <div class="create-view pointer" v-on-clickaway="onDrop" @click="toggleDropdown">
         <div class="undone"></div>
         <div class="label-text font-weight-bold brand_accent">Create New</div>
       </div>
+
     </div>
+
+     <!-- DRODOWN MENU -->
+      <div class="dropdown-btn-menu placement-bottom" v-if="new_option">
+        <ul class="list-unstyled">
+          <li class="mb-1">
+            <router-link to>New Homework</router-link>
+          </li>
+          <li class="mb-1">
+            <router-link to>Schedule a Live Class</router-link>
+          </li>
+          <li class="mb-1">
+            <router-link to>School Event</router-link>
+          </li>
+        </ul>
+      </div>
+
   </div>
 </template>
 
 <script>
+import {mixin as clickaway} from "vue-clickaway";
 import DaysList from "@/components/schoolComps/dashboard/calendar/DaysList";
 import YearsList from "@/components/schoolComps/dashboard/calendar/YearsList";
 
 export default {
   name: "CalendarPlugin",
+
+  mixins: [clickaway],
 
   components: {
     DaysList,
@@ -54,14 +74,23 @@ export default {
 
   data() {
     return {
-      in_view: true
+      in_view: true,
+      new_option: false
     };
   },
 
   methods: {
-      switchToYear() {
-          this.in_view = !this.in_view;
-      }
+    switchToYear() {
+      this.in_view = !this.in_view;
+    },
+
+    toggleDropdown() {
+      this.new_option = !this.new_option;
+    },
+
+    onDrop() {
+      this.new_option = false
+    }
   }
 };
 </script>

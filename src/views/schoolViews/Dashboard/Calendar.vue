@@ -24,21 +24,21 @@
             <ul class="list-unstyled todo-label-list ml-2">
               <li class="lessons-todo checkbox">
                 <label for="lessonTodo" class="pointer select-md">
-                  <input type="checkbox" v-model="lessons" value="checked" id="lessonTodo">
+                  <input type="checkbox" v-model="lessons" id="lessonTodo">
                   <span class="label_text font-14 color_grey_dark ml-2 select-none">Live Lessons</span>
                 </label>
               </li>
 
               <li class="homework-todo checkbox">
                 <label for="homeworkTodo" class="pointer select-brand-inverse select-md">
-                  <input type="checkbox" v-model="homework" value="checked" id="homeworkTodo">
+                  <input type="checkbox" v-model="homework" id="homeworkTodo">
                   <span class="label_text font-14 color_grey_dark ml-2 select-none">Due Homework</span>
                 </label>
               </li>
 
               <li class="events-todo checkbox">
                 <label for="eventsTodo" class="pointer select-color-grey-dark select-md">
-                  <input type="checkbox" v-model="events" value="checked" id="eventsTodo">
+                  <input type="checkbox" v-model="events" id="eventsTodo">
                   <span class="label_text font-14 color_grey_dark ml-2 select-none">Events</span>
                 </label>
               </li>
@@ -58,17 +58,81 @@
               </div>
 
               <!-- ADD CALENDAR ICON -->
-              <div class="avatar avatar_md btn-accent right-avatar pointer">
-                <span class="icon icon-plus"></span>
+              <div class="position-relative">
+                <div
+                  class="avatar avatar_md btn-accent right-avatar pointer"
+                  v-on-clickaway="onDrop"
+                  @click="toggleDropdown"
+                >
+                  <span class="icon icon-plus"></span>
+                </div>
+                <!-- DRODOWN MENU -->
+                <div class="dropdown-btn-menu placement-bottom" v-if="new_option">
+                  <ul class="list-unstyled">
+                    <li class="mb-1">
+                      <router-link to>New Homework</router-link>
+                    </li>
+                    <li class="mb-1">
+                      <router-link to>Schedule a Live Class</router-link>
+                    </li>
+                    <li class="mb-1">
+                      <router-link to>School Event</router-link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
             <!-- EVENTS COUNTER AND FILTER BY -->
             <div class="right-second-row">
               <div class="event-count color_grey_dark">18 Events due</div>
-              <div class="filter color_text pointer">
+              <div class="filter color_text pointer position-relative" v-on-clickaway="onDropFilter" @click="toggleFilter">
                 Filter by
                 <i class="fas fa-caret-down ml-2"></i>
+
+                <!-- DRODOWN MENU -->
+                <div class="dropdown-btn-menu placement-bottom" v-if="toggle_filter">
+                  <ul class="list-unstyled">
+                   <li class="mb-1">
+                      <router-link to disabled class="filter-by">Filter by:</router-link>
+                    </li>
+                    <li class="mb-1">
+                      <router-link to>Class</router-link>
+                    </li>
+                    <li class="mb-1">
+                      <router-link to>Events</router-link>
+                    </li>
+                    <li class="mb-1">
+                      <router-link to>Homework</router-link>
+                    </li>
+                    <li class="mb-1">
+                      <router-link to>Live Lessons</router-link>
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- DROP DOWN MENU FOR FILTER BY CLASS -->
+                <!-- <div class="dropdown-btn-menu placement-bottom filter-by-class">
+                  <ul class="list-unstyled">
+                   <li class="mb-1">
+                      <router-link to disabled class="filter-by"> <span><i class="fas fa-arrow-left mr-2"></i></span> FILTER BY CLASS:</router-link>
+                    </li>
+
+                   <div class="d-flex justify-content-between align-items-start wrap w-100">
+                     <div class="class-name">Year 7 - Gold</div>
+                     <div class="class-name">Year 7 - Gold</div>
+                     <div class="class-name">Year 7 - Gold</div>
+                     <div class="class-name">Year 7 - Gold</div>
+                     <div class="class-name">Year 7 - Gold</div>
+                     <div class="class-name">Year 7 - Gold</div>
+                     <div class="class-name">Year 7 - Gold</div>
+                     <div class="class-name">Year 7 - Gold</div>
+                     <div class="class-name">Year 7 - Gold</div>
+                   </div>
+                    
+                  </ul>
+                </div> -->
+
               </div>
             </div>
 
@@ -168,6 +232,7 @@
 <script>
 // BACKGROUND COLOR EXTERNAL FUNCTION
 import { bgColorSetter } from "@/assets/jsComps/extFunc";
+import { mixin as clickaway } from "vue-clickaway";
 import Pagination from "@/components/basicComps/Pagination";
 import CalendarPlugin from "@/components/schoolComps/dashboard/calendar/CalendarPlugin";
 import TodoTask from "@/components/schoolComps/dashboard/calendar/TodoTask";
@@ -181,23 +246,38 @@ export default {
     TodoTask
   },
 
+  mixins: [clickaway],
+
   data() {
     return {
-      lessons: "checked",
-      homework: "checked",
-      events: "checked"
+      lessons: true,
+      homework: true,
+      events: true,
+      new_option: false,
+      toggle_filter: false,
+      flter_class: false
     };
   },
 
   mounted() {
-    bgColorSetter("#eaeaea");
+    bgColorSetter("#f0f0f0");
   },
 
   methods: {
-    btnHover(event, icon) {
-      event.target.firstElementChild.classList.contains(icon)
-        ? event.target.firstElementChild.classList.remove(icon)
-        : event.target.firstElementChild.classList.add(icon);
+    toggleDropdown() {
+      this.new_option = !this.new_option;
+    },
+
+    toggleFilter() {
+      this.toggle_filter = !this.toggle_filter;
+    },
+
+    onDrop() {
+      this.new_option = false;
+    },
+
+    onDropFilter() {
+      this.toggle_filter = false;
     }
   }
 };
