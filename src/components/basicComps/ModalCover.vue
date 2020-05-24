@@ -7,7 +7,10 @@
           <div class="pageClose dialogDismiss">
             <button type="button" class="close_dialog white cls_md" @click="$emit('closeModal')"></button>
           </div>
+
+          <!-- MODAL COVER BODY -->
           <slot name="modal-cover-body"></slot>
+
         </div>
       </div>
     </div>

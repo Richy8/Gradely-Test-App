@@ -35,6 +35,14 @@
             font-weight: bold;
             text-transform: uppercase;
             color: $color_text;
+
+            @include breakpoint_max(md) {
+                font-size: 15.5px;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 15px;
+            }
         }
 
         .modal-body {
@@ -52,6 +60,11 @@
                 .label-compact {
                    @include label_compact;
                 }
+            }
+
+            .modal-body-top {
+                margin-top: -20px;
+                overflow-x: hidden;
             }
         }
     }
@@ -89,7 +102,7 @@
     }
 
     .modal-sm-md {
-        width: 38%;
+        width: 44%;
 
         @include breakpoint_max(xl) {
             width: 45%;
@@ -97,6 +110,10 @@
 
         @include breakpoint_max(lg) {
             width: 50%;
+        }
+
+        @include breakpoint_min_max(768, 896) {
+            width: 65%;
         }
 
         @include breakpoint_max(md) {

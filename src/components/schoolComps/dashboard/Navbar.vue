@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="navbar-section position-fixed w-100 index-9 white">
+    <div class="navbar-section fixed-top w-100 index-9 white">
       <!-- DESKTOP SCREEN VIEW -->
       <div class="container h-auto d-none d-md-block">
         <div class="row d-flex justify-content-between align-items-center nowrap">
@@ -88,15 +88,11 @@
 
           <!-- MORE ICONS -->
           <div class="more-icons d-flex justify-content-end align-items-center">
-            <div
-              class="icon avatar avatar-square"
-            >
-             <span class="icon-search"></span>
+            <div class="icon avatar avatar-square">
+              <span class="icon-search"></span>
             </div>
 
-            <div
-              class="icon avatar avatar-square"
-            >
+            <div class="icon avatar avatar-square">
               <span class="icon-bell"></span>
               <div class="badge-circle brand_red_bg index-9"></div>
             </div>
@@ -109,10 +105,7 @@
     <div class="mobile-navigations index-99 w-100 h-auto white d-md-none">
       <!-- HOME ICON -->
       <div class="mobile-nav">
-        <router-link
-          to="/school/dashboard"
-          :class="{'active': home_active}"
-        >
+        <router-link to="/school/dashboard" :class="{'active': home_active}">
           <span class="icon-tachometer"></span>
           <div class="nav-text">Home</div>
         </router-link>
@@ -120,10 +113,7 @@
 
       <!-- TEACHER ICON -->
       <div class="mobile-nav">
-        <router-link
-          to="/school/dashboard/teacher"
-          :class="{'active': teacher_active}"
-        >
+        <router-link to="/school/dashboard/teacher" :class="{'active': teacher_active}">
           <span class="icon-teacher"></span>
           <div class="nav-text">Teacher</div>
         </router-link>
@@ -131,10 +121,7 @@
 
       <!-- PARENT ICON -->
       <div class="mobile-nav">
-        <router-link
-          to="/school/dashboard/parent"
-          :class="{'active': parent_active}"
-        >
+        <router-link to="/school/dashboard/parent" :class="{'active': parent_active}">
           <span class="icon-parent-child"></span>
           <div class="nav-text">Parents</div>
         </router-link>
@@ -142,10 +129,7 @@
 
       <!-- MESSAGE ICON -->
       <div class="mobile-nav">
-        <router-link
-          to="/school/dashboard/message"
-          :class="{'active': message_active}"
-        >
+        <router-link to="/school/dashboard/message" :class="{'active': message_active}">
           <span class="icon-message"></span>
           <div class="nav-text">Messages</div>
         </router-link>

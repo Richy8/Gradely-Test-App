@@ -164,7 +164,7 @@ export default {
   },
 
   mounted() {
-    bgColorSetter("#f0f0f0");
+    bgColorSetter("#f4f4f4");
   },
 
   methods: {

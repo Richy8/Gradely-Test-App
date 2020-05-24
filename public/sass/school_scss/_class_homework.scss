@@ -1,0 +1,323 @@
+.class-homework-section {
+    position: relative;
+    top: 160px;
+
+    @include breakpoint_max(md) {
+        top: 90px;
+    }
+
+    .container {
+        @include breakpoint_max(sm) {
+            padding-right: 15px !important;
+            padding-left: 15px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+    }
+
+    // PAGE TITLE
+    .page-title {
+        font-size: 22px;
+        margin-bottom: 30px;
+
+        @include breakpoint_max(lg) {
+            font-size: 20px;
+        }
+
+        @include breakpoint_max(sm) {
+            font-size: 18px;
+        }
+    }
+
+    // CONTENT INFO COMPONENT
+    .homework-content-info {
+        margin-top: 25px;
+        margin-bottom: 30px;
+    }
+
+    .home-work-default-info {
+        margin-top: 20px;
+        margin-bottom: 30px;
+    }
+
+    // COUNT AND FILTER ROW
+    .count-filter-row {
+        margin-bottom: 13px;
+        @include flex_row_between_nowrap;
+
+        .count {
+            font-size: 14px;
+            line-height: 19px;
+        }
+
+        .filter {
+            margin-right: 10px;
+            font-size: 12px;
+            line-height: 16px;
+        }
+    }
+
+}
+
+// SHOW MORE LINK
+.show-more {
+    font-size: 14px;
+    line-height: 19px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+// HOMEWORK REVIEW SECTION
+.homework-review-section {
+    position: relative;
+    top: 65px;
+
+    @include breakpoint_max(md) {
+        top: 30px;
+    }
+
+    .review-container {
+        margin-top: 50px;
+
+        @include breakpoint_max(md) {
+            margin-bottom: 70px;
+        }
+    }
+
+    .container {
+        @include breakpoint_max(sm) {
+            padding-right: 15px !important;
+            padding-left: 15px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+    }
+
+    // REVIEW CHART CARD
+    .review-chart-card {
+        border: 1px solid #E5E5E5;
+        box-sizing: border-box;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+        padding: 38px 20px 30px;
+
+        @include breakpoint_max(xl) {
+            padding: 38px 10px 30px;
+        }
+
+        @include breakpoint_max(md) {
+            padding: 38px 40px 30px;
+            margin-bottom: 30px;
+        }
+
+        .review-chart {
+            @include equal_min_edge(210);
+
+            @include breakpoint_max(xl) {
+                @include equal_min_edge(180);
+            }
+
+            @include breakpoint_max(lg) {
+                @include equal_min_edge(130);
+            }
+
+            @include breakpoint_max(md) {
+                @include equal_min_edge(180);
+            }
+        }
+
+        .chart-info {
+            @include flex_row_between_nowrap;
+            margin-top: 30px;
+
+            .percent {
+                font-size: 18px;
+                line-height: 140%;
+
+                @include breakpoint_max(xl) {
+                   font-size: 15px;
+                }
+
+                @include breakpoint_max(md) {
+                   font-size: 16px;
+                }
+            }
+
+            .description {
+                font-size: 11px;
+                line-height: 177.06%;
+                text-transform: uppercase;
+                text-align: center;
+
+                @include breakpoint_max(xl) {
+                   font-size: 10px;
+                }
+
+                @include breakpoint_max(lg) {
+                   font-size: 11px;
+                }
+            }
+        }
+    }
+
+    // HELP BLOCK ONE
+    .help-block-one,
+    .help-block-two,
+    .questions,
+    .recommendation {
+        margin-bottom: 50px;
+
+        .title {
+            margin-bottom: 20px;
+            font-size: 21px;
+            line-height: 29px;
+
+            @include breakpoint_max(md) {
+                font-size: 18px;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .help-block-two {
+        .title {
+            margin-bottom: unset;
+        }
+
+        .meta {
+            font-size: 14px;
+            line-height: 19px;
+            margin-bottom: 20px;
+
+            @include breakpoint_max(md) {
+                font-size: 13px;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 12px;
+            }
+        }
+
+        .accordion-top,
+        .accordion-bottom {
+            border: 1px solid #E5E5E5;
+            background: #ffffff;
+        }
+
+        .accordion-top {
+            z-index: 1 !important;
+            .info {
+                .question {
+                    margin-bottom: 2px;
+                    font-size: 14px;
+                    line-height: 19px;
+
+                    @include breakpoint_max(sm) {
+                        font-size: 13px;
+                    }
+                }
+                .description {
+                    font-size: 11px;
+                    line-height: 15px;
+                }
+
+            }
+        }
+
+        .accordion-bottom {
+            background: #ffffff;  
+            
+            .struggling-list {
+                padding: 10px 50px 16px;
+                @include flex_row_start_wrap;
+
+                .student {
+                    @include flex_row_start_nowrap;
+                    margin-right: 50px;
+                    margin-bottom: 30px;
+
+                    .avatar {
+                        margin-right: 15px;
+                    }
+
+                    .name {
+                        font-size: 14px;
+                        line-height: 19px;
+                    }
+                }
+            }
+        }
+    }
+
+    .questions {
+        margin-bottom: 50px;
+        .title {
+            margin-bottom: 20px;
+        }
+
+        .question-item {
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+            color: $color_text;
+            font-size: 16px;
+            line-height: 25px;
+            padding: 20px 20px 20px 50px;
+            margin-bottom: 5px;
+
+            @include breakpoint_max(md) {
+                font-size: 15px;
+            }
+
+            @include breakpoint_max(sm) {
+                font-size: 14px;
+            }
+
+            .chat-bullet {
+                position: absolute;
+                top: 10px;
+                left: -12px;
+
+                @include breakpoint_max(md) {
+                    top: 12px;
+                }
+
+                span {
+                    font-size: 45px;
+
+                    @include breakpoint_max(md) {
+                        font-size: 43px;
+                    }
+                }
+
+                .number {
+                    position: absolute;
+                    @include transform_center;
+                    top: 40%;
+                    font-size: 14px;
+                    z-index: 99;
+                }
+            }   
+        }
+    }
+
+    .recommendation {
+        .title {
+            margin-bottom: 20px;
+        }
+
+        .recommendation-note {
+            @include flex_row_start_nowrap;
+            padding: 26px 20px;
+
+            .avatar {
+                margin-right: 15px;
+            }
+
+            .text-info {
+                font-size: 13px;
+                line-height: 160%;
+            }
+        }
+    }
+}

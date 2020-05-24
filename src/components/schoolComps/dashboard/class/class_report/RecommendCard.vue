@@ -1,0 +1,108 @@
+<template>
+  <div>
+    <div class="recommend-card">
+      <!-- CHILD INFO -->
+      <div class="child-info">
+        <div class="avatar avatar-square">
+          <img
+            :src="require('@/assets/images/'+ child_img +'')"
+            :alt="child_name"
+            class="avatar-img"
+          >
+        </div>
+        <div class="name color_text">
+          {{ child_name }}
+          <span class="percent" :class="state_color">({{ percent_progress }}%)</span>
+        </div>
+      </div>
+
+      <!-- OPTION -->
+      <div class="options">
+        <!-- DESKTOP -->
+        <div class="desktop-view">
+          <!-- VIDEO OPTION -->
+          <div class="option" @click="$emit('openVideo')">
+            <!-- AVATAR -->
+            <div class="avatar">
+              <span class="flex-center icon-video-card brand_tonic font-22"></span>
+            </div>
+            <!-- TEXT -->
+            <div class="text">Explainer</div>
+          </div>
+
+          <!-- PRACTICE OPTION -->
+          <div class="option ml-4" @click="$emit('openPractice')">
+            <!-- AVATAR -->
+            <div class="avatar">
+              <span class="flex-center icon-practice-card brand_navy font-22"></span>
+            </div>
+            <!-- TEXT -->
+            <div class="text">Practice</div>
+          </div>
+        </div>
+
+        <!-- MOBILE -->
+        <div class="mobile-view d-lg-none">
+          <!-- VIDEO CARD -->
+          <div class="mobile-option mr-2" @click="$emit('openVideo')">
+            <div class="avatar">
+              <span class="flex-center icon-video-card brand_tonic font-20"></span>
+            </div>
+          </div>
+          <!-- VIDEO CARD -->
+
+          <!-- PRACTICE CARD -->
+          <div class="mobile-option ml-2" @click="$emit('openPractice')">
+            <div class="avatar">
+              <span class="flex-center icon-practice-card brand_navy font-20"></span>
+            </div>
+          </div>
+          <!-- PRACTICE CARD -->
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "RecommendCard",
+
+  props: {
+    child_img: String,
+    child_name: String,
+    percent_progress: Number
+  },
+
+  watch: {
+    child_img: "updateCard",
+    child_name: "updateCard",
+    percent_progress: "updateCard"
+  },
+
+  data() {
+    return {
+      state_color: ""
+    };
+  },
+
+  mounted() {
+    this.updateCard();
+  },
+
+  methods: {
+    updateCard() {
+      if (this.percent_progress >= 75) {
+        this.state_color = "green-text";
+      } else if (this.percent_progress >= 45 && this.percent_progress <= 74) {
+        this.state_color = "brand_accent";
+      } else if (this.percent_progress <= 44) {
+        this.state_color = "brand_tonic";
+      }
+    }
+  }
+};
+</script>
+
+<style>
+</style>

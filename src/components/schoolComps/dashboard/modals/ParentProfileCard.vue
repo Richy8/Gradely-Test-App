@@ -96,11 +96,7 @@ export default {
   },
 
   methods: {
-    btnHover(event, icon) {
-      event.target.firstElementChild.classList.contains(icon)
-        ? event.target.firstElementChild.classList.remove(icon)
-        : event.target.firstElementChild.classList.add(icon);
-    }
+   
   }
 };
 </script>

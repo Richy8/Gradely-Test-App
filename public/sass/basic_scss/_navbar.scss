@@ -1,7 +1,8 @@
-.navbar-section {
+.navbar-section, 
+.sub-navbar-section {
     box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
 
-    .tablet {
+    .tablet, .sub-tablet {
         padding-left: 32px !important;
         padding-right: 32px !important;
 
@@ -29,6 +30,35 @@
             @include breakpoint_max(xs) {
                 @include custom_min_edge(125, 33);
             }
+        }
+    }
+
+    .back-to-home {
+        a {
+            span {
+                position: relative;
+                display: block;
+                font-size: 20px;
+                margin-right: 14px;
+            }
+            .title {
+                font-size: 14px;
+                line-height: 19px;
+            }
+
+            &:hover {
+                color: darken($brand_accent, 15%) !important;
+            }
+        }
+    }
+
+    .class-title {
+        font-size: 16px;
+        line-height: 22px;
+        color: #555555;
+
+        @include breakpoint_max(sm) {
+            font-size: 15px;
         }
     }
 
@@ -201,6 +231,42 @@
             span {
                 color: darken($brand_accent, 15%);
             }
+        }
+    }
+}
+
+
+// SUB NAVBAR SECTION
+.sub-navbar-section {
+    width: 100%;
+    top: 63px;
+    box-shadow: 0 0 0 transparent;
+
+    @include breakpoint_max(lg) {
+        top: 59px;
+    }
+
+    .nav-items {
+        padding-top: 14px;
+        padding-bottom: 12px;
+    }
+}
+
+.sub-tablet {
+    padding-top: 17px;
+    padding-bottom: 17px;
+
+    @include breakpoint_max(sm) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    span {
+        font-size: 24px !important;
+        color: $color_text !important;
+
+        @include breakpoint_max(sm) {
+            font-size: 22px !important;
         }
     }
 }

@@ -8,14 +8,19 @@
           <div class="col-12 dashboard-header-row">
             <!-- PAGE TITLE -->
             <div class="page-title">Calendar</div>
+
+            <!-- CALENDAR ICON -->
+            <div class="avatar avatar_md btn-whitish d-md-none pointer" @click="toggleCalendar">
+              <span class="icon icon-calendar"></span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="container mb-5 px-1">
+      <div class="container px-1 bottom-container">
         <div class="row">
           <!-- CALENDAR PLUGIN -->
-          <div class="col-sm-12 col-md-5 left-layout">
+          <div class="col-12 col-md-5 left-layout d-none d-md-block" id="calendarLayout">
             <!-- CALENDAR PLUGIN COMPONENT -->
             <CalendarPlugin></CalendarPlugin>
             <!-- CALENDAR PLUGIN COMPONENT -->
@@ -47,18 +52,22 @@
           </div>
 
           <!-- TODO TASK BAR -->
-          <div class="col-sm-12 col-md-7 right-layout">
+          <div class="col-12 col-md-7 right-layout">
             <div class="right-first-row w-100 h-auto">
-              <!-- AVATAR SQUARE -->
-              <div class="avatar avatar-square avatar_md left-avatar">
-                <div class="avatar-with-meta">
-                  <div class="avatar-title">05</div>
-                  <div class="avatar-meta">Tue</div>
-                </div>
+              <div class="left-set d-flex justify-content-start align-items-center">
+                <!-- AVATAR SQUARE -->
+                <div class="avatar avatar-square avatar_md left-avatar">
+                  <div class="avatar-with-meta">
+                    <div class="avatar-title">{{ setDay }}</div>
+                    <div class="avatar-meta">{{ setWeekDay }}</div>
+                  </div>
+                </div> 
+                <!-- TEXT -->
+                <div class="text">Today</div>
               </div>
 
               <!-- ADD CALENDAR ICON -->
-              <div class="position-relative">
+              <div class="position-relative right-set">
                 <div
                   class="avatar avatar_md btn-accent right-avatar pointer"
                   v-on-clickaway="onDrop"
@@ -67,7 +76,10 @@
                   <span class="icon icon-plus"></span>
                 </div>
                 <!-- DRODOWN MENU -->
-                <div class="dropdown-btn-menu placement-bottom" v-if="new_option">
+                <div
+                  class="dropdown-btn-menu placement-bottom"
+                  v-if="new_option"
+                >
                   <ul class="list-unstyled">
                     <li class="mb-1">
                       <router-link to>New Homework</router-link>
@@ -86,18 +98,29 @@
             <!-- EVENTS COUNTER AND FILTER BY -->
             <div class="right-second-row">
               <div class="event-count color_grey_dark">18 Events due</div>
-              <div class="filter color_text pointer position-relative" v-on-clickaway="onDropFilter" @click="toggleFilter">
+              <div
+                class="filter color_text pointer position-relative"
+                v-on-clickaway="onDropFilter"
+                @click="toggleFilter"
+              >
                 Filter by
                 <i class="fas fa-caret-down ml-2"></i>
 
                 <!-- DRODOWN MENU -->
-                <div class="dropdown-btn-menu placement-bottom" v-if="toggle_filter">
+                <div
+                  class="dropdown-btn-menu placement-bottom"
+                  v-if="toggle_filter"
+                >
                   <ul class="list-unstyled">
-                   <li class="mb-1">
+                    <li class="mb-1">
                       <router-link to disabled class="filter-by">Filter by:</router-link>
                     </li>
                     <li class="mb-1">
-                      <router-link to>Class</router-link>
+                      <router-link
+                        to
+                        v-on-clickaway="onDropFilter"
+                        @click.native="toggleClassFilter"
+                      >Class</router-link>
                     </li>
                     <li class="mb-1">
                       <router-link to>Events</router-link>
@@ -112,27 +135,35 @@
                 </div>
 
                 <!-- DROP DOWN MENU FOR FILTER BY CLASS -->
-                <!-- <div class="dropdown-btn-menu placement-bottom filter-by-class">
+                <div
+                  class="dropdown-btn-menu placement-bottom filter-by-class"
+                  v-if="class_filter"
+                >
                   <ul class="list-unstyled">
-                   <li class="mb-1">
-                      <router-link to disabled class="filter-by"> <span><i class="fas fa-arrow-left mr-2"></i></span> FILTER BY CLASS:</router-link>
+                    <li class="mb-1">
+                      <a class="filter-by">
+                        <span v-on-clickaway="onDropClassFilter" @click="toggleFilter">
+                          <i class="fas fa-arrow-left mr-2"></i>
+                        </span> FILTER BY CLASS:
+                      </a>
                     </li>
 
-                   <div class="d-flex justify-content-between align-items-start wrap w-100">
-                     <div class="class-name">Year 7 - Gold</div>
-                     <div class="class-name">Year 7 - Gold</div>
-                     <div class="class-name">Year 7 - Gold</div>
-                     <div class="class-name">Year 7 - Gold</div>
-                     <div class="class-name">Year 7 - Gold</div>
-                     <div class="class-name">Year 7 - Gold</div>
-                     <div class="class-name">Year 7 - Gold</div>
-                     <div class="class-name">Year 7 - Gold</div>
-                     <div class="class-name">Year 7 - Gold</div>
-                   </div>
-                    
+                    <div class="class-holder mt-2">
+                      <div class="class-name">Year 7 - Gold</div>
+                      <div class="class-name">Year 7 - Silver</div>
+                      <div class="class-name">Year 8 - Gold</div>
+                      <div class="class-name">Year 8 - Silver</div>
+                      <div class="class-name">Year 9 - Gold</div>
+                      <div class="class-name">Year 9 - Silver</div>
+                      <div class="class-name">Year 10 - Gold</div>
+                      <div class="class-name">Year 10 - Silver</div>
+                      <div class="class-name">Year 11 - Gold</div>
+                      <div class="class-name">Year 11 - Silver</div>
+                      <div class="class-name">Year 12 - Gold</div>
+                      <div class="class-name">Year 12 - Silver</div>
+                    </div>
                   </ul>
-                </div> -->
-
+                </div>
               </div>
             </div>
 
@@ -255,15 +286,33 @@ export default {
       events: true,
       new_option: false,
       toggle_filter: false,
-      flter_class: false
+      class_filter: false,
+      y_placement: false,
+      date_obj: new Date(),
+      week: ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
     };
   },
 
+  computed: {
+    setDay() {
+      return this.date_obj.getDate();
+    },
+
+    setWeekDay() {
+      return this.week[this.date_obj.getDay()]; 
+    }
+  },
+
   mounted() {
-    bgColorSetter("#f0f0f0");
+    bgColorSetter("#f4f4f4");
   },
 
   methods: {
+    toggleCalendar(){
+      let calendar = document.getElementById('calendarLayout');
+      calendar.classList.toggle('d-none');
+    },
+
     toggleDropdown() {
       this.new_option = !this.new_option;
     },
@@ -272,12 +321,20 @@ export default {
       this.toggle_filter = !this.toggle_filter;
     },
 
+    toggleClassFilter() {
+      this.class_filter = !this.class_filter;
+    },
+
     onDrop() {
       this.new_option = false;
     },
 
     onDropFilter() {
       this.toggle_filter = false;
+    },
+
+    onDropClassFilter() {
+      this.class_filter = false;
     }
   }
 };

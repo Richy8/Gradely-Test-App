@@ -26,7 +26,14 @@
 @import 'schoolprofile';
 
 /*Classes Page Styling */
-@import 'classes';
+@import 'class_members';
+@import 'class_report';
+@import 'class_homework';
+/*Teacher and Student Page Styling */
+@import 'class_profile';
+
+/*Add Students Styling */
+@import 'add_students';
 
 /*Settingss Page Styling */
 @import 'settings';

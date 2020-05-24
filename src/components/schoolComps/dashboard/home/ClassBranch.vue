@@ -20,7 +20,7 @@
                   <a href @click.prevent="$emit('openClassModal')">Edit Info</a>
                 </li>
                 <li>
-                  <a href @click.prevent>View Feeds</a>
+                  <router-link to="/school/dashboard/class">View Feeds</router-link>
                 </li>
                 <li>
                   <a href @click.prevent="$emit('openTeacherModal')">Add Teachers</a>
@@ -42,17 +42,17 @@
         <!-- BRANCH CARD ICON ROW -->
         <div class="branch-card-icon-row">
           <!-- CALL OUT ICON LINK -->
-          <router-link to="/">
+          <router-link to="/school/dashboard/class">
             <span class="branch-icon icon-callout"></span>
           </router-link>
 
           <!-- LIBRARY ICON LINK -->
-          <router-link to="/">
+          <router-link to="/school/dashboard/class/homework">
             <span class="branch-icon icon-library"></span>
           </router-link>
           
           <!-- PIE CHART ICON LINK -->
-          <router-link to="/">
+          <router-link to="/school/dashboard/class/report">
             <span class="branch-icon icon-pie-chart"></span>
           </router-link>
         </div>

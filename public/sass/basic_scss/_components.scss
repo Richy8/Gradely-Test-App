@@ -414,10 +414,16 @@
             font-size: 22px;
             transition: color .3s ease-in-out;
 
-            &-one { color: $color_text;}
-            &-two { color: $brand_primary;}
+            &-one {
+                color: $color_text;
+            }
+
+            &-two {
+                color: $brand_primary;
+            }
 
         }
+
         &:hover {
             .icon {
                 color: #fff;
@@ -629,9 +635,303 @@
     }
 }
 
+// ADD A NEW ITEM
+.add-new-item {
+    @include flex_row_start_nowrap;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 25%;
+
+    @include breakpoint_max(lg) {
+        width: 50%;
+    }
+
+    @include breakpoint_max(md) {
+        width: 25%;
+    }
+
+    @include breakpoint_max(md) {
+        width: 50%;
+    }
+
+    .undone {
+        @include equal_min_edge(28);
+        margin-right: 10px;
+        transition: all .2s ease-in-out;
+
+        @include breakpoint_max(sm) {
+            @include equal_min_edge(26);
+        }
+    }
+
+    .label-text {
+        font-size: 14px;
+        line-height: 16px;
+        transition: all .2s ease-in-out;
+
+        @include breakpoint_max(sm) {
+            font-size: 13px;
+        }
+    }
+
+    &:hover {
+        .undone {
+            border: 1px solid $brand_primary;
+        }
+
+        .label-text {
+            color: $brand_primary !important;
+        }
+    }
+}
+
+// MEMBERS CARD FOR CLASSES
+.members-card {
+    width: 100%;
+    height: auto;
+    padding-bottom: 20px;
+
+    @include breakpoint_max(md) {
+        min-height: 80px !important;
+        height: 80px;
+        margin-bottom: 14px;
+    }
+
+    @include breakpoint_max(sm) {
+        min-height: 70px !important;
+    }
+}
+
+// MEMBER TOP
+.member-top {
+    .avatar {
+        position: relative;
+        margin-right: 15px;
+
+        @include breakpoint_max(lg) {
+            margin-right: 5px;
+        }
+
+        @include breakpoint_max(md) {
+            margin-right: 15px;
+        }
+
+        span {
+            @include transform-center;
+            font-size: 20px;
+        }
+    }
+
+    .title {
+        font-size: 16px;
+        line-height: 22px;
+        margin-bottom: 2.5px;
+
+        @include breakpoint_max(lg) {
+            font-size: 14px;
+        }
+
+        @include breakpoint_max(md) {
+            font-size: 16px;
+        }
+
+        @include breakpoint_max(sm) {
+            font-size: 14px;
+        }
+    }
+
+    .text {
+        font-size: 12px;
+        line-height: 16px;
+
+        @include breakpoint_max(lg) {
+            font-size: 11px;
+        }
+
+        @include breakpoint_max(md) {
+            font-size: 13px;
+        }
+
+        @include breakpoint_max(sm) {
+            font-size: 12px;
+        }
+    }
+
+    .caret-icon {
+        position: relative;
+        top: -7px;
+
+        @include breakpoint_max(lg) {
+            top: -8px;
+            font-size: 11px !important;
+        }
+
+        @include breakpoint_max(md) {
+            font-size: 14px !important;
+        }
+
+        @include breakpoint_max(sm) {
+            font-size: 12px !important;
+        }
+    }
+}
+
+// MEMBER BOTTOM
+.member-bottom {
+    margin-top: 30px;
+
+    .avatar-row {
+        margin-top: 15px;
+        margin-bottom: 25px;
+        @include flex_row_start_wrap;
+
+        .avatar {
+            margin-right: 10px;
+            margin-bottom: 10px;
+
+            .avatar-text {
+                font-weight: bold;
+                font-size: 13px;
+                line-height: 18px;
+                letter-spacing: 0.02em;
+            }
+        }
+
+        .add-teacher {
+            border: 1px dashed #D5D5D5;
+
+            &:hover {
+                span {
+                    color: $brand_accent !important;
+                }
+            }
+        }
+    }
+
+    .code-info {
+        margin-bottom: 11px;
+    }
+
+    .class-code {
+        font-size: 12px;
+        line-height: 16px;
+        color: $color_grey_dark;
+        width: auto;
+        text-overflow: ellipsis;
+        background: #F5F5F5;
+        border-radius: 3px;
+        padding: 8px 12px;
+
+        @include breakpoint_max(lg) {
+            display: block;
+            font-size: 11.5px;
+        }
+
+        .code {
+            margin-left: 10px;
+            font-size: 14px;
+            line-height: 19px;
+
+            @include breakpoint_max(lg) {
+                font-size: 13px;
+            }
+        }
+    }
+
+    // ADD NEW
+    .add-new {
+        @include flex_row_end_nowrap;
+        margin-top: 20px;
+        margin-left: auto;
+        width: 100%;
+
+        .avatar {
+            transition: all .3s ease-in-out;
+
+            span {
+                transition: all .3s ease-in-out;
+            }
+
+            &:hover {
+                background: $brand_primary !important;
+
+                span {
+                    color: #ffffff !important;
+                }
+            }
+        }
+
+    }
+}
+
+
+// EMPTY TEACHER CARD SECTION
+.empty-teacher-card {
+    background: rgba(#FFFFFF, .6);
+    border: 1px solid $brand_white;
+    padding: 14px 15px;
+    margin-bottom: 2px;
+    @include flex_row_between_nowrap;
+
+    .avatar {
+        margin-right: 15px;
+    }
+
+    .name {
+        width: 188px;
+        height: 18px;
+        margin-bottom: 7px;
+
+        @include breakpoint_max(xs) {
+            width: 160px;
+        }
+    }
+
+    .meta {
+        width: 145px;
+        height: 10px;
+
+        @include breakpoint_max(xs) {
+            width: 120px;
+        }
+    }
+
+    .option {
+        width: 82px;
+        height: 25px;
+
+        @include breakpoint_max(xs) {
+            width: 50px;
+        }
+    }
+}
+
+
 // INDICATORS
 .indicator-icon {
     position: relative;
     @include equal_min_edge(15);
     border-radius: 45px;
+}
+
+// LINE SEPARATOR
+.line-separator {
+    position: absolute;
+    top: 45px;
+    left: 0;
+    right: 0;
+    border-top: 1px solid $border_grey;
+    width: 99%;
+}
+
+// PROGRESS BAR
+.progress {
+    background: #DDF1FA;
+    border-radius: 50px;
+    height: 8px;
+
+    .progress-bar {
+        width: 50%;
+        background: $brand_green;
+    }
 }

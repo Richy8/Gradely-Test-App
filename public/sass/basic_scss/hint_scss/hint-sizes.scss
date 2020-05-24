@@ -14,6 +14,7 @@
 
 .#{$hintPrefix}small,
 .#{$hintPrefix}medium,
+.#{$hintPrefix}midlg,
 .#{$hintPrefix}large {
 	&:after {
 		white-space: normal;
@@ -30,6 +31,11 @@
 .#{$hintPrefix}medium {
 	&:after {
 		width: $hintSizeMedium;
+	}
+}
+.#{$hintPrefix}midlg {
+	&:after {
+		width: $hintSizeMidLg;
 	}
 }
 .#{$hintPrefix}large {

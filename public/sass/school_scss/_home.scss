@@ -527,6 +527,17 @@
             .accordion-bottom {
                 .branches {
                     @include flex_row_start_nowrap;
+                    
+                    &::-webkit-scrollbar {
+                        height: 10px;
+                    }
+                    &::-webkit-scrollbar-track {
+                        border-radius: 5px;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        border-radius: 5px;
+                        background: $color_grey_light;
+                    }
 
                     @include breakpoint_max(md) {
                         -ms-overflow-style: none;

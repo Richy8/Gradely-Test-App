@@ -49,9 +49,18 @@
     } 
 }
 
+.avatar_xs {
+    @include equal_min_edge(20);
+    font-size: 9px;
+}
+
 .avatar_sm {
     @include equal_min_edge(24);
     font-size: 11px;
+}
+
+.avatar_32 {
+    @include equal_min_edge(32);
 }
 
 .avatar_sm_md {
@@ -74,13 +83,21 @@
     }
 
     @include breakpoint_max(md) {
-        @include equal_min_edge(46);
+        @include equal_min_edge(42);
     }
 
     @include breakpoint_max(sm) {
-        @include equal_min_edge(42);
+        @include equal_min_edge(38);
     }
 } 
+
+.avatar_vid_md {
+    @include equal_min_edge(50);
+
+    @include breakpoint_max(lg) {
+        @include equal_min_edge(48);
+    }
+}
 
 .avatar_empty_lg {
     @include breakpoint_max(lg) {
@@ -131,7 +148,30 @@
 .avatar_xxl {
     @include equal_min_edge(128);
     font-size: 64px;
+
+    @include breakpoint_max(lg) {
+        @include equal_min_edge(96);
+        font-size: 48px;
+    }
+
+    @include breakpoint_max(md) {
+        @include equal_min_edge(100);
+    }
+
+    @include breakpoint_max(xs) {
+        @include equal_min_edge(85);
+    }
 } 
+
+.avatar_big {
+    @include equal_min_edge(200);
+    font-size: 100px;
+
+    @include breakpoint_max(lg) {
+        @include equal_min_edge(155);
+        font-size: 80px;
+    }
+}
 
 .avatar_massive {
     @include equal_min_edge(256);
@@ -154,6 +194,7 @@
     text-transform: uppercase;
     font-size: 1em;
     font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 .avatar-with-meta {

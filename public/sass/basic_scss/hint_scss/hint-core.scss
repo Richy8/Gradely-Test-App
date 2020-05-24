@@ -61,11 +61,12 @@
 	 */
 	&:after {
 		background: $hintDefaultColor;
-		color: white;
+		color: #f1f1f1;
 		padding: $hintVerticalPadding $hintHorizontalPadding;
-		font-size: $hintFontSize;
-		font-family: $hintFontFamily;
-		line-height: $hintFontSize; // Vertical centering.
+		font-weight: 100;
+		font-size: 11.5px;
+		text-align: center;
+		line-height: 16px; // Vertical centering.
 		white-space: nowrap; // Prevent breaking to new line.
 	}
 	// Always get content from aria-label attribute.

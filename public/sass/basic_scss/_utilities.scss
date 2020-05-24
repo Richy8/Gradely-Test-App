@@ -12,7 +12,7 @@ input:-webkit-autofill:focus {
 /* ===================
 Border Radius
 ======================= */
-$radius: 5, 10, 15, 20, 25, 30;
+$radius: 5, 10, 15, 20, 25, 30, 35, 40, 45, 50;
 @each $value in $radius {
     .rounded-#{$value} {
         border-radius: #{$value/16}rem !important;
@@ -32,7 +32,7 @@ $radius: 5, 10, 15, 20, 25, 30;
 /* ===================
 Font Sizes
 ======================= */
-@for $i from 10 through 25 {
+@for $i from 8 through 35 {
     .font-#{$i} {
         font-size: #{$i/16}rem !important;
     }
@@ -70,5 +70,6 @@ Cursor, Selection and Link
 .pointer{ cursor: pointer; }
 .select-none{ user-select: none; }
 .link-underline{ text-decoration: underline }
+.link-no-underline{ text-decoration: none !important}
 
 

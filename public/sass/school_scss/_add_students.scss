@@ -1,0 +1,144 @@
+.add-students-page {
+    .dashboard-header-row {
+        margin-top: 160px;
+        margin-bottom: 40px;
+
+        @include breakpoint_max(lg) {
+            margin-top: 140px;
+            .page-title {
+                font-size: 26px;
+            }
+        }
+        
+        @include breakpoint_max(md) {
+            margin-top: 80px;
+            margin-bottom: 30px;
+            .page-title {
+                font-size: 20px;
+            }
+        }
+
+        @include breakpoint_max(sm) {
+            .page-title {
+                font-size: 19px;
+            }
+        }
+    }
+
+    .form-container {
+        @include breakpoint_max(md) {
+            margin-bottom: 80px;
+        }
+    }
+
+    .container {
+        @include breakpoint_max(sm) {
+            padding-right: 15px !important;
+            padding-left: 15px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+    }
+
+    .form-row-group {
+        margin-bottom: 30px;
+    }
+
+    .control-label {
+        @include breakpoint_max(md) {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+
+    .form-control-top {
+        width: 400px;
+
+        @include breakpoint_max(md) {
+            width: 100%;
+        }
+    }
+
+    .student-info-form {
+        margin-top: 0px;
+    }
+
+    .table td {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        border: none;
+
+        .avatar {
+            position: relative;
+            top: 6.5px;
+            right: -20px;
+            border: 1px solid #D5D5D5;
+
+            .avatar-text {
+                background: #F5F5F5;
+            }
+        }
+    }
+
+    .table thead td {
+        padding-top: 60px;
+        padding-bottom: 10px;
+        border-top: none;
+        border-bottom: 1px solid #d5d5d5;
+    }
+
+    .table {
+        @include breakpoint_max(md) {
+            width: 700px;
+        }
+    }
+
+    .add-new-item {
+        position: relative;
+        margin-bottom: 70px;
+        left: 70px;
+
+        @include breakpoint_max(sm) {
+            left: 55px;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+// STUDENT INVITATION MESSAGE STYLING
+.student-invitaion-message {
+    @include flex_column_center;
+    margin-top: -35px;
+
+    .avatar_xl{
+        margin-bottom: 30px;
+
+        @include breakpoint_max(md) {
+            @include equal_min_edge(88);
+        }
+    }
+
+    .title {
+        font-size: 18px;
+        line-height: 25px;
+        margin-bottom: 20px;
+    }
+
+    .message {
+        font-size: 14px;
+        line-height: 165%;
+        color: #555555;
+        margin-bottom: 40px;
+    }
+
+    button {
+        margin-bottom: 22px;
+    }
+
+    .to-class {
+        font-size: 12px;
+        line-height: 163.98%;
+        color: #555555;
+    }
+}
+

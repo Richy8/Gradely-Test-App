@@ -23,6 +23,7 @@ $color_deep_blue: #033966;
 $color_ash: #555555;
 $color_ash_lighter: #a8a8a8;
 $off_white: #ebebeb; 
+$brand_white: #f4f4f4;
 
 // App Color Pallete
 $app-color: () !default;
@@ -50,7 +51,8 @@ $app-color: map-merge((
 "color_mid_blue": $color_mid_blue,
 "color_ash": $color_ash,
 "off_white": $off_white,
-"color_ash_lighter": $color_ash_lighter
+"color_ash_lighter": $color_ash_lighter,
+"brand_white": $brand_white
 ), $app-color);
 
 /*------------------------------------*\

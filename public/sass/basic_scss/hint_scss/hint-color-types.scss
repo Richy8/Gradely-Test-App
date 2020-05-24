@@ -50,3 +50,10 @@
 .#{$hintPrefix}success {
 	@include hint-type($hintSuccessColor)
 }
+
+/**
+ * Primary
+ */
+.#{$hintPrefix}primary {
+	@include hint-type($hintPrimaryColor)
+}

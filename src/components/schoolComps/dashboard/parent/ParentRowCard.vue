@@ -24,7 +24,7 @@
       <!-- PARENT OPTIONS -->
       <div class="col-four position-relative">
         <div class="avatar avatar_empty_lg pointer" v-on-clickaway="onDrop" @click="toggleParentOption">
-          <div class="cust_icon avatar-img h-ellipsis-icon"></div>
+          <span class="icon-ellipsis-h font-19 flex-center"></span>
         </div>
 
         <!-- DRODOWN MENU -->

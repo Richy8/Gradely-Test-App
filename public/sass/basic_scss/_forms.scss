@@ -31,6 +31,25 @@ input {
     [class*="checkbox"] &, [class*="radio"] & {
         color: inherit;
     }
+
+    @include breakpoint_max(sm) {
+        font-size: 13px;
+    }
+
+    @include breakpoint_max(xs) {
+        font-size: 12.5px;
+    }
+}
+
+.label-info {
+    font-size: 12px;
+    line-height: 16px;
+    color: #555555;
+
+    @include breakpoint_max(md) {
+        margin-bottom: 15px;
+        font-size: 13px;
+    }
 }
 
 // HELP BLOCK
@@ -82,6 +101,14 @@ input[disabled] {
     box-shadow: 0 0 0 transparent;
     box-shadow: unset;
     vertical-align: middle;
+
+    @include breakpoint_max(lg) {
+        font-size: 0.8125rem;
+    }
+
+    @include breakpoint_max(xs) {
+        font-size: 0.7813rem;
+    }
     
     &.width_auto {
         width: auto;
@@ -291,10 +318,26 @@ input[type="checkbox"],
         &:before,
         &:after {
             @include equal_min_edge(24);
+
+            @include breakpoint_max(sm) {
+                @include equal_min_edge(22);
+            }
+
+            @include breakpoint_max(xs) {
+                @include equal_min_edge(20);
+            }
         }
         &:checked:before {
             top: 1px;
             left: 9px;
+
+            @include breakpoint_max(sm) {
+                left: 8px;
+            }
+            @include breakpoint_max(xs) {
+                top: 0px;
+                left: 7px;
+            }
         }
     }
 
@@ -374,5 +417,63 @@ label {
 
     .label-compact {
         @include label_compact;
+    }
+}
+
+// MESSAGE INPUT FORM
+.message-input-form {
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid $border_grey;
+    box-sizing: border-box;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all .3s ease-in-out;
+    
+    textarea {
+        border: 0px !important;
+        outline: 0px !important;
+        &:focus {
+            border: 0px !important;
+        }
+    }
+
+    .options {
+        background: #F5F5F5;
+        border-radius: 0px 0px 5px 5px;
+        padding: 2px 14px;
+        @include flex_row_between_nowrap;
+    }
+
+    .message-features {
+        @include flex_row_start_nowrap;
+        .icon {
+            color: $color_grey_dark;
+            margin-right: 16px;
+            font-size: 18px;
+
+            @include breakpoint_max(lg) {
+                font-size: 16px;
+                margin-right: 13.5px;
+            }
+
+            &:hover {
+                span {
+                    color: darken($brand_accent, 12%);
+                }
+            }
+        }
+    }
+
+    .btn {
+        padding: 8px 11px !important;
+        font-size: 10px !important;
+        line-height: 16px;
+        color: $color_text;
+
+        @include breakpoint_max(md) {
+            padding: 8.5px 14px !important;
+            line-height: 14px;
+        }
     }
 }

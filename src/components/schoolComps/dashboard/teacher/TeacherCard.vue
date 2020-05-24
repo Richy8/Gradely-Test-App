@@ -15,10 +15,10 @@
           <div class="dropdown-btn-menu placement-bottom" v-if="card_option">
             <ul class="list-unstyled">
               <li class="mb-1">
-                <router-link to>View Profile</router-link>
+                <router-link to="/school/dashboard/teacher_profile">View Profile</router-link>
               </li>
               <li class="mb-1">
-                <router-link to>Send a Message</router-link>
+                <router-link to @click.native="toggleMessageModal">Send a Message</router-link>
               </li>
               <li class="mb-1">
                 <router-link to>Assign to Class</router-link>
@@ -54,15 +54,25 @@
         </div>
       </div>
     </div>
+
+     <!-- MODAL -->
+    <NewMessageModal v-if="message_modal" @closeTriggered="toggleMessageModal"></NewMessageModal>
+    <!-- MODAL -->
+
   </div>
 </template>
 
 <script>
 import { colors, random, shuffle } from "@/assets/jsComps/extFunc";
 import { mixin as clickaway } from "vue-clickaway";
+import NewMessageModal from "@/components/schoolComps/dashboard/modals/NewMessageModal";
 
 export default {
   name: "TeacherCard",
+
+  components: {
+    NewMessageModal
+  },
 
   props: {
     initials: String,
@@ -83,11 +93,16 @@ export default {
 
   data() {
     return {
+      message_modal: false,
       card_option: false
     };
   },
 
   methods: {
+     toggleMessageModal() {
+      this.message_modal = !this.message_modal;
+    },
+
     toggleDropdown() {
       this.card_option = !this.card_option;
     },

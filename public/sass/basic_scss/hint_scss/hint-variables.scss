@@ -45,6 +45,7 @@ $hintZIndex: 1000000 !default;
 // Size options
 $hintSizeSmall: 80px !default;
 $hintSizeMedium: 150px !default;
+$hintSizeMidLg: 168px !default;
 $hintSizeLarge: 300px !default;
 
 // Various colors
@@ -62,3 +63,6 @@ $hintInfoColor: hsl(200, 50%, 45%) !default;
 
 // Success Color
 $hintSuccessColor: hsl(121, 32%, 40%) !default;
+
+// Brand Primary Color
+$hintPrimaryColor: #113255 !default;

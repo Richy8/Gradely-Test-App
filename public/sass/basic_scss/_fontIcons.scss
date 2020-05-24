@@ -1,10 +1,10 @@
 @font-face {
 	font-family: 'icomoon';
-	src: url('../fonts/icomoon.eot?aqes8q');
-	src: url('../fonts/icomoon.eot?aqes8q#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?aqes8q') format('truetype'),
-    url('../fonts/icomoon.woff?aqes8q') format('woff'),
-    url('../fonts/icomoon.svg?aqes8q#icomoon') format('svg');
+	src: url('../fonts/icomoon.eot?gupl4h');
+	src: url('../fonts/icomoon.eot?gupl4h#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?gupl4h') format('truetype'),
+    url('../fonts/icomoon.woff?gupl4h') format('woff'),
+    url('../fonts/icomoon.svg?gupl4h#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: block;
@@ -25,278 +25,388 @@
 		content: "\e900";
 	}
 }
-.icon-angle-left {
+.icon-add-group {
 	&:before {
 		content: "\e901";
 	}
 }
-.icon-arrow-right {
+.icon-angle-left {
 	&:before {
 		content: "\e902";
 	}
 }
-.icon-bar-highest {
+.icon-arrow-left {
 	&:before {
 		content: "\e903";
 	}
 }
-.icon-bar-lowest {
+.icon-arrow-right {
 	&:before {
 		content: "\e904";
 	}
 }
-.icon-bell {
+.icon-bar-chart {
 	&:before {
 		content: "\e905";
 	}
 }
-.icon-book {
+.icon-bar-highest {
 	&:before {
 		content: "\e906";
 	}
 }
-.icon-calendar {
+.icon-bar-lowest {
 	&:before {
 		content: "\e907";
 	}
 }
-.icon-callout {
+.icon-bell {
 	&:before {
 		content: "\e908";
 	}
 }
-.icon-camera {
+.icon-book {
 	&:before {
 		content: "\e909";
 	}
 }
-.icon-caret-down {
+.icon-briefcase {
 	&:before {
 		content: "\e90a";
 	}
 }
-.icon-caret-right {
+.icon-calendar {
 	&:before {
 		content: "\e90b";
 	}
 }
-.icon-chat {
+.icon-callout {
 	&:before {
 		content: "\e90c";
 	}
 }
-.icon-classboard {
+.icon-camera {
 	&:before {
 		content: "\e90d";
 	}
 }
-.icon-close {
+.icon-caret-down {
 	&:before {
 		content: "\e90e";
 	}
 }
-.icon-commentary {
+.icon-caret-right {
 	&:before {
 		content: "\e90f";
 	}
 }
-.icon-curriculum {
+.icon-chat {
 	&:before {
 		content: "\e910";
 	}
 }
-.icon-decline {
+.icon-chat-card {
 	&:before {
 		content: "\e911";
 	}
 }
-.icon-ellipsis-h {
+.icon-classboard {
 	&:before {
 		content: "\e912";
 	}
 }
-.icon-email {
+.icon-clock {
 	&:before {
 		content: "\e913";
 	}
 }
-.icon-file {
+.icon-close {
 	&:before {
 		content: "\e914";
 	}
 }
-.icon-file-text {
+.icon-commentary {
 	&:before {
 		content: "\e915";
 	}
 }
-.icon-filter-icon {
+.icon-comment-chat {
 	&:before {
 		content: "\e916";
 	}
 }
-.icon-gear {
+.icon-curriculum {
 	&:before {
 		content: "\e917";
 	}
 }
-.icon-help-circle {
+.icon-decline {
 	&:before {
 		content: "\e918";
 	}
 }
-.icon-hide {
+.icon-ellipsis-h {
 	&:before {
 		content: "\e919";
 	}
 }
-.icon-inbox {
+.icon-email {
 	&:before {
 		content: "\e91a";
 	}
 }
-.icon-info {
+.icon-feeds {
 	&:before {
 		content: "\e91b";
 	}
 }
-.icon-library {
+.icon-file {
 	&:before {
 		content: "\e91c";
 	}
 }
-.icon-link {
+.icon-file-text {
 	&:before {
 		content: "\e91d";
 	}
 }
-.icon-log-out {
+.icon-filter-icon {
 	&:before {
 		content: "\e91e";
 	}
 }
-.icon-map {
+.icon-gear {
 	&:before {
 		content: "\e91f";
 	}
 }
-.icon-map-pin {
+.icon-help-circle {
 	&:before {
 		content: "\e920";
 	}
 }
-.icon-map-pin-sm {
+.icon-hide {
 	&:before {
 		content: "\e921";
 	}
 }
-.icon-message {
+.icon-image {
 	&:before {
 		content: "\e922";
 	}
 }
-.icon-parent-child {
+.icon-inbox {
 	&:before {
 		content: "\e923";
 	}
 }
-.icon-parents {
+.icon-info {
 	&:before {
 		content: "\e924";
 	}
 }
-.icon-phone {
+.icon-library {
 	&:before {
 		content: "\e925";
 	}
 }
-.icon-pie-chart {
+.icon-link {
 	&:before {
 		content: "\e926";
 	}
 }
-.icon-play {
+.icon-log-out {
 	&:before {
 		content: "\e927";
 	}
 }
-.icon-plus {
+.icon-map {
 	&:before {
 		content: "\e928";
 	}
 }
-.icon-questions {
+.icon-map-pin {
 	&:before {
 		content: "\e929";
 	}
 }
-.icon-reply {
+.icon-map-pin-sm {
 	&:before {
 		content: "\e92a";
 	}
 }
-.icon-school {
+.icon-members {
 	&:before {
 		content: "\e92b";
 	}
 }
-.icon-search {
+.icon-message {
 	&:before {
 		content: "\e92c";
 	}
 }
-.icon-show {
+.icon-minus {
 	&:before {
 		content: "\e92d";
 	}
 }
-.icon-sliders {
+.icon-paper-clip {
 	&:before {
 		content: "\e92e";
 	}
 }
-.icon-smartphone {
+.icon-parent-child {
 	&:before {
 		content: "\e92f";
 	}
 }
-.icon-student {
+.icon-parents {
 	&:before {
 		content: "\e930";
 	}
 }
-.icon-tachometer {
+.icon-phone {
 	&:before {
 		content: "\e931";
 	}
 }
-.icon-teacher {
+.icon-pie-chart {
 	&:before {
 		content: "\e932";
 	}
 }
-.icon-teacher-class {
+.icon-play {
 	&:before {
 		content: "\e933";
 	}
 }
-.icon-timer {
+.icon-play-bg {
 	&:before {
 		content: "\e934";
 	}
 }
-.icon-user-circle {
+.icon-plus {
 	&:before {
 		content: "\e935";
 	}
 }
-.icon-user-fill {
+.icon-practice-card {
 	&:before {
 		content: "\e936";
 	}
 }
-.icon-user-outline {
+.icon-printer {
 	&:before {
 		content: "\e937";
+	}
+}
+.icon-questions {
+	&:before {
+		content: "\e938";
+	}
+}
+.icon-reply {
+	&:before {
+		content: "\e939";
+	}
+}
+.icon-school {
+	&:before {
+		content: "\e93a";
+	}
+}
+.icon-search {
+	&:before {
+		content: "\e93b";
+	}
+}
+.icon-show {
+	&:before {
+		content: "\e93c";
+	}
+}
+.icon-sliders {
+	&:before {
+		content: "\e93d";
+	}
+}
+.icon-smartphone {
+	&:before {
+		content: "\e93e";
+	}
+}
+.icon-student {
+	&:before {
+		content: "\e93f";
+	}
+}
+.icon-swap {
+	&:before {
+		content: "\e940";
+	}
+}
+.icon-tachometer {
+	&:before {
+		content: "\e941";
+	}
+}
+.icon-teacher {
+	&:before {
+		content: "\e942";
+	}
+}
+.icon-teacher-class {
+	&:before {
+		content: "\e943";
+	}
+}
+.icon-thumbs-up {
+	&:before {
+		content: "\e944";
+	}
+}
+.icon-timer {
+	&:before {
+		content: "\e945";
+	}
+}
+.icon-trending-down {
+	&:before {
+		content: "\e946";
+	}
+}
+.icon-trending-up {
+	&:before {
+		content: "\e947";
+	}
+}
+.icon-url-link {
+	&:before {
+		content: "\e948";
+	}
+}
+.icon-user-circle {
+	&:before {
+		content: "\e949";
+	}
+}
+.icon-user-fill {
+	&:before {
+		content: "\e94a";
+	}
+}
+.icon-user-outline {
+	&:before {
+		content: "\e94b";
+	}
+}
+.icon-user-plus {
+	&:before {
+		content: "\e94c";
+	}
+}
+.icon-video-card {
+	&:before {
+		content: "\e94d";
 	}
 }
