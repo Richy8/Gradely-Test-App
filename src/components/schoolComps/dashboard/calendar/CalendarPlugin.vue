@@ -197,7 +197,7 @@ export default {
   props: {
     border: {
       type: Boolean,
-      default: true
+      default: false
     },
 
     create_new: {
