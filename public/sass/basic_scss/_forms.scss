@@ -7,6 +7,7 @@ input {
     &::placeholder {
         color: $border_grey_dark;
     }
+
     &:focus {
         outline: none;
     }
@@ -27,8 +28,9 @@ input {
     padding-bottom: 0.4688rem;
     line-height: 1.4rem;
     color: $color_grey_dark;
-    
-    [class*="checkbox"] &, [class*="radio"] & {
+
+    [class*="checkbox"] &,
+    [class*="radio"] & {
         color: inherit;
     }
 
@@ -44,7 +46,7 @@ input {
 .label-info {
     font-size: 12px;
     line-height: 16px;
-    color: #555555;
+    color: $color_ash;
 
     @include breakpoint_max(md) {
         margin-bottom: 15px;
@@ -61,9 +63,10 @@ input {
 }
 
 // INPUT ERROR
-.text-error, .has-error {
+.text-error,
+.has-error {
     font-size: 12px;
-    color: red;
+    color: $brand_red;
 }
 
 // REQUIRED STYLING
@@ -109,7 +112,7 @@ input[disabled] {
     @include breakpoint_max(xs) {
         font-size: 0.7813rem;
     }
-    
+
     &.width_auto {
         width: auto;
         min-width: 15.625rem;
@@ -132,7 +135,7 @@ input[disabled] {
     position: relative;
     z-index: 1;
 
-    & > .form-control {
+    &>.form-control {
         border-radius: 5px !important
     }
 
@@ -158,6 +161,7 @@ input[disabled] {
 // SELECT FORM STYLING 
 select.form-control {
     background: white url(../img/icons/arrow-down.png) right center no-repeat;
+
     &:focus {
         outline: none;
         background: white url(../img/icons/arrow-down.png) right center no-repeat;
@@ -193,7 +197,7 @@ select.form-control {
     }
 }
 
-.inputControl{
+.inputControl {
     border: none;
     padding: 0;
     background-color: transparent;
@@ -221,6 +225,7 @@ input[type="radio"],
     &:focus {
         outline: none;
     }
+
     &:before,
     &:after {
         content: "";
@@ -229,6 +234,7 @@ input[type="radio"],
         border-radius: 50%;
         transition: all 240ms;
     }
+
     &:before {
         position: absolute;
         left: 0;
@@ -236,17 +242,21 @@ input[type="radio"],
         background-color: $brand_accent;
         transform: scale(0);
     }
+
     &:after {
         position: relative;
         top: -3px;
         border: 2px solid $border_grey_dark;
     }
+
     &:checked:before {
-       transform: scale(.5);
+        transform: scale(.5);
     }
+
     &:checked:after {
         border-color: $brand_accent;
     }
+
     &:disabled:after,
     &:disabled:checked:after,
     &:disabled:checked:before {
@@ -267,6 +277,7 @@ input[type="checkbox"],
     &:focus {
         outline: none;
     }
+
     &:disabled {
         background-color: $border_grey_light;
         border-color: transparent;
@@ -298,13 +309,16 @@ input[type="checkbox"],
         border-left-width: 0;
         transform: rotate(45deg);
     }
+
     &:checked:after {
         background-color: $brand_accent;
         border-color: $brand_accent;
     }
+
     &:disabled:after {
         border-color: $border_grey_dark;
     }
+
     &:disabled:checked:after {
         background-color: $border_grey_light;
         border-color: transparent;
@@ -314,7 +328,8 @@ input[type="checkbox"],
         border-color: $border_grey_dark;
     }
 
-    .select-md & {
+    .checkbox-md & {
+
         &:before,
         &:after {
             @include equal_min_edge(24);
@@ -327,6 +342,7 @@ input[type="checkbox"],
                 @include equal_min_edge(20);
             }
         }
+
         &:checked:before {
             top: 1px;
             left: 9px;
@@ -334,6 +350,7 @@ input[type="checkbox"],
             @include breakpoint_max(sm) {
                 left: 8px;
             }
+
             @include breakpoint_max(xs) {
                 top: 0px;
                 left: 7px;
@@ -341,17 +358,24 @@ input[type="checkbox"],
         }
     }
 
-    .select-brand-inverse & {
+    .checkbox-brand-inverse & {
         &:checked:after {
             background-color: $brand_inverse;
             border-color: $brand_inverse;
         }
     }
 
-    .select-color-grey-dark & {
+    .checkbox-color-grey-dark & {
         &:checked:after {
             background-color: $color_grey_dark;
             border-color: $color_grey_dark;
+        }
+    }
+
+    .checkbox-brand-tonic & {
+        &:checked:after {
+            background-color: $brand_tonic;
+            border-color: $brand_tonic;
         }
     }
 }
@@ -364,7 +388,7 @@ input[type="checkbox"],
     }
 }
 
-.select-md {
+.checkbox-md {
     .label_text {
         position: relative;
         top: -7px;
@@ -378,19 +402,21 @@ input[type="checkbox"],
     display: inline-flex;
     align-items: center;
 
-    + .radio-inline,
-    + .checkbox-inline {
+    +.radio-inline,
+    +.checkbox-inline {
         margin-left: 30px;
     }
 }
 
 label {
     font-weight: normal;
+
     &.radio-inline {
         +label {
             margin-left: 30px;
         }
     }
+
     &.checkbox-inline {
         margin: 5px 0;
         margin-bottom: 0 !important;
@@ -417,63 +443,5 @@ label {
 
     .label-compact {
         @include label_compact;
-    }
-}
-
-// MESSAGE INPUT FORM
-.message-input-form {
-    width: 100%;
-    background: #FFFFFF;
-    border: 1px solid $border_grey;
-    box-sizing: border-box;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: all .3s ease-in-out;
-    
-    textarea {
-        border: 0px !important;
-        outline: 0px !important;
-        &:focus {
-            border: 0px !important;
-        }
-    }
-
-    .options {
-        background: #F5F5F5;
-        border-radius: 0px 0px 5px 5px;
-        padding: 2px 14px;
-        @include flex_row_between_nowrap;
-    }
-
-    .message-features {
-        @include flex_row_start_nowrap;
-        .icon {
-            color: $color_grey_dark;
-            margin-right: 16px;
-            font-size: 18px;
-
-            @include breakpoint_max(lg) {
-                font-size: 16px;
-                margin-right: 13.5px;
-            }
-
-            &:hover {
-                span {
-                    color: darken($brand_accent, 12%);
-                }
-            }
-        }
-    }
-
-    .btn {
-        padding: 8px 11px !important;
-        font-size: 10px !important;
-        line-height: 16px;
-        color: $color_text;
-
-        @include breakpoint_max(md) {
-            padding: 8.5px 14px !important;
-            line-height: 14px;
-        }
     }
 }

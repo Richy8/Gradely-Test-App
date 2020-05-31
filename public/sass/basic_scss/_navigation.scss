@@ -2,15 +2,14 @@ a {
     text-decoration: none;
     transition: all .6s ease-in-out;
     color: inherit;
-    
+
     &:hover,
     &:focus {
         color: $brand_accent;
         text-decoration: none;
     }
-    
+
     &:focus {
-        outline: thin dotted $brand_accent;
         .no-touch & {
             outline: none;
         }
@@ -31,12 +30,12 @@ button {
     width: auto;
     height: auto;
     color: inherit;
-    background: 0 0;
     cursor: pointer;
     text-align: center;
     transition: all .6s ease-in-out;
 
-    &:focus, &:visited {
+    &:focus,
+    &:visited {
         outline: none;
     }
 }
@@ -59,43 +58,30 @@ button {
     box-shadow: 0px 0px 0px transparent;
     transition: all .6s ease-in-out;
     text-decoration: none !important;
-    
+
     @include breakpoint_min(md) {
         min-width: 100px;
         padding: 12px 32px;
 
-        .btn_user_act &{
-            padding: 12px 22px;
-            line-height: 1;
-        }
-        
-        + .btn {
+        +.btn {
             margin-left: 1.5rem;
         }
     }
-    
+
     &:hover,
     &:focus {
         text-decoration: none !important;
         box-shadow: 2px 5px 10px 0 rgba($brand_black, .4);
+
         .no-touch & {
             outline: none;
         }
     }
 }
 
-.btn-white {
-    background-color: #ffffff !important;
-    color: $brand_black !important;
-    &:hover,
-    &:focus {
-        background-color: $brand_accent !important;
-        color: $brand_black !important;
-    }
-}
-
 .btn-primary {
     background-color: $brand_primary !important;
+
     &:hover,
     &:focus {
         background-color: $brand_accent !important;
@@ -106,7 +92,8 @@ button {
 .btn-accent {
     background-color: $brand_accent !important;
     color: $brand_black !important;
-    transition: all .5s ease-in-out;
+    transition: all .6s ease-in-out;
+
     &:hover,
     &:focus {
         background-color: $brand_primary !important;
@@ -118,6 +105,7 @@ button {
     background-color: #ffffff !important;
     color: $brand_black !important;
     transition: all .5s ease-in-out;
+
     &:hover,
     &:focus {
         background-color: $brand_primary !important;
@@ -139,8 +127,10 @@ button {
 
 .btn-inverse {
     color: $brand_primary;
-    background: #DBF5F8;
-    border: 1px solid #11BDCF;
+    background: $brand_inverse_light;
+    ;
+    border: 1px solid $brand_inverse;
+
     &:hover,
     &:focus {
         background-color: $brand_black !important;
@@ -165,7 +155,8 @@ button {
     color: $brand_accent !important;
     border-color: $brand_accent !important;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $color_white !important;
         background-color: $brand_primary !important;
     }
@@ -176,7 +167,8 @@ button {
     color: $brand_primary !important;
     border: 2px solid $brand_primary !important;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $color_white !important;
         background-color: $brand_primary !important;
         border-color: transparent !important;
@@ -188,7 +180,8 @@ button {
     color: $color_text;
     border: 2px solid $border_grey;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $color_white;
         background-color: $brand_primary;
         border-color: transparent;
@@ -200,7 +193,8 @@ button {
     color: $color_white;
     border: .5px solid $border_grey;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $color_deep_blue;
         background-color: $brand_accent;
         border-color: transparent;
@@ -212,9 +206,23 @@ button {
     color: $brand_inverse;
     border: 2px solid $brand_inverse;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
         color: $color_white;
         background-color: $brand_inverse;
+        border-color: transparent;
+    }
+}
+
+.btn-tonic-outline {
+    background-color: transparent;
+    color: $brand_tonic;
+    border: 2px solid $brand_tonic;
+
+    &:hover,
+    &:focus {
+        color: $color_white;
+        background-color: $brand_tonic;
         border-color: transparent;
     }
 }
@@ -241,8 +249,9 @@ button {
     opacity: .75;
     border: none;
     background-color: transparent;
-    
-    &:hover, &:hover {
+
+    &:hover,
+    &:hover {
         background-color: $brand_inverse_light;
         opacity: 1;
     }
@@ -254,45 +263,21 @@ button {
     display: inline-block;
     text-decoration: underline;
     color: $brand_accent;
-        
+
     &:hover,
     &:focus {
         color: $brand_black;
         text-decoration: none;
     }
-    
-    &:active, &[disabled] {
+
+    &:active,
+    &[disabled] {
         color: $border_grey_dark;
         outline: none;
     }
 }
 
-.social_links {
-    padding-bottom: 15px;
-    clear: both;
-    
-    .postShare & {
-        padding-bottom: 0;
-    }
-
-    a {
-        display: inline-block;
-        font-size: 18px;
-        fill: $brand_primary;
-        color: $brand_primary;
-        vertical-align: bottom;
-        transition: all .6s ease-in-out;
-        
-        +a {
-            margin-left: 15px;
-        }
-        &:hover {
-            fill: $brand_accent;
-            color: $brand_accent;
-        }
-    }
-}
-
+// CLOSE BUTTON
 .dialogDismiss {
     position: absolute;
     right: 15px;
@@ -303,6 +288,7 @@ button {
 
 .pageClose {
     position: fixed;
+
     @include breakpoint_min(md) {
         top: 30px;
         right: 40px;
@@ -328,15 +314,19 @@ button {
         left: 50%;
         margin: -7px 0 0 -1px;
     }
+
     &::before {
         transform: rotate(-45deg);
     }
+
     &::after {
         transform: rotate(45deg);
     }
+
     &:hover,
     &:focus {
         background-color: $brand_inverse_light;
+
         &::before,
         &::after {
             background-color: $brand_black;
@@ -355,25 +345,39 @@ button {
 .cls_lg {
     @include equal_min_edge(48);
 
-    &::before, &::after {
+    &::before,
+    &::after {
         height: 24px;
         margin-top: -12px;
+    }
+
+    @include breakpoint_max(sm) {
+        @include equal_min_edge(38);
+
+        &::before,
+        &::after {
+            height: 18px;
+            margin-top: -8px;
+        }
     }
 }
 
 .cls_md {
     @include equal_min_edge(32);
 
-    &::before, &::after {
+    &::before,
+    &::after {
         height: 16px;
         margin-top: -8px;
     }
+
 }
 
 .cls_sm {
     @include equal_min_edge(16);
 
-    &::before, &::after {
+    &::before,
+    &::after {
         height: 8px;
         margin-top: -4px;
     }
@@ -388,7 +392,8 @@ button {
     cursor: pointer;
     transition: all .6s ease-in-out;
 
-    &::before, &::after {
+    &::before,
+    &::after {
         content: "";
         @include transform_center();
         @include equal_min_edge(14);
@@ -406,8 +411,10 @@ button {
     }
 
     &:hover {
-        background-color:rgba($brand_inverse, .2);
-        &::before, &::after {
+        background-color: rgba($brand_inverse, .2);
+
+        &::before,
+        &::after {
             border-color: rgb(116, 116, 116);
         }
     }
@@ -416,11 +423,18 @@ button {
 .close-btn-sm {
     @include equal_min_edge(24);
 
-    &::before, &::after {@include equal_min_edge(12)}
+    &::before,
+    &::after {
+        @include equal_min_edge(12)
+    }
 
-    &::before {transform: translate(-2px, -2px) rotate(45deg)}
+    &::before {
+        transform: translate(-2px, -2px) rotate(45deg)
+    }
 
-    &::after {transform: translate(-9.5px, -2px) rotate(-45deg)}
+    &::after {
+        transform: translate(-9.5px, -2px) rotate(-45deg)
+    }
 }
 
 // TO TOP
@@ -434,254 +448,79 @@ button {
     overflow: hidden;
     text-indent: 100%;
     white-space: nowrap;
-    // background: rgba($brand_primary, .6) url(../img/top-arrow.svg) no-repeat center 50%;
     visibility: hidden;
     opacity: 0;
     transition: opacity .3s 0s, visibility 0s .3s;
     z-index: 30000;
+
     .no-touch & {
+
         &:hover,
         &:focus {
             background-color: $brand_primary;
             opacity: 1;
         }
     }
+
     &.is-visible,
     &.fade-out,
     .no-touch &:hover {
         transition: opacity .3s, visibility 0s;
     }
+
     &.is-visible {
         /* the button becomes visible */
         visibility: visible;
         opacity: 1;
     }
+
     &.fade-out {
         /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
         opacity: .5;
     }
 }
 
-.nav-tabs {
-    box-shadow: inset 0 -1px 0 $border_grey;
 
-    > li {
-        margin-bottom: 0;
-
-        > a {
-            color: rgba($color_text, .5);
-
-            &:hover, &:focus {
-                color: rgba($color_text, 1);
-                box-shadow: none;
-            }
-        }
-
-        &.active > a  {
-            color: rgba($color_text, 1);
-            box-shadow: inset 0 -2px 0 $color_text;
-        }
-    }
+// NAVIGATION TABS
+%tabs-styling {
+    position: absolute;
+    content: "";
+    width: 100%;
+    left: 0;
+    bottom: -9px;
+    height: 3px;
+    background: $brand_accent;
 }
 
-// PAGINATION
-.paging-block {
-    margin: 30px 0 10px;
-    width: auto;
-    height: auto;
-    @include flex_row_start_nowrap;
-    padding-top: auto;
-    padding-bottom: auto;
-    vertical-align: middle;
-}
+.tabs {
+    padding-bottom: 8px;
+    border-bottom: 1px solid $border_grey;
 
-.paging-item, .paging-nav {
-    position: relative;
-    margin-right: 15px;
-    font-size: 14px;
-    line-height: 19px;
-    color: $color_grey_dark;
-    transition: all .3s ease-in-out;
-    cursor: pointer;
-
-    a {
-        @include transform_center;
-    }
-
-    &:hover {
-        background:$border_grey;
-        a {color: $color_text}
-    }
-}
-
-.paging-item {
-    @include equal_min_edge(30);
-    border-radius: 50%;
-}
-
-.paging-nav {
-    @include custom_min_edge(50, 30);
-    padding: 5px 7px;
-    border-radius: 2px;
-}
-
-.paging-active {
-    background: $border_grey;
-    color: $color_text;
-}
-
-// BREADCRUMB NAVIGATION
-.breadcrumb-row {
-    @include flex_row_between_wrap;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #d5d5d5;
-}
-
-.breadcrumb {
-    position: relative;
-    left: -12px;
-    @include flex_row_start_nowrap;
-    margin-bottom: 0;
-    background-color: transparent;
-
-    > .active {
-        pointer-events: none;
-        color: $brand_primary;
-    }
-}
-
-.breadcrumb-item {
-    color: $color_grey_light;
-    @include flex_row_start_nowrap;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 19px;
-    letter-spacing: -0.015em; 
-
-    + .breadcrumb-item {
-        &::before {
-            align-items: center;
-            padding: 0 14px;
-            content: "\F054";
-            font-family: "Font Awesome 5 Free";
-            font-weight: 600;
-            font-size: 8px;
-            color: $border_grey_dark;
-        }
-    }
-}
-
-.breadcrumb-nav {
-    @include flex_row_end_nowrap;
-    font-size: 14px;
-
-    .nav {
+    .tab {
+        position: relative;
         color: $border_grey_dark;
+        width: 50%;
+        font-size: 14px;
+        line-height: 19px;
+        text-align: left;
         cursor: pointer;
+        transition: all 0.4s ease-in-out;
 
         &:hover {
-            color: $brand_accent;
+            color: $color_text;
+
+            &::after {
+                @extend %tabs-styling;
+            }
         }
     }
 
-    .page{
-        color: $brand_primary;
-    }
-
-    .nav-left {margin-right: 20px}
-    .nav-right {margin-left: 20px}
-}
-
-/*Custom pager*/
-
-.list_pager {
-    clear: both;
-    @include flex_row_center_wrap();
-}
-
-.pager_block {
-    max-width: 300px;
-    text-align: center;
-    margin: auto;
-}
-
-.pager_label {
-    font-size: 14px;
-    letter-spacing: .5px;
-    color: $border_grey_dark;
-}
-
-.pager_progress_indicator {
-    margin-top: 7.5px;
-    height: 6px;
-}
-
-.pager_controls {
-    @include flex_row_center_nowrap;
-    margin-top: 15px;
-}
-
-.btn-nav {
-    padding: 7.5px 18px;
-    border-radius: 40px;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: $color_grey_dark;
-
-    + .btn-nav {
-        margin-left: 10px;
-    }
-
-    &:hover {
+    .active {
+        font-weight: 600;
         color: $color_text;
-        background-color: $brand_inverse_light;
+
+        &::after {
+            @extend %tabs-styling;
+        }
     }
 }
-
-.actionsTray {
-    clear: both;
-    padding: 10px 15px;
-    border-radius: 6px;
-    background-color: white;
-    border: 1px solid $border_grey_light;
-    @include flex_column_center();
-
-    @include breakpoint_max(md) {
-        @include flex_row_center_wrap();
-    }
-}
-
-.actionList {
-    @include flex_row_center_wrap();
-    overflow-x: auto;
-    padding: 5px 10px;
-}
-
-.actionsLabel {
-    padding: 5px 10px;
-    flex-shrink: 0;
-}
-
-.actionBtn {
-    display: block;
-    padding: 8px 18px;
-    font-size: 12px;
-    text-align: center;
-    text-transform: uppercase;
-    font-weight: 700;
-    color: $color_grey_dark;
-    border-radius: 40px;
-    transition: all .4s ease;
-    
-    &:hover,
-    &:focus {
-        color: $brand_black;
-        background-color: $brand_inverse_light;
-    }
-}
-
-.actionItem + .actionItem {
-    margin-left: 5px;
-} 

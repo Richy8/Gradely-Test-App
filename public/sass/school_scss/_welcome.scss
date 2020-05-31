@@ -1,181 +1,199 @@
-.welcome-dialog-section {
-    position: fixed;
-    @include section_stretch();
-    overflow: auto;
-    z-index: 2000;
-    background-color: rgba($brand_black, .9);
-    transition: all .4s ease-in-out;
-    
-
-    .welcome-container {
-        position: absolute;
+    .welcome-dialog-section {
+        position: fixed;
+        @include section_stretch();
         overflow: auto;
-        width: 53.5%;
-        top: 50%;
-        left: 50%;
-        box-sizing: border-box;
-        box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
-        border-radius: 10px;
-        transform: translate(-50%, -50%);
-        -ms-overflow-style: none;
-        &::-webkit-scrollbar {
-            display: none;
-        }
+        z-index: 2000;
+        background-color: rgba($brand_black, .9);
+        transition: all .4s ease-in-out;
 
-        @include breakpoint_max(xl) {
-            width: 58%;
-        }
 
-        @include breakpoint_max(lg) {
-            width: 78%;
-        }
+        .welcome-container {
+            position: absolute;
+            overflow: auto;
+            width: 53.5%;
+            top: 50%;
+            left: 50%;
+            box-sizing: border-box;
+            box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            transform: translate(-50%, -50%);
+            -ms-overflow-style: none;
 
-        @include breakpoint_max(md) {
-            width: 100%;
-        }
-
-        .banner {
-            position: relative;
-            height: 400px;
-            margin-bottom: 30px;
+            &::-webkit-scrollbar {
+                display: none;
+            }
 
             @include breakpoint_max(xl) {
-                height: 350px;
-            }
-
-            @include breakpoint_max(sm) {
-                height: 320px;
-            }
-
-            @include breakpoint_max(xs) {
-                height: 280px;
-            }
-            
-            .banner-overlay {
-                overflow: hidden;
-                border-radius: 10px 10px 0 0;
-
-                .img {
-                    @include img_cover;
-
-                    &-luminous {
-                        mix-blend-mode: luminosity;
-                    }
-                }
-            }
-
-            .display-img {
-                position: absolute;
-                bottom: 0;
-                width: 90%;
-                left: 50%;
-                transform: translateX(-50%);
-
-                @include breakpoint_max(lg) {
-                    width: 65%;
-                }
-
-                @include breakpoint_max(lg) {
-                    width: 70%;
-                }
-
-                @include breakpoint_max(md) {
-                    width: 75%;
-                }
-
-                @include breakpoint_max(sm) {
-                    width: 98%;
-                }
-            }
-
-            .brand-icon {
-                @include transform_center;
-
-                @include breakpoint_max(xs) {
-                    width: 115px;
-                    height: 110px;
-                }
-            }
-            
-        }
-
-        .welcome-block {
-            margin-bottom: 30px;
-            padding-left: 130px;
-            padding-right: 130px;
-
-            @include breakpoint_max(xl) {
-                padding-left: 110px;
-                padding-right: 110px;
+                width: 58%;
             }
 
             @include breakpoint_max(lg) {
-                padding-left: 80px;
-                padding-right: 80px;
+                width: 78%;
             }
 
             @include breakpoint_max(md) {
-                padding-left: 140px;
-                padding-right: 140px;
+                width: 100%;
             }
 
             @include breakpoint_max(sm) {
-                padding-left: 80px;
-                padding-right: 80px;
+                width: 100%;
+                height: 100%;
             }
 
-            @include breakpoint_max(xs) {
-                padding-left: 40px;
-                padding-right: 40px;
-            }
-
-            .welcome-title {
-                font-size: 21px;
-                line-height: 29px;
-                margin-bottom: 15px;
-                text-align: center;
-
-                @include breakpoint_max(md) {
-                    font-size: 20px;
-                }
-            }
-            .welcome-text {
-                font-size: 14px;
-                line-height: 22px;
-
-                @include breakpoint_max(xs) {
-                    font-size: 13px;
-                }
-            }
-        }
-
-        .navigation-block {
-            margin-bottom: 30px;
-            button {
+            .banner {
+                position: relative;
+                height: 400px;
                 margin-bottom: 30px;
 
+                @include breakpoint_max(xl) {
+                    height: 350px;
+                }
+
+                @include breakpoint_max(sm) {
+                    height: 320px;
+                }
+
                 @include breakpoint_max(xs) {
-                    font-size: 11.5px;
+                    height: 280px;
+                }
+
+                .banner-overlay {
+                    overflow: hidden;
+                    border-radius: 10px 10px 0 0;
+
+                    .img {
+                        @include img_cover;
+
+                        &-luminous {
+                            mix-blend-mode: luminosity;
+                        }
+                    }
+                }
+
+                .display-img {
+                    position: absolute;
+                    bottom: 0;
+                    width: 90%;
+                    left: 50%;
+                    transform: translateX(-50%);
+
+                    @include breakpoint_max(lg) {
+                        width: 65%;
+                    }
+
+                    @include breakpoint_max(lg) {
+                        width: 70%;
+                    }
+
+                    @include breakpoint_max(md) {
+                        width: 75%;
+                    }
+
+                    @include breakpoint_max(sm) {
+                        width: 98%;
+                    }
+                }
+
+                .brand-icon {
+                    @include transform_center;
+
+                    @include breakpoint_max(xs) {
+                        width: 115px;
+                        height: 110px;
+                    }
+                }
+
+            }
+
+            .welcome-block {
+                margin-bottom: 30px;
+                padding-left: 130px;
+                padding-right: 130px;
+
+                @include breakpoint_max(xl) {
+                    padding-left: 110px;
+                    padding-right: 110px;
+                }
+
+                @include breakpoint_max(lg) {
+                    padding-left: 80px;
+                    padding-right: 80px;
+                }
+
+                @include breakpoint_max(md) {
+                    padding-left: 140px;
+                    padding-right: 140px;
+                }
+
+                @include breakpoint_max(sm) {
+                    position: absolute;
+                    top: 50%;
+                    margin-top: 25px;
+                    padding-left: 80px;
+                    padding-right: 80px;
+                }
+
+                @include breakpoint_max(xs) {
+                    padding-left: 40px;
+                    padding-right: 40px;
+                }
+
+                .welcome-title {
+                    font-size: 21px;
+                    line-height: 29px;
+                    margin-bottom: 15px;
+                    text-align: center;
+
+                    @include breakpoint_max(md) {
+                        font-size: 20px;
+                    }
+                }
+
+                .welcome-text {
+                    font-size: 14px;
+                    line-height: 22px;
+
+                    @include breakpoint_max(xs) {
+                        font-size: 13px;
+                    }
                 }
             }
 
-            .navigations {
-                .nav {
-                    @include equal_min_edge(10);
-                    margin-right: 10px;
-                    &:last-of-type {
-                        margin-right: 0;
-                    }
+            .navigation-block {
+                margin-bottom: 30px;
+
+                @include breakpoint_max(sm) {
+                    position: absolute;
+                    bottom: 2.5%;
+                }
+
+                button {
+                    margin-bottom: 30px;
 
                     @include breakpoint_max(xs) {
-                        @include equal_min_edge(9);
-                        margin-right: 9px;
+                        font-size: 11.5px;
                     }
                 }
-                .active {
-                    background-color: $brand_accent !important;
+
+                .navigations {
+                    .nav {
+                        @include equal_min_edge(10);
+                        margin-right: 10px;
+
+                        &:last-of-type {
+                            margin-right: 0;
+                        }
+
+                        @include breakpoint_max(xs) {
+                            @include equal_min_edge(9);
+                            margin-right: 9px;
+                        }
+                    }
+
+                    .active {
+                        background-color: $brand_accent !important;
+                    }
                 }
             }
         }
     }
-}

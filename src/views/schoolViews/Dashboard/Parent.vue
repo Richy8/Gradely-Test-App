@@ -45,66 +45,66 @@
           <div class="col-12 col-sm-12 col-md-8">
             <!-- PARENT ROW CARD COMPONENT -->
             <ParentRowCard
-              initials="RH"
               fullname="Robius Hagrid"
               :child_count="2"
               email="robiushagrid@gmail.com"
               :phone="2348131177703"
               @openParentProfile="toggleProfileCard"
+              @toggleMessage="toggleMessageModal"
             ></ParentRowCard>
 
             <ParentRowCard
-              initials="BC"
               fullname="Babatunde Calebs"
               :child_count="1"
               email="babatundecalebs@gmail.com"
               :phone="2348165544109"
               @openParentProfile="toggleProfileCard"
+              @toggleMessage="toggleMessageModal"
             ></ParentRowCard>
 
             <ParentRowCard
-              initials="AK"
               fullname="Akinwunmi Kola"
               :child_count="3"
               email="akinwunmikola@gmail.com"
               :phone="2348165544109"
               @openParentProfile="toggleProfileCard"
+              @toggleMessage="toggleMessageModal"
             ></ParentRowCard>
 
             <ParentRowCard
-              initials="RH"
               fullname="Robius Hagrid"
               :child_count="2"
               email="robiushagrid@gmail.com"
               :phone="2348131177703"
               @openParentProfile="toggleProfileCard"
+              @toggleMessage="toggleMessageModal"
             ></ParentRowCard>
 
             <ParentRowCard
-              initials="BC"
               fullname="Babatunde Calebs"
               :child_count="1"
               email="babatundecalebs@gmail.com"
               :phone="2348165544109"
               @openParentProfile="toggleProfileCard"
+              @toggleMessage="toggleMessageModal"
             ></ParentRowCard>
 
             <ParentRowCard
-              initials="AK"
               fullname="Akinwunmi Kola"
               :child_count="3"
               email="akinwunmikola@gmail.com"
               :phone="2348165544109"
               @openParentProfile="toggleProfileCard"
+              @toggleMessage="toggleMessageModal"
             ></ParentRowCard>
 
             <ParentRowCard
-              initials="AK"
               fullname="Akinwunmi Kola"
               :child_count="3"
               email="akinwunmikola@gmail.com"
               :phone="2348165544109"
               @openParentProfile="toggleProfileCard"
+              @toggleMessage="toggleMessageModal"
             ></ParentRowCard>
             <!-- PARENT ROW CARD COMPONENT -->
           </div>
@@ -128,22 +128,25 @@
 
       <!-- MODAL COMPONENT -->
       <SubscribeRequestModal v-if="subscribe_form" @closeTriggered="closeSubscribeForm"></SubscribeRequestModal>
-      <ParentProfileCard v-if="profile_card" @closeTriggered="toggleProfileCard"></ParentProfileCard>
+
+      <ParentProfileCard
+        v-if="profile_card"
+        @toggleMessage="toggleMessageModal"
+        @closeTriggered="toggleProfileCard"
+      ></ParentProfileCard>
+
+      <!-- MODAL -->
+      <NewMessageModal v-if="message_modal" @closeTriggered="toggleMessageModal"></NewMessageModal>
+      <!-- MODAL -->
       <!-- MODAL COMPONENT -->
     </div>
   </div>
 </template>
 
 <script>
-// BACKGROUND COLOR EXTERNAL FUNCTION
-import { bgColorSetter } from "@/assets/jsComps/extFunc";
 import ParentRowCard from "@/components/schoolComps/dashboard/parent/ParentRowCard";
 import RequestInvoiceCard from "@/components/schoolComps/dashboard/parent/RequestInvoiceCard";
-import Pagination from "@/components/basicComps/Pagination";
-
-// MODAL
-import SubscribeRequestModal from "@/components/schoolComps/dashboard/modals/SubscribeRequestModal";
-import ParentProfileCard from "@/components/schoolComps/dashboard/modals/ParentProfileCard";
+import Pagination from "@/components/globalComps/Pagination";
 
 export default {
   name: "Parent",
@@ -152,34 +155,33 @@ export default {
     ParentRowCard,
     RequestInvoiceCard,
     Pagination,
-    SubscribeRequestModal,
-    ParentProfileCard
+    SubscribeRequestModal: () =>
+      import(/* webpackChunkName: "subscriberequestModal" */ "@/components/schoolComps/modals/SubscribeRequestModal"),
+    ParentProfileCard: () =>
+      import(/* webpackChunkName: "parentprofilecard" */ "@/components/schoolComps/modals/ParentProfileCard"),
+    NewMessageModal: () =>
+      import(/* webpackChunkName: "newmessagemodal" */ "@/components/schoolComps/modals/NewMessageModal")
   },
 
   data() {
     return {
       subscribe_form: false,
-      profile_card: false
+      profile_card: false,
+      message_modal: false
     };
   },
 
-  mounted() {
-    bgColorSetter("#f4f4f4");
-  },
-
   methods: {
-    btnHover(event, icon) {
-      event.target.firstElementChild.classList.contains(icon)
-        ? event.target.firstElementChild.classList.remove(icon)
-        : event.target.firstElementChild.classList.add(icon);
-    },
-
     closeSubscribeForm() {
       this.subscribe_form = !this.subscribe_form;
     },
 
     toggleProfileCard() {
       this.profile_card = !this.profile_card;
+    },
+
+    toggleMessageModal() {
+      this.message_modal = !this.message_modal;
     }
   }
 };

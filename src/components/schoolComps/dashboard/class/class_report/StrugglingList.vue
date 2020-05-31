@@ -49,32 +49,26 @@
       recommendation_text="We advice that you focus on the following students while in class. Make sure they get it first before moving on."
     ></RecommendationNote>
     <!-- RECOMMENDATION NOTE -->
-
   </div>
 </template>
 
 <script>
 import RecommendCard from "@/components/schoolComps/dashboard/class/class_report/RecommendCard";
-import RecommendationNote from "@/components/schoolComps/dashboard/class/class_report/RecommendationNote";
-
 
 export default {
   name: "StrugglingList",
 
   components: {
     RecommendCard,
-    RecommendationNote,
+    RecommendationNote: () =>
+      import(/* webpackChunkName: "Recommendation" */ "@/components/schoolComps/dashboard/class/class_report/RecommendationNote")
   },
 
   data() {
-    return {
-      
-    };
+    return {};
   },
 
-  methods: {
-    
-  }
+  methods: {}
 };
 </script>
 

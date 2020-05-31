@@ -1,4 +1,4 @@
-.signup-section {
+.school-signup-section {
     .left-pane {
         @include fixed_full_section();
         width: 40%;
@@ -27,7 +27,6 @@
 
             .content-one {
                 font-size: 16px;
-                font-style: normal;
                 line-height: 22px;
                 text-transform: uppercase;
                 margin-bottom: 10px;
@@ -36,8 +35,8 @@
                     font-size: 14px;
                 }
             }
+
             .content-two {
-                font-style: normal;
                 font-size: 32px;
                 line-height: 165%;
                 margin-bottom: 30px;
@@ -46,10 +45,9 @@
                     font-size: 28px;
                 }
             }
+
             .content-three {
                 li {
-                    font-style: normal;
-                    font-weight: normal;
                     font-size: 18px;
                     line-height: 165%;
                     margin-bottom: 13px;
@@ -63,7 +61,7 @@
         }
     }
 
-    .sign-up-container {
+    .school-sign-up-container {
         position: absolute;
         width: 60%;
         right: 0;
@@ -104,14 +102,14 @@
                     width: 190px;
                     height: 53px;
                 }
-    
+
                 @include breakpoint_max(xs) {
                     width: 180px;
                     height: 50px;
                 }
             }
+
             .text-info-one {
-                font-style: normal;
                 font-size: 28px;
                 line-height: 128.75%;
                 margin-bottom: 9px;
@@ -128,9 +126,8 @@
                     font-size: 23px;
                 }
             }
+
             .text-info-two {
-                font-style: normal;
-                font-weight: normal;
                 font-size: 16px;
                 line-height: 22px;
                 margin-bottom: 40px;
@@ -144,33 +141,6 @@
                 }
             }
 
-            .signup-form {
-                label {
-                    font-style: normal;
-                    font-weight: normal;
-                    font-size: 14px;
-                    line-height: 19px;
-                    color: $color_grey_dark;
-                    text-transform: uppercase;
-
-                    @include breakpoint_max(xl) {
-                        font-size: 12px;
-                    }
-                }
-                .disclaimer-block {
-                    font-size: 14px;
-                    line-height: 165%;
-                    color: #555555;
-
-                    @include breakpoint_max(xl) {
-                        font-size: 12px;
-                    }
-
-                    @include breakpoint_max(md) {
-                        font-size: 13px;
-                    }
-                }
-            }
         }
     }
 }

@@ -23,8 +23,8 @@ export default {
   },
 
   watch: {
-    progress_state: 'updateRecommendation',
-    recommendation_text: 'updateRecommendation'
+    progress_state: "updateRecommendation",
+    recommendation_text: "updateRecommendation"
   },
 
   data() {
@@ -51,7 +51,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .struggling-bg {
   background: #ffdcde;
 }
@@ -60,5 +60,30 @@ export default {
 }
 .top-bg {
   background: #c5ffee;
+}
+
+// RECOMMENDATION NOTE
+.recommendation-note {
+  width: 96%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 16px 20px;
+  @include flex_row_start_nowrap;
+
+  .avatar {
+    margin-right: 19.6px;
+  }
+
+  .title {
+    margin-bottom: 8px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .info {
+    font-size: 12px;
+    line-height: 165%;
+  }
 }
 </style>

@@ -7,14 +7,14 @@
         <div class="count font-weight-bold color_grey_dark">21 Homework</div>
 
         <!-- FILTER -->
-        <div class="filter color_text">
-          Filter
-          <i class="fas fa-caret-down ml-2"></i>
+        <div class="filter color_text d-flex justify-content-end align-items-center pointer">
+          <div>Filter</div>
+          <span class="icon-caret-fill-down font-9 ml-2"></span>
         </div>
       </div>
 
       <!-- CONTENT CARD COMPONENT -->
-       <HomeworkCard
+      <HomeworkCard
         :day="12"
         month="March"
         title="Week 1 Homework"
@@ -22,7 +22,6 @@
         :progress="78"
       ></HomeworkCard>
 
-      
       <HomeworkCard
         :day="17"
         month="August"
@@ -31,36 +30,53 @@
         :progress="54"
       ></HomeworkCard>
 
-      <HomeworkCard
-        :day="24"
-        month="July"
-        title="Week 1 Homework"
-        subject="Biology"
-        :progress="25"
-      ></HomeworkCard>
+      <HomeworkCard :day="24" month="July" title="Week 1 Homework" subject="Biology" :progress="25"></HomeworkCard>
       <!-- CONTENT CARD COMPONENT -->
-    </div>
 
-    <!-- PAFINATION COMPONENT -->
-    <Pagination></Pagination>
-    <!-- PAFINATION COMPONENT -->
+      <!-- PAFINATION COMPONENT -->
+      <Pagination></Pagination>
+      <!-- PAFINATION COMPONENT -->
+    </div>
   </div>
 </template>
 
 <script>
-// import ContentCard from "@/components/schoolComps/dashboard/class/class_homework/ContentCard";
-import HomeworkCard from "@/components/schoolComps/dashboard/teacherprofile/HomeworkCard";
-import Pagination from "@/components/basicComps/Pagination";
+import HomeworkCard from "@/components/schoolComps/dashboard/class/class_homework/HomeworkCard";
 
 export default {
   name: "ContentInfo",
 
   components: {
     HomeworkCard,
-    Pagination
+    Pagination: () =>
+      import(/* webpackChunkName: "Pagination" */ "@/components/globalComps/Pagination")
   }
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.homework-content-info {
+  margin-top: 25px;
+  margin-bottom: 40px;
+
+  @include breakpoint_max(md) {
+    margin-bottom: 90px;
+  }
+}
+
+.count-filter-row {
+  margin-bottom: 13px;
+  @include flex_row_between_nowrap;
+
+  .count {
+    font-size: 14px;
+    line-height: 19px;
+  }
+
+  .filter {
+    margin-right: 10px;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
 </style>

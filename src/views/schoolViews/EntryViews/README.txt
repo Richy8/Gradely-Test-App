@@ -1,0 +1,1 @@
+This folder contains a list of all entry view routes required for this view to display pages, showing its respective navigation placements

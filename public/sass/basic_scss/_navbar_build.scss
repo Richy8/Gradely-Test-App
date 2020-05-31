@@ -1,0 +1,287 @@
+.navbar-section,
+.sub-navbar-section {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+
+    // MOBILE NAVIGATIO TOP STYLING
+    .mobile-top,
+    .sub-mobile-top {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+
+        @include breakpoint_max(xs) {
+            padding-left: 28px !important;
+            padding-right: 28px !important;
+        }
+    }
+
+    // BRAND LOGO STYLING
+    .brand-logo {
+        padding-top: 13px;
+        padding-bottom: 12px;
+
+        img {
+            @include custom_min_edge(133, 36);
+
+            @include breakpoint_max(lg) {
+                @include custom_min_edge(120, 33);
+            }
+
+            @include breakpoint_max(md) {
+                @include custom_min_edge(135, 36);
+            }
+
+            @include breakpoint_max(xs) {
+                @include custom_min_edge(125, 33);
+            }
+        }
+    }
+
+    // BACK TO HOME STYLING
+    .back-to-home {
+        a {
+            span {
+                position: relative;
+                display: block;
+                font-size: 20px;
+                margin-right: 14px;
+            }
+
+            .title {
+                font-size: 14px;
+                line-height: 19px;
+            }
+
+            &:hover {
+                color: darken($brand_accent, 15%) !important;
+            }
+        }
+    }
+
+    // CLASS TITLE STYLING
+    .class-title {
+        font-size: 16px;
+        line-height: 22px;
+        color: $color_ash;
+
+        @include breakpoint_max(sm) {
+            font-size: 15px;
+        }
+    }
+
+
+    // ACTIVE NAV ITEM STYLING PLACEHOLDER
+    %active-nav-item {
+        &:after {
+            content: "";
+            position: absolute;
+            top: 33px;
+            left: -7.5%;
+            width: 115%;
+            height: 2px;
+            background-color: #11BDCF;
+        }
+
+        span {
+            color: $brand_inverse;
+        }
+    }
+
+    // NAV ITEMS STYLING
+    .nav-items {
+        padding-top: 24px;
+        padding-bottom: 12px;
+
+        .nav-item {
+            position: relative;
+            width: auto;
+            margin-right: 37.5px;
+            padding-left: 5px;
+            padding-right: 5px;
+
+            @include breakpoint_max(xl) {
+                margin-right: 30px;
+            }
+
+            @include breakpoint_max(lg) {
+                margin-right: 25px;
+            }
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+
+            a {
+                @include flex_row_start_nowrap;
+                color: $color_text;
+                transition: all .3s ease-in-out;
+
+                .nav-icon {
+                    @include equal_min_edge(22);
+                    margin-right: 18px;
+
+                    @include breakpoint_max(xl) {
+                        @include equal_min_edge(20);
+                        margin-right: 16px;
+                    }
+
+                    @include breakpoint_max(lg) {
+                        @include equal_min_edge(18);
+                        margin-right: 14px;
+                    }
+                }
+
+                span {
+                    color: $border_grey_dark;
+                    font-size: 22px;
+                    margin-right: 18px;
+                    transition: all .3s ease-in-out;
+
+                    @include breakpoint_max(xl) {
+                        font-size: 20px;
+                        margin-right: 16px;
+                    }
+
+                    @include breakpoint_max(lg) {
+                        font-size: 18px;
+                        margin-right: 14px;
+                    }
+                }
+
+                .nav-text {
+                    font-size: 13.5px;
+                    line-height: 19px;
+                    transition: all .3s ease-in-out;
+
+                    @include breakpoint_max(lg) {
+                        font-size: 12.5px;
+                    }
+                }
+
+                &:hover {
+                    position: relative;
+                    color: #08384D !important;
+                    font-weight: 500;
+                    transition: all .3s ease-in-out;
+                    // ON ACTIVE
+                    @extend %active-nav-item;
+                }
+            }
+
+            .active {
+                position: relative;
+                color: #08384D !important;
+                font-weight: 500;
+                transition: all .3s ease-in-out;
+                // ON ACTIVE
+                @extend %active-nav-item;
+            }
+        }
+    }
+
+    // MORE ICONS STYLING
+    .icon {
+        position: relative;
+        @include equal_min_edge(32);
+        padding-top: 14px;
+        padding-bottom: 14px;
+        margin-right: 30px;
+        background-color: $color_white;
+        cursor: pointer;
+
+        @include breakpoint_max(xl) {
+            @include equal_min_edge(30);
+            margin-right: 28px;
+        }
+
+        @include breakpoint_max(lg) {
+            @include equal_min_edge(28);
+            margin-right: 23px;
+        }
+
+        @include breakpoint_max(md) {
+            @include equal_min_edge(32);
+            margin-right: 30px;
+        }
+
+        @include breakpoint_max(xs) {
+            @include equal_min_edge(28);
+            margin-right: 22px;
+        }
+
+        span {
+            @include transform_center;
+            font-size: 20px;
+            color: $brand_primary;
+            transition: color .3s ease-in-out;
+        }
+
+        .badge-circle {
+            top: 25%;
+            right: 25%;
+
+            @include breakpoint_max(lg) {
+                top: 22%;
+                right: 22%;
+            }
+        }
+
+        &:last-of-type {
+            margin-right: 0;
+        }
+
+        &:hover {
+            span {
+                color: darken($brand_accent, 15%);
+            }
+        }
+    }
+}
+
+.icon__user {
+    position: relative;
+
+    i {
+        position: absolute;
+        display: block;
+        top: 50%;
+        right: -20px;
+        transform: translateY(-50%);
+
+    }
+}
+
+// SUB NAVBAR SECTION
+.sub-navbar-section {
+    width: 100%;
+    top: 63px;
+    box-shadow: 0 0 0 transparent;
+
+    @include breakpoint_max(lg) {
+        top: 59px;
+    }
+
+    .nav-items {
+        padding-top: 14px;
+        padding-bottom: 12px;
+    }
+}
+
+// SUB MOBILE TOP STYLING
+.sub-mobile-top {
+    padding-top: 17px;
+    padding-bottom: 17px;
+
+    @include breakpoint_max(sm) {
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    span {
+        font-size: 24px !important;
+        color: $color_text !important;
+
+        @include breakpoint_max(sm) {
+            font-size: 22px !important;
+        }
+    }
+}

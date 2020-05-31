@@ -1,0 +1,127 @@
+.settings-display-layout {
+    position: relative;
+    padding: 30px;
+    width: 105%;
+    right: 5%;
+
+    @include breakpoint_max(lg) {
+        padding: 20px
+    }
+
+    @include breakpoint_max(md) {
+        width: 100%;
+        right: 0px;
+    }
+
+    .page-title {
+        font-weight: 700;
+        font-size: 19px;
+        line-height: 29px;
+        text-transform: uppercase;
+        color: #113255;
+        margin-bottom: 30px;
+
+        @include breakpoint_max(lg) {
+            font-size: 18px;
+            margin-bottom: 21px;
+        }
+
+        @include breakpoint_max(sm) {
+            font-size: 15px;
+            font-weight: 600;
+        }
+    }
+}
+
+// DIVIDER
+.form-divider,
+.form-sm-divider {
+    border-top: 1px solid $border_grey;
+    width: 100%;
+    margin: 30px auto;
+}
+
+.form-sm-divider {
+    margin: 21px auto;
+}
+
+// FORM GROUP ROW
+.form-group-row {
+    margin-bottom: 24px;
+}
+
+.control-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #3a3a3a;
+    text-transform: uppercase;
+
+    @include breakpoint_max(lg) {
+        font-size: 12.5px;
+        font-weight: 500;
+    }
+}
+
+.radio-inline {
+    input {
+        margin-right: 6px !important;
+    }
+}
+
+
+// SET ICON
+.set-icon {
+    span {
+        position: absolute;
+        right: 10px;
+        top: 8px;
+        z-index: 999;
+    }
+}
+
+// SCHOOL PREFERENCE
+.preference-title-row {
+    @include flex_row_between_nowrap;
+    margin-top: 26px;
+    margin-bottom: 25px;
+
+    .preference-title {
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 22px;
+        text-transform: uppercase;
+
+        @include breakpoint_max(sm) {
+            font-size: 13px;
+            font-weight: 600;
+        }
+    }
+
+    // PLUS ICON
+    .avatar {
+        background: $brand_accent;
+        transition: all .4s ease-in-out;
+
+
+        @include breakpoint_max(sm) {
+            @include equal_min_edge(34)
+        }
+
+        span {
+            transition: all .4s ease-in-out;
+
+            @include breakpoint_max(sm) {
+                font-size: 13px !important;
+                font-weight: 500;
+            }
+        }
+
+        &:hover {
+            background: $brand_primary;
+
+            span {
+                color: #ffffff !important;
+            }
+        }
+    }
+}

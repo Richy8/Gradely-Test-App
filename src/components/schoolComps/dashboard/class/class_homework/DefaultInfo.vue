@@ -9,39 +9,39 @@
       <TeacherDefaultCard></TeacherDefaultCard>
 
       <!-- ADD HOMEWORK SECTION -->
-      <div class="add-member-default d-flex flex-column flex-center">
-        <!-- EMPTY IMAGE -->
-        <div class="avatar avatar_xxl">
-          <img src="@/assets/images/EmptyHomework.png" alt class="avatar-img">
-        </div>
-
-        <!-- INFO TEXT -->
-        <div
-          class="info-text color_text font-14 text-center"
-        >This class has not been assigned homework</div>
-
-        <!-- CTA BUTTON -->
-        <router-link
-          to
-          class="btn btn-md btn-accent"
-        >CREATE HOMEWORK</router-link>
-      </div>
+      <EmptyContent
+        display_img="EmptyHomework.png"
+        display_text="This class has not been assigned homework"
+        button_type="emit"
+        button_text="Create Homework"
+        button_function
+      ></EmptyContent>
       <!-- ADD HOMEWORK SECTION -->
     </div>
   </div>
 </template>
 
 <script>
-import TeacherDefaultCard from "@/components/schoolComps/dashboard/class/class_members/TeacherDefaultCard";
+import EmptyContent from "@/components/globalComps/EmptyContent";
+import TeacherDefaultCard from "@/components/schoolComps/dashboard/class/class_members/teachers/TeacherDefaultCard";
 
 export default {
   name: "DefaultInfo",
 
   components: {
-    TeacherDefaultCard
+    TeacherDefaultCard,
+    EmptyContent
   }
 };
 </script>
 
-<style>
+<style lang="scss">
+.homework-default-info {
+  margin-top: 30px;
+  margin-bottom: 60px;
+
+  @include breakpoint_max(md) {
+    margin-bottom: 100px;
+  }
+}
 </style>

@@ -67,16 +67,16 @@
     position: relative;
     @include equal_min_edge(16.5);
     border-radius: 50%;
-    border: 1px solid #C5C5C5;
+    border: 1px solid $color_grey_light;
     box-sizing: border-box;
 
     &:after {
-        content: "\f067";
+        content: "\e93c";
         @include transform_center;
-        font-family: "Font Awesome 5 Free";
+        font-family: "icomoon";
         font-weight: 600;
         color: $brand_accent;
-        font-size: 7.5px;
+        font-size: 9.5px;
     }
 
     ~.label-text {
@@ -90,7 +90,7 @@
     background-color: $brand_inverse;
 
     &:after {
-        content: "\f00c";
+        content: "\e900";
         color: #ffffff;
     }
 
@@ -108,18 +108,6 @@
     }
 }
 
-// SMALL CARDS
-.activity-card {
-    background: #FFFFFF;
-    border-radius: 5px;
-    height: auto;
-    margin-bottom: 10px;
-    padding: 14px 16px;
-
-    .card-row {
-        @include flex_row_between_nowrap;
-    }
-}
 
 // DROPDOWN BUTTON
 .dropdown-btn {
@@ -266,7 +254,7 @@
     border-radius: 5px;
     border: none;
     padding: 14px 15px;
-    z-index: 9;
+    z-index: 1;
     @include flex_row_between_nowrap;
 }
 
@@ -282,101 +270,6 @@
     animation: panel-slide-down .5s ease-in-out forwards;
     overflow-x: hidden;
     padding: 19px 10px 30px;
-}
-
-// BRANCH CARD
-.branch-card {
-    position: relative;
-    background-color: #ffffff;
-    border-radius: 5px;
-    width: 210px;
-    height: auto;
-    padding: 16px 15px;
-    margin-right: 20px;
-
-    @include breakpoint_max(lg) {
-        @include custom_min_edge(190, 160);
-    }
-
-    @include breakpoint_max(sm) {
-        @include custom_min_edge(190, 150);
-    }
-
-    &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 6px;
-        background-color: $brand_accent;
-        border-radius: 5px 5px 0 0;
-    }
-
-    .branch-card-header {
-        position: relative;
-        @include flex_row_between_nowrap;
-        margin-bottom: 19px;
-
-        .branch-card-title {
-            font-weight: bold;
-            line-height: 22px;
-            color: $color_text;
-
-            @include breakpoint_max(lg) {
-                font-size: 15px;
-            }
-
-            @include breakpoint_max(sm) {
-                font-size: 13px;
-            }
-        }
-
-        .branch-card-option {
-            margin-top: auto;
-            margin-bottom: auto;
-        }
-    }
-
-    .branch-card-code {
-        position: relative;
-        width: auto;
-        text-overflow: ellipsis;
-        padding: 6px 8px;
-        background: $color_white;
-        border-radius: 3px;
-        color: $color_grey_dark;
-        font-size: 14px;
-        line-height: 19px;
-        margin-bottom: 35px;
-
-        @include breakpoint_max(lg) {
-            font-size: 13px;
-        }
-
-        @include breakpoint_max(sm) {
-            margin-bottom: 22px;
-            font-size: 12px;
-        }
-    }
-
-    .branch-card-icon-row {
-        @include flex_row_between_nowrap;
-        padding-left: 13px;
-        padding-right: 13px;
-        margin-bottom: 0px;
-
-        .branch-icon {
-            font-size: 20px;
-            cursor: pointer;
-            color: #c5c5c5;
-            transition: all .3s ease-in-out;
-
-            &:hover {
-                color: $brand_accent;
-            }
-        }
-    }
 }
 
 //DASHBOARD PAGE STYLING
@@ -432,208 +325,6 @@
     }
 }
 
-// TODO CARD AND ALERT CARD
-.todo-card,
-.alert-card {
-    position: relative;
-    background-color: #ffffff;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-    border: none;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-
-    &:hover {
-        background-color: #f8f8f8;
-    }
-
-    .todo-label,
-    .alert-label {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        width: 6px;
-        height: 100%;
-    }
-
-    .todo-row,
-    .alert-row {
-        @include flex_row_between_nowrap;
-        padding: 8px 20px;
-    }
-}
-
-// ALERT CARD
-.alert-card {
-    border-radius: 5px;
-
-    &:hover {
-        background-color: #FFFFFF;
-    }
-
-    .alert-row {
-        padding: 11px 26px;
-        font-size: 14px;
-        line-height: 19px;
-        color: $color_text;
-
-        @include breakpoint_max(md) {
-            font-size: 13px;
-        }
-
-        @include breakpoint_max(sm) {
-            font-size: 12px;
-        }
-    }
-}
-
-// TEACHERS CARD
-.teacher-card {
-    position: relative;
-    width: 100%;
-    height: 226.84px;
-    background: #FFFFFF;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-    border-radius: 20px;
-    border: none;
-    margin-bottom: 30px;
-    overflow: hidden;
-
-    @include breakpoint_max(xl) {
-        height: 220px;
-    }
-
-    @include breakpoint_max(md) {
-        overflow: unset;
-        height: 210px;
-    }
-
-    @include breakpoint_max(sm) {
-        height: 160px;
-    }
-
-    .teacher-card-top {
-        position: relative;
-        top: 0;
-        left: 0;
-        width: 100%;
-        padding: 30.84px 15px 22px;
-        @include flex_column_center;
-
-        .avatar {
-            margin-bottom: 20px;
-        }
-
-        .card-option {
-            position: absolute;
-            margin: 25px auto 0;
-            top: 0;
-            display: flex;
-            justify-content: flex-end;
-            align-items: flex-start;
-            width: 90%;
-
-            @include breakpoint_max(xs) {
-                width: 88%;
-            }
-        }
-    }
-
-    .teacher-card-bottom {
-        position: relative;
-        @include flex_row_between_nowrap;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 30.86%;
-        background-color: #FCEACF;
-        padding: 14px 70px;
-
-        @include breakpoint_max(xl) {
-            padding: 10px 45px;
-        }
-
-        @include breakpoint_max(md) {
-            padding: 5px 65px;
-        }
-
-        @include breakpoint_max(sm) {
-            display: none;
-        }
-
-        .teacher-column {
-            @include flex_column_center;
-            margin-bottom: 7px;
-
-            @include breakpoint_max(xl) {
-                margin-bottom: 6px;
-            }
-        }
-    }
-}
-
-// VERIFICATION CARD
-.verify-card {
-    @include flex_row_between_nowrap;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
-    background: #FFFFFF;
-    border-radius: 2px;
-    width: 100%;
-    height: auto;
-    padding: 15px;
-    padding-right: 3px;
-    margin-bottom: 5px;
-
-    @include breakpoint_max(md) {
-        padding: 10px;
-        padding-right: 3px;
-        padding-left: 13px;
-    }
-
-    .verify-detail {
-        @include flex_row_start_nowrap;
-        padding-right: 15px;
-    }
-
-    .verify-action {
-        @include flex_row_between_wrap;
-
-        @include breakpoint_max(lg) {
-            @include flex_column_center;
-        }
-
-        .approve-box {
-            background-color: #DBF5F8;
-            margin-right: 15px;
-            transition: background-color .3s ease-in-out;
-
-            &:hover {
-                background-color: darken(#DBF5F8, 10%)
-            }
-
-            @include breakpoint_max(lg) {
-                margin-right: 0px;
-                margin-bottom: 5px;
-            }
-        }
-
-        .decline-box {
-            background-color: #FFDCDE;
-            margin-left: 15px;
-            transition: background-color .3s ease-in-out;
-
-            &:hover {
-                background-color: darken(#FFDCDE, 5%)
-            }
-
-            @include breakpoint_max(lg) {
-                margin-left: 0px;
-                margin-top: 5px;
-            }
-        }
-    }
-}
 
 // ADD A NEW ITEM
 .add-new-item {
@@ -650,18 +341,14 @@
         width: 25%;
     }
 
-    @include breakpoint_max(md) {
+    @include breakpoint_max(sm) {
         width: 50%;
     }
 
     .undone {
-        @include equal_min_edge(28);
+        @include equal_min_edge(26);
         margin-right: 10px;
         transition: all .2s ease-in-out;
-
-        @include breakpoint_max(sm) {
-            @include equal_min_edge(26);
-        }
     }
 
     .label-text {
@@ -684,228 +371,6 @@
         }
     }
 }
-
-// MEMBERS CARD FOR CLASSES
-.members-card {
-    width: 100%;
-    height: auto;
-    padding-bottom: 20px;
-
-    @include breakpoint_max(md) {
-        min-height: 80px !important;
-        height: 80px;
-        margin-bottom: 14px;
-    }
-
-    @include breakpoint_max(sm) {
-        min-height: 70px !important;
-    }
-}
-
-// MEMBER TOP
-.member-top {
-    .avatar {
-        position: relative;
-        margin-right: 15px;
-
-        @include breakpoint_max(lg) {
-            margin-right: 5px;
-        }
-
-        @include breakpoint_max(md) {
-            margin-right: 15px;
-        }
-
-        span {
-            @include transform-center;
-            font-size: 20px;
-        }
-    }
-
-    .title {
-        font-size: 16px;
-        line-height: 22px;
-        margin-bottom: 2.5px;
-
-        @include breakpoint_max(lg) {
-            font-size: 14px;
-        }
-
-        @include breakpoint_max(md) {
-            font-size: 16px;
-        }
-
-        @include breakpoint_max(sm) {
-            font-size: 14px;
-        }
-    }
-
-    .text {
-        font-size: 12px;
-        line-height: 16px;
-
-        @include breakpoint_max(lg) {
-            font-size: 11px;
-        }
-
-        @include breakpoint_max(md) {
-            font-size: 13px;
-        }
-
-        @include breakpoint_max(sm) {
-            font-size: 12px;
-        }
-    }
-
-    .caret-icon {
-        position: relative;
-        top: -7px;
-
-        @include breakpoint_max(lg) {
-            top: -8px;
-            font-size: 11px !important;
-        }
-
-        @include breakpoint_max(md) {
-            font-size: 14px !important;
-        }
-
-        @include breakpoint_max(sm) {
-            font-size: 12px !important;
-        }
-    }
-}
-
-// MEMBER BOTTOM
-.member-bottom {
-    margin-top: 30px;
-
-    .avatar-row {
-        margin-top: 15px;
-        margin-bottom: 25px;
-        @include flex_row_start_wrap;
-
-        .avatar {
-            margin-right: 10px;
-            margin-bottom: 10px;
-
-            .avatar-text {
-                font-weight: bold;
-                font-size: 13px;
-                line-height: 18px;
-                letter-spacing: 0.02em;
-            }
-        }
-
-        .add-teacher {
-            border: 1px dashed #D5D5D5;
-
-            &:hover {
-                span {
-                    color: $brand_accent !important;
-                }
-            }
-        }
-    }
-
-    .code-info {
-        margin-bottom: 11px;
-    }
-
-    .class-code {
-        font-size: 12px;
-        line-height: 16px;
-        color: $color_grey_dark;
-        width: auto;
-        text-overflow: ellipsis;
-        background: #F5F5F5;
-        border-radius: 3px;
-        padding: 8px 12px;
-
-        @include breakpoint_max(lg) {
-            display: block;
-            font-size: 11.5px;
-        }
-
-        .code {
-            margin-left: 10px;
-            font-size: 14px;
-            line-height: 19px;
-
-            @include breakpoint_max(lg) {
-                font-size: 13px;
-            }
-        }
-    }
-
-    // ADD NEW
-    .add-new {
-        @include flex_row_end_nowrap;
-        margin-top: 20px;
-        margin-left: auto;
-        width: 100%;
-
-        .avatar {
-            transition: all .3s ease-in-out;
-
-            span {
-                transition: all .3s ease-in-out;
-            }
-
-            &:hover {
-                background: $brand_primary !important;
-
-                span {
-                    color: #ffffff !important;
-                }
-            }
-        }
-
-    }
-}
-
-
-// EMPTY TEACHER CARD SECTION
-.empty-teacher-card {
-    background: rgba(#FFFFFF, .6);
-    border: 1px solid $brand_white;
-    padding: 14px 15px;
-    margin-bottom: 2px;
-    @include flex_row_between_nowrap;
-
-    .avatar {
-        margin-right: 15px;
-    }
-
-    .name {
-        width: 188px;
-        height: 18px;
-        margin-bottom: 7px;
-
-        @include breakpoint_max(xs) {
-            width: 160px;
-        }
-    }
-
-    .meta {
-        width: 145px;
-        height: 10px;
-
-        @include breakpoint_max(xs) {
-            width: 120px;
-        }
-    }
-
-    .option {
-        width: 82px;
-        height: 25px;
-
-        @include breakpoint_max(xs) {
-            width: 50px;
-        }
-    }
-}
-
 
 // INDICATORS
 .indicator-icon {

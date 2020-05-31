@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import BarChart from "@/assets/jsComps/BarChart";
+import BarChart from "@/scripts/components/BarChart";
 
 export default {
   name: "TopicProgressChart",
@@ -68,7 +68,7 @@ export default {
                 min: 0,
                 max: 100,
                 callback: function(value) {
-                    return value + '%';
+                  return value + "%";
                 }
               }
             }
@@ -93,5 +93,29 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+.progress-chart {
+  canvas {
+    width: 400px !important;
+    height: 280px !important;
+
+    @include breakpoint_max(xl) {
+      width: 380px !important;
+      height: 270px !important;
+    }
+
+    @include breakpoint_max(lg) {
+      margin-left: -20px;
+      width: 280px !important;
+      height: 200px !important;
+    }
+
+    @include breakpoint_max(md) {
+      width: 100% !important;
+      height: 280px !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
 </style>

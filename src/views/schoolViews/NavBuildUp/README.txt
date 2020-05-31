@@ -1,0 +1,1 @@
+This folder contains navbar build up components for each respective route entry point on this view

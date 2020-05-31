@@ -2,28 +2,13 @@
   <div>
     <vue-headful title="School Dashboard | Home" description="Description goes here"/>
     <div class="school-home-section">
-      <!-- CLASS BANNER -->
-      <div class="class-banner w-100">
-        <div class="banner-overlay box-overlay color_mid_blue_bg">
-          <img src="@/assets/images/ClassDoodle.png" alt="ClassDoodle" class="img img-overlay">
-        </div>
-
-        <!-- SCHOOL INFO DETAIL -->
-        <div class="school-detail-info white-text">
-          <!-- SCHOOL AVATAR -->
-          <div class="avatar avatar_xl rounded-10">
-            <div class="avatar-text white font-weight-bold">C</div>
-          </div>
-          <!-- SCHOOL INFO -->
-          <div class="school-info d-flex flex-column justify-content-end align-items-start">
-            <div class="school-name font-weight-bold color_white">Chrisland Intl. College</div>
-            <div class="school-location brand_inverse_light">Lagos, Nigeria</div>
-            <div class="profile-update-cta">
-              <router-link to="/school/dashboard/settings" class>Update school profile</router-link>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- SCHOOL BANER COMPONENT -->
+      <SchoolBanner
+        school_name="ChristLand Intl College"
+        school_state="Lagos"
+        school_country="Nigeria"
+        :banner_default="default_value"
+      ></SchoolBanner>
 
       <!-- SCHOOL HOME CONTENT -->
       <div class="container">
@@ -37,7 +22,7 @@
 
           <!-- RIGHT CONTENT -->
           <div class="right-content">
-            <div class="title-row d-flex justify-content-between align-items-center nowrap">
+            <div class="title-row d-flex justify-content-between align-items-center flex-wrap">
               <div class="header-title font-weight-bold color_text">My Classes</div>
               <div>
                 <!-- PHONE CALL COMPONENT -->
@@ -48,22 +33,11 @@
 
             <!-- CLASS STRUCTURE COMPONENT -->
             <ClassStructure
-              class_year="Year 7"
-              arms="1 Arm"
-              @teacherModal="toggleTeacherModal"
-              @branchModal="toggleBranchModal"
-              @classModal="toggleClassModal"
-            />
-            <ClassStructure
-              class_year="Year 8"
-              arms="3 Arm"
-              @teacherModal="toggleTeacherModal"
-              @branchModal="toggleBranchModal"
-              @classModal="toggleClassModal"
-            />
-            <ClassStructure
-              class_year="Year 9"
-              arms="4 Arm"
+              v-for="(structure, index) in class_structures"
+              :key="index"
+              :class_year="structure.class_year"
+              :arms="structure.arms"
+              :active_accordion="structure.active"
               @teacherModal="toggleTeacherModal"
               @branchModal="toggleBranchModal"
               @classModal="toggleClassModal"
@@ -85,50 +59,64 @@
 
 
 <script>
-// BACKGROUND COLOR EXTERNAL FUNCTION
-import { bgColorSetter } from "@/assets/jsComps/extFunc";
-
+import SchoolBanner from "@/components/schoolComps/dashboard/home/SchoolBanner";
 import DefaultInfo from "@/components/schoolComps/dashboard/home/DefaultInfo";
 import ContentInfo from "@/components/schoolComps/dashboard/home/ContentInfo";
-import PhoneCall from "@/components/schoolComps/dashboard/home/PhoneCall";
 import ClassStructure from "@/components/schoolComps/dashboard/home/ClassStructure";
 
 // MODAL
 import WelcomeDialogue from "@/components/schoolComps/welcome/WelcomeDialog";
-import AddTeacherModal from "@/components/schoolComps/dashboard/modals/AddTeacherModal";
-import AddBranchModal from "@/components/schoolComps/dashboard/modals/AddBranchModal";
-import ClassDetailsModal from "@/components/schoolComps/dashboard/modals/ClassDetailsModal";
 
 export default {
   name: "Home",
 
   components: {
+    SchoolBanner,
     DefaultInfo,
     ContentInfo,
-    PhoneCall,
     ClassStructure,
     WelcomeDialogue,
-    AddTeacherModal,
-    AddBranchModal,
-    ClassDetailsModal
+    PhoneCall: () =>
+      import(/* webpackChunkName: "phonecall" */ "@/components/schoolComps/dashboard/home/PhoneCall"),
+    AddTeacherModal: () =>
+      import(/* webpackChunkName: "addteachermodal" */ "@/components/schoolComps/modals/AddTeacherModal"),
+    AddBranchModal: () =>
+      import(/* webpackChunkName: "addbranchmodal" */ "@/components/schoolComps/modals/AddBranchModal"),
+    ClassDetailsModal: () =>
+      import(/* webpackChunkName: "classdetailsmodal" */ "@/components/schoolComps/modals/ClassDetailsModal")
   },
 
   data() {
     return {
       view: ContentInfo,
       in_view: false,
+      default_value: true,
       welcome_dialogue: true,
       toggle_teacher_modal: false,
       toggle_branch_modal: false,
-      toggle_class_modal: false
+      toggle_class_modal: false,
+      class_structures: [
+        { class_year: "Year 7", arms: 1, active: true },
+        { class_year: "Year 8", arms: 2, active: false },
+        { class_year: "Year 9", arms: 2, active: false }
+      ]
     };
   },
 
+  watch: {
+    view: "updateBanner"
+  },
+
   mounted() {
-    bgColorSetter("#f0f0f0");
+    this.updateBanner();
   },
 
   methods: {
+    updateBanner() {
+      this.default_value = false;
+      this.view === "DefaultInfo" ? (this.default_value = true) : "";
+    },
+
     toggleTeacherModal() {
       this.toggle_teacher_modal = !this.toggle_teacher_modal;
     },
@@ -147,21 +135,23 @@ export default {
 
     switchSidebar() {
       this.in_view = !this.in_view;
-      (this.in_view === false) ? this.view = 'ContentInfo' : this.view = 'DefaultInfo';
+      this.in_view === false
+        ? (this.view = "ContentInfo")
+        : (this.view = "DefaultInfo");
     }
   }
 };
 </script>
 
-<style lang="scss" scoped>
-   .fade-enter{
-        opacity: 0;
-    }
-    .fade-enter-active{
-        transition: opacity .2s ease-in;
-    }
-    .fade-leave-active{
-        transition: opacity .2s ease-out;
-        opacity: 0;
-    }
+<style lang="scss">
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: opacity 0.2s ease-in;
+}
+.fade-leave-active {
+  transition: opacity 0.2s ease-out;
+  opacity: 0;
+}
 </style>

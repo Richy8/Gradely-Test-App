@@ -1,62 +1,89 @@
 <template>
-<div>
+  <div>
     <!-- CONTENT TITLE -->
     <div class="content-title font-weight-bold color_white">This Week in school</div>
-    <!-- SMALL CARDS -->
-    <router-link to="/">
-        <div class="activity-card">
-            <div class="card-row">
-                <div class="title"> <span class="font-weight-bold">10</span> Homework Due</div>
-                <div class="cust_icon caret_right_icon icon_sm_mid"></div>
-            </div>
-        </div>
-    </router-link>
 
-    <router-link to="/">
-        <div class="activity-card">
-            <div class="card-row">
-                <div class="title"> <span class="font-weight-bold">21</span> Homework Created</div>
-                <div class="cust_icon caret_right_icon icon_sm_mid"></div>
-            </div>
-        </div>
-    </router-link>
+    <ActivityCard route_name bold_title="10" light_title="Homework Due" meta_text></ActivityCard>
 
-    <router-link to="/">
-        <div class="activity-card">
-            <div class="card-row">
-                <div class="title"> <span class="font-weight-bold">18</span> Live Classes Scheduled</div>
-                <div class="cust_icon caret_right_icon icon_sm_mid"></div>
-            </div>
-        </div>
-    </router-link>
+    <ActivityCard route_name bold_title="21" light_title="Homework Created" meta_text></ActivityCard>
 
-    <router-link to="/">
-        <div class="activity-card">
-            <div class="card-row">
-                <div class="title"> <span class="font-weight-bold">Gradely Webinar</span> </div>
-                <div class="cust_icon caret_right_icon icon_sm_mid"></div>
-            </div>
-            <div class="card-meta">How to setup your gradely classroom</div>
-        </div>
-    </router-link>
+    <ActivityCard route_name bold_title="18" light_title="Live Classes Scheduled" meta_text></ActivityCard>
+
+    <ActivityCard
+      route_name
+      bold_title="Gradely Webinar"
+      light_title
+      meta_text="How to setup your gradely classroom"
+    ></ActivityCard>
 
     <!-- MORE ICON -->
-    <router-link to="/school/dashboard/calendar">
-        <div class="link-to-calendar d-flex justify-content-start align-items-center nowrap">
-            <span class="icon-calendar"></span>
-            <div class="title">See All</div>
-        </div>
+    <router-link :to="{name: 'SchoolCalendar'}">
+      <div
+        class="link-to-calendar d-flex justify-content-start align-items-center nowrap position-relative"
+      >
+        <span class="icon-calendar brand_accent font-20"></span>
+        <div class="title white-text">View Calendar</div>
+      </div>
     </router-link>
-
-</div>
+  </div>
 </template>
 
 <script>
+import ActivityCard from "@/components/schoolComps/dashboard/home/ActivityCard";
+
 export default {
-    name: "ContentInfo"
-}
+  name: "ContentInfo",
+
+  components: {
+    ActivityCard
+  }
+};
 </script>
 
-<style>
+<style lang="scss">
+// CONTENT INFO
+.content-title {
+  line-height: 22px;
+  margin: 18px 20px 20px;
 
+  @include breakpoint_max(xl) {
+    font-size: 14.5px;
+  }
+
+  @include breakpoint_max(md) {
+    margin: 18px 30px 20px;
+  }
+
+  @include breakpoint_max(sm) {
+    font-size: 13px;
+  }
+}
+
+.link-to-calendar {
+  width: 140px;
+  margin-top: 34.83px;
+  margin-left: 25.67px;
+
+  span {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .title {
+    margin-left: 11.67px;
+    font-size: 14px;
+    line-height: 19px;
+    transition: color 0.3s ease-in-out;
+
+    @include breakpoint_max(lg) {
+      font-size: 12px;
+    }
+  }
+
+  &:hover {
+    .title {
+      color: $brand-accent !important;
+      text-decoration: underline;
+    }
+  }
+}
 </style>

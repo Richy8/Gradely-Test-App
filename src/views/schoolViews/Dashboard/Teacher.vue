@@ -5,19 +5,17 @@
       <!-- PAGE TITLE -->
       <div class="container px-1">
         <div class="row">
-
           <div class="col-12 dashboard-header-row">
             <!-- PAGE TITLE -->
             <div class="page-title">Teachers</div>
 
             <!-- ADD TEACHER INFO -->
             <div
-              class="avatar avatar_md btn-accent right-avatar pointer"
+              class="avatar avatar_sm_md btn-accent right-avatar pointer"
               @click="toggleTeacherModal"
             >
-              <span class="icon icon-one icon-plus font-24"></span>
+              <span class="icon icon-one icon-plus font-22"></span>
             </div>
-
           </div>
         </div>
       </div>
@@ -43,86 +41,86 @@
       <!-- ALERT COMPONENT -->
 
       <!-- TEACHER CARD COMPONENT DISPLAY -->
-      <div class="container teacher-card-display px-1">
+      <div class="container px-1">
         <div class="row">
           <!-- TEACHER CARD -->
           <div class="col-6 col-sm-6 col-md-4 col-lg-3">
             <TeacherCard
-              initials="BC"
               fullname="Babatunde Calebs"
               email="babatundecalebs@gmail.com"
-              :classes=3
-              :subject=2
+              :classes="3"
+              :subject="2"
+              @toggleMessage="toggleMessageModal"
             ></TeacherCard>
           </div>
 
           <div class="col-6 col-sm-6 col-md-4 col-lg-3">
             <TeacherCard
-              initials="EE"
               fullname="Efemena Elvis"
               email="efemenaelvis@gmail.com"
-              :classes=2
-              :subject=3
+              :classes="2"
+              :subject="3"
+              @toggleMessage="toggleMessageModal"
             ></TeacherCard>
           </div>
 
           <div class="col-6 col-sm-6 col-md-4 col-lg-3">
             <TeacherCard
-              initials="RJ"
               fullname="Richy Jones"
               email="richyjones@gmail.com"
-              :classes=1
-              :subject=1
+              :classes="1"
+              :subject="1"
+              @toggleMessage="toggleMessageModal"
             ></TeacherCard>
           </div>
 
           <div class="col-6 col-sm-6 col-md-4 col-lg-3">
             <TeacherCard
-              initials="FI"
               fullname="Femi Ibioye"
               email="femiibioye@gmail.com"
-              :classes=4
-              :subject=2
+              :classes="4"
+              :subject="2"
+              @toggleMessage="toggleMessageModal"
             ></TeacherCard>
           </div>
 
           <div class="col-6 col-sm-6 col-md-4 col-lg-3">
             <TeacherCard
-              initials="FI"
               fullname="Femi Ibioye"
               email="femiibioye@gmail.com"
-              :classes=4
-              :subject=2
+              :classes="4"
+              :subject="2"
+              @toggleMessage="toggleMessageModal"
             ></TeacherCard>
           </div>
 
           <div class="col-6 col-sm-6 col-md-4 col-lg-3">
             <TeacherCard
-              initials="BC"
               fullname="Babatunde Calebs"
               email="babatundecalebs@gmail.com"
-              :classes=3
-              :subject=2
+              :classes="3"
+              :subject="2"
+              @toggleMessage="toggleMessageModal"
             ></TeacherCard>
           </div>
 
           <div class="col-6 col-sm-6 col-md-4 col-lg-3">
             <TeacherCard
-              initials="RJ"
               fullname="Richy Jones"
               email="richyjones@gmail.com"
-              :classes=1
-              :subject=1
+              :classes="1"
+              :subject="1"
+              @toggleMessage="toggleMessageModal"
             ></TeacherCard>
           </div>
 
-           <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
             <TeacherCard
-              initials="EE"
               fullname="Efemena Elvis"
               email="efemenaelvis@gmail.com"
-              :classes=2
-              :subject=3
+              :classes="2"
+              :subject="3"
+              @toggleMessage="toggleMessageModal"
             ></TeacherCard>
           </div>
           <!-- TEACHER CARD -->
@@ -131,7 +129,7 @@
       <!-- TEACHER CARD COMPONENT DISPLAY -->
 
       <!-- PAGINATION COMPONENT -->
-      <div class="container pagination-section px-1">
+      <div class="container pagination-section-component px-1">
         <div class="row d-flex flex-center">
           <Pagination></Pagination>
         </div>
@@ -141,52 +139,44 @@
 
     <!-- MODAL COMPONENT -->
     <AddTeacherModal v-if="add_teacher_modal" @closeTriggered="toggleTeacherModal"></AddTeacherModal>
+
     <VerifyTeacherModal v-if="verify_teacher_modal" @closeTriggered="toggleVerifyTeacherModal"></VerifyTeacherModal>
+
+    <NewMessageModal v-if="message_modal" @closeTriggered="toggleMessageModal"></NewMessageModal>
     <!-- MODAL COMPONENT -->
   </div>
 </template>
 
 <script>
-// BACKGROUND COLOR EXTERNAL FUNCTION
-import { bgColorSetter } from "@/assets/jsComps/extFunc";
-import Pagination from "@/components/basicComps/Pagination";
-import Alert from "@/components/basicComps/Alert";
 import TeacherCard from "@/components/schoolComps/dashboard/teacher/TeacherCard";
-import VerifyTeacherModal from "@/components/schoolComps/dashboard/modals/VerifyTeacherModal";
-
-// MODAL
-import AddTeacherModal from "@/components/schoolComps/dashboard/modals/AddTeacherModal";
+import Alert from "@/components/globalComps/Alert";
+import Pagination from "@/components/globalComps/Pagination";
 
 export default {
   name: "Teacher",
 
   components: {
+    TeacherCard,
     Alert,
     Pagination,
-    TeacherCard,
-    AddTeacherModal,
-    VerifyTeacherModal
+    AddTeacherModal: () =>
+      import(/* webpackChunkName: "addteachermodal" */ "@/components/schoolComps/modals/AddTeacherModal"),
+    VerifyTeacherModal: () =>
+      import(/* webpackChunkName: "verifyteachermodal" */ "@/components/schoolComps/modals/VerifyTeacherModal"),
+    NewMessageModal: () =>
+      import(/* webpackChunkName: "newmessagemodal" */ "@/components/schoolComps/modals/NewMessageModal")
   },
 
   data() {
     return {
       show_alert: true,
       add_teacher_modal: false,
-      verify_teacher_modal: false
+      verify_teacher_modal: false,
+      message_modal: false
     };
   },
 
-  mounted() {
-    bgColorSetter("#f4f4f4");
-  },
-
   methods: {
-    btnHover(event, icon) {
-      event.target.firstElementChild.classList.contains(icon)
-        ? event.target.firstElementChild.classList.remove(icon)
-        : event.target.firstElementChild.classList.add(icon);
-    },
-
     closeAlert() {
       this.show_alert = !this.show_alert;
     },
@@ -197,6 +187,10 @@ export default {
 
     toggleVerifyTeacherModal() {
       this.verify_teacher_modal = !this.verify_teacher_modal;
+    },
+
+    toggleMessageModal() {
+      this.message_modal = !this.message_modal;
     }
   }
 };

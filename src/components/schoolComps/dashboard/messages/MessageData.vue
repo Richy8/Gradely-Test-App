@@ -10,10 +10,10 @@
 
             <!-- COMPOSE NEW MESSAGE -->
             <div
-              class="avatar avatar_md btn-accent right-avatar pointer"
+              class="avatar avatar_sm_md btn-accent right-avatar pointer"
               @click="$emit('switchNewMessage', 'NewMessage')"
             >
-              <span class="icon icon-one icon-plus font-24"></span>
+              <span class="icon icon-one icon-plus font-22"></span>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
                     :contact_year="2019"
                     contact_name="Obafemi Tuberu"
                     contact_msg="Lorem ipsum dolor sit amet consectetur dolor sit amet consectetur"
-                    @changeView="displayMessages"
+                    @changeView="showMessageChat"
                   ></ConversationCard>
 
                   <ConversationCard
@@ -48,7 +48,7 @@
                     :contact_year="2019"
                     contact_name="Lukman Bala"
                     contact_msg="Lorem ipsum dolor sit amet consectetur dolor sit amet consectetur"
-                    @changeView="displayMessages"
+                    @changeView="showMessageChat"
                   ></ConversationCard>
 
                   <ConversationCard
@@ -57,16 +57,7 @@
                     :contact_year="2020"
                     contact_name="Ayodele Akintola"
                     contact_msg="Lorem ipsum dolor sit amet consectetur dolor sit amet consectetur"
-                    @changeView="displayMessages"
-                  ></ConversationCard>
-
-                  <ConversationCard
-                    :contact_day="30"
-                    contact_month="January"
-                    :contact_year="2020"
-                    contact_name="Ayodele Akintola"
-                    contact_msg="Lorem ipsum dolor sit amet consectetur dolor sit amet consectetur"
-                    @changeView="displayMessages"
+                    @changeView="showMessageChat"
                   ></ConversationCard>
                   <!-- CONVERSATION CARD COMPONENT -->
                 </div>
@@ -112,16 +103,6 @@
                     message="is dummy text used in laying out print, graphic or web designs. The passage is attributed to"
                     :host="false"
                   ></ConversationChat>
-
-                  <ConversationChat
-                    message="is dummy text used in laying out print, graphic or web designs. The passage is attributed to is dummy text used in laying out print, graphic or web designs. The passage is attributed to is dummy text used in laying out print, graphic or web designs. The passage is attributed to"
-                    :host="false"
-                  ></ConversationChat>
-
-                  <ConversationChat
-                    message="is dummy text used in laying out print, graphic or web designs. The passage is attributed tois dummy text used in laying out print, graphic or web designs. The passage is attributed to"
-                    :host="true"
-                  ></ConversationChat>
                   <!-- CONVERSATION CHAT SECTION -->
                 </div>
                 <!-- CHAT AREA CONTAINER -->
@@ -142,16 +123,16 @@
 
 <script>
 import ConversationCard from "@/components/schoolComps/dashboard/messages/ConversationCard";
-import ConversationChat from "@/components/schoolComps/dashboard/messages/ConversationChat";
-import MessageInput from "@/components/schoolComps/dashboard/messages/MessageInput";
 
 export default {
   name: "MessageData",
 
   components: {
     ConversationCard,
-    ConversationChat,
-    MessageInput
+    ConversationChat: () =>
+      import(/* webpackChunkName: "conversationchat" */ "@/components/schoolComps/dashboard/messages/ConversationChat"),
+    MessageInput: () =>
+      import(/* webpackChunkName: "messageinput" */ "@/components/schoolComps/dashboard/messages/MessageInput")
   },
 
   mounted() {
@@ -164,14 +145,14 @@ export default {
       message_area.scrollTop = message_area.scrollHeight;
     },
 
-    displayMessages() {
+    showMessageChat() {
       let window_width = window.innerWidth;
       if (window_width < 767) {
         let message_list = document.querySelector(".conversation-block");
         let message_area = document.querySelector(".conversation-area");
-  
-        message_list.classList.add('d-none');
-        message_area.classList.remove('d-none');
+
+        message_list.classList.add("d-none");
+        message_area.classList.remove("d-none");
       }
     },
 
@@ -179,12 +160,12 @@ export default {
       let message_list = document.querySelector(".conversation-block");
       let message_area = document.querySelector(".conversation-area");
 
-      message_list.classList.remove('d-none');
-      message_area.classList.add('d-none');
+      message_list.classList.remove("d-none");
+      message_area.classList.add("d-none");
     }
   }
 };
 </script>
 
-<style>
+<style lang="scss">
 </style>

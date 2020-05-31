@@ -37,7 +37,7 @@
 
     @include breakpoint_max(sm) {
         @include equal_min_edge(24);
-    } 
+    }
 }
 
 .avatar_avg {
@@ -46,7 +46,7 @@
 
     @include breakpoint_max(sm) {
         @include equal_min_edge(24);
-    } 
+    }
 }
 
 .avatar_xs {
@@ -59,13 +59,9 @@
     font-size: 11px;
 }
 
-.avatar_32 {
-    @include equal_min_edge(32);
-}
-
 .avatar_sm_md {
     @include equal_min_edge(42);
-    
+
     @include breakpoint_max(xl) {
         @include equal_min_edge(38);
     }
@@ -73,11 +69,11 @@
     @include breakpoint_max(lg) {
         @include equal_min_edge(36);
     }
-} 
+}
 
 .avatar_md {
     @include equal_min_edge(48);
-    
+
     @include breakpoint_max(lg) {
         @include equal_min_edge(43);
     }
@@ -89,7 +85,7 @@
     @include breakpoint_max(sm) {
         @include equal_min_edge(38);
     }
-} 
+}
 
 .avatar_vid_md {
     @include equal_min_edge(50);
@@ -125,7 +121,7 @@
     @include breakpoint_max(sm) {
         @include equal_min_edge(48);
     }
-} 
+}
 
 .avatar_xl {
     @include equal_min_edge(96);
@@ -143,7 +139,7 @@
         font-size: 26px;
         line-height: 34px;
     }
-} 
+}
 
 .avatar_xxl {
     @include equal_min_edge(128);
@@ -161,7 +157,7 @@
     @include breakpoint_max(xs) {
         @include equal_min_edge(85);
     }
-} 
+}
 
 .avatar_big {
     @include equal_min_edge(200);
@@ -200,6 +196,7 @@
 .avatar-with-meta {
     @extend %avatar-text-styling;
     @include flex_column_center;
+    background: $brand_inverse_light;
 
     .avatar-title {
         text-transform: uppercase;

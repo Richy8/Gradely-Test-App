@@ -19,17 +19,15 @@
 </template>
 
 <script>
-// BACKGROUND COLOR EXTERNAL FUNCTION
-import { bgColorSetter } from "@/assets/jsComps/extFunc";
 import MessageData from "@/components/schoolComps/dashboard/messages/MessageData";
-import NewMessage from "@/components/schoolComps/dashboard/messages/NewMessage";
 
 export default {
   name: "Message",
 
   components: {
     MessageData,
-    NewMessage
+    NewMessage: () =>
+      import(/* webpackChunkName:  "newmessage" */ "@/components/schoolComps/dashboard/messages/NewMessage")
   },
 
   data() {
@@ -44,7 +42,6 @@ export default {
   },
 
   mounted() {
-    bgColorSetter("#f4f4f4");
     this.updateMetaTitle();
   },
 
@@ -64,15 +61,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  transition: opacity 0.2s ease-in;
-}
-.fade-leave-active {
-  transition: opacity 0.2s ease-out;
-  opacity: 0;
-}
+<style lang="scss">
 </style>

@@ -2,7 +2,7 @@
 @import 'color';
 
 /*App Font*/
-@import 'font';
+@import 'font_face';
 
 /*Breakpoint Style*/
 @import 'breakpoints';
@@ -10,17 +10,11 @@
 /*Mixin Style*/
 @import 'mixin';
 
-/* Font Awesome Style */
-@import 'fa_sass/fontawesome.scss';
-@import 'fa_sass/solid.scss';
-@import 'fa_sass/regular.scss';
-@import 'fa_sass/brands.scss';
-
 /*Custom Icons*/
 @import 'custom_icons';
 
 /*Font Icons*/
-@import 'fontIcons';
+@import 'font_icons';
 
 /*Utility Style*/
 @import 'utilities';
@@ -47,7 +41,10 @@
 @import 'modal';
 
 /* NAVIGATION STYLE */
-@import 'navbar';
+@import 'navbar_build';
 
 // SETTINGS SIDE NAV
 @import "settings_sidenav";
+
+// SETTINGS STYLING
+@import "settings";

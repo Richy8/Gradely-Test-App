@@ -17,7 +17,7 @@
 
         <!-- SLECT INPUT -->
         <div class="right">
-          <input type="checkbox" v-model="recipient" value="" :id="fullname">
+          <input type="checkbox" v-model="recipient" value :id="fullname">
         </div>
       </div>
     </label>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { colors, random, shuffle, setInitial } from "@/assets/jsComps/extFunc";
+import { colors, random, shuffle, setInitial } from "@/scripts/utilities";
 
 export default {
   name: "RecipientCard",
@@ -35,13 +35,13 @@ export default {
   },
 
   data() {
-      return {
-          recipient: ""
-      }
+    return {
+      recipient: ""
+    };
   },
 
   computed: {
-   userInitial() {
+    userInitial() {
       return setInitial(this.fullname);
     },
 
@@ -53,10 +53,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .recipient-card {
   padding: 10px 2px;
-  border-bottom: 1px solid #d5d5d5;
+  border-bottom: 1px solid $border_grey;
 }
 
 .avatar {

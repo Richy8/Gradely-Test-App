@@ -37,6 +37,7 @@
                 @include flex_row_start_nowrap;
                 overflow: auto;
                 -ms-overflow-style: none;
+
                 &::-webkit-scrollbar {
                     display: none;
                 }
@@ -80,7 +81,7 @@
                             margin-right: 13px;
                         }
                     }
-                    
+
                     .icon {
                         display: block;
                         font-size: 25px;
@@ -126,7 +127,7 @@
 
                         .link-title {
                             font-weight: bold;
-                            color: #113255;
+                            color: $brand_navy;
                         }
                     }
                 }

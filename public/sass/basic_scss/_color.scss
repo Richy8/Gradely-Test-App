@@ -1,7 +1,7 @@
 // Application color pallette //
-$brand_primary: #2a4f77;  
+$brand_primary: #2a4f77;
 $brand_primary_light: rgba($brand_primary, .25);
-$brand_accent: #F2AB3E; 
+$brand_accent: #FAA017;
 $brand_accent_light: #FCEACF;
 $brand_inverse: #11bdcf;
 $brand_inverse_light: #dbf5f8;
@@ -9,9 +9,9 @@ $brand_black: #07374B;
 $brand_green: #60D2B0;
 $brand_red: #FE747D;
 $brand_red_light: #FFDCDE;
-$color_text: #353535; 
-$color_white: #f5f5f5; 
-$color_grey_dark: #757575; 
+$color_text: #353535;
+$color_white: #f5f5f5;
+$color_grey_dark: #757575;
 $color_grey_light: #c5c5c5;
 $border_grey: #d5d5d5;
 $border_grey_light: #E5E5E5;
@@ -22,38 +22,38 @@ $color_mid_blue: #004680;
 $color_deep_blue: #033966;
 $color_ash: #555555;
 $color_ash_lighter: #a8a8a8;
-$off_white: #ebebeb; 
+$off_white: #ebebeb;
 $brand_white: #f4f4f4;
+$pale_orange: #FCEACF;
 
 // App Color Pallete
 $app-color: () !default;
-$app-color: map-merge((
-"brand_primary": $brand_primary,
-"brand_primary_light": $brand_primary_light,
-"brand_accent": $brand_accent,
-"brand_accent_light": $brand_accent_light,
-"brand_inverse": $brand_inverse,
-"brand_inverse_light": $brand_inverse_light,
-"brand_black": $brand_black,
-"brand_green": $brand_green,
-"brand_red": $brand_red,
-"brand_red_light": $brand_red_light,
-"color_text": $color_text,
-"color_white": $color_white,
-"color_grey_dark": $color_grey_dark,
-"color_grey_light": $color_grey_light,
-"border_grey": $border_grey,
-"border_grey_light": $border_grey_light,
-"border_grey_dark": $border_grey_dark,
-"brand_navy": $brand_navy,
-"brand_tonic": $brand_tonic,
-"color_deep_blue": $color_deep_blue,
-"color_mid_blue": $color_mid_blue,
-"color_ash": $color_ash,
-"off_white": $off_white,
-"color_ash_lighter": $color_ash_lighter,
-"brand_white": $brand_white
-), $app-color);
+$app-color: map-merge(("brand_primary": $brand_primary,
+        "brand_primary_light": $brand_primary_light,
+        "brand_accent": $brand_accent,
+        "brand_accent_light": $brand_accent_light,
+        "brand_inverse": $brand_inverse,
+        "brand_inverse_light": $brand_inverse_light,
+        "brand_black": $brand_black,
+        "brand_green": $brand_green,
+        "brand_red": $brand_red,
+        "brand_red_light": $brand_red_light,
+        "color_text": $color_text,
+        "color_white": $color_white,
+        "color_grey_dark": $color_grey_dark,
+        "color_grey_light": $color_grey_light,
+        "border_grey": $border_grey,
+        "border_grey_light": $border_grey_light,
+        "border_grey_dark": $border_grey_dark,
+        "brand_navy": $brand_navy,
+        "brand_tonic": $brand_tonic,
+        "color_deep_blue": $color_deep_blue,
+        "color_mid_blue": $color_mid_blue,
+        "color_ash": $color_ash,
+        "off_white": $off_white,
+        "color_ash_lighter": $color_ash_lighter,
+        "brand_white": $brand_white,
+        "pale_orange": $pale_orange), $app-color);
 
 /*------------------------------------*\
 	App Color Palette
@@ -66,17 +66,18 @@ $color in $app-color {
 
     .#{$color_name}_bg {
         background-color: $color !important;
-    } 
+    }
+
     .border_#{$color_name} {
         border: 1px solid $color !important;
-    }   
+    }
 }
 
 /*-----------------------*\
 	TRANSPARENT BG
 \*-----------------------*/
 .transparent_bg {
-    background-color: transparent !important; 
+    background-color: transparent !important;
 }
 
 
@@ -108,28 +109,28 @@ $box_color : hsla(204, 83%, 40%, 1); // #1277bc
 
 $social-color: () !default;
 $social-color: map-merge(("facebook": $facebook_color,
-"twitter": $twitter_color,
-"linkedin": $linkedin_color,
-"apple": $apple_color,
-"google": $google_color,
-"google-plus": $google_plus_color,
-"youtube": $youtube_color,
-"vimeo": $vimeo_color,
-"pinterest": $pinterest_color,
-"yelp": $yelp_color,
-"dribble": $dribbble_color,
-"amazon": $amazon_color,
-"ebay": $ebay_color,
-"skype": $skype_color,
-"instagram": $instagram_color,
-"dropbox": $dropbox_color,
-"flickr": $flickr_color,
-"github": $github_color,
-"basecamp": $basecamp_color,
-"tumblr": $tumblr_color,
-"foursquare": $foursquare_color,
-"box": $box_color,
-), $social-color);
+        "twitter": $twitter_color,
+        "linkedin": $linkedin_color,
+        "apple": $apple_color,
+        "google": $google_color,
+        "google-plus": $google_plus_color,
+        "youtube": $youtube_color,
+        "vimeo": $vimeo_color,
+        "pinterest": $pinterest_color,
+        "yelp": $yelp_color,
+        "dribble": $dribbble_color,
+        "amazon": $amazon_color,
+        "ebay": $ebay_color,
+        "skype": $skype_color,
+        "instagram": $instagram_color,
+        "dropbox": $dropbox_color,
+        "flickr": $flickr_color,
+        "github": $github_color,
+        "basecamp": $basecamp_color,
+        "tumblr": $tumblr_color,
+        "foursquare": $foursquare_color,
+        "box": $box_color,
+    ), $social-color);
 
 @each $color_name,
 $color in $social-color {

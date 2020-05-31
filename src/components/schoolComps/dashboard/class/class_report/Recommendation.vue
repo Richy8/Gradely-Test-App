@@ -10,13 +10,13 @@
       </div>
 
       <!-- RECOMMENDATION BLOCK -->
-      <div class="recommendation-block rounded-5 white">
+      <div class="recommendation-block rounded-5 white h-auto">
         <!-- TOP BLOCK -->
         <div class="top-block">
           <div class="d-flex justify-content-start align-items-center nowrap">
             <!-- AVATAR -->
             <div class="avatar avatar-square mr-2 mr-sm-3">
-              <img src="@/assets/images/Math1.png" alt class="avatar-img">
+              <img :src="dynamicImg('Math1.png')" alt class="avatar-img">
             </div>
 
             <!-- TITLE -->
@@ -24,7 +24,7 @@
 
             <!-- DROPDOWN ICON -->
             <div class="icon">
-              <i class="fas fa-chevron-down font-17 border_grey_dark pointer"></i>
+              <i class="icon-caret-down font-17 border_grey_dark pointer"></i>
             </div>
           </div>
         </div>
@@ -40,7 +40,6 @@
           <!-- COMPONENTS GOES HERE -->
           <transition name="fade" mode="out-in">
             <keep-alive>
-
               <StrugglingList
                 v-if="in_view === 'StrugglingList'"
                 @toggleVideo="toggleVideoCard"
@@ -58,7 +57,6 @@
                 @toggleVideo="toggleVideoCard"
                 @togglePractice="togglePracticeCard"
               ></TopList>
-
             </keep-alive>
           </transition>
           <!-- COMPONENTS GOES HERE -->
@@ -74,23 +72,24 @@
 </template>
 
 <script>
+import RenderImages from "@/scripts/mixins/RenderImages";
 import StrugglingList from "@/components/schoolComps/dashboard/class/class_report/StrugglingList";
-import AverageList from "@/components/schoolComps/dashboard/class/class_report/AverageList";
-import TopList from "@/components/schoolComps/dashboard/class/class_report/TopList";
-
-// MODALS
-import VideoCardModal from "@/components/schoolComps/dashboard/modals/VideoCardModal";
-import PracticeCardModal from "@/components/schoolComps/dashboard/modals/PracticeCardModal";
 
 export default {
   name: "Recommendation",
 
+  mixins: [RenderImages],
+
   components: {
     StrugglingList,
-    AverageList,
-    TopList,
-    VideoCardModal,
-    PracticeCardModal
+    AverageList: () =>
+      import(/* webpackChunkName: "ClassReport" */ "@/components/schoolComps/dashboard/class/class_report/AverageList"),
+    TopList: () =>
+      import(/* webpackChunkName: "ClassReport" */ "@/components/schoolComps/dashboard/class/class_report/TopList"),
+    VideoCardModal: () =>
+      import(/* webpackChunkName: "VideoCardModal" */ "@/components/schoolComps/modals/VideoCardModal"),
+    PracticeCardModal: () =>
+      import(/* webpackChunkName: "PracticeCardModal" */ "@/components/schoolComps/modals/PracticeCardModal")
   },
 
   data() {
@@ -129,15 +128,108 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  transition: opacity 0.2s ease-in;
-}
-.fade-leave-active {
-  transition: opacity 0.2s ease-out;
-  opacity: 0;
+<style lang="scss">
+.recommendation-section {
+  margin-bottom: 60px;
+
+  .section-intro {
+    margin-bottom: 20px;
+
+    .title {
+      margin-bottom: 2px;
+      font-size: 21px;
+      line-height: 29px;
+
+      @include breakpoint_max(md) {
+        font-size: 19px;
+      }
+
+      @include breakpoint_max(sm) {
+        font-size: 16.5px;
+      }
+
+      @include breakpoint_max(xs) {
+        font-size: 15px;
+      }
+    }
+  }
+
+  // RECOMMENDATION BLOCK
+  .recommendation-block {
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+
+    .top-block {
+      padding: 28px 20px;
+
+      .title {
+        transition: all 0.3s ease-in-out;
+        color: $color_text;
+
+        &:hover {
+          color: darken($brand_accent, 15%);
+        }
+      }
+    }
+
+    .mid-block {
+      padding-bottom: 30px;
+
+      %tab-styling {
+        &:after {
+          position: absolute;
+          content: "";
+          left: 0;
+          width: 100%;
+          height: 2.5px;
+          background: $brand_accent;
+          bottom: -11px;
+        }
+      }
+
+      .tabs {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+        padding-bottom: 10px;
+        margin-bottom: 5px;
+        border-bottom: 1px solid $border_grey;
+
+        .tab {
+          position: relative;
+          width: 33.33%;
+          text-align: center;
+          font-size: 14px;
+          line-height: 19px;
+          color: $border_grey_dark;
+          cursor: pointer;
+          transition: all 0.4s ease-in-out;
+
+          @include breakpoint_max(lg) {
+            font-size: 13px;
+          }
+
+          @include breakpoint_max(md) {
+            font-size: 14px;
+          }
+
+          @include breakpoint_max(sm) {
+            font-size: 13px;
+          }
+
+          &:hover {
+            color: $color_text;
+            @extend %tab-styling;
+          }
+        }
+
+        .active {
+          color: $color_text;
+          font-weight: 600;
+          @extend %tab-styling;
+        }
+      }
+    }
+  }
 }
 </style>

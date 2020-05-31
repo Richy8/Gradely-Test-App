@@ -18,7 +18,7 @@
       <div class="row">
         <!-- TOIPC LIST COMPONENT -->
         <div class="col-12 col-md-5">
-          <TopicList></TopicList>
+          <TopicList @switchTopicProgress="updateProgressArea($event)"></TopicList>
         </div>
         <!-- TOIPC LIST COMPONENT -->
 
@@ -27,7 +27,11 @@
           <div class="topic-progress-area">
             <div class="topic-title brand_primary d-none d-md-block">Number Bases</div>
             <!-- TOIPC PROGRESS CHART COMPONENT -->
-            <TopicProgressChart :above_avg="38" :average="22" :below_avg="75"></TopicProgressChart>
+            <TopicProgressChart
+              :above_avg="data_above"
+              :average="data_average"
+              :below_avg="data_below"
+            ></TopicProgressChart>
             <!-- TOIPC PROGRESS CHART COMPONENT -->
 
             <!-- PERFORMANCE BREAKDOWN LOG -->
@@ -44,17 +48,91 @@
 
 <script>
 import TopicList from "@/components/schoolComps/dashboard/class/class_report/TopicList";
-import TopicProgressChart from "@/components/schoolComps/dashboard/class/class_report/TopicProgressChart";
 
 export default {
   name: "TopicProgress",
 
   components: {
     TopicList,
-    TopicProgressChart
+    TopicProgressChart: () =>
+      import(/* webpackChunkName: "ClassReport" */ "@/components/schoolComps/dashboard/class/class_report/TopicProgressChart")
+  },
+
+  data() {
+    return {
+      data_above: 0,
+      data_average: 0,
+      data_below: 0
+    };
+  },
+
+  methods: {
+    updateProgressArea(event) {
+      this.data_above = event.above;
+      this.data_average = event.average;
+      this.data_below = event.below;
+    }
   }
 };
 </script>
 
-<style>
+<style lang="scss">
+.topic-progress-section {
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  padding: 20px 23px 27px 20px;
+  margin-bottom: 50px;
+
+  .title-row {
+    margin-bottom: 31px;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: -20px;
+    margin-left: -3px;
+
+    .title {
+      font-size: 15.5px;
+      line-height: 22px;
+
+      @include breakpoint_max(sm) {
+        font-size: 15px;
+      }
+
+      @include breakpoint_max(xs) {
+        font-size: 14.7px;
+      }
+    }
+
+    .month-select {
+      width: 120px;
+    }
+
+    .form-control {
+      font-size: 13px;
+      color: $color_ash;
+    }
+  }
+
+  .topic-progress-area {
+    .topic-title {
+      font-size: 16px;
+      line-height: 22px;
+      margin-bottom: 20px;
+
+      @include breakpoint_max(xl) {
+        font-size: 15px;
+      }
+    }
+
+    .performance-breakdown {
+      font-size: 11px;
+      line-height: 14px;
+      margin-top: 13.5px;
+      margin-bottom: 5px;
+
+      @include breakpoint_max(lg) {
+        margin-top: 20px;
+      }
+    }
+  }
+}
 </style>

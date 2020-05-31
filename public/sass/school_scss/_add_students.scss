@@ -5,14 +5,16 @@
 
         @include breakpoint_max(lg) {
             margin-top: 140px;
+
             .page-title {
                 font-size: 26px;
             }
         }
-        
+
         @include breakpoint_max(md) {
             margin-top: 80px;
             margin-bottom: 30px;
+
             .page-title {
                 font-size: 20px;
             }
@@ -72,10 +74,10 @@
             position: relative;
             top: 6.5px;
             right: -20px;
-            border: 1px solid #D5D5D5;
+            border: 1px solid $border_grey;
 
             .avatar-text {
-                background: #F5F5F5;
+                background: $color_white;
             }
         }
     }
@@ -84,7 +86,7 @@
         padding-top: 60px;
         padding-bottom: 10px;
         border-top: none;
-        border-bottom: 1px solid #d5d5d5;
+        border-bottom: 1px solid $border_grey;
     }
 
     .table {
@@ -103,6 +105,13 @@
             margin-bottom: 50px;
         }
     }
+
+    .btn {
+        @include breakpoint_max(md) {
+            font-size: 10.5px !important;
+            padding: 10px 20px;
+        }
+    }
 }
 
 // STUDENT INVITATION MESSAGE STYLING
@@ -110,7 +119,7 @@
     @include flex_column_center;
     margin-top: -35px;
 
-    .avatar_xl{
+    .avatar_xl {
         margin-bottom: 30px;
 
         @include breakpoint_max(md) {
@@ -141,4 +150,3 @@
         color: #555555;
     }
 }
-

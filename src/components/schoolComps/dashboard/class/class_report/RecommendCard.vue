@@ -1,14 +1,10 @@
 <template>
   <div>
-    <div class="recommend-card">
+    <div class="recommend-card white mx-auto w-100">
       <!-- CHILD INFO -->
       <div class="child-info">
         <div class="avatar avatar-square">
-          <img
-            :src="require('@/assets/images/'+ child_img +'')"
-            :alt="child_name"
-            class="avatar-img"
-          >
+          <img :src="dynamicImg(child_img)" :alt="child_name" class="avatar-img">
         </div>
         <div class="name color_text">
           {{ child_name }}
@@ -65,6 +61,8 @@
 </template>
 
 <script>
+import RenderImages from "@/scripts/mixins/RenderImages";
+
 export default {
   name: "RecommendCard",
 
@@ -73,6 +71,8 @@ export default {
     child_name: String,
     percent_progress: Number
   },
+
+  mixins: [RenderImages],
 
   watch: {
     child_img: "updateCard",
@@ -104,5 +104,71 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.recommend-card {
+  padding-top: 12px;
+  padding-bottom: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom: 1px solid $border_grey;
+  @include flex_row_between_nowrap;
+
+  .child-info {
+    @include flex_row_start_nowrap;
+
+    .avatar {
+      margin-right: 15px;
+    }
+
+    .name {
+      font-size: 14px;
+      line-height: 19px;
+
+      @include breakpoint_max(lg) {
+        font-size: 13px;
+      }
+
+      @include breakpoint_max(md) {
+        font-size: 14px;
+      }
+
+      @include breakpoint_max(sm) {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .desktop-view,
+  .mobile-view {
+    @include flex_row_end_nowrap;
+  }
+
+  .desktop-view {
+    @include breakpoint_max(lg) {
+      display: none;
+    }
+
+    .option {
+      @include flex_row_between_nowrap;
+      padding: 2px 10px;
+      cursor: pointer;
+      background: #f5f5f5;
+      border-radius: 30px;
+
+      &:hover {
+        background: #e9e9e9;
+      }
+
+      .avatar {
+        margin-right: 13.5px;
+      }
+
+      .text {
+        font-size: 13.5px;
+        line-height: 19px;
+        color: $color_ash;
+      }
+    }
+  }
+}
 </style>

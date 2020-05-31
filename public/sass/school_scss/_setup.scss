@@ -6,7 +6,7 @@
     text-transform: uppercase;
 }
 
-.setup-section {
+.school-setup-section {
     position: fixed;
     @include section_stretch();
     overflow: auto;
@@ -83,7 +83,6 @@
                 }
 
                 .title {
-                    font-weight: normal;
                     font-size: 21px;
                     line-height: 29px;
                     margin-bottom: 38px;
@@ -103,13 +102,17 @@
 
                 .school-type {
                     margin-bottom: 34.5px;
+
                     .title {
                         @extend %form-title;
                     }
+
                     .item {
                         margin-bottom: 16px;
+
                         label {
                             @include flex_row_start_nowrap;
+
                             .label_title {
                                 display: block;
                                 font-size: 14px;
@@ -122,14 +125,17 @@
                         }
                     }
                 }
-                
+
                 .naming-style {
                     margin-bottom: 80px;
+
                     .title {
                         @extend %form-title;
                     }
+
                     .item {
                         margin-bottom: 10px;
+
                         label {
                             border: 1px solid $border_grey;
                             padding: 15px 20px 20px;
@@ -174,12 +180,12 @@
 
             .setup-bottom {
                 @include flex_row_between_nowrap;
-                background: #DBF5F8;
+                background: $brand_inverse_light;
                 padding: 15px 40px;
 
                 @include breakpoint_max(sm) {
                     .btn {
-                        font-size: 10px !important;    
+                        font-size: 10px !important;
                     }
                 }
 

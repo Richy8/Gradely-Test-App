@@ -20,6 +20,7 @@ import jQuery from 'jquery'
 global.$ = jQuery;
 
 Vue.component("vue-headful", vueHeadful);
+
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 Vue.use(vWow);

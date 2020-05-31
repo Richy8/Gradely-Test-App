@@ -1,34 +1,40 @@
 <template>
-<div>
+  <div>
     <!-- BANNER -->
     <div class="banner">
-        <div class="banner-overlay box-overlay rounded-top-10">
-            <img :src="require('@/assets/images/'+ banner +'')" class="img">
-            <img src="@/assets/images/DisplayBanner.png" class="d-none" width="0" height="0">
-            <img src="@/assets/images/DialogOne.png" class="d-none" width="0" height="0">
-            <img src="@/assets/images/DialogTwo.png" class="d-none" width="0" height="0">
-            <img src="@/assets/images/DialogThree.png" class="d-none" width="0" height="0">
-            <img src="@/assets/images/DialogFour.png" class="d-none" width="0" height="0">
-        </div>
-        <!-- BRAND ICON -->
-        <img :src="require('@/assets/images/'+ display_img +'')" class="brand-icon">
+      <div class="banner-overlay box-overlay rounded-top-10">
+        <img :src="localImg(banner)" class="img">
+
+        <!-- PREFETCH OTHER IMAGES -->
+        <img :src="localImg('DisplayBanner.png')" class="d-none" width="0" height="0">
+        <img :src="localImg('DialogOne.png')" class="d-none" width="0" height="0">
+        <img :src="localImg('DialogTwo.png')" class="d-none" width="0" height="0">
+        <img :src="localImg('DialogThree.png')" class="d-none" width="0" height="0">
+        <img :src="localImg('DialogFour.png')" class="d-none" width="0" height="0">
+        <!-- PREFETCH OTHER IMAGES -->
+      </div>
+      <!-- BRAND ICON -->
+      <img :src="localImg(display_img)" class="brand-icon">
     </div>
 
     <!-- WELCOME BLOCK -->
     <div class="welcome-block w-100 d-flex flex-column justify-content-start align-items-center">
-        <div class="welcome-title font-weight-bold brand_navy">Welcome to Gradely</div>
-        <div class="welcome-text color_grey_dark text-center">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</div>
+      <div class="welcome-title font-weight-bold brand_navy">Welcome to Gradely</div>
+      <div
+        class="welcome-text color_grey_dark text-center"
+      >Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</div>
     </div>
-</div>
+  </div>
 </template>
 
 <script>
+import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
-    name: "DialogOne",
-    props: ['banner', 'display_img']
-}
+  name: "DialogOne",
+  props: ["banner", "display_img"],
+  mixins: [RenderImages]
+};
 </script>
 
 <style>
-
 </style>

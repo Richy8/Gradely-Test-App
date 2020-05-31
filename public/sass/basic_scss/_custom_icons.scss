@@ -11,8 +11,8 @@
 }
 
 svg {
-    display: inline-block;
-    width: 100%;
+  display: inline-block;
+  width: 100%;
 }
 
 .icon_xxs {
@@ -21,18 +21,6 @@ svg {
 
 .icon_xs {
   @include equal_min_edge(16);
-}
-
-.icon_sm_mid {
-  @include equal_min_edge(20);
-}
-
-.icon_sm_22 {
-  @include equal_min_edge(22);
-
-  @include breakpoint_max(sm) {
-    @include equal_min_edge(20);
-  }
 }
 
 .icon_sm {
@@ -47,155 +35,10 @@ svg {
   @include equal_min_edge(64);
 }
 
-.icon_xl {
-    width: 64px;
-    height: 64px;
-}
-
-.currency {
-    font-style: normal;
-    &::before {
-        font-size: .65em;
-        color: $color_text;
-        font-family: sans-serif;
-        line-height: 1;
-        vertical-align: text-top;
-        margin-right: -5px;
-    }
-}
-
-.naira::before {
-    content: "\20A6";
-}
-
-.icon_info {
-  background-image: url(../img/icons/info.svg);
-}
-
-.icon_parent {
-  background-image: url(../img/icons/parents.svg);
-}
-
-.icon_teacher {
-  background-image: url(../img/icons/teacher.svg);
-}
-
-.icon_curriculum {
-  background-image: url(../img/icons/curriculum.svg);
-}
-
-.icon_student {
-  background-image: url(../img/icons/student.svg);
-}
-
-.icon_class {
-  background-image: url(../img/icons/class.svg);
-}
-
-.icon_book {
-  background-image: url(../img/icons/book.svg);
-}
-
-.icon_video {
-  background-image: url(../img/icons/play.svg);
-}
-
-.icon_comment {
-  background-image: url(../img/icons/commentary.svg);
-}
-
-.icon_arrow_right {
-  transition: all .3s ease-in-out;
-  background-image: url(../img/icons/arrow-right.svg);
-}
-
-.icon_arrow_right_white {
-  transition: all .3s ease-in-out;
-  background-image: url(../img/icons/arrow-right-white.svg);
-}
-
-.icon_close {
-  background-image: url(../img/icons/close.svg);
-}
-
 .icon_eye {
   background-image: url(../img/icons/show.svg);
 
   .show_pass & {
     background-image: url(../img/icons/hide.svg);
   }
-}
-
-.icon_user {
-  background-image: url(../img/icons/user_outline.svg);
-  width: 18px;
-  height: 18px;
-
-  .itemTop & {
-    background-image: url(../img/icons/user_filled.svg);
-  }
-}
-
-.icon_on {
-  background-image: url(../img/icons/done.svg);
-}
-
-.icon_off {
-  background-image: url(../img/icons/wrong.svg);
-}
-
-.icon_file {
-  background-image: url(../img/icons/file.svg);
-}
-
-.icon_sample {
-  background-image: url(../img/icons/file-text.svg);
-}
-
-.icon_reply {
-  background-image: url(../img/icons/reply.svg);
-}
-
-.icon_phone {
-  background-image: url(../img/icons/smartphone.svg);
-}
-
-.icon_map {
-  background-image: url(../img/icons/map.svg);
-}
-
-.icon_calendar {
-  background-image: url(../img/icons/calendar.svg);
-}
-
-.icon_inbox {
-  background-image: url(../img/icons/inbox.svg);
-}
-
-.icon_play {
-  background-image: url(../img/icons/play-button.svg);
-}
-
-.icon_difficulty {
-  background-image: url(../img/icons/difficulty.svg);
-}
-
-.icon_timer {
-  background-image: url(../img/icons/duration.svg);
-}
-
-.icon_date {
-  background-image: url(../img/icons/calendar_white.svg);
-}
-
-.calendar_accent_icon {
-  background-image: url(../img/icons/calendar_accent.svg);
-}
-
-.caret_right_icon {
-  background-image: url(../img/icons/caret-right.svg);
-}
-
-.caret_down_icon {
-  background-image: url(../img/icons/caret-down.svg);
 }

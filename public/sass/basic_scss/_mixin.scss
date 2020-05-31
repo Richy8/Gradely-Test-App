@@ -42,14 +42,17 @@ TRANSFORM CENTER
 
 
 @mixin clearfix {
+
     &:before,
     &:after {
         content: "";
         display: table;
     }
+
     &:after {
         clear: both;
     }
+
     *zoom: 1;
 }
 
@@ -65,17 +68,17 @@ FIXED FULL HEIGHT
 }
 
 @mixin equal_min_edge($value) {
-    min-width: #{$value/16}rem; 
-    min-height: #{$value/16}rem; 
-    width: #{$value/16}rem; 
-    height: #{$value/16}rem; 
+    min-width: #{$value/16}rem;
+    min-height: #{$value/16}rem;
+    width: #{$value/16}rem;
+    height: #{$value/16}rem;
 }
 
 @mixin custom_min_edge($width, $height) {
-    min-width: #{$width/16}rem; 
-    min-height: #{$height/16}rem; 
-    width: #{$width/16}rem; 
-    height: #{$height/16}rem; 
+    min-width: #{$width/16}rem;
+    min-height: #{$height/16}rem;
+    width: #{$width/16}rem;
+    height: #{$height/16}rem;
 }
 
 /* ==============
