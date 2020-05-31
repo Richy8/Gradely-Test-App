@@ -8,7 +8,10 @@
       <!-- SETTINGS BUTTON -->
       <div class="button-container mx-auto position-relative">
         <div class="w-100 d-flex justify-content-end">
-          <router-link :to="{name: 'SchoolSettings'}" class="btn btn-md btn-accent mx-0">Settings</router-link>
+          <router-link
+            :to="{name: 'SchoolSettingsProfile'}"
+            class="btn btn-md btn-accent mx-0"
+          >Settings</router-link>
         </div>
       </div>
     </div>

@@ -20,7 +20,7 @@
           <div class="subjects color_grey_dark">{{teacher_subjects}}</div>
 
           <!-- ACTIVITY -->
-          <div class="activity d-flex justify-content-start align-items-center">
+          <div class="activity d-flex justify-content-start align-items-center border-0">
             <!-- CLASS TAUGHT -->
             <div class="class-taught">
               <!-- ACTIVITY COUNT -->
