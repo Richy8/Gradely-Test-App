@@ -13,6 +13,20 @@
     }
 }
 
+@keyframes panel-slide-up {
+
+    0%,
+    30% {
+        margin-bottom: -30px;
+        opacity: 0
+    }
+
+    to {
+        margin-bottom: 0;
+        opacity: 1
+    }
+}
+
 @keyframes panel-slide-right {
 
     0%,
@@ -80,7 +94,7 @@
     }
 
     ~.label-text {
-        color: $border_grey_light;
+        color: $color_grey_dark;
     }
 }
 
@@ -198,6 +212,10 @@
 
 .placement-bottom {
     top: 90%;
+}
+
+.placement-bottom-top {
+    bottom: 100%;
 }
 
 // SLIDE OUT MENU

@@ -8,9 +8,11 @@
           <div class="col-12 col-md-3 col-lg-3 left-layout">
             <!-- MEMBERS CARD COMPONENT -->
             <MembersCard
-              class_year="Year 7"
-              class_branch="Gold"
-              class_code="IMD/JSS1B"
+              :class_id="class_option.id"
+              :class_year="class_option.year"
+              :class_branch="class_option.branch"
+              :class_code="class_option.code"
+              @getSelected="switchClass($event)"
               show_add_button
             >
               <div slot="teacher__content">
@@ -119,11 +121,23 @@ export default {
   data() {
     return {
       teacher_modal: false,
-      teacher_count: 1
+      teacher_count: 1,
+      class_option: {
+        id: "1",
+        year: "Year 7",
+        branch: "Gold",
+        code: "IMD/JSS1B"
+      }
     };
   },
 
   methods: {
+    switchClass(event) {
+      this.class_option.id = event.id;
+      this.class_option.year = event.year;
+      this.class_option.branch = event.branch;
+    },
+
     toggleTeacherModal() {
       this.teacher_modal = !this.teacher_modal;
     }

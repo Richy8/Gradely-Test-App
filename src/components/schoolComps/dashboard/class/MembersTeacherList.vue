@@ -33,7 +33,7 @@
             <div class="tooltip--name font-weight-bold color_text">{{ teacher_name }}</div>
             <div class="tooltip--subject color_grey_dark">{{ teacher_subject }}</div>
             <router-link
-              :to="{name: ''}"
+              :to="{name: 'TeacherProfile'}"
               class="tooltip--link btn-link font-weight-bold"
             >View Profile</router-link>
           </div>

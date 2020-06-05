@@ -4,7 +4,10 @@
       <!-- CARD LABEL -->
       <div class="members-card-label position-absolute w-100 brand_accent_bg rounded-top-5"></div>
       <!-- TOP CARD -->
-      <div class="member-top d-flex justify-content-between align-items-center nowrap">
+      <div
+        class="member-top d-flex justify-content-between align-items-center nowrap pointer"
+        @click="toggleSwitchClass"
+      >
         <div class="left d-flex justify-content-start align-items-start">
           <!-- CLASS SWITCH ICON -->
           <div class="avatar brand_inverse_light_bg">
@@ -62,6 +65,15 @@
         <!-- ADD NEW ITEM -->
       </div>
     </div>
+
+    <!-- SWITCH CLASS MODAL COMPONENT -->
+    <SwitchClassModal
+      :class_id="class_id"
+      v-if="switch_class"
+      @closeTriggered="toggleSwitchClass"
+      @getSelected="pushSelectedClass($event)"
+    ></SwitchClassModal>
+    <!-- SWITCH CLASS MODAL COMPONENT -->
   </div>
 </template>
 
@@ -69,7 +81,13 @@
 export default {
   name: "MembersCard",
 
+  components: {
+    SwitchClassModal: () =>
+      import(/* webpackChunkName: "SwitchClassModal" */ "@/components/schoolComps/modals/SwitchClassModal")
+  },
+
   props: {
+    class_id: String,
     class_year: String,
     class_branch: String,
     class_code: String,
@@ -91,10 +109,21 @@ export default {
     }
   },
 
-  components: {},
-
   data() {
-    return {};
+    return {
+      switch_class: false
+    };
+  },
+
+  methods: {
+    toggleSwitchClass() {
+      this.switch_class = !this.switch_class;
+    },
+
+    pushSelectedClass($event) {
+      this.$emit("getSelected", $event);
+      this.toggleSwitchClass();
+    }
   }
 };
 </script>

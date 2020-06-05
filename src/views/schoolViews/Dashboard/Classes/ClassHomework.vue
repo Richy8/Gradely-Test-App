@@ -6,7 +6,13 @@
         <div class="row">
           <!-- CLASS BRANCH INFO COLUMN -->
           <div class="col-12 col-md-3 col-lg-3 left-left-layout">
-            <MembersCard class_year="Year 7" class_branch="Gold" class_code="IMD/JSS1B">
+            <MembersCard
+              :class_id="class_option.id"
+              :class_year="class_option.year"
+              :class_branch="class_option.branch"
+              :class_code="class_option.code"
+              @getSelected="switchClass($event)"
+            >
               <div slot="teacher__content">
                 <!-- CONTENT TEACHER LIST -->
                 <MembersTeacherRow v-if="teacher_count > 0" @toggleTeacher="toggleTeacherModal"></MembersTeacherRow>
@@ -93,7 +99,13 @@ export default {
       in_view: null,
       teacher_modal: false,
       teacher_count: 1,
-      homework_count: 1
+      homework_count: 1,
+      class_option: {
+        id: "1",
+        year: "Year 7",
+        branch: "Gold",
+        code: "IMD/JSS1B"
+      }
     };
   },
 
@@ -110,6 +122,12 @@ export default {
       this.homework_count > 0
         ? (this.in_view = "ContentInfo")
         : (this.in_view = "DefaultInfo");
+    },
+
+    switchClass(event) {
+      this.class_option.id = event.id;
+      this.class_option.year = event.year;
+      this.class_option.branch = event.branch;
     },
 
     toggleTeacherModal() {

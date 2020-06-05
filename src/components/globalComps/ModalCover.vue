@@ -4,13 +4,12 @@
       <div class="modal-cover modal-sm-md" :class="modal_size">
         <div class="modal-cover-body">
           <!-- CLOSE DIALOG -->
-          <div class="pageClose dialogDismiss">
+          <div class="pageClose dialogDismiss" v-if="show_close">
             <button type="button" class="close_dialog white cls_md" @click="$emit('closeModal')"></button>
           </div>
 
           <!-- MODAL COVER BODY -->
           <slot name="modal-cover-body"></slot>
-
         </div>
       </div>
     </div>
@@ -22,7 +21,11 @@ export default {
   name: "ModalCover",
 
   props: {
-    modal_size: String
+    modal_size: String,
+    show_close: {
+      type: Boolean,
+      default: true
+    }
   }
 };
 </script>

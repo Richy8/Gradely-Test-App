@@ -13,10 +13,15 @@ const shuffle = list => list.sort(() => 0.5 - Math.random());
 // GET THE INITIALS OF A NAME
 const setInitial = fullname => {
     let name_list = fullname.split(" ");
-    let first = name_list[0].slice(0, 1).toUpperCase();
-    let last = name_list[1].slice(0, 1).toUpperCase();
-    let initial = first + last;
-    return initial;
+
+    if (name_list.length === 1) {
+        return name_list[0].slice(0, 1).toUpperCase();
+    } else {
+        let first = name_list[0].slice(0, 1).toUpperCase();
+        let last = name_list[1].slice(0, 1).toUpperCase();
+        let initial = first + last;
+        return initial;
+    }
 }
 
 export {

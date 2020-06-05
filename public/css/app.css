@@ -631,8 +631,8 @@ svg {
 /*Font Icons*/
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?7db5sk");
-  src: url("../fonts/icomoon.eot?7db5sk#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?7db5sk") format("truetype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.svg?7db5sk#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?weypb9");
+  src: url("../fonts/icomoon.eot?weypb9#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?weypb9") format("truetype"), url("../fonts/icomoon.woff?weypb9") format("woff"), url("../fonts/icomoon.svg?weypb9#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -649,6 +649,10 @@ svg {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-videocam:before {
+  content: "\e95a";
 }
 
 .icon-credit-card:before {
@@ -3579,6 +3583,54 @@ button:focus, button:visited {
   }
 }
 
+@-webkit-keyframes panel-slide-up {
+  0%,
+  30% {
+    margin-bottom: -30px;
+    opacity: 0;
+  }
+  to {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes panel-slide-up {
+  0%,
+  30% {
+    margin-bottom: -30px;
+    opacity: 0;
+  }
+  to {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}
+
+@-o-keyframes panel-slide-up {
+  0%,
+  30% {
+    margin-bottom: -30px;
+    opacity: 0;
+  }
+  to {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes panel-slide-up {
+  0%,
+  30% {
+    margin-bottom: -30px;
+    opacity: 0;
+  }
+  to {
+    margin-bottom: 0;
+    opacity: 1;
+  }
+}
+
 @-webkit-keyframes panel-slide-right {
   0%,
   30% {
@@ -3739,7 +3791,7 @@ button:focus, button:visited {
 
 .undone ~ .label-text,
 .done ~ .label-text {
-  color: #E5E5E5;
+  color: #757575;
 }
 
 .done {
@@ -3893,6 +3945,10 @@ button:focus, button:visited {
 
 .placement-bottom {
   top: 90%;
+}
+
+.placement-bottom-top {
+  bottom: 100%;
 }
 
 .slide-out-menu {
@@ -5658,6 +5714,306 @@ label.checkbox-inline {
   }
 }
 
+/* CALENDAR STYLING */
+.gradely-calendar-section {
+  position: relative;
+  top: 60px;
+}
+
+@media only screen and (max-width: 767px) {
+  .gradely-calendar-section .container {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+
+.gradely-calendar-section .bottom-container {
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+  .gradely-calendar-section .bottom-container {
+    margin-bottom: 80px;
+  }
+}
+
+.gradely-calendar-section .left-layout .todo-label-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .gradely-calendar-section .left-layout .todo-label-list {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-flow: row wrap;
+       -moz-box-orient: horizontal;
+       -moz-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+       -moz-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+       -moz-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .gradely-calendar-section .left-layout .todo-label-list li {
+    margin-right: 15px;
+  }
+}
+
+.gradely-calendar-section .left-layout .todo-label-list li {
+  margin-bottom: 14px;
+  width: 40%;
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .gradely-calendar-section .left-layout .todo-label-list li {
+    width: 48%;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .gradely-calendar-section .left-layout .todo-label-list li {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .gradely-calendar-section .left-layout .todo-label-list li {
+    font-size: 10.5px;
+  }
+  .gradely-calendar-section .left-layout .todo-label-list li span {
+    margin-left: 5px !important;
+    position: relative;
+    top: -4px;
+  }
+}
+
+.gradely-calendar-section .right-layout .right-first-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 34px;
+}
+
+.gradely-calendar-section .right-layout .right-first-row .left-avatar {
+  margin-right: 15px;
+}
+
+.gradely-calendar-section .right-layout .right-first-row .left-avatar .avatar-with-meta {
+  background-color: rgba(17, 189, 207, 0.15);
+}
+
+.gradely-calendar-section .right-layout .right-first-row .text {
+  font-weight: bold;
+  font-size: 21px;
+  line-height: 25px;
+  color: #113255;
+}
+
+@media only screen and (max-width: 991px) {
+  .gradely-calendar-section .right-layout .right-first-row .text {
+    font-size: 19px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .gradely-calendar-section .right-layout .right-first-row .text {
+    font-size: 17px;
+  }
+}
+
+.gradely-calendar-section .right-layout .right-first-row .right-avatar {
+  position: relative;
+}
+
+.gradely-calendar-section .right-layout .right-first-row .right-avatar .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+     -moz-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+       -o-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 21px;
+  color: #000;
+  -webkit-transition: color .3s ease-in-out;
+  -o-transition: color .3s ease-in-out;
+  -moz-transition: color .3s ease-in-out;
+  transition: color .3s ease-in-out;
+}
+
+.gradely-calendar-section .right-layout .right-first-row .right-avatar:hover .icon {
+  color: #fff;
+}
+
+.gradely-calendar-section .right-layout .right-first-row .dropdown-btn-menu {
+  width: 220px;
+}
+
+.gradely-calendar-section .right-layout .right-second-row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+     -moz-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 13px;
+}
+
+.gradely-calendar-section .right-layout .right-second-row .event-count {
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 19px;
+}
+
+.gradely-calendar-section .right-layout .right-second-row .filter {
+  font-size: 12px;
+  padding: 5px 12px;
+}
+
+.gradely-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu {
+  width: 195px;
+}
+
+.gradely-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu .filter-by {
+  margin-bottom: -5px;
+  cursor: inherit;
+  font-size: 11.5px;
+  color: #959595;
+}
+
+.gradely-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu .filter-by:hover {
+  background: none;
+}
+
+.gradely-calendar-section .right-layout .right-second-row .filter .filter-by-class {
+  width: 420px;
+}
+
+@media only screen and (max-width: 450px) {
+  .gradely-calendar-section .right-layout .right-second-row .filter .filter-by-class {
+    width: 340px;
+  }
+}
+
+@media (min-width: 335px) and (max-width: 369px) {
+  .gradely-calendar-section .right-layout .right-second-row .filter .filter-by-class {
+    width: 310px;
+  }
+}
+
+.gradely-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-holder {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.gradely-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name {
+  display: block;
+  white-space: nowrap;
+  padding: 5px 10px;
+  width: 30%;
+  font-size: 13px;
+  line-height: 19px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: #353535;
+  cursor: pointer;
+  -o-text-overflow: ellipsis;
+     text-overflow: ellipsis;
+  -webkit-transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+@media only screen and (max-width: 450px) {
+  .gradely-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name {
+    font-size: 11.5px;
+    margin-right: 5px;
+  }
+}
+
+@media (min-width: 345px) and (max-width: 369px) {
+  .gradely-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name {
+    font-size: 11px;
+  }
+}
+
+.gradely-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name:hover {
+  background: rgba(17, 189, 207, 0.15);
+}
+
 .settings-container {
   position: relative;
   top: 110px;
@@ -7034,306 +7390,6 @@ label.checkbox-inline {
   }
 }
 
-/* Calendar Page Styling */
-.school-calendar-section {
-  position: relative;
-  top: 60px;
-}
-
-@media only screen and (max-width: 767px) {
-  .school-calendar-section .container {
-    padding-right: 15px !important;
-    padding-left: 15px !important;
-    margin-right: auto !important;
-    margin-left: auto !important;
-  }
-}
-
-.school-calendar-section .bottom-container {
-  margin-bottom: 30px;
-}
-
-@media only screen and (max-width: 767px) {
-  .school-calendar-section .bottom-container {
-    margin-bottom: 80px;
-  }
-}
-
-.school-calendar-section .left-layout .todo-label-list {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: row wrap;
-     -moz-box-orient: horizontal;
-     -moz-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-     -moz-box-pack: start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-@media only screen and (max-width: 767px) {
-  .school-calendar-section .left-layout .todo-label-list {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -webkit-flex-flow: row wrap;
-       -moz-box-orient: horizontal;
-       -moz-box-direction: normal;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-    -webkit-box-pack: start;
-    -webkit-justify-content: flex-start;
-       -moz-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-       -moz-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .school-calendar-section .left-layout .todo-label-list li {
-    margin-right: 15px;
-  }
-}
-
-.school-calendar-section .left-layout .todo-label-list li {
-  margin-bottom: 14px;
-  width: 40%;
-}
-
-@media (min-width: 768px) and (max-width: 992px) {
-  .school-calendar-section .left-layout .todo-label-list li {
-    width: 48%;
-    font-size: 12px;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .school-calendar-section .left-layout .todo-label-list li {
-    font-size: 13px;
-  }
-}
-
-@media only screen and (max-width: 450px) {
-  .school-calendar-section .left-layout .todo-label-list li {
-    font-size: 10.5px;
-  }
-  .school-calendar-section .left-layout .todo-label-list li span {
-    margin-left: 5px !important;
-    position: relative;
-    top: -4px;
-  }
-}
-
-.school-calendar-section .right-layout .right-first-row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: row nowrap;
-     -moz-box-orient: horizontal;
-     -moz-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-     -moz-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 34px;
-}
-
-.school-calendar-section .right-layout .right-first-row .left-avatar {
-  margin-right: 15px;
-}
-
-.school-calendar-section .right-layout .right-first-row .left-avatar .avatar-with-meta {
-  background-color: rgba(17, 189, 207, 0.15);
-}
-
-.school-calendar-section .right-layout .right-first-row .text {
-  font-weight: bold;
-  font-size: 21px;
-  line-height: 25px;
-  color: #113255;
-}
-
-@media only screen and (max-width: 991px) {
-  .school-calendar-section .right-layout .right-first-row .text {
-    font-size: 19px;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .school-calendar-section .right-layout .right-first-row .text {
-    font-size: 17px;
-  }
-}
-
-.school-calendar-section .right-layout .right-first-row .right-avatar {
-  position: relative;
-}
-
-.school-calendar-section .right-layout .right-first-row .right-avatar .icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-     -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-       -o-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  font-size: 21px;
-  color: #000;
-  -webkit-transition: color .3s ease-in-out;
-  -o-transition: color .3s ease-in-out;
-  -moz-transition: color .3s ease-in-out;
-  transition: color .3s ease-in-out;
-}
-
-.school-calendar-section .right-layout .right-first-row .right-avatar:hover .icon {
-  color: #fff;
-}
-
-.school-calendar-section .right-layout .right-first-row .dropdown-btn-menu {
-  width: 220px;
-}
-
-.school-calendar-section .right-layout .right-second-row {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-flow: row nowrap;
-     -moz-box-orient: horizontal;
-     -moz-box-direction: normal;
-      -ms-flex-flow: row nowrap;
-          flex-flow: row nowrap;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-     -moz-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-     -moz-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-bottom: 13px;
-}
-
-.school-calendar-section .right-layout .right-second-row .event-count {
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 19px;
-}
-
-.school-calendar-section .right-layout .right-second-row .filter {
-  font-size: 12px;
-  padding: 5px 12px;
-}
-
-.school-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu {
-  width: 195px;
-}
-
-.school-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu .filter-by {
-  margin-bottom: -5px;
-  cursor: inherit;
-  font-size: 11.5px;
-  color: #959595;
-}
-
-.school-calendar-section .right-layout .right-second-row .filter .dropdown-btn-menu .filter-by:hover {
-  background: none;
-}
-
-.school-calendar-section .right-layout .right-second-row .filter .filter-by-class {
-  width: 420px;
-}
-
-@media only screen and (max-width: 450px) {
-  .school-calendar-section .right-layout .right-second-row .filter .filter-by-class {
-    width: 340px;
-  }
-}
-
-@media (min-width: 335px) and (max-width: 369px) {
-  .school-calendar-section .right-layout .right-second-row .filter .filter-by-class {
-    width: 310px;
-  }
-}
-
-.school-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-holder {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-
-.school-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name {
-  display: block;
-  white-space: nowrap;
-  padding: 5px 10px;
-  width: 30%;
-  font-size: 13px;
-  line-height: 19px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  color: #353535;
-  cursor: pointer;
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
-  -webkit-transition: all .3s ease-in-out;
-  -o-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  transition: all .3s ease-in-out;
-}
-
-@media only screen and (max-width: 450px) {
-  .school-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name {
-    font-size: 11.5px;
-    margin-right: 5px;
-  }
-}
-
-@media (min-width: 345px) and (max-width: 369px) {
-  .school-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name {
-    font-size: 11px;
-  }
-}
-
-.school-calendar-section .right-layout .right-second-row .filter .filter-by-class .class-name:hover {
-  background: rgba(17, 189, 207, 0.15);
-}
-
 /* Teachers Page Styling */
 .school-teacher-section {
   position: relative;
@@ -7845,6 +7901,221 @@ label.checkbox-inline {
 }
 
 /*Classes Page Styling */
+.class-feeds-section {
+  position: relative;
+  top: 160px;
+}
+
+@media only screen and (max-width: 767px) {
+  .class-feeds-section {
+    top: 90px;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .class-feeds-section .right-layout {
+    padding-left: 30px;
+    padding-right: 0px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .class-feeds-section .right-layout {
+    margin-bottom: 80px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .class-feeds-section .container {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+
+.class-feeds-section .filter-post-section {
+  padding-left: 2px;
+  padding-right: 2px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.class-feeds-section .filter-post-section .filter-text {
+  position: relative;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.class-feeds-section .filter-post-section .filter-text span {
+  font-size: 8px;
+  margin-left: 11px;
+  margin-right: 20px;
+}
+
+.class-feeds-section .filter-post-section .filter-text .dropdown-btn-menu {
+  top: 20px;
+  left: 0;
+  width: 350px !important;
+}
+
+.class-feeds-section .filter-post-section .filter-text .dropdown-btn-menu .list-title {
+  font-size: 11.5px;
+  line-height: 16px;
+  color: #757575;
+}
+
+.class-feeds-section .filter-post-section .filter-text .dropdown-btn-menu .list-title:hover {
+  background: transparent;
+}
+
+.class-feeds-section .filter-post-section .filter-text .dropdown-btn-menu a {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  color: #353535;
+}
+
+.class-feeds-section .filter-post-section .filter-text .dropdown-btn-menu .left-list {
+  margin-right: 65px;
+}
+
+.class-feeds-section .filter-post-section .filter-text .dropdown-btn-menu .right-list {
+  margin-right: 50px;
+}
+
+.class-feeds-section .filter-post-section .filter-text .filter-by-subject {
+  width: 400px;
+  padding-left: 25px;
+  padding-right: 25px;
+  cursor: text;
+}
+
+.class-feeds-section .filter-post-section .filter-text .filter-by-subject .subject-list {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+     -moz-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 8px;
+  margin-bottom: 10px;
+}
+
+.class-feeds-section .filter-post-section .filter-text .filter-by-subject .subject-list a {
+  display: block;
+  width: 48%;
+  font-size: 13px;
+  padding: 7.5px;
+}
+
+.class-feeds-section .filter-post-section .filter-text .filter-by-subject .subject-list a:hover {
+  background: #dbf5f8;
+}
+
+.class-feeds-section .filter-post-section .line-filter {
+  border-top: 1px solid #d5d5d5;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+     -moz-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.class-feeds-section .post-component {
+  min-width: 63%;
+  max-width: 63%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 60px;
+}
+
+@media only screen and (max-width: 991px) {
+  .class-feeds-section .post-component {
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+.class-feeds-section .event-component {
+  min-width: 36%;
+  max-width: 36%;
+  padding-right: 5px;
+}
+
+@media only screen and (max-width: 991px) {
+  .class-feeds-section .event-component {
+    min-width: 100%;
+    max-width: 100%;
+    padding-right: 15px;
+    margin-bottom: 20px;
+  }
+}
+
+.class-feed-view {
+  position: relative;
+  top: 90px;
+}
+
+@media only screen and (max-width: 767px) {
+  .class-feed-view {
+    top: 90px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .class-feed-view .right-layout {
+    margin-bottom: 80px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .class-feed-view .container {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+  }
+}
+
 .class-members-section {
   position: relative;
   top: 160px;
@@ -7913,25 +8184,6 @@ label.checkbox-inline {
     height: auto;
     margin-bottom: 6px;
   }
-}
-
-.add-member-default {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-     -moz-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-       -o-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-}
-
-.add-member-default .avatar {
-  margin-bottom: 20px;
-}
-
-.add-member-default .info-text {
-  margin-bottom: 14px;
 }
 
 .class-report-section {

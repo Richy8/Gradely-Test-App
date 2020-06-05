@@ -1,0 +1,23 @@
+.class-feed-view {
+    position: relative;
+    top: 90px;
+
+    @include breakpoint_max(md) {
+        top: 90px;
+    }
+
+    .right-layout {
+        @include breakpoint_max(md) {
+            margin-bottom: 80px;
+        }
+    }
+
+    .container {
+        @include breakpoint_max(sm) {
+            padding-right: 15px !important;
+            padding-left: 15px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+    }
+}

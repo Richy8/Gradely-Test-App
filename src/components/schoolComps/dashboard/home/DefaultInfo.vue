@@ -20,6 +20,7 @@
         activity_type="emit"
         activity_route
         activity_function
+        label_text="off_white"
       ></ActivityList>
 
       <ActivityList
@@ -28,14 +29,16 @@
         activity_type="route"
         activity_route
         activity_function
+        label_text="off_white"
       ></ActivityList>
 
       <ActivityList
         activity_progress="undone"
         activity_text="Setup your curriculum"
-        activity_type="emit"
-        activity_route
+        activity_type="route"
+        activity_route="SchoolSettingsPreferences"
         activity_function
+        label_text="off_white"
       ></ActivityList>
     </div>
   </div>

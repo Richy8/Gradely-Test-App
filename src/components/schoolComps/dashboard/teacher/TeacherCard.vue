@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- TEACHER CARD -->
-    <div class="teacher-card w-100 white rounded-20 position-relative border-0 overflow-hidden">
+    <div class="teacher-card w-100 white rounded-20 position-relative border-0">
       <!-- TEACHER CARD TOP -->
       <div class="teacher-card-top rounded-top-20 position-relative w-100">
         <!-- CARD OPTIONS -->

@@ -3,6 +3,7 @@ import BaseSchoolEntry from "@/views/schoolViews/EntryViews/BaseSchoolEntry";
 import BaseEntry from "@/views/schoolViews/EntryViews/BaseEntry";
 import SubEntry from "@/views/schoolViews/EntryViews/SubEntry";
 import BaseClassEntry from "@/views/schoolViews/EntryViews/BaseClassEntry";
+import PostEntry from "@/views/schoolViews/EntryViews/PostEntry";
 import SettingsEntry from "@/views/schoolViews/EntryViews/SettingsEntry";
 
 const schoolRoute = [{
@@ -118,6 +119,15 @@ const schoolRoute = [{
                 component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/AddStudents")
             }
         ]
+    },
+    {
+        path: "/school/dashboard/class/:post_id",
+        component: PostEntry,
+        children: [{
+            path: "",
+            name: "ClassFeedView",
+            component: () => import( /* webpackChunkName: "classfeedview" */ "@/views/schoolViews/Dashboard/Classes/ClassFeedView")
+        }]
     },
     {
         path: "/school/dashboard/class/homework_review",

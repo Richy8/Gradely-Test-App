@@ -7,6 +7,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import vueHeadful from "vue-headful";
+import CKEditor from '@ckeditor/ckeditor5-vue';
+
 
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -21,8 +23,9 @@ global.$ = jQuery;
 
 Vue.component("vue-headful", vueHeadful);
 
-Vue.use(BootstrapVue)
-Vue.use(BootstrapVueIcons)
+Vue.use(BootstrapVue);
+Vue.use(BootstrapVueIcons);
+Vue.use(CKEditor);
 Vue.use(vWow);
 
 Vue.config.productionTip = false;

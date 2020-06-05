@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="School Calendar | Gradelyng" description="Description goes here"/>
-    <div class="school-calendar-section">
+    <div class="gradely-calendar-section">
       <!-- PAGE TITLE -->
       <div class="container px-1">
         <div class="row">

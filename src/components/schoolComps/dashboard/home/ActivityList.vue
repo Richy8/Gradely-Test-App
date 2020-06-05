@@ -7,12 +7,12 @@
       v-if="activity_type==='emit'"
     >
       <div :class="activity_progress"></div>
-      <div class="label-text">{{ activity_text }}</div>
+      <div class="label-text" :class="label_text">{{ activity_text }}</div>
     </router-link>
 
     <router-link :to="{name: activity_route}" class="activity" v-if="activity_type==='route'">
       <div :class="activity_progress"></div>
-      <div class="label-text">{{ activity_text }}</div>
+      <div class="label-text" :class="label_text">{{ activity_text }}</div>
     </router-link>
   </div>
 </template>
@@ -26,7 +26,8 @@ export default {
     activity_text: String,
     activity_type: String,
     activity_route: String,
-    activity_function: String
+    activity_function: String,
+    label_text: String
   }
 };
 </script>
@@ -38,7 +39,7 @@ export default {
   padding-top: 14.67px;
   padding-bottom: 14.67px;
   color: $brand_inverse;
-  border-bottom: 1px solid rgba($brand_black, 0.35);
+  border-bottom: 1px solid rgba($brand_black, 0.1);
 
   .done,
   .undone {

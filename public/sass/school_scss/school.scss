@@ -10,9 +10,6 @@
 /* Dashboard Page Styling */
 @import 'home';
 
-/* Calendar Page Styling */
-@import 'calendar';
-
 /* Teachers Page Styling */
 @import 'teachers';
 
@@ -26,6 +23,8 @@
 @import 'schoolprofile';
 
 /*Classes Page Styling */
+@import 'class_feeds';
+@import 'class_feed_view';
 @import 'class_members';
 @import 'class_report';
 @import 'class_homework';

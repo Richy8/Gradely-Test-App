@@ -29,10 +29,19 @@
 
           <!-- GO BACK ICON -->
           <div class="back-to-home" v-if="nav_type==='class' || nav_type==='single'">
+            <!--CLASS -->
             <router-link
-              to
-              @click.native="$router.go(-1)"
+              to="/school/dashboard"
               class="d-flex justify-content-start align-items-center color_text"
+              v-if="nav_type==='class'"
+            >
+              <span class="icon-arrow-left transparent_bg"></span>
+            </router-link>
+            <!-- OTHERS-->
+            <router-link
+              :to="'/'+nav_type+'/dashboard'"
+              class="d-flex justify-content-start align-items-center color_text"
+              v-else
             >
               <span class="icon-arrow-left transparent_bg"></span>
             </router-link>
