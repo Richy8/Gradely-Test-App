@@ -207,7 +207,7 @@
 
 // DROP-DOWN PLACEMENT
 .placement-top {
-    top: -290% !important;
+    top: -180% !important;
 }
 
 .placement-bottom {
@@ -356,7 +356,7 @@
     }
 
     @include breakpoint_max(md) {
-        width: 25%;
+        width: 40%;
     }
 
     @include breakpoint_max(sm) {
@@ -416,5 +416,29 @@
     .progress-bar {
         width: 50%;
         background: $brand_green;
+    }
+}
+
+// BASE TYPE AND SUB TYPE LAYOUT 
+.base-type-layout,
+.sub-type-layout {
+    position: relative;
+    top: 60px;
+
+    .container {
+        @include breakpoint_max(sm) {
+            padding-right: 15px !important;
+            padding-left: 15px !important;
+            margin-right: auto !important;
+            margin-left: auto !important;
+        }
+    }
+}
+
+.sub-type-layout {
+    top: 160px;
+
+    @include breakpoint_max(md) {
+        top: 90px;
     }
 }

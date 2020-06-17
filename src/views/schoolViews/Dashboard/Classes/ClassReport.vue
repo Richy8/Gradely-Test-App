@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="Class Report | School Dashboard" description="Description goes here"/>
-    <div class="class-report-section">
+    <div class="class-report-section sub-type-layout">
       <div class="container px-1">
         <div class="row">
           <!-- CLASS BRANCH INFO COLUMN -->
@@ -80,7 +80,6 @@
             <Recommendation></Recommendation>
             <!-- RECOMMENDATION COMPONENTONENT -->
           </div>
-
           <!-- CLASS REPORT -->
         </div>
       </div>
@@ -92,12 +91,12 @@
 </template>
 
 <script>
-import MembersCard from "@/components/schoolComps/dashboard/class/MembersCard";
-import MembersEmptyTeacherRow from "@/components/schoolComps/dashboard/class/MembersEmptyTeacherRow";
-import TopicProgress from "@/components/schoolComps/dashboard/class/class_report/TopicProgress";
+import MembersCard from "@/components/classComps/studentSideBar/MembersCard";
+import MembersEmptyTeacherRow from "@/components/classComps/studentSideBar/MembersEmptyTeacherRow";
+import TopicProgress from "@/components/classComps/report/TopicProgress";
 
 const MembersTeacherRow = () => ({
-  component: import(/* webpackChunkName: "MembersTeacherRow" */ "@/components/schoolComps/dashboard/class/MembersTeacherRow"),
+  component: import(/* webpackChunkName: "MembersTeacherRow" */ "@/components/classComps/studentSideBar/MembersTeacherRow"),
   loading: MembersEmptyTeacherRow,
   error: MembersEmptyTeacherRow,
   delay: 500,
@@ -113,9 +112,9 @@ export default {
     MembersTeacherRow,
     TopicProgress,
     Recommendation: () =>
-      import(/* webpackChunkName: "Recommendation" */ "@/components/schoolComps/dashboard/class/class_report/Recommendation"),
+      import(/* webpackChunkName: "Recommendation" */ "@/components/classComps/report/Recommendation"),
     AddTeacherModal: () =>
-      import(/* webpackChunkName: "AddTeacherModal" */ "@/components/schoolComps/modals/AddTeacherModal")
+      import(/* webpackChunkName: "AddTeacherModal" */ "@/components/modalComps/schoolModals/AddTeacherModal")
   },
 
   data() {
@@ -146,6 +145,21 @@ export default {
 </script>
 
 <style lang="scss">
+.class-report-section {
+  .right-layout {
+    @include breakpoint_max(lg) {
+      padding-left: 30px;
+      padding-right: 0px;
+    }
+
+    @include breakpoint_max(md) {
+      margin-bottom: 80px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+}
+
 // PAGE TITLE
 .page-title {
   font-size: 21px;
@@ -218,8 +232,8 @@ export default {
     }
 
     &:hover {
-      background: #2c4f74;
-      border: 1px solid #2c4f74;
+      background: $brand_primary;
+      border: 1px solid $brand_primary;
       color: #ffffff !important;
 
       span {

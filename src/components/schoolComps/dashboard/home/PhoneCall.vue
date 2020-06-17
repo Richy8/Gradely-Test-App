@@ -18,11 +18,7 @@
       </div>
 
       <!-- DROP DOWN MENU -->
-      <div
-        class="dropdown-btn-menu placement-bottom"
-        :class="{'placement-top':y_placement}"
-        v-if="toggle_dropdown"
-      >
+      <div class="dropdown-btn-menu placement-bottom" v-if="toggle_dropdown">
         <ul class="list-unstyled" id="dropdown">
           <li>
             <a href @click.prevent="selected('Demo Call')" id="dropdownLink">Demo Call</a>
@@ -61,12 +57,6 @@ export default {
   methods: {
     showDropdown() {
       this.toggle_dropdown = !this.toggle_dropdown;
-      // CHECK PAGE-Y-OFFSET
-      if (window.innerWidth < 768) {
-        window.pageYOffset < 480
-          ? (this.y_placement = !this.y_placement)
-          : (this.y_placement = false);
-      }
     },
 
     selected(val) {

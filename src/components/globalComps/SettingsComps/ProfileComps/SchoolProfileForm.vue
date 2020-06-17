@@ -14,15 +14,15 @@
           >
             <label for="dayOnly" class="radio-inline">
               <input type="radio" v-model="form.boarding_type" value="day" id="dayOnly">
-              <span class="label_title font-14 color_text">Day Only</span>
+              <span class="label_title color_text">Day Only</span>
             </label>
             <label for="boardingOnly" class="radio-inline">
               <input type="radio" v-model="form.boarding_type" value="boarding" id="boardingOnly">
-              <span class="label_title font-14 color_text">Boarding Daily</span>
+              <span class="label_title color_text">Boarding Daily</span>
             </label>
             <label for="dayBoarding" class="radio-inline">
               <input type="radio" v-model="form.boarding_type" value="dayboarding" id="dayBoarding">
-              <span class="label_title font-14 color_text">Day and Boarding</span>
+              <span class="label_title color_text">Day and Boarding</span>
             </label>
           </div>
         </div>
@@ -296,13 +296,25 @@ export default {
     padding-top: 30px;
   }
 
+  .label_title {
+    font-size: 14px;
+
+    @include breakpoint_max(sm) {
+      font-size: 13px;
+    }
+
+    @include breakpoint_max(xs) {
+      font-size: 12.5px;
+    }
+  }
+
   .btn {
     padding: 13px 38px;
     font-size: 13px;
 
     @include breakpoint_max(lg) {
-      font-size: 11.5px;
-      padding: 11px 32px;
+      font-size: 11px;
+      padding: 10px 26px;
     }
   }
 }

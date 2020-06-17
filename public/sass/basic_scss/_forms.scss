@@ -444,4 +444,31 @@ label {
     .label-compact {
         @include label_compact;
     }
+
+    .label-sm {
+        top: -8px;
+        left: 10px;
+        text-transform: unset !important;
+        letter-spacing: 0.023rem;
+    }
+}
+
+// ROUNDED WHITE BG SELECT FORM COMPONENT
+.rounded-select {
+    position: relative;
+    border-radius: 30px;
+    border: 1px solid $border_grey_light;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: $color_grey_dark;
+    padding: 8px 20px;
+
+    &:focus {
+        border: 1px solid $brand_accent;
+    }
+
+    @include breakpoint_max(xs) {
+        font-size: 12px;
+    }
+
 }

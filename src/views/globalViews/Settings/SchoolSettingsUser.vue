@@ -10,7 +10,10 @@
       <div class="page-title">Profile Preferences</div>
 
       <!-- PERSONAL PROFILE CARD COMPONENT -->
-      <PersonalProfileCard fullname="Kola Ajayi"></PersonalProfileCard>
+      <PersonalProfileCard
+        fullname="Kola Ajayi"
+        color_scheme="brand_inverse_light_bg brand_primary"
+      ></PersonalProfileCard>
       <!-- PERSONAL PROFILE CARD COMPONENT -->
 
       <!-- FORM DIVIDEER -->
@@ -20,13 +23,14 @@
         fullname="Kola Ajayi"
         email="kolaajayi@yahoo.com"
         user_edit_route="SchoolSettingsUserEdit"
+        settings_route="SchoolSettingsAccount"
       ></PersonalProfileDetails>
 
       <!-- FORM DIVIDER -->
       <div class="form-divider"></div>
       <!-- NOTIFICATION COLUMN COMPONENT -->
       <NotificationColumn
-        notification_msg="Choose the types of notifications you want to receive from Gradely"
+        notification_msg="Choose the type of notifications you want to receive from Gradely"
         notification_route="SchoolSettingsNotification"
       ></NotificationColumn>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="Class Feeds | School Dashboard" description="Description goes here"/>
-    <div class="class-feeds-section">
+    <div class="class-feeds-section sub-type-layout">
       <div class="container px-1">
         <div class="row">
           <!-- CLASS BRANCH INFO COLUMN -->
@@ -36,91 +36,7 @@
             <PostInputCard fullname="Francis Sunday"></PostInputCard>
 
             <!-- FILTER -->
-            <div class="filter-post-section">
-              <div
-                class="filter-text color_text pointer"
-                v-on-clickaway="onDropFilter"
-                @click="toggleFilter"
-              >
-                Filter posts by
-                <span class="icon-caret-fill-down"></span>
-
-                <!-- DROPDOWN -->
-                <div class="dropdown-btn-menu placement-bottom" v-if="filter_option">
-                  <div class="d-flex justify-content-start align-items-start nowrap">
-                    <!-- POST TYPES -->
-                    <ul class="list-unstyled left-list">
-                      <li>
-                        <a href="javascript:void(0)" class="color_grey_dark list-title">Type</a>
-                      </li>
-                      <li>
-                        <a href>Poll</a>
-                      </li>
-                      <li>
-                        <a
-                          href="javascript:void(0)"
-                          v-on-clickaway="onDropFilter"
-                          @click="toggleSubjectFilter"
-                        >Subject</a>
-                      </li>
-                      <li>
-                        <a href>Homework</a>
-                      </li>
-                    </ul>
-
-                    <!-- POST AUTHORS -->
-                    <ul class="list-unstyled right-list">
-                      <li>
-                        <a href="javascript:void(0)" class="color_grey_dark list-title">Author</a>
-                      </li>
-                      <li>
-                        <a href>Me</a>
-                      </li>
-                      <li>
-                        <a href>Teachers</a>
-                      </li>
-                      <li>
-                        <a href>Students / Parents</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-
-                <!-- SUBJECT LIST DROPDOWN -->
-                <div
-                  class="dropdown-btn-menu filter-by-subject placement-bottom"
-                  v-if="subject_filter"
-                >
-                  <div class="d-flex flex-column justify-content-start align-items-start nowrap">
-                    <!-- SUBJECTS -->
-                    <div
-                      class="list-title d-flex justify-content-start align-items-center pointer"
-                      v-on-clickaway="onDropSubjectFilter"
-                      @click="toggleSubjectFilter"
-                    >
-                      <div class="avatar">
-                        <span class="flex-center icon-arrow-left black-text font-18 mr-3"></span>
-                      </div>
-                      <div class="title text-uppercase font-weight-bold">Filter By Subject</div>
-                    </div>
-                    <!-- SUBJECT LIST -->
-                    <div class="subject-list">
-                      <a href>Mathematics</a>
-                      <a href>Chemistry</a>
-                      <a href>Biology</a>
-                      <a href>English Language</a>
-                      <a href>Physics</a>
-                      <a href>Geography</a>
-                      <a href>Economics</a>
-                      <a href>Agricultural Science</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- LINE -->
-              <div class="line-filter"></div>
-            </div>
+            <FilterPost></FilterPost>
 
             <div class="row">
               <!-- POSTS SECTION -->
@@ -131,7 +47,7 @@
                   <PostBlock></PostBlock>
                 </div>
                 <div class="default-post-section" v-else>
-                  <DefaultPostBlock></DefaultPostBlock>
+                  <DefaultPostBlock account_type="school"></DefaultPostBlock>
                 </div>
 
                 <!-- POST BLOCK COMPONENTS -->
@@ -155,16 +71,15 @@
 </template>
 
 <script>
-import { mixin as clickaway } from "vue-clickaway";
-import MembersCard from "@/components/schoolComps/dashboard/class/MembersCard";
-import MembersEmptyTeacherRow from "@/components/schoolComps/dashboard/class/MembersEmptyTeacherRow";
-import PostInputCard from "@/components/schoolComps/dashboard/class/class_feeds/PostInputCard";
-import DefaultPostBlock from "@/components/schoolComps/dashboard/class/class_feeds/DefaultPostBlock";
-import PostBlock from "@/components/schoolComps/dashboard/class/class_feeds/PostBlock";
-import UpcomingEventBlock from "@/components/schoolComps/dashboard/class/class_feeds/UpcomingEventBlock";
+import MembersCard from "@/components/classComps/studentSideBar/MembersCard";
+import MembersEmptyTeacherRow from "@/components/classComps/studentSideBar/MembersEmptyTeacherRow";
+import PostInputCard from "@/components/classComps/feeds/PostInputCard";
+import FilterPost from "@/components/classComps/feeds/FilterPost";
+import DefaultPostBlock from "@/components/classComps/feeds/DefaultPostBlock";
+import PostBlock from "@/components/classComps/feeds/PostBlock";
 
 const MembersTeacherRow = () => ({
-  component: import(/* webpackChunkName: "MembersTeacherRow" */ "@/components/schoolComps/dashboard/class/MembersTeacherRow"),
+  component: import(/* webpackChunkName: "MembersTeacherRow" */ "@/components/classComps/studentSideBar/MembersTeacherRow"),
   loading: MembersEmptyTeacherRow,
   error: MembersEmptyTeacherRow,
   delay: 500,
@@ -179,19 +94,17 @@ export default {
     MembersEmptyTeacherRow,
     MembersTeacherRow,
     PostInputCard,
+    FilterPost,
     DefaultPostBlock,
     PostBlock,
-    UpcomingEventBlock,
+    UpcomingEventBlock: () =>
+      import(/* webpackChunkName: "upcomingevent" */ "@/components/classComps/feeds/UpcomingEventBlock"),
     AddTeacherModal: () =>
-      import(/* webpackChunkName: "AddTeacherModal" */ "@/components/schoolComps/modals/AddTeacherModal")
+      import(/* webpackChunkName: "AddTeacherModal" */ "@/components/modalComps/schoolModals/AddTeacherModal")
   },
-
-  mixins: [clickaway],
 
   data() {
     return {
-      filter_option: false,
-      subject_filter: false,
       teacher_modal: false,
       teacher_count: 1,
       post_count: 1,
@@ -213,26 +126,50 @@ export default {
 
     toggleTeacherModal() {
       this.teacher_modal = !this.teacher_modal;
-    },
-
-    toggleFilter() {
-      this.filter_option = !this.filter_option;
-    },
-
-    onDropFilter() {
-      this.filter_option = false;
-    },
-
-    toggleSubjectFilter() {
-      this.subject_filter = !this.subject_filter;
-    },
-
-    onDropSubjectFilter() {
-      this.subject_filter = false;
     }
   }
 };
 </script>
 
 <style lang="scss">
+.class-feeds-section {
+  .right-layout {
+    @include breakpoint_max(lg) {
+      padding-left: 30px;
+      padding-right: 0px;
+    }
+
+    @include breakpoint_max(md) {
+      margin-bottom: 80px;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  .post-component {
+    min-width: 63%;
+    max-width: 63%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 60px;
+
+    @include breakpoint_max(lg) {
+      min-width: 100%;
+      max-width: 100%;
+    }
+  }
+
+  .event-component {
+    min-width: 36%;
+    max-width: 36%;
+    padding-right: 5px;
+
+    @include breakpoint_max(lg) {
+      min-width: 100%;
+      max-width: 100%;
+      padding-right: 15px;
+      margin-bottom: 20px;
+    }
+  }
+}
 </style>

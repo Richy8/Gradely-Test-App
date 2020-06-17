@@ -10,11 +10,14 @@
       <div class="page-title">Personal Information</div>
 
       <!-- PERSONAL PROFILE CARD COMPONENT -->
-      <PersonalProfileCard fullname="Kola Ajayi"></PersonalProfileCard>
+      <PersonalProfileCard
+        fullname="Kola Ajayi"
+        color_scheme="brand_inverse_light_bg brand_primary"
+      ></PersonalProfileCard>
       <!-- PERSONAL PROFILE CARD COMPONENT -->
 
       <!-- PERSONAL PROFILE FORM COMPONENT -->
-      <PersonalProfileForm></PersonalProfileForm>
+      <SchoolPersonalProfileForm></SchoolPersonalProfileForm>
       <!-- PERSONAL PROFILE FORM COMPONENT -->
     </div>
   </div>
@@ -28,8 +31,8 @@ export default {
 
   components: {
     PersonalProfileCard,
-    PersonalProfileForm: () =>
-      import(/* webpackChunkName: "PersonalProfileForm" */ "@/components/globalComps/SettingsComps/ProfileComps/PersonalProfileForm")
+    SchoolPersonalProfileForm: () =>
+      import(/* webpackChunkName: "SchoolPersonalProfileForm" */ "@/components/globalComps/SettingsComps/ProfileComps/SchoolPersonalProfileForm")
   }
 };
 </script>

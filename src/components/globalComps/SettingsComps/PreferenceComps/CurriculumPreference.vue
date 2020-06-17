@@ -55,7 +55,7 @@
       </form>
 
       <!-- CURRICULUM REQUEST SECTION -->
-      <div class="preference-request rounded-5 pointer" @click="toggleCurriculumRequestModal">
+      <div class="preference-request rounded-5 pointer" @click="toggleCurriculumModal">
         <span class="icon icon-help-circle d-block"></span>
         <div class="help-text">Request for more curriculum</div>
       </div>
@@ -63,7 +63,7 @@
       <!-- CURRICULUM REQUEST MODAL COMPONENTS -->
       <CurriculumRequestModal
         v-if="curriculum_request_modal"
-        @closeTriggered="toggleCurriculumRequestModal"
+        @closeTriggered="toggleCurriculumModal"
       ></CurriculumRequestModal>
       <!-- CURRICULUM REQUEST MODAL COMPONENTS -->
     </div>
@@ -76,7 +76,7 @@ export default {
 
   components: {
     CurriculumRequestModal: () =>
-      import(/* webpackChunkName: "CurriculumRequestModal" */ "@/components/schoolComps/modals/CurriculumRequestModal")
+      import(/* webpackChunkName: "CurriculumRequestModal" */ "@/components/modalComps/settingsModals/CurriculumRequestModal")
   },
 
   data() {
@@ -96,8 +96,8 @@ export default {
         : event.target.parentElement.classList.remove("label-active");
     },
 
-    toggleCurriculumRequestModal() {
-      this.curriculum_request = !this.curriculum_request;
+    toggleCurriculumModal() {
+      this.curriculum_request_modal = !this.curriculum_request_modal;
     }
   }
 };

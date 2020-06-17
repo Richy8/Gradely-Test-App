@@ -40,9 +40,9 @@ export default {
     UserCard: () =>
       import(/* webpackChunkName: "UserCard" */ "@/components/globalComps/SettingsComps/PreferenceComps/UserCard"),
     AddUserModal: () =>
-      import(/* webpackChunkName: "AddUserModal" */ "@/components/schoolComps/modals/AddUserModal"),
+      import(/* webpackChunkName: "AddUserModal" */ "@/components/modalComps/settingsModals/AddUserModal"),
     EditUserRoleModal: () =>
-      import(/* webpackChunkName: "EditUserRoleModal" */ "@/components/schoolComps/modals/EditUserRoleModal")
+      import(/* webpackChunkName: "EditUserRoleModal" */ "@/components/modalComps/settingsModals/EditUserRoleModal")
   },
 
   data() {

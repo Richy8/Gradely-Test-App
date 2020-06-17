@@ -96,7 +96,7 @@ button {
 
     &:hover,
     &:focus {
-        background-color: $brand_primary !important;
+        background-color: $brand_inverse !important;
         color: #ffffff !important;
     }
 }
@@ -114,14 +114,12 @@ button {
 }
 
 .btn-secondary {
-    background-color: $brand_accent !important;
-    color: $brand_black !important;
-    fill: $brand_black !important;
+    background-color: $border_grey !important;
+    color: $color_ash !important;
 
     &:hover,
     &:focus {
-        background-color: $brand_primary !important;
-        fill: $color_white !important;
+        background-color: $brand_accent !important;
     }
 }
 
@@ -266,7 +264,7 @@ button {
 
     &:hover,
     &:focus {
-        color: $brand_black;
+        color: $brand_inverse !important;
         text-decoration: none;
     }
 
@@ -325,7 +323,7 @@ button {
 
     &:hover,
     &:focus {
-        background-color: $brand_inverse_light;
+        background-color: $brand_inverse_light !important;
 
         &::before,
         &::after {

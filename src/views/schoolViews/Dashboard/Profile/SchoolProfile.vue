@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful :title="setTitle" description="Description goes here"/>
-    <div class="school-profile-section">
+    <div class="school-profile-section base-type-layout">
       <!-- SCHOOL DISPLAY BANNER -->
       <SchoolProfileBanner banner_img="ChristLandBanner.png"></SchoolProfileBanner>
 
@@ -50,9 +50,9 @@
 </template>
 
 <script>
-import SchoolProfileBanner from "@/components/schoolComps/dashboard/profile/schoolprofile/SchoolProfileBanner";
-import SchoolInfoBlock from "@/components/schoolComps/dashboard/profile/schoolprofile/SchoolInfoBlock";
-import AboutSchool from "@/components/schoolComps/dashboard/profile/schoolprofile/AboutSchool";
+import SchoolProfileBanner from "@/components/profileComps/schoolprofile/SchoolProfileBanner";
+import SchoolInfoBlock from "@/components/profileComps/schoolprofile/SchoolInfoBlock";
+import AboutSchool from "@/components/profileComps/schoolprofile/AboutSchool";
 
 export default {
   name: "SchoolProfile",
@@ -62,9 +62,9 @@ export default {
     SchoolInfoBlock,
     AboutSchool,
     ContactPersonCard: () =>
-      import(/* webpackChunkName: "ContactCardPerson" */ "@/components/schoolComps/dashboard/profile/schoolprofile/ContactPersonCard"),
+      import(/* webpackChunkName: "ContactCardPerson" */ "@/components/profileComps/schoolprofile/ContactPersonCard"),
     Demographics: () =>
-      import(/* webpackChunkName: "Demographics" */ "@/components/schoolComps/dashboard/profile/schoolprofile/Demographics")
+      import(/* webpackChunkName: "Demographics" */ "@/components/profileComps/schoolprofile/Demographics")
   },
 
   data() {
@@ -81,5 +81,32 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+.school-profile-section {
+  .page-sub-title {
+    font-size: 27px;
+    line-height: 145%;
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: $color_text;
+    text-shadow: 0.25px 0px, 0px 0.25px, 0.25px 0.25px;
+
+    @include breakpoint_max(lg) {
+      font-size: 25px;
+    }
+
+    @include breakpoint_max(md) {
+      font-weight: 500;
+      font-size: 23px;
+    }
+  }
+
+  .bottom-half {
+    @include breakpoint_max(md) {
+      margin-top: 60px;
+      margin-bottom: 110px !important;
+    }
+  }
+}
 </style>

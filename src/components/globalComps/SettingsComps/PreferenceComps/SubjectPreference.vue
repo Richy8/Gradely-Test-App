@@ -34,7 +34,7 @@ export default {
     SubjectCard: () =>
       import(/* webpackChunkName: "SubjectCard" */ "@/components/globalComps/SettingsComps/PreferenceComps/SubjectCard"),
     AddSubjectModal: () =>
-      import(/* webpackChunkName: "SubjectCard" */ "@/components/schoolComps/modals/AddSubjectModal")
+      import(/* webpackChunkName: "SubjectCard" */ "@/components/modalComps/settingsModals/AddSubjectModal")
   },
 
   data() {

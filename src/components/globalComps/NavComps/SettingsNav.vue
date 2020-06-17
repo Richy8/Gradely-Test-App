@@ -46,8 +46,8 @@
       <!-- PARENT - TEACHER PROFILE -->
       <div class="side-item" v-if="settings_type==='parent' || settings_type==='teacher'">
         <router-link
-          :to="'/'+settings_type+'/dashboard/settings/user'"
-          :class="{'active': personal_active}"
+          :to="'/'+settings_type+'/dashboard/settings'"
+          :class="{'active': profile_active}"
         >
           <span class="icon icon-user-circle"></span>
           <div class="link-title">My Profile</div>
@@ -68,7 +68,7 @@
       <!-- ACCOUNT SETTINGS -->
       <div class="side-item">
         <router-link
-          to="/school/dashboard/settings/account_settings"
+          :to="'/'+settings_type+'/dashboard/settings/account_settings'"
           :class="{'active': account_active}"
         >
           <span class="icon icon-gear"></span>
@@ -110,7 +110,7 @@ export default {
 
   methods: {
     activeSideRoute(url) {
-      url === "SchoolSettingsProfile"
+      url === "SchoolSettingsProfile" || url === "TeacherSettingsProfile"
         ? (this.profile_active = true)
         : (this.profile_active = false);
       url === "SchoolSettingsUser" ||
@@ -118,10 +118,12 @@ export default {
       url === "SchoolSettingsNotification"
         ? (this.personal_active = true)
         : (this.personal_active = false);
-      url === "SchoolSettingsPreferences"
+      url === "SchoolSettingsPreferences" ||
+      url === "TeacherSettingsPreferences" ||
+      url === "TeacherSettingsNotification"
         ? (this.preference_active = true)
         : (this.preference_active = false);
-      url === "SchoolSettingsAccount"
+      url === "SchoolSettingsAccount" || url === "TeacherSettingsAccount"
         ? (this.account_active = true)
         : (this.account_active = false);
     },

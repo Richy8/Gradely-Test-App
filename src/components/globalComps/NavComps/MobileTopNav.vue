@@ -37,6 +37,17 @@
             >
               <span class="icon-arrow-left transparent_bg"></span>
             </router-link>
+
+            <!-- SINGLE -->
+            <router-link
+              to
+              @click.native="$router.go(-1)"
+              class="d-flex justify-content-start align-items-center color_text"
+              v-else-if="nav_type==='single'"
+            >
+              <span class="icon-arrow-left transparent_bg"></span>
+            </router-link>
+
             <!-- OTHERS-->
             <router-link
               :to="'/'+nav_type+'/dashboard'"
@@ -75,7 +86,9 @@
               class="icon avatar avatar-square"
               v-if="nav_type==='parent' || nav_type==='teacher'"
             >
-              <span class="icon-message brand_navy"></span>
+              <router-link :to="'/'+nav_type+'/dashboard/message'">
+                <span class="icon-message brand_navy"></span>
+              </router-link>
             </div>
 
             <!-- CLASS SEARCH ICON -->

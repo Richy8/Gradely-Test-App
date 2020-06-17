@@ -1,7 +1,7 @@
 <template>
   <div class="request-invoice-card position-relative w-100">
     <div class="banner-overlay box-overlay brand_inverse_bg rounded-5 overflow-hidden">
-      <img :src="localImg('SquareBanner.png')" alt="Display Banner" class="img img-luminous">
+      <img v-lazy="localImg('SquareBanner.png')" alt="Display Banner" class="img img-luminous">
     </div>
 
     <div class="card-content">

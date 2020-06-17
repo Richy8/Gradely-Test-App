@@ -1,15 +1,4 @@
 .gradely-calendar-section {
-    position: relative;
-    top: 60px;
-
-    .container {
-        @include breakpoint_max(md) {
-            padding-right: 15px !important;
-            padding-left: 15px !important;
-            margin-right: auto !important;
-            margin-left: auto !important;
-        }
-    }
 
     .bottom-container {
         margin-bottom: 30px;
@@ -80,7 +69,7 @@
                 font-weight: bold;
                 font-size: 21px;
                 line-height: 25px;
-                color: #113255;
+                color: $brand_navy;
 
                 @include breakpoint_max(lg) {
                     font-size: 19px;

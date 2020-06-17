@@ -6,8 +6,10 @@
       <div class="container px-1">
         <div class="row">
           <div class="col-12">
-            <div class="dashboard-header-row">
-              <div class="page-title">Add Students</div>
+            <div
+              :class="[account_type==='school'? 'dashboard-header-row' : 'dashboard-subheader-row']"
+            >
+              <div class="page-title font-weight-bold">Add Students</div>
             </div>
           </div>
         </div>
@@ -150,11 +152,13 @@ export default {
 
   components: {
     StudentInvitationModal: () =>
-      import(/* webpackChunkName: "StudentInvitationModal" */ "@/components/schoolComps/modals/StudentInvitationModal")
+      import(/* webpackChunkName: "StudentInvitationModal" */ "@/components/modalComps/classModals/StudentInvitationModal")
   },
 
   data() {
     return {
+      account_type: "",
+      header_margin: "",
       class_form: {
         class_name: "",
         password: ""
@@ -195,9 +199,20 @@ export default {
     };
   },
 
+  mounted() {
+    this.getAccountType();
+  },
+
   methods: {
     toggleModal() {
       this.on_success = !this.on_success;
+    },
+
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
+      if (this.account_type === "school") {
+        this.header_margin;
+      }
     }
   }
 };

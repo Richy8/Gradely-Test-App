@@ -3,7 +3,7 @@
     <!-- SCHOOL BANNER -->
     <div class="school-display-banner w-100 position-relative">
       <div class="banner-overlay box-overlay color_mid_blue_bg overflow-hidden">
-        <img :src="localImg('ClassDoodle.png')" alt="ClassDoodle" class="img img-overlay">
+        <img v-lazy="localImg('ClassDoodle.png')" alt="ClassDoodle" class="img img-overlay">
       </div>
 
       <!-- SCHOOL INFO DETAIL -->

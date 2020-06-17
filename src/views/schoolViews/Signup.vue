@@ -9,7 +9,7 @@
         <b-row class="w-100">
           <b-col class="left-pane d-none d-md-block p-0">
             <!-- SIGNUP IMAGE -->
-            <img :src="localImg('SignupBg.png')" alt="signup-img">
+            <img v-lazy="localImg('SignupBg.png')" alt="signup-img">
             <!-- image overlay -->
             <div class="box-overlay brand_inverse_bg"></div>
             <!-- CONTENT -->
@@ -35,15 +35,15 @@
 
           <!-- CLOSE DIALOG -->
           <div class="pageClose dialogDismiss">
-            <button type="button" class="close_dialog cls_lg"></button>
+            <button type="button" class="close_dialog cls_lg transparent_bg"></button>
           </div>
 
           <b-col class="school-sign-up-container">
             <div class="sign-up-box color_text">
               <!-- BRAND LOGO -->
-              <img :src="localImg('Gradely.png')" class="brand-logo" alt="Gradely.ng">
+              <img v-lazy="localImg('Gradely.png')" class="brand-logo" alt="Gradely.ng">
               <div class="text-info-one font-weight-bold">Create your School account</div>
-              <div class="text-info-two type-16 type-xl-14 type-sm-13">
+              <div class="text-info-two">
                 Already have an account?
                 <a href="#" class="btn-link">Login</a>
               </div>

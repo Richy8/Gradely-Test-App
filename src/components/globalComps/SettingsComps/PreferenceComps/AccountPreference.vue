@@ -54,9 +54,9 @@
       </div>
     </section>
 
-    <!-- DELETE SCHOOLACCOUNT MODAL -->
-    <DeleteSchoolAccount v-if="delete_modal" @closeTriggered="toggleDeleteModal"></DeleteSchoolAccount>
-    <!-- DELETE SCHOOLACCOUNT MODAL -->
+    <!-- DELETE ACCOUNT MODAL -->
+    <DeleteAccount account_type="school" v-if="delete_modal" @closeTriggered="toggleDeleteModal"></DeleteAccount>
+    <!-- DELETE ACCOUNT MODAL -->
   </div>
 </template>
 
@@ -65,8 +65,8 @@ export default {
   name: "AccountPreference",
 
   components: {
-    DeleteSchoolAccount: () =>
-      import(/* webpackChunkName: "DeleteSchoolAccount" */ "@/components/schoolComps/modals/DeleteSchoolAccount")
+    DeleteAccount: () =>
+      import(/* webpackChunkName: "DeleteAccount" */ "@/components/modalComps/settingsModals/DeleteAccount")
   },
 
   data() {
@@ -94,12 +94,26 @@ section {
     font-size: 16px;
     line-height: 22px;
     margin-bottom: 20px;
+
+    @include breakpoint_max(sm) {
+      font-size: 13.5px;
+    }
+    @include breakpoint_max(xs) {
+      font-size: 13px;
+    }
   }
 
   .account-sub-text {
     font-size: 14px;
     line-height: 19px;
     margin-bottom: 15px;
+
+    @include breakpoint_max(sm) {
+      font-size: 13px;
+    }
+    @include breakpoint_max(xs) {
+      font-size: 12.5px;
+    }
   }
 
   .multple-line {
@@ -125,10 +139,25 @@ section {
       transform: translateY(-50%);
       color: $color_grey_dark;
       z-index: 9;
+
+      @include breakpoint_max(sm) {
+        font-size: 13px;
+      }
+      @include breakpoint_max(xs) {
+        font-size: 12.5px;
+      }
     }
 
     input {
       padding-left: 180px;
+
+      @include breakpoint_max(sm) {
+        padding-left: 168px;
+      }
+
+      @include breakpoint_max(sm) {
+        padding-left: 162px;
+      }
     }
   }
 }

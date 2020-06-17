@@ -36,6 +36,11 @@ export default {
 .paging-block {
   margin: 30px 0 10px;
   vertical-align: middle;
+  margin-bottom: 40px;
+
+  @include breakpoint_max(md) {
+    margin-bottom: 90px;
+  }
 }
 
 .paging-item,

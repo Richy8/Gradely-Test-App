@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="Class Post View | School Dashboard" description="Description goes here"/>
-    <div class="class-feed-view">
+    <div class="class-feed-view base-type-layout">
       <div class="container px-1">
         <div class="row">
           <!-- POST AUTHOR COMPONENT -->
@@ -47,12 +47,14 @@
               <!-- COMMENT VIEW COMPONENT -->
 
               <!-- COMMENT INPUT COMPONENT -->
-              <CommentInputCard @toggleComment="toggleCommentModal" v-if="post_obj.comment.length"></CommentInputCard>
+              <CommentInputCard
+                @toggleComment="toggleCommentModal"
+                v-if="post_obj.type!='Recommendation'"
+              ></CommentInputCard>
               <!-- COMMENT INPUT COMPONENT -->
             </div>
 
             <!-- MODAL COMPONENTS -->
-            <NewCommentModal v-if="comment_modal" @closeTriggered="toggleCommentModal"></NewCommentModal>
             <SharePostModal v-if="share_modal" @closeTriggered="toggleShareModal"></SharePostModal>
             <!-- MODAL COMPONENTS -->
           </div>
@@ -63,16 +65,20 @@
 </template>
 
 <script>
-import AuthorCard from "@/components/schoolComps/dashboard/class/class_feed_view/AuthorCard";
 import PostData from "@/scripts/mixins/PostData";
-import PostIntroCard from "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/PostIntroCard";
-import PostActivityCard from "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/PostActivityCard";
-import CommentInputCard from "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/CommentInputCard";
+import AuthorCard from "@/components/classComps/feeds/feed_view/AuthorCard";
+import PostIntroCard from "@/components/classComps/feeds/post_content/PostIntroCard";
+import PostActivityCard from "@/components/classComps/feeds/post_content/PostActivityCard";
+import CommentInputCard from "@/components/classComps/feeds/post_content/CommentInputCard";
 
 export default {
   name: "ClassFeedView",
 
   mixins: [PostData],
+
+  props: {
+    post_id: Number
+  },
 
   components: {
     AuthorCard,
@@ -80,28 +86,25 @@ export default {
     PostActivityCard,
     CommentInputCard,
     PostTextBlock: () =>
-      import(/* webpackChunkName: "PostTextBlock" */ "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/PostTextBlock"),
+      import(/* webpackChunkName: "PostTextBlock" */ "@/components/classComps/feeds/post_content/PostTextBlock"),
     PostImageBlock: () =>
-      import(/* webpackChunkName: "PostImageBlock" */ "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/PostImageBlock"),
+      import(/* webpackChunkName: "PostImageBlock" */ "@/components/classComps/feeds/post_content/PostImageBlock"),
     PostEventBlock: () =>
-      import(/* webpackChunkName: "PostEventBlock" */ "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/PostEventBlock"),
+      import(/* webpackChunkName: "PostEventBlock" */ "@/components/classComps/feeds/post_content/PostEventBlock"),
     PostHomeworkBlock: () =>
-      import(/* webpackChunkName: "PostHomeworkBlock" */ "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/PostHomeworkBlock"),
+      import(/* webpackChunkName: "PostHomeworkBlock" */ "@/components/classComps/feeds/post_content/PostHomeworkBlock"),
     PostPollBlock: () =>
-      import(/* webpackChunkName: "PostPollBlock" */ "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/PostPollBlock"),
+      import(/* webpackChunkName: "PostPollBlock" */ "@/components/classComps/feeds/post_content/PostPollBlock"),
     PostRecommendationBlock: () =>
-      import(/* webpackChunkName: "PostRecommendationBlock" */ "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/PostRecommendationBlock"),
+      import(/* webpackChunkName: "PostRecommendationBlock" */ "@/components/classComps/feeds/post_content/PostRecommendationBlock"),
     CommentViewCard: () =>
-      import(/* webpackChunkName: "CommentViewCard" */ "@/components/schoolComps/dashboard/class/class_feeds/content_post_comps/CommentViewCard"),
-    NewCommentModal: () =>
-      import(/* webpackChunkName: "NewCommentModal" */ "@/components/schoolComps/modals/NewCommentModal"),
+      import(/* webpackChunkName: "CommentViewCard" */ "@/components/classComps/feeds/post_content/CommentViewCard"),
     SharePostModal: () =>
-      import(/* webpackChunkName: "SharePostModal" */ "@/components/schoolComps/modals/SharePostModal")
+      import(/* webpackChunkName: "SharePostModal" */ "@/components/modalComps/classModals/SharePostModal")
   },
 
   data() {
     return {
-      comment_modal: false,
       share_modal: false,
       post_obj: null
     };
@@ -134,10 +137,6 @@ export default {
       this.post_obj = this.post_data[post_index_id];
     },
 
-    toggleCommentModal() {
-      this.comment_modal = !this.comment_modal;
-    },
-
     toggleShareModal() {
       this.share_modal = !this.share_modal;
     }
@@ -146,6 +145,16 @@ export default {
 </script>
 
 <style lang="scss">
+.class-feed-view {
+  top: 100px;
+
+  .right-layout {
+    @include breakpoint_max(md) {
+      margin-bottom: 80px;
+    }
+  }
+}
+
 .go-back-post {
   margin-bottom: 16px;
   transition: all 0.3s ease-in-out;

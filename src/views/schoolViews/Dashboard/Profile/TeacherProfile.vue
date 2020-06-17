@@ -1,15 +1,15 @@
 <template>
   <div>
     <vue-headful :title="meta_title" description="Description goes here"/>
-    <div class="teacher-profile-section">
+    <div class="teacher-profile-section base-type-layout">
       <!-- BREADCRUMB -->
       <BreadCrumb
-        class_name="Junior Secondary School 1a"
-        profile_type="Teacher"
+        item_one="Junior Secondary School 1a"
+        item_three="Teacher"
         :current_page="1"
         :total_page="32"
-        back_link_text="Members"
-        back_link_route="ClassMembers"
+        item_two="Members"
+        item_two_link="ClassMembers"
       ></BreadCrumb>
 
       <!-- TEACHER PROFILE CONTAINER -->
@@ -19,7 +19,7 @@
           <div class="col-12 col-md-3 d-none d-md-block side-photo mx-auto">
             <!-- AVATAR -->
             <div class="avatar avatar_big avatar-square">
-              <img :src="dynamicImg('TeacherOneLg.png')" alt class="avatar-img">
+              <img v-lazy="dynamicImg('TeacherOneLg.png')" alt class="avatar-img">
             </div>
 
             <!-- SEND MESSAGE BUTTON -->
@@ -70,10 +70,10 @@
 <script>
 import RenderImages from "@/scripts/mixins/RenderImages";
 import BreadCrumb from "@/components/globalComps/BreadCrumb";
-import AboutMeSection from "@/components/schoolComps/dashboard/profile/teacherprofile/AboutMeSection";
-import ClassAssigned from "@/components/schoolComps/dashboard/profile/teacherprofile/ClassAssigned";
-import Schedule from "@/components/schoolComps/dashboard/profile/teacherprofile/Schedule";
-import Homework from "@/components/schoolComps/dashboard/profile/teacherprofile/Homework";
+import AboutMeSection from "@/components/profileComps/teacherprofile/AboutMeSection";
+import ClassAssigned from "@/components/profileComps/teacherprofile/ClassAssigned";
+import Schedule from "@/components/profileComps/teacherprofile/Schedule";
+import Homework from "@/components/profileComps/teacherprofile/Homework";
 
 export default {
   name: "TeacherProfile",
@@ -87,7 +87,7 @@ export default {
     Schedule,
     Homework,
     NewMessageModal: () =>
-      import(/* webpackChunkName: "NewMessageModal" */ "@/components/schoolComps/modals/NewMessageModal")
+      import(/* webpackChunkName: "NewMessageModal" */ "@/components/modalComps/messageModals/NewMessageModal")
   },
 
   data() {

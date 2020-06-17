@@ -12,9 +12,12 @@ const schoolRoute = [{
         component: () => import( /* webpackChunkName: "signup" */ "@/views/schoolViews/Signup")
     },
     {
-        path: "/school/setup",
-        name: "SchoolSetup",
-        component: () => import( /* webpackChunkName: "setup" */ "@/views/schoolViews/Setup")
+        path: "/school/onboarding",
+        name: "SchoolOnboarding",
+        component: () => import( /* webpackChunkName: "setup" */ "@/views/schoolViews/Onboarding"),
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: "/school/calendar",
@@ -22,7 +25,10 @@ const schoolRoute = [{
         children: [{
             path: "",
             name: "SchoolCalendar",
-            component: () => import( /* webpackChunkName: "SchoolCalendar" */ "@/views/globalViews/Calendar")
+            component: () => import( /* webpackChunkName: "SchoolCalendar" */ "@/views/globalViews/Calendar"),
+            meta: {
+                requiresAuth: true
+            }
         }]
     },
     {
@@ -31,27 +37,42 @@ const schoolRoute = [{
         children: [{
                 path: "",
                 name: "SchoolDashboard",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Home")
+                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Home"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/teacher",
                 name: "SchoolDashboardTeacher",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Teacher")
+                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Teacher"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/parent",
                 name: "SchoolDashboardParent",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Parent")
+                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Parent"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/message",
                 name: "SchoolDashboardMessage",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Message")
+                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/globalViews/Message"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/profile",
                 name: "SchoolProfile",
-                component: () => import( /* webpackChunkName: "schoolprofile" */ "@/views/schoolViews/Dashboard/Profile/SchoolProfile")
+                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Profile/SchoolProfile"),
+                meta: {
+                    requiresAuth: true
+                }
             }
         ]
     },
@@ -61,32 +82,50 @@ const schoolRoute = [{
         children: [{
                 path: "",
                 name: "SchoolSettingsProfile",
-                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolSettingsProfile")
+                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolSettingsProfile"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/settings/user",
                 name: "SchoolSettingsUser",
-                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolSettingsUser")
+                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolSettingsUser"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/settings/personal_information",
                 name: "SchoolSettingsUserEdit",
-                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolSettingsUserEdit")
+                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolSettingsUserEdit"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/settings/preferences",
                 name: "SchoolSettingsPreferences",
-                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolPreferences")
+                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolPreferences"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/settings/notification",
                 name: "SchoolSettingsNotification",
-                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsNotification")
+                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsNotification"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/settings/account_settings",
                 name: "SchoolSettingsAccount",
-                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsAccount")
+                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsAccount"),
+                meta: {
+                    requiresAuth: true
+                }
             },
         ]
     },
@@ -96,27 +135,42 @@ const schoolRoute = [{
         children: [{
                 path: "",
                 name: "ClassFeeds",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassFeeds")
+                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassFeeds"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/class/members",
                 name: "ClassMembers",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassMembers")
+                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassMembers"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/class/homework",
                 name: "ClassHomework",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassHomework")
+                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassHomework"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/class/report",
                 name: "ClassReport",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassReport")
+                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassReport"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
-                path: "/school/dashboard/class/add_students",
+                path: "/school/dashboard/add_students",
                 name: "AddStudents",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/AddStudents")
+                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/AddStudents"),
+                meta: {
+                    requiresAuth: true
+                }
             }
         ]
     },
@@ -126,7 +180,10 @@ const schoolRoute = [{
         children: [{
             path: "",
             name: "ClassFeedView",
-            component: () => import( /* webpackChunkName: "classfeedview" */ "@/views/schoolViews/Dashboard/Classes/ClassFeedView")
+            component: () => import( /* webpackChunkName: "classfeedview" */ "@/views/schoolViews/Dashboard/Classes/ClassFeedView"),
+            meta: {
+                requiresAuth: true
+            }
         }]
     },
     {
@@ -135,17 +192,34 @@ const schoolRoute = [{
         children: [{
                 path: "",
                 name: "HomeworkReview",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/HomeworkReview")
+                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/HomeworkReview"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/teacher/profile",
                 name: "TeacherProfile",
-                component: () => import( /* webpackChunkName: "profile" */ "@/views/schoolViews/Dashboard/Profile/TeacherProfile")
+                component: () => import( /* webpackChunkName: "profile" */ "@/views/schoolViews/Dashboard/Profile/TeacherProfile"),
+                meta: {
+                    requiresAuth: true
+                }
             },
             {
                 path: "/school/dashboard/student/profile",
                 name: "StudentProfile",
-                component: () => import( /* webpackChunkName: "profile" */ "@/views/schoolViews/Dashboard/Profile/StudentProfile")
+                component: () => import( /* webpackChunkName: "profile" */ "@/views/schoolViews/Dashboard/Profile/StudentProfile"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/school/dashboard/student/topic_trend",
+                name: "StudentTopicTrend",
+                component: () => import( /* webpackChunkName: "profile" */ "@/views/schoolViews/Dashboard/Classes/StudentTopicTrend"),
+                meta: {
+                    requiresAuth: true
+                }
             }
         ]
     },

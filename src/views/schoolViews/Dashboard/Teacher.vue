@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="School Teachers | Gradelyng" description="Description goes here"/>
-    <div class="school-teacher-section">
+    <div class="school-teacher-section base-type-layout">
       <!-- PAGE TITLE -->
       <div class="container px-1">
         <div class="row">
@@ -84,45 +84,6 @@
             ></TeacherCard>
           </div>
 
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-            <TeacherCard
-              fullname="Femi Ibioye"
-              email="femiibioye@gmail.com"
-              :classes="4"
-              :subject="2"
-              @toggleMessage="toggleMessageModal"
-            ></TeacherCard>
-          </div>
-
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-            <TeacherCard
-              fullname="Babatunde Calebs"
-              email="babatundecalebs@gmail.com"
-              :classes="3"
-              :subject="2"
-              @toggleMessage="toggleMessageModal"
-            ></TeacherCard>
-          </div>
-
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-            <TeacherCard
-              fullname="Richy Jones"
-              email="richyjones@gmail.com"
-              :classes="1"
-              :subject="1"
-              @toggleMessage="toggleMessageModal"
-            ></TeacherCard>
-          </div>
-
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
-            <TeacherCard
-              fullname="Efemena Elvis"
-              email="efemenaelvis@gmail.com"
-              :classes="2"
-              :subject="3"
-              @toggleMessage="toggleMessageModal"
-            ></TeacherCard>
-          </div>
           <!-- TEACHER CARD -->
         </div>
       </div>
@@ -149,7 +110,6 @@
 
 <script>
 import TeacherCard from "@/components/schoolComps/dashboard/teacher/TeacherCard";
-import Alert from "@/components/globalComps/Alert";
 import Pagination from "@/components/globalComps/Pagination";
 
 export default {
@@ -157,14 +117,15 @@ export default {
 
   components: {
     TeacherCard,
-    Alert,
     Pagination,
+    Alert: () =>
+      import(/* webpackChunkName: "alert" */ "@/components/globalComps/Alert"),
     AddTeacherModal: () =>
-      import(/* webpackChunkName: "addteachermodal" */ "@/components/schoolComps/modals/AddTeacherModal"),
+      import(/* webpackChunkName: "teachermodal" */ "@/components/modalComps/schoolModals/AddTeacherModal"),
     VerifyTeacherModal: () =>
-      import(/* webpackChunkName: "verifyteachermodal" */ "@/components/schoolComps/modals/VerifyTeacherModal"),
+      import(/* webpackChunkName: "teachermodal" */ "@/components/modalComps/schoolModals/VerifyTeacherModal"),
     NewMessageModal: () =>
-      import(/* webpackChunkName: "newmessagemodal" */ "@/components/schoolComps/modals/NewMessageModal")
+      import(/* webpackChunkName: "messagemodal" */ "@/components/modalComps/messageModals/NewMessageModal")
   },
 
   data() {

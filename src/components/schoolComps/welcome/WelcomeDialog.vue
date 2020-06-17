@@ -8,7 +8,7 @@
             <!-- <component :is="tab"></component> -->
             <DialogOne
               v-if="current_tab === 0"
-              banner="DialogOne.png"
+              :banner="initial_dialog"
               display_img="GradelyIcon.png"
             ></DialogOne>
 
@@ -80,14 +80,26 @@ export default {
   data() {
     return {
       tab: DialogOne,
+      initial_dialog: "",
       current_tab: 0,
       tabs: [DialogOne, DialogTwo, DialogThree, DialogFour, DialogFive]
     };
   },
 
-  mounted() {},
+  mounted() {
+    this.getAccountType();
+  },
 
   methods: {
+    getAccountType() {
+      let account = this.$route.path.split("/")[1];
+      if (account === "school") {
+        this.initial_dialog = "DialogOne.png";
+      } else if (account === "teacher") {
+        this.initial_dialog = "TeacherDialog.png";
+      }
+    },
+
     nextTab() {
       this.tab = this.tabs[this.current_tab + 1];
       this.current_tab === this.current_tab++;

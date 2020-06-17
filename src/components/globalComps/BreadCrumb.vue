@@ -10,16 +10,17 @@
             <div
               class="breadcrumb position-relative d-flex justify-content-start align-items-center nowrap mb-0 transparent_bg"
             >
-              <div class="breadcrumb-item">{{ class_name }}</div>
-              <div class="breadcrumb-item">
-                <router-link :to="{name: back_link_route}">{{ back_link_text }}</router-link>
+              <div class="breadcrumb-item">{{ item_one }}</div>
+              <div class="breadcrumb-item" :class="[!item_two ? 'd-none' : '']">
+                <router-link :to="{name: item_two_link}">{{ item_two }}</router-link>
               </div>
-              <div class="breadcrumb-item active">{{ profile_type }}</div>
+              <div class="breadcrumb-item active">{{ item_three }}</div>
             </div>
 
             <!-- BREAD CRUMB NAVIGATION -->
             <div
               class="breadcrumb-nav d-flex justify-content-end align-items-center nowrap font-14"
+              v-if="show_nav"
             >
               <div class="nav nav-left" title="Next">
                 <!-- <i class="fas fa-caret-left"></i> -->
@@ -46,12 +47,16 @@ export default {
   name: "BreadCrumb",
 
   props: {
-    class_name: String,
-    profile_type: String,
+    item_one: String,
+    item_two: String,
+    item_three: String,
+    item_two_link: String,
     current_page: Number,
     total_page: Number,
-    back_link_text: String,
-    back_link_route: String
+    show_nav: {
+      type: Boolean,
+      default: true
+    }
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="School Dashboard | Home" description="Description goes here"/>
-    <div class="school-home-section">
+    <div class="school-home-section position-relative">
       <!-- SCHOOL BANER COMPONENT -->
       <SchoolBanner
         school_name="ChristLand Intl College"
@@ -22,7 +22,9 @@
 
           <!-- RIGHT CONTENT -->
           <div class="right-content">
-            <div class="title-row d-flex justify-content-between align-items-center flex-wrap">
+            <div
+              class="title-row d-flex justify-content-between align-items-center flex-wrap h-auto"
+            >
               <div class="header-title font-weight-bold color_text">My Classes</div>
               <div>
                 <!-- PHONE CALL COMPONENT -->
@@ -79,11 +81,11 @@ export default {
     PhoneCall: () =>
       import(/* webpackChunkName: "phonecall" */ "@/components/schoolComps/dashboard/home/PhoneCall"),
     AddTeacherModal: () =>
-      import(/* webpackChunkName: "addteachermodal" */ "@/components/schoolComps/modals/AddTeacherModal"),
+      import(/* webpackChunkName: "teachermodal" */ "@/components/modalComps/schoolModals/AddTeacherModal"),
     AddBranchModal: () =>
-      import(/* webpackChunkName: "addbranchmodal" */ "@/components/schoolComps/modals/AddBranchModal"),
+      import(/* webpackChunkName: "addbranchmodal" */ "@/components/modalComps/schoolModals/AddBranchModal"),
     ClassDetailsModal: () =>
-      import(/* webpackChunkName: "classdetailsmodal" */ "@/components/schoolComps/modals/ClassDetailsModal")
+      import(/* webpackChunkName: "classdetailsmodal" */ "@/components/modalComps/schoolModals/ClassDetailsModal")
   },
 
   data() {
@@ -144,14 +146,87 @@ export default {
 </script>
 
 <style lang="scss">
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  transition: opacity 0.2s ease-in;
-}
-.fade-leave-active {
-  transition: opacity 0.2s ease-out;
-  opacity: 0;
+.school-home-section {
+  top: 60px;
+
+  // SCHOOL HOME LEFT CONTENT
+  .left-content {
+    @include custom_min_edge(370, 630);
+
+    @include breakpoint_max(xl) {
+      @include custom_min_edge(316, 630);
+    }
+
+    @include breakpoint_max(lg) {
+      @include custom_min_edge(280, 630);
+    }
+
+    @include breakpoint_max(md) {
+      min-width: 95%;
+      min-height: auto;
+      width: 95%;
+      height: auto;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 30px;
+      margin-bottom: 35px;
+    }
+
+    @include breakpoint_max(sm) {
+      min-width: 95%;
+      width: 88%;
+    }
+  }
+
+  // SCHOOL HOME RIGHT CONTENT
+  .right-content {
+    width: 770px;
+    padding-left: 25px;
+    margin-bottom: 60px;
+
+    @include breakpoint_max(xl) {
+      width: 643.2px;
+    }
+
+    @include breakpoint_max(lg) {
+      width: 440px;
+    }
+
+    @include breakpoint_max(md) {
+      width: 100%;
+      padding-left: 0;
+    }
+
+    @include breakpoint_max(md) {
+      width: 95%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .title-row {
+      margin: auto 0;
+      margin-bottom: 20px;
+
+      @include breakpoint_max(xs) {
+        flex-flow: column wrap;
+        justify-content: start;
+        align-items: flex-start !important;
+      }
+
+      .header-title {
+        font-size: 21px;
+        line-height: 165%;
+        width: 40%;
+
+        @include breakpoint_max(lg) {
+          font-size: 18px;
+        }
+
+        @include breakpoint_max(sm) {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }
 </style>

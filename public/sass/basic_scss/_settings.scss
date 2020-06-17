@@ -18,7 +18,7 @@
         font-size: 19px;
         line-height: 29px;
         text-transform: uppercase;
-        color: #113255;
+        color: $brand_navy;
         margin-bottom: 30px;
 
         @include breakpoint_max(lg) {

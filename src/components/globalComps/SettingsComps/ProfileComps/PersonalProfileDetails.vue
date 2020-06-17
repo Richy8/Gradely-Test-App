@@ -27,7 +27,7 @@
         <div class="value">**********</div>
         <div class="update-link font-weight-bold">
           <router-link
-            :to="{name: 'SchoolSettingsAccount'}"
+            :to="{name: settings_route, params: {account_type: account_type}}"
             class="btn-link font-weight-bold"
           >Update</router-link>
         </div>
@@ -45,10 +45,16 @@ export default {
 
   components: {
     UpdateEmailModal: () =>
-      import(/* webpackChunkName: "updateEmailModal" */ "@/components/schoolComps/modals/UpdateEmailModal")
+      import(/* webpackChunkName: "updateEmailModal" */ "@/components/modalComps/settingsModals/UpdateEmailModal")
   },
 
-  props: ["fullname", "email", "user_edit_route"],
+  props: [
+    "fullname",
+    "email",
+    "user_edit_route",
+    "settings_route",
+    "account_type"
+  ],
 
   data() {
     return {

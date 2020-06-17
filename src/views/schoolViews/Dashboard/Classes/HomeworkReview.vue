@@ -1,15 +1,15 @@
 <template>
   <div>
     <vue-headful title="Homework Review" description="Description goes here"/>
-    <div class="homework-review-section">
+    <div class="homework-review-section base-type-layout">
       <!-- BREADCRUMB -->
       <BreadCrumb
-        class_name="Junior Secondary School 1a"
-        profile_type="Week 2 - Homework"
+        item_one="Junior Secondary School 1a"
+        item_three="Week 2 - Homework"
         :current_page="1"
         :total_page="32"
-        back_link_text="Homework"
-        back_link_route="ClassHomework"
+        item_two="Homework"
+        :item_two_link="route_link"
       ></BreadCrumb>
 
       <!-- HOMEWORK REVIEW CONTAINER -->
@@ -59,8 +59,8 @@
 
 <script>
 import BreadCrumb from "@/components/globalComps/BreadCrumb";
-import ReviewChartCard from "@/components/schoolComps/dashboard/class/class_homework/homework_review/ReviewChartCard";
-import HelpBlockOne from "@/components/schoolComps/dashboard/class/class_homework/homework_review/HelpBlockOne";
+import ReviewChartCard from "@/components/classComps/homework/homework_review/ReviewChartCard";
+import HelpBlockOne from "@/components/classComps/homework/homework_review/HelpBlockOne";
 
 export default {
   name: "HomeworkReview",
@@ -70,21 +70,25 @@ export default {
     ReviewChartCard,
     HelpBlockOne,
     HelpBlockTwo: () =>
-      import(/* webpackChunkName: "HomeworkReview" */ "@/components/schoolComps/dashboard/class/class_homework/homework_review/HelpBlockTwo"),
+      import(/* webpackChunkName: "HomeworkReview" */ "@/components/classComps/homework/homework_review/HelpBlockTwo"),
     Questions: () =>
-      import(/* webpackChunkName: "HomeworkReview" */ "@/components/schoolComps/dashboard/class/class_homework/homework_review/Questions"),
+      import(/* webpackChunkName: "HomeworkReview" */ "@/components/classComps/homework/homework_review/Questions"),
     Recommendation: () =>
-      import(/* webpackChunkName: "HomeworkReview" */ "@/components/schoolComps/dashboard/class/class_homework/homework_review/Recommendation"),
+      import(/* webpackChunkName: "HomeworkReview" */ "@/components/classComps/homework/homework_review/Recommendation"),
     VideoCardModal: () =>
-      import(/* webpackChunkName: "VideoCardModal" */ "@/components/schoolComps/modals/VideoCardModal"),
+      import(/* webpackChunkName: "VideoCardModal" */ "@/components/modalComps/classModals/VideoCardModal"),
     PracticeCardModal: () =>
-      import(/* webpackChunkName: "PracticeCardModal" */ "@/components/schoolComps/modals/PracticeCardModal")
+      import(/* webpackChunkName: "PracticeCardModal" */ "@/components/modalComps/classModals/PracticeCardModal")
   },
 
-  mounted() {},
+  mounted() {
+    this.getAccountType();
+  },
 
   data() {
     return {
+      account_type: "",
+      route_link: "",
       video_card: false,
       practice_card: false
     };
@@ -93,6 +97,15 @@ export default {
   computed: {},
 
   methods: {
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
+      if (this.account_type === "school") {
+        this.route_link = "ClassHomework";
+      } else if (this.account_type === "teacher") {
+        this.route_link = "TeacherHomework";
+      }
+    },
+
     toggleVideoCard() {
       this.video_card = !this.video_card;
     },
@@ -104,5 +117,69 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+// SHOW MORE LINK
+.show-more {
+  font-size: 14px;
+  line-height: 19px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.homework-review-section {
+  position: relative;
+  top: 65px;
+
+  @include breakpoint_max(md) {
+    top: 30px;
+  }
+
+  .review-container {
+    margin-top: 50px;
+
+    @include breakpoint_max(md) {
+      margin-bottom: 70px;
+    }
+  }
+
+  .homework-review-title {
+    font-size: 30px;
+    line-height: 44px;
+    margin-bottom: 40px;
+
+    @include breakpoint_max(lg) {
+      font-size: 26px;
+    }
+
+    @include breakpoint_max(md) {
+      font-size: 23px;
+    }
+
+    @include breakpoint_max(sm) {
+      font-size: 22px;
+    }
+  }
+
+  // HELP BLOCK ONE
+  .help-block-one,
+  .help-block-two,
+  .questions,
+  .recommendation {
+    margin-bottom: 50px;
+
+    .title {
+      margin-bottom: 20px;
+      font-size: 21px;
+      line-height: 29px;
+
+      @include breakpoint_max(md) {
+        font-size: 18px;
+      }
+
+      @include breakpoint_max(sm) {
+        font-size: 16px;
+      }
+    }
+  }
+}
 </style>

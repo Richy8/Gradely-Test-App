@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="Class Homework | School Dashboard" description="Description goes here"/>
-    <div class="class-homework-section">
+    <div class="class-homework-section sub-type-layout">
       <div class="container px-1">
         <div class="row">
           <!-- CLASS BRANCH INFO COLUMN -->
@@ -61,12 +61,12 @@
 </template>
 
 <script>
-import MembersCard from "@/components/schoolComps/dashboard/class/MembersCard";
-import MembersEmptyTeacherRow from "@/components/schoolComps/dashboard/class/MembersEmptyTeacherRow";
-import DefaultInfo from "@/components/schoolComps/dashboard/class/class_homework/DefaultInfo";
+import MembersCard from "@/components/classComps/studentSideBar/MembersCard";
+import MembersEmptyTeacherRow from "@/components/classComps/studentSideBar/MembersEmptyTeacherRow";
+import DefaultInfo from "@/components/classComps/homework/DefaultInfo";
 
 const MembersTeacherRow = () => ({
-  component: import(/* webpackChunkName: "MembersTeacherRow" */ "@/components/schoolComps/dashboard/class/MembersTeacherRow"),
+  component: import(/* webpackChunkName: "MembersTeacherRow" */ "@/components/classComps/studentSideBar/MembersTeacherRow"),
   loading: MembersEmptyTeacherRow,
   error: MembersEmptyTeacherRow,
   delay: 500,
@@ -74,7 +74,7 @@ const MembersTeacherRow = () => ({
 });
 
 const ContentInfo = () => ({
-  component: import(/* webpackChunkName: "ContentInfo" */ "@/components/schoolComps/dashboard/class/class_homework/ContentInfo"),
+  component: import(/* webpackChunkName: "ContentInfo" */ "@/components/classComps/homework/ContentInfo"),
   loading: DefaultInfo,
   error: DefaultInfo,
   delay: 500,
@@ -91,7 +91,7 @@ export default {
     DefaultInfo,
     ContentInfo,
     AddTeacherModal: () =>
-      import(/* webpackChunkName: "AddTeacherModal" */ "@/components/schoolComps/modals/AddTeacherModal")
+      import(/* webpackChunkName: "AddTeacherModal" */ "@/components/modalComps/schoolModals/AddTeacherModal")
   },
 
   data() {
@@ -138,4 +138,34 @@ export default {
 </script>
 
 <style lang="scss">
+.class-homework-section {
+  // PAGE TITLE
+  .page-title {
+    font-size: 22px;
+
+    @include breakpoint_max(lg) {
+      font-size: 20px;
+    }
+
+    @include breakpoint_max(sm) {
+      font-size: 18px;
+    }
+  }
+
+  .right-layout {
+    @include breakpoint_max(lg) {
+      width: 110% !important;
+      right: -50px;
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+
+    @include breakpoint_max(md) {
+      width: 100% !important;
+      right: 0;
+      padding-left: 15px !important;
+      padding-right: 15px !important;
+    }
+  }
+}
 </style>

@@ -27,6 +27,38 @@
         }
     }
 
+    .dashboard-subheader-row {
+        margin-top: 110px;
+        margin-bottom: 40px;
+
+        .page-title {
+            font-size: 28px;
+        }
+
+        @include breakpoint_max(lg) {
+            margin-top: 90px;
+
+            .page-title {
+                font-size: 26px;
+            }
+        }
+
+        @include breakpoint_max(md) {
+            margin-top: 80px;
+            margin-bottom: 30px;
+
+            .page-title {
+                font-size: 20px;
+            }
+        }
+
+        @include breakpoint_max(sm) {
+            .page-title {
+                font-size: 19px;
+            }
+        }
+    }
+
     .form-container {
         @include breakpoint_max(md) {
             margin-bottom: 80px;

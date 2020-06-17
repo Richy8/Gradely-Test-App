@@ -11,8 +11,8 @@
 
       <!-- SCHOOL BANNER -->
       <div class="school-banner w-100">
-        <div class="banner-overlay box-overlay rounded-10">
-          <img :src="dynamicImg('ChristLandBanner.png')" alt="SchoolBanner" class="img">
+        <div class="banner-overlay box-overlay brand_inverse_bg rounded-10">
+          <img v-lazy="dynamicImg('ChristLandBanner.png')" alt="SchoolBanner" class="img">
         </div>
 
         <!-- CHANGE PHOTO BUTTON -->
@@ -43,7 +43,7 @@
 
           <!-- LOGO CHANGE BUTTON -->
           <div class="logo-change-button">
-            <label for="changeLogo" class="btn btn-default-outline btn-md">
+            <label for="changeLogo" class="btn btn-default-outline btn-md mx-0">
               <input type="file" class="inputFile" id="changeLogo" hidden>
               <div class="d-flex flex-center">
                 <div>CHANGE LOGO</div>
@@ -128,6 +128,11 @@ export default {
       font-weight: 600;
     }
 
+    @include breakpoint_max(xs) {
+      right: 20px;
+      bottom: -20px;
+    }
+
     &:hover {
       color: rgb(216, 216, 216);
     }
@@ -161,8 +166,10 @@ export default {
     }
 
     @include breakpoint_max(xs) {
-      top: -30px;
-      @include equal_min_edge(80);
+      top: -20px;
+      left: -10px;
+      margin-right: 5px;
+      @include equal_min_edge(75);
     }
 
     .avatar-text {
@@ -173,14 +180,14 @@ export default {
       }
 
       @include breakpoint_max(sm) {
-        font-size: 48px;
+        font-size: 42px;
       }
     }
   }
 }
 
 .right-section {
-  @include flex_row_start_nowrap;
+  @include flex_row_start_wrap;
   align-items: flex-start;
   padding-top: 15px;
 

@@ -83,8 +83,13 @@
       <!-- PAGE TITLE -->
       <div class="page-title">Delete your Account</div>
 
-      <div class="delete-acct">
+      <div class="delete-acct" v-if="account_type==='school'">
         <p>Deleting your account transfers the control of the school account to another school user with admin access. You will no longer be able to log in or get any notification about the activities of this school any longer. This includes your teacher activities, parent and student information, results, reports and messages</p>
+        <p class="color_ash">Are you sure you want to continue? This action can not be undone.</p>
+      </div>
+
+      <div class="delete-acct" v-if="account_type==='teacher'">
+        <p>Click the button below to delete all your records; this includes your Homework scores, results, reports, posts and comments.</p>
         <p class="color_ash">Are you sure you want to continue? This action can not be undone.</p>
       </div>
 
@@ -95,9 +100,13 @@
       >Delete this account</button>
     </div>
 
-    <!-- DELETE SCHOOLACCOUNT MODAL -->
-    <DeleteSchoolAccount v-if="delete_modal" @closeTriggered="toggleDeleteModal"></DeleteSchoolAccount>
-    <!-- DELETE SCHOOLACCOUNT MODAL -->
+    <!-- DELETE ACCOUNT MODAL -->
+    <DeleteAccount
+      v-if="delete_modal"
+      :account_type="account_type"
+      @closeTriggered="toggleDeleteModal"
+    ></DeleteAccount>
+    <!-- DELETE ACCOUNT MODAL -->
   </div>
 </template>
 
@@ -106,8 +115,8 @@ export default {
   name: "SettingsAccount",
 
   components: {
-    DeleteSchoolAccount: () =>
-      import(/* webpackChunkName: "DeleteSchoolAccount" */ "@/components/schoolComps/modals/DeleteSchoolAccount")
+    DeleteAccount: () =>
+      import(/* webpackChunkName: "DeleteAccount" */ "@/components/modalComps/settingsModals/DeleteAccount")
   },
 
   data() {
@@ -117,13 +126,22 @@ export default {
         new_password: "",
         new_password_confirm: ""
       },
+      account_type: "",
       delete_modal: false
     };
+  },
+
+  mounted() {
+    this.getAccountType();
   },
 
   methods: {
     toggleDeleteModal() {
       this.delete_modal = !this.delete_modal;
+    },
+
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
     }
   }
 };
@@ -138,6 +156,10 @@ export default {
     font-size: 14.5px;
     line-height: 170%;
     color: $color_ash;
+
+    @include breakpoint_max(sm) {
+      font-size: 13px;
+    }
   }
 }
 </style>

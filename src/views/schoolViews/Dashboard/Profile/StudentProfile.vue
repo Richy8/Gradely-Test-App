@@ -1,15 +1,15 @@
 <template>
   <div>
     <vue-headful :title="meta_title" description="Description goes here"/>
-    <div class="student-profile-section">
+    <div class="student-profile-section base-type-layout">
       <!-- BREADCRUMB -->
       <BreadCrumb
-        class_name="Junior Secondary School 1a"
-        profile_type="Student"
+        item_one="Junior Secondary School 1a"
+        item_three="Student"
         :current_page="1"
         :total_page="32"
-        back_link_text="Members"
-        back_link_route="ClassMembers"
+        item_two="Members"
+        :item_two_link="route_link"
       ></BreadCrumb>
 
       <!-- STUDENTS PROFILE CONTAINER -->
@@ -47,7 +47,7 @@
               <div class="right-column d-flex flex-end">
                 <!-- SUBJECT SELECT -->
                 <div class="subject">
-                  <select class="form-control">
+                  <select class="form-control rounded-select">
                     <option value="Mathematics" selected>Mathematics</option>
                     <option value="English Language">English Language</option>
                     <option value="Social studies">Social studies</option>
@@ -57,7 +57,7 @@
                 </div>
                 <!-- TERM SELECT -->
                 <div class="term">
-                  <select class="form-control">
+                  <select class="form-control rounded-select">
                     <option value="First" selected>First</option>
                     <option value="Second">Second</option>
                     <option value="Third">Third</option>
@@ -98,8 +98,8 @@
 
 <script>
 import BreadCrumb from "@/components/globalComps/BreadCrumb";
-import StudentProfileCard from "@/components/schoolComps/dashboard/profile/studentprofile/StudentProfileCard";
-import PerformanceSummary from "@/components/schoolComps/dashboard/profile/studentprofile/PerformanceSummary";
+import StudentProfileCard from "@/components/profileComps/studentprofile/StudentProfileCard";
+import PerformanceSummary from "@/components/profileComps/studentprofile/PerformanceSummary";
 
 export default {
   name: "StudentProfile",
@@ -109,21 +109,21 @@ export default {
     StudentProfileCard,
     PerformanceSummary,
     TopicBreakdown: () =>
-      import(/* webpackChunkName: "TopicBreakdown" */ "@/components/schoolComps/dashboard/profile/studentprofile/TopicBreakdown"),
+      import(/* webpackChunkName: "TopicBreakdown" */ "@/components/profileComps/studentprofile/TopicBreakdown"),
     PostSection: () =>
-      import(/* webpackChunkName: "PostSection" */ "@/components/schoolComps/dashboard/profile/studentprofile/PostSection"),
+      import(/* webpackChunkName: "PostSection" */ "@/components/profileComps/studentprofile/PostSection"),
     HomeworkSection: () =>
-      import(/* webpackChunkName: "HomeworkSection" */ "@/components/schoolComps/dashboard/profile/studentprofile/HomeworkSection"),
+      import(/* webpackChunkName: "HomeworkSection" */ "@/components/profileComps/studentprofile/HomeworkSection"),
     RemarkSection: () =>
-      import(/* webpackChunkName: "RemarkSection" */ "@/components/schoolComps/dashboard/profile/studentprofile/RemarkSection"),
+      import(/* webpackChunkName: "RemarkSection" */ "@/components/profileComps/studentprofile/RemarkSection"),
     NewMessageModal: () =>
-      import(/* webpackChunkName: "NewMessageModal" */ "@/components/schoolComps/modals/NewMessageModal")
+      import(/* webpackChunkName: "NewMessageModal" */ "@/components/modalComps/messageModals/NewMessageModal")
   },
-
-  mounted() {},
 
   data() {
     return {
+      account_type: "",
+      route_link: "",
       student_name: "Andrew Oshinaga",
       message_modal: false
     };
@@ -135,7 +135,20 @@ export default {
     }
   },
 
+  mounted() {
+    this.getAccountType();
+  },
+
   methods: {
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
+      if (this.account_type === "school") {
+        this.route_link = "ClassMembers";
+      } else if (this.account_type === "teacher") {
+        this.route_link = "TeacherMembers";
+      }
+    },
+
     toggleMessageModal() {
       this.message_modal = !this.message_modal;
     }

@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="School Calendar | Gradelyng" description="Description goes here"/>
-    <div class="gradely-calendar-section">
+    <div class="gradely-calendar-section base-type-layout">
       <!-- PAGE TITLE -->
       <div class="container px-1">
         <div class="row">
@@ -190,15 +190,5 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  transition: opacity 0.2s ease-in;
-}
-.fade-leave-active {
-  transition: opacity 0.2s ease-out;
-  opacity: 0;
-}
+<style>
 </style>

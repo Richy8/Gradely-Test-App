@@ -34,11 +34,19 @@ export default {
   margin-right: 5px;
   margin-bottom: 5px;
 
+  @include breakpoint_max(xs) {
+    padding: 6px 14px;
+  }
+
   .class-title {
     font-size: 12px;
     line-height: 16px;
     color: $color_text;
     margin-right: 13px;
+
+    @include breakpoint_max(xs) {
+      font-size: 11px;
+    }
   }
 }
 </style>

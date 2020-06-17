@@ -1,10 +1,10 @@
 <template>
   <div>
     <!-- SCHOOL LOGO SECTION -->
-    <div class="personal-info-section d-flex justify-content-start align-items-start nowrap">
+    <div class="personal-info-section d-flex justify-content-start align-items-center nowrap">
       <!-- DISPLAY LOGO -->
       <div class="avatar avatar-square avatar_xl avatar-personal rounded-10">
-        <div class="avatar-text brand_primary">{{ getInitial }}</div>
+        <div class="avatar-text" :class="color_scheme">{{ getInitial }}</div>
       </div>
 
       <div class="right-section d-flex flex-wrap align-items-start">
@@ -34,7 +34,7 @@ import { setInitial } from "@/scripts/utilities";
 export default {
   name: "PersonalProfileCard",
 
-  props: ["fullname"],
+  props: ["fullname", "color_scheme"],
 
   computed: {
     getInitial() {
@@ -50,7 +50,6 @@ export default {
     margin-right: 30px;
 
     .avatar-text {
-      background: rgba($brand_inverse, 0.2);
       font-size: 32px;
 
       @include breakpoint_max(sm) {

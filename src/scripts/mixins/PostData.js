@@ -9,6 +9,7 @@ const PostData = {
                     time: "2 hrs ago",
                     text: "",
                     img: "",
+                    video: "",
                     activity: true,
                     comment: [{
                         comment_author_img: "ChildSqr2.png",
@@ -51,6 +52,7 @@ const PostData = {
                     time: "3 hrs ago",
                     text: "<p>This is an example of an announcement for the class. An announcement is posted by the school admin and can only be seen by the target class or individual.</p> <p>It can also have more than a paragraph. In fact, you should use a smart text editor instead of the regular textbox for the input. That way, we will be able to get multiple paragraphs from the post.</p>",
                     img: "",
+                    video: "",
                     activity: true,
                     comment: [{
                             comment_author_img: "ChildSqr2.png",
@@ -82,6 +84,7 @@ const PostData = {
                     time: "4 hrs ago",
                     text: "",
                     img: "",
+                    video: "",
                     activity: true,
                     comment: [{
                         comment_author_img: "MaleChild.png",
@@ -109,6 +112,7 @@ const PostData = {
                     time: "4 hrs ago",
                     text: "We recommend that you follow up with the listed students as they seem to be struggling with Number Bases",
                     img: "",
+                    video: "",
                     activity: false,
                     comment: [],
                     poll_data: [],
@@ -143,12 +147,29 @@ const PostData = {
                 },
                 {
                     id: 6,
+                    type: "Video",
+                    author_img: "",
+                    author_name: "Anthony Joshua",
+                    time: "4 hrs ago",
+                    text: "Please endeavour to study this video",
+                    img: "",
+                    video: "TestVideo.mp4",
+                    activity: false,
+                    comment: [],
+                    poll_data: [],
+                    event_data: {},
+                    homework_data: {},
+                    recommendation_data: []
+                },
+                {
+                    id: 7,
                     type: "Poll",
                     author_img: "",
                     author_name: "Francis Sanni",
                     time: "3 hrs ago",
                     text: "How many times can you practice mathematics in one day?",
                     img: "",
+                    video: "",
                     activity: true,
                     comment: [{
                             comment_author_img: "ChildSqr2.png",

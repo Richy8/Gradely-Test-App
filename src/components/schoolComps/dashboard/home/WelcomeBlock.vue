@@ -3,7 +3,7 @@
     <!-- EMPTY LOGO -->
     <div class="empty-logo">
       <img
-        :src="localImg('HugoListEmpty.png')"
+        v-lazy="localImg('HugoListEmpty.png')"
         alt="HugoListEmpty"
         class="hugo-empty-img position-relative"
       >

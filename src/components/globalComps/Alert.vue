@@ -27,6 +27,7 @@ export default {
 <style lang="scss">
 .alert-card {
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+  margin-bottom: 20px;
 
   &:hover {
     background-color: #ffffff;

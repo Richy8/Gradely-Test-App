@@ -37,7 +37,9 @@
               class="icon avatar avatar-square"
               v-if="nav_type==='parent' || nav_type==='teacher'"
             >
-              <span class="icon-message brand_navy"></span>
+              <router-link :to="'/'+nav_type+'/dashboard/message'">
+                <span class="icon-message brand_navy"></span>
+              </router-link>
             </div>
 
             <!-- ICON NOTIFICATION -->
@@ -146,6 +148,15 @@ export default {
       }); //FIND THE INDEX OF THE CURRENT ROUTE
 
       this.nav_active[activeIndex] = true; //SET THE CURRENT ROUTE TO ACTIVE
+
+      if (
+        url === "StudentTopicTrend" ||
+        url === "StudentTopicTrend_TP" ||
+        url === "StudentProfile" ||
+        url === "StudentProfile_TP"
+      ) {
+        this.nav_active[1] = true;
+      }
     },
 
     toggleSettings() {

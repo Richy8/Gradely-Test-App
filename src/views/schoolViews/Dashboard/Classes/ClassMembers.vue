@@ -1,7 +1,7 @@
 <template>
   <div>
     <vue-headful title="Class Members | School Dashboard" description="Description goes here"/>
-    <div class="class-members-section">
+    <div class="class-members-section sub-type-layout">
       <div class="container px-1">
         <div class="row">
           <!-- CLASS BRANCH INFO COLUMN -->
@@ -68,13 +68,13 @@
 </template>
 
 <script>
-import MembersCard from "@/components/schoolComps/dashboard/class/MembersCard";
-import MembersEmptyTeacherRow from "@/components/schoolComps/dashboard/class/MembersEmptyTeacherRow";
-import StudentDefaultInfo from "@/components/schoolComps/dashboard/class/class_members/students/StudentDefaultInfo";
-import TeacherDefaultInfo from "@/components/schoolComps/dashboard/class/class_members/teachers/TeacherDefaultInfo";
+import MembersCard from "@/components/classComps/studentSideBar/MembersCard";
+import MembersEmptyTeacherRow from "@/components/classComps/studentSideBar/MembersEmptyTeacherRow";
+import StudentDefaultInfo from "@/components/classComps/members/students/StudentDefaultInfo";
+import TeacherDefaultInfo from "@/components/classComps/members/teachers/TeacherDefaultInfo";
 
 const MembersTeacherRow = () => ({
-  component: import(/* webpackChunkName: "MembersTeacherRow" */ "@/components/schoolComps/dashboard/class/MembersTeacherRow"),
+  component: import(/* webpackChunkName: "MembersTeacherRow" */ "@/components/classComps/studentSideBar/MembersTeacherRow"),
   loading: MembersEmptyTeacherRow,
   error: MembersEmptyTeacherRow,
   delay: 500,
@@ -82,7 +82,7 @@ const MembersTeacherRow = () => ({
 });
 
 const StudentContentInfo = () => ({
-  component: import(/* webpackChunkName: "StudentContentInfo" */ "@/components/schoolComps/dashboard/class/class_members/students/StudentContentInfo"),
+  component: import(/* webpackChunkName: "StudentContentInfo" */ "@/components/classComps/members/students/StudentContentInfo"),
   loading: StudentDefaultInfo,
   error: StudentDefaultInfo,
   delay: 500,
@@ -90,7 +90,7 @@ const StudentContentInfo = () => ({
 });
 
 const TeacherContentInfo = () => ({
-  component: import(/* webpackChunkName: "TeacherContentInfo" */ "@/components/schoolComps/dashboard/class/class_members/teachers/TeacherContentInfo"),
+  component: import(/* webpackChunkName: "TeacherContentInfo" */ "@/components/classComps/members/teachers/TeacherContentInfo"),
   loading: TeacherDefaultInfo,
   error: TeacherDefaultInfo,
   delay: 500,
@@ -109,9 +109,9 @@ export default {
     StudentContentInfo,
     TeacherContentInfo,
     AddTeacherModal: () =>
-      import(/* webpackChunkName: "AddTeacherModal" */ "@/components/schoolComps/modals/AddTeacherModal"),
+      import(/* webpackChunkName: "AddTeacherModal" */ "@/components/modalComps/schoolModals/AddTeacherModal"),
     NewMessageModal: () =>
-      import(/* webpackChunkName: "NewMessageModal" */ "@/components/schoolComps/modals/NewMessageModal")
+      import(/* webpackChunkName: "NewMessageModal" */ "@/components/modalComps/messageModals/NewMessageModal")
   },
 
   data() {
@@ -185,18 +185,7 @@ export default {
 </script>
 
 <style lang="scss">
-.fade-enter {
-  opacity: 0;
-}
-.fade-enter-active {
-  transition: opacity 0.2s ease-in;
-}
-.fade-leave-active {
-  transition: opacity 0.2s ease-out;
-  opacity: 0;
-}
-
-// PAGE TAB
+// PAGE TAB PLACEHOLDER
 %page-tab-styling {
   position: absolute;
   content: "";
@@ -205,6 +194,29 @@ export default {
   bottom: -7.5px;
   left: 0;
   background: $brand_accent;
+}
+
+.class-members-section {
+  .right-layout {
+    @include breakpoint_max(md) {
+      margin-bottom: 80px;
+    }
+  }
+
+  // PAGE TITLE
+  .page-title {
+    font-size: 21px;
+    line-height: 29px;
+    margin-bottom: 30px;
+
+    @include breakpoint_max(lg) {
+      font-size: 20px;
+    }
+
+    @include breakpoint_max(sm) {
+      font-size: 18px;
+    }
+  }
 }
 
 .page-tab {
