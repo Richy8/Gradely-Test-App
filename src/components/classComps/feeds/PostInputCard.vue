@@ -34,6 +34,7 @@
     <div
       class="teacher-mobile-post-input rounded-5 white d-flex justify-content-between align-items-center nowrap pointer"
       :class="account_type==='teacher' ? 'd-md-none' : ''"
+      v-if="account_type==='teacher'"
       @click="togglePostModal"
     >
       <!-- POST INPUT PLACEHOLDER -->
