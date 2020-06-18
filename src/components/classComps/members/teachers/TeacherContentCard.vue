@@ -32,8 +32,8 @@
         <div class="view">
           <router-link :to="{name: 'TeacherProfile'}" class="btn-link font-weight-bold">View</router-link>
         </div>
-        <div class="more pointer" v-on-clickaway="onDrop" @click="toggleTeacherOption">
-          <span class="icon-ellipsis-h color_grey_dark"></span>
+        <div class="avatar more pointer" v-on-clickaway="onDrop" @click="toggleTeacherOption">
+          <span class="icon-ellipsis-h flex-center color_grey_dark"></span>
         </div>
 
         <!-- DRODOWN MENU -->
@@ -45,9 +45,9 @@
             <li class="mb-1">
               <router-link to>Remove from School</router-link>
             </li>
-            <li class="mb-1">
+            <!-- <li class="mb-1">
               <router-link to @click.native="$emit('toggleMessage')">Send a Message</router-link>
-            </li>
+            </li>-->
           </ul>
         </div>
       </div>
@@ -157,6 +157,12 @@ export default {
   .more {
     margin-left: 26px;
     font-size: 22px;
+    transition: border 0.1s ease-in-out;
+
+    &:hover {
+      border: 0.6px solid $border_grey;
+      box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+    }
   }
 
   .dropdown-btn-menu {

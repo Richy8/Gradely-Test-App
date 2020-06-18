@@ -23,7 +23,7 @@
               <span class="flex-center icon-video-card brand_tonic font-22"></span>
             </div>
             <!-- TEXT -->
-            <div class="text">Explainer</div>
+            <div class="text">Video</div>
           </div>
 
           <!-- PRACTICE OPTION -->

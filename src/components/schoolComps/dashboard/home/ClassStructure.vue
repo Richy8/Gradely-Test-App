@@ -55,7 +55,7 @@
         <div
           class="label-text font-weight-bold brand_accent"
           @click="$emit('branchModal')"
-        >Add more Branches</div>
+        >Add more Arms</div>
       </div>
     </div>
   </div>

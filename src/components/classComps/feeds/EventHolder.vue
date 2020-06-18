@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="event-holder position-relative">
+    <div class="event-holder position-relative pointer">
       <!-- EVENT INFO -->
       <div class="event-info">
         <!-- EVENT ICON -->
@@ -211,7 +211,11 @@ export default {
   @include flex_row_between_nowrap;
   padding: 10px 2px 11px;
   border-bottom: 1px solid rgba(black, 0.15);
-  // opacity: 0.95;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: rgb(1, 65, 117);
+  }
 
   .event-info {
     @include flex_row_start_nowrap;

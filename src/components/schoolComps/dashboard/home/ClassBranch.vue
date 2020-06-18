@@ -2,7 +2,10 @@
   <div>
     <div class="class-branch-section">
       <!-- BRANCH CARD -->
-      <div class="branch-card white rounded-5 h-auto position-relative">
+      <div
+        class="branch-card white rounded-5 h-auto position-relative pointer"
+        @click.self="goToFeeds()"
+      >
         <!-- BRANCH CARD LABEL -->
         <div class="branch-card-label position-absolute w-100 rounded-top-5" :class="setLabelBg"></div>
 
@@ -12,12 +15,13 @@
         >
           <!-- BRANCH CARD TITLE -->
           <div class="branch-card-title font-weight-bold color_text">{{ setclassInfo }}</div>
-          <div class="branch-card-option my-auto" v-if="show_option">
-            <span
-              class="icon-ellipsis-h font-20 pointer"
-              v-on-clickaway="onDrop"
-              @click="toggleDropdown"
-            ></span>
+          <div
+            class="branch-card-option rounded-circle"
+            v-on-clickaway="onDrop"
+            @click="toggleDropdown"
+            v-if="show_option"
+          >
+            <span class="icon-ellipsis-h font-20 pointer flex-center"></span>
             <!-- DROP DOWN MENU -->
             <div class="dropdown-btn-menu placement-bottom" v-if="branch_options">
               <ul class="list-unstyled">
@@ -116,6 +120,10 @@ export default {
   },
 
   methods: {
+    goToFeeds() {
+      this.$router.push("/school/dashboard/class");
+    },
+
     toggleDropdown() {
       this.branch_options = !this.branch_options;
     },
@@ -137,6 +145,12 @@ export default {
   width: 210px;
   padding: 16px 15px;
   margin-right: 20px;
+  transition: all 0.4s ease-in-out;
+
+  &:hover {
+    transform: scale(0.95);
+    box-shadow: 0px 1.5px 5px rgba(0, 0, 0, 0.15);
+  }
 
   @include breakpoint_max(lg) {
     @include custom_min_edge(190, 160);
@@ -172,6 +186,15 @@ export default {
 
       @include breakpoint_max(sm) {
         font-size: 13px;
+      }
+    }
+
+    .branch-card-option {
+      @include equal_min_edge(32);
+      transition: border 0.1s ease-in-out;
+      &:hover {
+        border: 0.8px solid $border_grey;
+        box-shadow: 0px 1.5px 4px rgba(0, 0, 0, 0.15);
       }
     }
   }

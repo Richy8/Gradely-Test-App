@@ -33,14 +33,14 @@
             </div>
 
             <!-- ICON MESSAGE -->
-            <div
+            <!-- <div
               class="icon avatar avatar-square"
               v-if="nav_type==='parent' || nav_type==='teacher'"
             >
               <router-link :to="'/'+nav_type+'/dashboard/message'">
                 <span class="icon-message brand_navy"></span>
               </router-link>
-            </div>
+            </div>-->
 
             <!-- ICON NOTIFICATION -->
             <div class="icon avatar avatar-square">

@@ -7,6 +7,7 @@
 
         <!-- PREFETCH OTHER IMAGES -->
         <img :src="localImg('DisplayBanner.png')" class="d-none" width="0" height="0">
+        <img :src="localImg('TeacherDialog.png')" class="d-none" width="0" height="0">
         <img :src="localImg('DialogOne.png')" class="d-none" width="0" height="0">
         <img :src="localImg('DialogTwo.png')" class="d-none" width="0" height="0">
         <img :src="localImg('DialogThree.png')" class="d-none" width="0" height="0">

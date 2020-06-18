@@ -58,8 +58,8 @@
           <div
             class="modal-body-row row d-flex justify-content-center align-items-center nowrap mb-2"
           >
-            <button class="btn btn-md black-ic z-depth-0 mr-5">Cancel</button>
-            <button type="submit" class="btn btn-md btn-accent ml-5">Join Class</button>
+            <button class="btn btn-md black-ic z-depth-0 mr-3">Cancel</button>
+            <button type="submit" class="btn btn-md btn-accent ml-3">Join Class</button>
           </div>
         </form>
       </div>

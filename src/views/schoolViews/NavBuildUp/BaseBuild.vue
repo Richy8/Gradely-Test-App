@@ -2,9 +2,9 @@
   <div>
     <!-- BASE NAV COMPONENT -->
     <BaseNav
-      :nav_text="['Home', 'Teachers', 'Parents', 'Messages']"
-      :nav_icon="['icon-tachometer', 'icon-teacher', 'icon-parent-child', 'icon-message']"
-      :nav_name="['SchoolDashboard', 'SchoolDashboardTeacher', 'SchoolDashboardParent', 'SchoolDashboardMessage']"
+      :nav_text="['Home', 'Teachers', 'Parents']"
+      :nav_icon="['icon-tachometer', 'icon-teacher', 'icon-parent-child']"
+      :nav_name="['SchoolDashboard', 'SchoolDashboardTeacher', 'SchoolDashboardParent']"
       nav_type="school"
       :show_nav="true"
     ></BaseNav>
@@ -16,9 +16,9 @@
 
     <!-- MOBILE BASE NAV COMPONENT -->
     <MobileBaseNav
-      :nav_text="['Home', 'Teachers', 'Parents', 'Messages']"
-      :nav_icon="['icon-tachometer', 'icon-teacher', 'icon-parent-child', 'icon-message']"
-      :nav_name="['SchoolDashboard', 'SchoolDashboardTeacher', 'SchoolDashboardParent', 'SchoolDashboardMessage']"
+      :nav_text="['Home', 'Teachers', 'Parents']"
+      :nav_icon="['icon-tachometer', 'icon-teacher', 'icon-parent-child']"
+      :nav_name="['SchoolDashboard', 'SchoolDashboardTeacher', 'SchoolDashboardParent']"
     ></MobileBaseNav>
     <!-- MOBILE BASE NAV COMPONENT -->
   </div>

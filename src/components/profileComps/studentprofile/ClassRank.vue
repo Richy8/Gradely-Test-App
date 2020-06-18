@@ -76,16 +76,16 @@ export default {
 
 <style lang="scss">
 .class-rank-indicator {
-  margin-top: 20px;
+  margin-top: 30px;
 
   .title {
-    margin-bottom: 10px;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.02em;
   }
 
   .rank-indicator {
+    margin-top: -28px;
     margin-bottom: 4px;
 
     @include breakpoint_max(xl) {

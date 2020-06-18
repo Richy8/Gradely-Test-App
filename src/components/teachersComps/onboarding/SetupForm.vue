@@ -32,7 +32,7 @@
     </form>
 
     <!-- CLASS DISPLAY BLOCK -->
-    <div class="row mt-4 mb-5">
+    <div class="row mt-4">
       <div class="col-md-8 border-gray">
         <div class="class-info-display rounded-5">
           <!-- CLASS -->

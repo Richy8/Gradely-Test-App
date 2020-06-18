@@ -26,7 +26,9 @@
                 <!-- INFO -->
                 <div>
                   <div class="label">Phone Number</div>
-                  <div class="output brand_accent link-underline">08033752311</div>
+                  <div class="output brand_accent link-underline">
+                    <a href="tel:+2348033752311">08033752311</a>
+                  </div>
                 </div>
               </div>
 
@@ -37,19 +39,21 @@
                 <!-- INFO -->
                 <div>
                   <div class="label">Email Address</div>
-                  <div class="output output-email brand_accent link-underline">rbh_ltd@gmail.com</div>
+                  <div class="output output-email brand_accent link-underline">
+                    <a href="mailto:rbh_ltd@gmail.com">rbh_ltd@gmail.com</a>
+                  </div>
                 </div>
               </div>
             </div>
 
             <!-- MESSAGE BUTTON -->
-            <button
+            <!-- <button
               class="btn btn-md d-flex flex-center rounded-20 btn-grey-outline"
               @click="$emit('toggleMessage')"
             >
               <span class="icon-chat font-16 border_grey_dark mr-2"></span>
               SEND A MESSAGE
-            </button>
+            </button>-->
           </div>
 
           <!-- CARD BOTTOM -->
@@ -59,7 +63,7 @@
             >Children</div>
             <!-- CHILDREN ROW -->
             <div
-              class="children-row w-100 d-flex justify-content-between align-items-center flex-wrap"
+              class="children-row w-100 d-flex justify-content-around align-items-center flex-wrap"
             >
               <!-- CHILD COMPONENT -->
               <ChildListCard
@@ -146,7 +150,7 @@ export default {
     .parent-info {
       @include flex_row_around_nowrap;
       align-items: flex-start;
-      margin-bottom: 30px;
+      margin-bottom: 55px;
 
       @include breakpoint_min_max(360, 390) {
         @include flex_row_center_nowrap;
@@ -164,7 +168,7 @@ export default {
           font-size: 12px;
           line-height: 16px;
           color: $border_grey;
-          margin-bottom: 1px;
+          margin-bottom: 2px;
 
           @include breakpoint_max(xs) {
             font-size: 11px;

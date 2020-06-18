@@ -1,10 +1,13 @@
 <template>
   <div class="position-relative">
-    <div class="student-member-card content-fill white position-relative">
+    <div
+      class="student-member-card content-fill white position-relative"
+      @click.self="goToProfile()"
+    >
       <!-- CARD OPTIONS -->
       <div class="card-options">
-        <div class="icon" v-on-clickaway="onDrop" @click="toggleMenu">
-          <span class="icon-ellipsis-h color_grey_dark font-20"></span>
+        <div class="icon avatar" v-on-clickaway="onDrop" @click="toggleMenu">
+          <span class="icon-ellipsis-h flex-center color_grey_dark font-20"></span>
         </div>
       </div>
 
@@ -31,9 +34,9 @@
           <li class="mb-1">
             <router-link to>Change Class</router-link>
           </li>
-          <li class="mb-1">
+          <!-- <li class="mb-1">
             <router-link to @click.native="$emit('toggleMessage')">Message Parent</router-link>
-          </li>
+          </li>-->
           <li class="mb-1">
             <router-link to>Remove from School</router-link>
           </li>
@@ -74,6 +77,11 @@ export default {
       this.account_type = this.$route.path.split("/")[1];
     },
 
+    goToProfile() {
+      this.$router.push(`/${this.account_type}/dashboard/student/profile`);
+      console.log("clicked");
+    },
+
     toggleMenu() {
       this.child_option = !this.child_option;
     },
@@ -90,6 +98,10 @@ export default {
   border: 1px solid #e5e5e5;
   @include flex_column_center;
   transition: all 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: 0px 1.5px 4px rgba(0, 0, 0, 0.15);
+  }
 
   @include breakpoint_max(md) {
     @include flex_row_start_nowrap;
@@ -144,6 +156,14 @@ export default {
     margin-left: auto !important;
     margin-right: auto !important;
 
+    .icon {
+      transition: border 0.1s ease-in-out;
+      &:hover {
+        border: 0.6px solid $border_grey;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+      }
+    }
+
     @include breakpoint_max(md) {
       top: 14%;
       width: 92.5%;
@@ -183,18 +203,20 @@ export default {
   .class-code {
     font-size: 12px;
     line-height: 16px;
+    text-align: center;
 
     @include breakpoint_max(lg) {
       font-size: 11.5px;
+    }
+
+    @include breakpoint_max(md) {
+      text-align: left;
     }
   }
 
   &:hover {
     background: rgb(250, 250, 250);
-
-    .avatar_lg {
-      transform: scale(1.1);
-    }
+    transform: scale(0.95);
   }
 }
 </style>

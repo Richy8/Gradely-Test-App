@@ -5,7 +5,7 @@
 // INPUT PLACEHOLDER
 input {
     &::placeholder {
-        color: $border_grey_dark;
+        color: $color_ash_lighter !important;
     }
 
     &:focus {

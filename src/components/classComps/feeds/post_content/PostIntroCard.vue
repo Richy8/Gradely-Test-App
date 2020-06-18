@@ -32,9 +32,9 @@
             <li>
               <router-link to @click.native="$emit('toggleComment')">Reply</router-link>
             </li>
-            <li>
+            <!-- <li>
               <router-link to @click.native="toggleMessageModal">Message Author</router-link>
-            </li>
+            </li>-->
             <li>
               <router-link to @click.native="toggleReportModal">Report Post</router-link>
             </li>
@@ -190,6 +190,13 @@ export default {
   }
 
   .post-options {
+    .avatar {
+      transition: border 0.1s ease-in-out;
+      &:hover {
+        border: 0.6px solid $border_grey;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+      }
+    }
     .dropdown-btn-menu {
       width: 180px;
       a {

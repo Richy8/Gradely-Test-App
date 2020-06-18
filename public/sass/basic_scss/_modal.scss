@@ -26,8 +26,8 @@
 
     .modal-box {
         @extend %modal-styling;
-        padding: 20px 0;
-        padding-top: 30px;
+        padding: 20px 10px;
+        padding-top: 35px;
 
         .modal-title {
             font-size: 16px;
@@ -50,15 +50,15 @@
             height: auto;
             margin-top: 20px;
             margin-bottom: 5px;
-            padding-left: 22px;
-            padding-right: 22px;
+            padding-left: 15px;
+            padding-right: 15px;
 
             .modal-body-row {
                 position: relative;
                 margin-bottom: 35px;
 
                 .label-compact {
-                   @include label_compact;
+                    @include label_compact;
                 }
             }
 
@@ -97,27 +97,22 @@
     }
 
     @keyframes animateTop {
-        from{top:-300px; opacity: 0}
-        to{top: 50px; opacity: 1}
+        from {
+            top: -300px;
+            opacity: 0
+        }
+
+        to {
+            top: 50px;
+            opacity: 1
+        }
     }
 
     .modal-sm-md {
-        width: 44%;
+        width: 600px;
 
-        @include breakpoint_max(xl) {
-            width: 45%;
-        }
-
-        @include breakpoint_max(lg) {
-            width: 50%;
-        }
-
-        @include breakpoint_min_max(768, 896) {
-            width: 65%;
-        }
-
-        @include breakpoint_max(md) {
-            width: 84%;
+        @include breakpoint_min_max(450, 650) {
+            width: 520px;
         }
 
         @include breakpoint_max(sm) {
@@ -126,25 +121,17 @@
     }
 
     .modal-md {
-        width: 50%;
-
-        @include breakpoint_max(xl) {
-            width: 62%;
-        }
-
-        @include breakpoint_max(lg) {
-            width: 65%;
-        }
+        width: 660px;
 
         @include breakpoint_max(md) {
-            width: 85%;
+            width: 560px;
         }
 
         @include breakpoint_max(sm) {
             width: 97%;
         }
     }
-    
+
 }
 
 // MODAL COVER OVELAY BACKGROUND

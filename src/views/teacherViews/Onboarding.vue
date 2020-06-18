@@ -1,34 +1,32 @@
 <template>
   <div>
-    <vue-headful title="Teacher Onboarding   | Gradelyng" description="Description goes here"/>
+    <vue-headful title="Teacher Onboarding | Gradelyng" description="Description goes here"/>
     <div class="onboarding-section">
-      <b-container fluid>
-        <b-row class="position-relative w-100 border">
-          <b-col class="setup-container">
-            <!-- SETUP BOX -->
-            <div class="setup-box w-100 white rounded-20">
-              <!-- SETUP TOP -->
-              <div class="setup-top w-100 h-auto">
-                <!-- TITLE -->
-                <div class="teacher-setup-title font-weight-bold brand_primary">Join a Class</div>
-                <!-- INFO TEXT -->
-                <div
-                  class="teacher-info-text color_grey_dark"
-                >Join a class using the class code collected from your school admin. You can add more classes after you complete your onboarding.</div>
+      <div class="container onboarding-wrapper">
+        <div class="setup-container">
+          <!-- SETUP BOX -->
+          <div class="setup-box white rounded-20">
+            <!-- SETUP TOP -->
+            <div class="setup-equal-top">
+              <!-- TITLE -->
+              <div class="teacher-setup-title font-weight-bold brand_primary">Join a Class</div>
+              <!-- INFO TEXT -->
+              <div
+                class="teacher-info-text color_grey_dark"
+              >Join a class using the class code collected from your school admin. You can add more classes after you complete your onboarding.</div>
 
-                <!-- SETUP FORM COMPONENT -->
-                <SetupForm @toggleInviteForm="toggleInvitation" @findClass="toggleFindClassModal"/>
-                <!-- SETUP FORM COMPONENT -->
-              </div>
-              <!-- SETUP BOTTOM -->
-              <div class="setup-bottom w-100 justify-content-end rounded-bottom-20">
-                <button class="btn transparent_bg z-depth-0 brand_navy font-13">Skip</button>
-                <button class="btn btn-secondary">Continue</button>
-              </div>
+              <!-- SETUP FORM COMPONENT -->
+              <SetupForm @toggleInviteForm="toggleInvitation" @findClass="toggleFindClassModal"/>
+              <!-- SETUP FORM COMPONENT -->
             </div>
-          </b-col>
-        </b-row>
-      </b-container>
+            <!-- SETUP BOTTOM -->
+            <div class="setup-bottom w-100 justify-content-end rounded-bottom-20">
+              <button class="btn transparent_bg z-depth-0 brand_navy font-13">Skip</button>
+              <button class="btn btn-secondary">Continue</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- MODAL -->
@@ -39,6 +37,7 @@
 </template>
 
 <script>
+import { bgColorSetter } from "@/scripts/utilities";
 import SetupForm from "@/components/teachersComps/onboarding/SetupForm.vue";
 
 export default {
@@ -56,6 +55,10 @@ export default {
       invite_school_modal: false,
       find_class: false
     };
+  },
+
+  mounted() {
+    bgColorSetter("#f0f0f0");
   },
 
   methods: {

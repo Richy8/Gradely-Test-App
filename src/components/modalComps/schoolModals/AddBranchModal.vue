@@ -3,7 +3,7 @@
     <Modal @closeModal="$emit('closeTriggered')">
       <!-- MODAL TITLE -->
       <div slot="modal-title">
-        <span class="font-weight-bold">Add Class branches</span>
+        <span class="font-weight-bold">Add Class arms</span>
       </div>
 
       <!-- MODAL BODY -->
@@ -22,7 +22,7 @@
           <!-- CLASS BRANCH INPUT -->
           <div class="modal-body-row row">
             <div class="col-4">
-              <label for class="text-uppercase control-label font-14 color_grey_dark">Class Branches</label>
+              <label for class="text-uppercase control-label font-14 color_grey_dark">Class Arms</label>
             </div>
             <div class="col-8">
               <input
@@ -71,8 +71,8 @@
           <div
             class="modal-body-row row d-flex justify-content-center align-items-center nowrap mb-2"
           >
-            <button @click="dropModal" class="btn btn-md black-ic z-depth-0 mr-5">Cancel</button>
-            <button type="submit" class="btn btn-md btn-accent ml-5">Save Class</button>
+            <button @click="dropModal" class="btn btn-md black-ic z-depth-0 mr-3">Cancel</button>
+            <button type="submit" class="btn btn-md btn-accent ml-3">Save Class</button>
           </div>
         </form>
       </div>
