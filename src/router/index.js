@@ -1,13 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
+import globalRoute from "./globalRoute.js";
 import authRoute from "./authRoute.js";
 import schoolRoute from "./schoolRoute.js";
 import teachersRoute from "./teachersRoute.js";
 
 Vue.use(VueRouter);
 
-const routes = [...authRoute, ...schoolRoute, ...teachersRoute];
+const routes = [...globalRoute, ...authRoute, ...schoolRoute, ...teachersRoute];
 
 const router = new VueRouter({
   mode: "history",

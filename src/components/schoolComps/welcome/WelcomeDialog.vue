@@ -18,6 +18,12 @@
               display_img="GradelyIcon.png"
             ></DialogOne>
 
+            <DialogOne
+              v-if="current_tab === 0 && account_type === 'parent'"
+              banner="ParentDialog.png"
+              display_img="GradelyIcon.png"
+            ></DialogOne>
+
             <DialogTwo
               v-else-if="current_tab === 1"
               banner="DisplayBanner.png"

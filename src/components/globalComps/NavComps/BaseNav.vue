@@ -74,6 +74,7 @@
     </div>
 
     <!-- SETTINGS PANEL -->
+    <!-- DESKTOP -->
     <SettingsPanel
       user_name="Kunle Ajayi"
       school_name="Christland Intl College"
@@ -83,6 +84,7 @@
       @onClose="slide_panel=false"
     ></SettingsPanel>
 
+    <!-- MOBILE VIEW -->
     <SettingsPanel
       user_name="Anthony Joshua"
       school_name="Christland Intl College"
