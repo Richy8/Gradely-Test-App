@@ -1,0 +1,1 @@
+The AuthContainer component does not cover the signup section of school and student page

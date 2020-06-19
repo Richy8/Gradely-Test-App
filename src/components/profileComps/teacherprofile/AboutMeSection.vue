@@ -4,7 +4,7 @@
       <div class="row">
         <!-- MOBILE PROFILE PHOTO -->
         <div class="col-3 d-md-none">
-          <div class="avatar avatar-square avatar_xxl">
+          <div class="avatar avatar-square avatar_xxl brand_inverse_light_bg">
             <img v-lazy="dynamicImg(teacher_img)" alt class="avatar-img">
           </div>
         </div>
@@ -44,14 +44,19 @@
         </div>
 
         <!-- ACTIVITY BUTTON -->
-        <div class="col-12 button-row d-flex justify-content-start align-items-center d-md-none">
+        <div
+          class="col-12 button-row d-flex justify-content-start align-items-center d-md-none mt-4"
+        >
           <!-- MESSAGE BUTTON -->
-          <button class="btn btn-md btn-inverse color_text mr-3" @click="$emit('toggleMessage')">
+          <!-- <button class="btn btn-md btn-inverse color_text mr-3" @click="$emit('toggleMessage')">
             <span class="icon-chat mr-2 font-16"></span> Send a Message
-          </button>
+          </button>-->
 
           <!-- REMOVE BUTTON -->
-          <button class="btn btn-md transparent_bg text-capitalize ml-3 color_ash">Remove from Class</button>
+          <router-link
+            to
+            class="transparent_bg text-capitalize color_ash font-14 font-weight-600"
+          >Remove from Class</router-link>
         </div>
       </div>
 

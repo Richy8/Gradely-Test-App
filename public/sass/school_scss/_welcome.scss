@@ -10,7 +10,7 @@
         .welcome-container {
             position: absolute;
             overflow: auto;
-            width: 53.5%;
+            width: 800px;
             top: 50%;
             left: 50%;
             box-sizing: border-box;
@@ -24,11 +24,7 @@
             }
 
             @include breakpoint_max(xl) {
-                width: 58%;
-            }
-
-            @include breakpoint_max(lg) {
-                width: 78%;
+                width: 750px;
             }
 
             @include breakpoint_max(md) {
@@ -42,11 +38,11 @@
 
             .banner {
                 position: relative;
-                height: 400px;
+                height: 410px;
                 margin-bottom: 30px;
 
                 @include breakpoint_max(xl) {
-                    height: 350px;
+                    height: 370px;
                 }
 
                 @include breakpoint_max(sm) {
@@ -73,20 +69,16 @@
                 .display-img {
                     position: absolute;
                     bottom: 0;
-                    width: 90%;
+                    width: 700px;
                     left: 50%;
                     transform: translateX(-50%);
 
                     @include breakpoint_max(lg) {
-                        width: 65%;
-                    }
-
-                    @include breakpoint_max(lg) {
-                        width: 70%;
+                        width: 680px;
                     }
 
                     @include breakpoint_max(md) {
-                        width: 75%;
+                        width: 80%;
                     }
 
                     @include breakpoint_max(sm) {
@@ -98,8 +90,8 @@
                     @include transform_center;
 
                     @include breakpoint_max(xs) {
-                        width: 115px;
-                        height: 110px;
+                        width: 105px;
+                        height: 100px;
                     }
                 }
 

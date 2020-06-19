@@ -68,8 +68,11 @@
           <div
             class="modal-body-row row d-flex justify-content-center align-items-center nowrap mb-2"
           >
-            <button @click="dropModal" class="btn btn-md black-ic z-depth-0 mr-5">Cancel</button>
-            <button type="submit" class="btn btn-md btn-accent ml-5">Invite School</button>
+            <button
+              @click="$emit('closeTriggered')"
+              class="btn btn-md black-ic z-depth-0 mr-3"
+            >Cancel</button>
+            <button type="submit" class="btn btn-md btn-accent ml-3">Invite School</button>
           </div>
         </form>
       </div>

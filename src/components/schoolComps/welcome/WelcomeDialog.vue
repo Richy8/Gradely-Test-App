@@ -7,8 +7,20 @@
             <!-- COMPONENT BLOCK -->
             <!-- <component :is="tab"></component> -->
             <DialogOne
-              v-if="current_tab === 0"
-              :banner="initial_dialog"
+              v-if="current_tab === 0 && account_type === 'school'"
+              banner="DialogOne.png"
+              display_img="GradelyIcon.png"
+            ></DialogOne>
+
+            <DialogOne
+              v-if="current_tab === 0 && account_type === 'teacher'"
+              banner="TeacherDialog.png"
+              display_img="GradelyIcon.png"
+            ></DialogOne>
+
+            <DialogOne
+              v-if="current_tab === 0 && account_type === 'parent'"
+              banner="ParentDialog.png"
               display_img="GradelyIcon.png"
             ></DialogOne>
 
@@ -80,7 +92,7 @@ export default {
   data() {
     return {
       tab: DialogOne,
-      initial_dialog: "",
+      account_type: "",
       current_tab: 0,
       tabs: [DialogOne, DialogTwo, DialogThree, DialogFour, DialogFive]
     };
@@ -92,12 +104,7 @@ export default {
 
   methods: {
     getAccountType() {
-      let account = this.$route.path.split("/")[1];
-      if (account === "school") {
-        this.initial_dialog = "DialogOne.png";
-      } else if (account === "teacher") {
-        this.initial_dialog = "TeacherDialog.png";
-      }
+      this.account_type = this.$route.path.split("/")[1];
     },
 
     nextTab() {

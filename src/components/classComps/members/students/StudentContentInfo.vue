@@ -91,42 +91,6 @@
           @toggleMessage="$emit('toggleMessage')"
         ></StudentContentCard>
       </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <StudentContentCard
-          child_img="GirlOne.png"
-          child_name="Helen Bright"
-          child_code="UED/2019/0856"
-          @toggleMessage="$emit('toggleMessage')"
-        ></StudentContentCard>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <StudentContentCard
-          child_img="BoyTwo.png"
-          child_name="Andrew Oshinaga"
-          child_code="UED/2019/0856"
-          @toggleMessage="$emit('toggleMessage')"
-        ></StudentContentCard>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <StudentContentCard
-          child_img="GirlTwo.png"
-          child_name="Giwa Omolade"
-          child_code="UED/2019/0856"
-          @toggleMessage="$emit('toggleMessage')"
-        ></StudentContentCard>
-      </div>
-
-      <div class="col-12 col-md-4 col-lg-3">
-        <StudentContentCard
-          child_img="GirlOne.png"
-          child_name="Helen Bright"
-          child_code="UED/2019/0856"
-          @toggleMessage="$emit('toggleMessage')"
-        ></StudentContentCard>
-      </div>
       <!-- STUDENT CONTENT CARD -->
     </div>
   </div>

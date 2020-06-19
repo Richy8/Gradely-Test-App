@@ -125,14 +125,12 @@ button {
 
 .btn-inverse {
     color: $brand_primary;
-    background: $brand_inverse_light;
-    ;
-    border: 1px solid $brand_inverse;
+    background: $brand_inverse;
 
     &:hover,
     &:focus {
-        background-color: $brand_black !important;
-        color: $brand_accent !important;
+        background-color: $brand_accent !important;
+        color: $brand_navy !important;
     }
 }
 

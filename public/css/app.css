@@ -3109,13 +3109,12 @@ button:focus, button:visited {
 
 .btn-inverse {
   color: #2a4f77;
-  background: #dbf5f8;
-  border: 1px solid #11bdcf;
+  background: #11bdcf;
 }
 
 .btn-inverse:hover, .btn-inverse:focus {
-  background-color: #07374B !important;
-  color: #FAA017 !important;
+  background-color: #FAA017 !important;
+  color: #113255 !important;
 }
 
 .btn-default {
@@ -4324,22 +4323,22 @@ button:focus, button:visited {
     FORM STYLING
 ==================== */
 input::-webkit-input-placeholder {
-  color: #959595;
+  color: #a8a8a8 !important;
 }
 input:-moz-placeholder {
-  color: #959595;
+  color: #a8a8a8 !important;
 }
 input::-moz-placeholder {
-  color: #959595;
+  color: #a8a8a8 !important;
 }
 input:-ms-input-placeholder {
-  color: #959595;
+  color: #a8a8a8 !important;
 }
 input::-ms-input-placeholder {
-  color: #959595;
+  color: #a8a8a8 !important;
 }
 input::placeholder {
-  color: #959595;
+  color: #a8a8a8 !important;
 }
 
 input:focus {
@@ -5168,8 +5167,8 @@ label.checkbox-inline {
 }
 
 .modal-overlay .modal-box {
-  padding: 20px 0;
-  padding-top: 30px;
+  padding: 20px 10px;
+  padding-top: 35px;
 }
 
 .modal-overlay .modal-box .modal-title {
@@ -5197,8 +5196,8 @@ label.checkbox-inline {
   height: auto;
   margin-top: 20px;
   margin-bottom: 5px;
-  padding-left: 22px;
-  padding-right: 22px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .modal-overlay .modal-box .modal-body .modal-body-row {
@@ -5295,30 +5294,12 @@ label.checkbox-inline {
 }
 
 .modal-overlay .modal-sm-md {
-  width: 44%;
+  width: 600px;
 }
 
-@media only screen and (max-width: 1200px) {
+@media (min-width: 450px) and (max-width: 650px) {
   .modal-overlay .modal-sm-md {
-    width: 45%;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .modal-overlay .modal-sm-md {
-    width: 50%;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 896px) {
-  .modal-overlay .modal-sm-md {
-    width: 65%;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .modal-overlay .modal-sm-md {
-    width: 84%;
+    width: 520px;
   }
 }
 
@@ -5329,24 +5310,12 @@ label.checkbox-inline {
 }
 
 .modal-overlay .modal-md {
-  width: 50%;
-}
-
-@media only screen and (max-width: 1200px) {
-  .modal-overlay .modal-md {
-    width: 62%;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .modal-overlay .modal-md {
-    width: 65%;
-  }
+  width: 660px;
 }
 
 @media only screen and (max-width: 767px) {
   .modal-overlay .modal-md {
-    width: 85%;
+    width: 560px;
   }
 }
 
@@ -5362,101 +5331,122 @@ label.checkbox-inline {
 
 /* ONBOARDING STYLE */
 .onboarding-section {
-  position: fixed;
+  position: relative;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   height: 100%;
   width: 100%;
-  overflow: auto;
-  background-color: rgba(229, 229, 229, 0.6);
+  height: 100%;
 }
 
-.onboarding-section .setup-container {
-  position: absolute;
-  margin-top: 70px;
-  margin-bottom: 70px;
-  width: 54%;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-     -moz-transform: translateX(-50%);
-      -ms-transform: translateX(-50%);
-       -o-transform: translateX(-50%);
-          transform: translateX(-50%);
+.onboarding-section .onboarding-wrapper {
+  position: relative;
+  height: 100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row nowrap;
+     -moz-box-orient: horizontal;
+     -moz-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+     -moz-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-@media only screen and (max-width: 991px) {
-  .onboarding-section .setup-container {
-    width: 65%;
-  }
+.onboarding-section .onboarding-wrapper .setup-container {
+  width: 740px;
+  margin: 70px auto;
 }
 
 @media only screen and (max-width: 767px) {
-  .onboarding-section .setup-container {
-    width: 80%;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .onboarding-section .setup-container {
-    width: 90%;
-    left: 55%;
-    -webkit-transform: translateX(-52%);
-       -moz-transform: translateX(-52%);
-        -ms-transform: translateX(-52%);
-         -o-transform: translateX(-52%);
-            transform: translateX(-52%);
+  .onboarding-section .onboarding-wrapper .setup-container {
+    width: 720px;
   }
 }
 
 @media only screen and (max-width: 450px) {
-  .onboarding-section .setup-container {
+  .onboarding-section .onboarding-wrapper .setup-container {
     width: 100%;
-    left: 55%;
-    -webkit-transform: translateX(-52%);
-       -moz-transform: translateX(-52%);
-        -ms-transform: translateX(-52%);
-         -o-transform: translateX(-52%);
-            transform: translateX(-52%);
   }
 }
 
-.onboarding-section .setup-container .setup-box {
+.onboarding-section .onboarding-wrapper .setup-container .setup-box {
   overflow: hidden;
   -webkit-box-shadow: 0px 0px 6px rgba(58, 58, 58, 0.1);
      -moz-box-shadow: 0px 0px 6px rgba(58, 58, 58, 0.1);
           box-shadow: 0px 0px 6px rgba(58, 58, 58, 0.1);
 }
 
-.onboarding-section .setup-container .setup-box .setup-top {
+.onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-top {
   padding-top: 40px;
   padding-left: 85px;
   padding-right: 85px;
 }
 
 @media only screen and (max-width: 1200px) {
-  .onboarding-section .setup-container .setup-box .setup-top {
+  .onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-top {
     padding-left: 70px;
     padding-right: 70px;
   }
 }
 
 @media only screen and (max-width: 991px) {
-  .onboarding-section .setup-container .setup-box .setup-top {
+  .onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-top {
     padding-left: 50px;
     padding-right: 50px;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  .onboarding-section .setup-container .setup-box .setup-top {
+  .onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-top {
     padding-left: 30px;
     padding-right: 30px;
   }
 }
 
-.onboarding-section .setup-container .setup-box .setup-bottom {
+.onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-equal-top {
+  padding: 60px 75px !important;
+}
+
+@media only screen and (max-width: 1200px) {
+  .onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-equal-top {
+    padding: 60px 70px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-equal-top {
+    padding: 50px !important;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-equal-top {
+    padding: 30px !important;
+  }
+}
+
+.onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-bottom {
   display: -webkit-box;
   display: -webkit-flex;
   display: -moz-box;
@@ -5484,13 +5474,13 @@ label.checkbox-inline {
 }
 
 @media only screen and (max-width: 576px) {
-  .onboarding-section .setup-container .setup-box .setup-bottom .btn {
+  .onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-bottom .btn {
     font-size: 10px !important;
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .onboarding-section .setup-container .setup-box .setup-bottom {
+  .onboarding-section .onboarding-wrapper .setup-container .setup-box .setup-bottom {
     padding: 15px 25px;
   }
 }
@@ -6877,7 +6867,7 @@ label.checkbox-inline {
 .welcome-dialog-section .welcome-container {
   position: absolute;
   overflow: auto;
-  width: 53.5%;
+  width: 800px;
   top: 50%;
   left: 50%;
   -webkit-box-sizing: border-box;
@@ -6903,13 +6893,7 @@ label.checkbox-inline {
 
 @media only screen and (max-width: 1200px) {
   .welcome-dialog-section .welcome-container {
-    width: 58%;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .welcome-dialog-section .welcome-container {
-    width: 78%;
+    width: 750px;
   }
 }
 
@@ -6928,13 +6912,13 @@ label.checkbox-inline {
 
 .welcome-dialog-section .welcome-container .banner {
   position: relative;
-  height: 400px;
+  height: 410px;
   margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 1200px) {
   .welcome-dialog-section .welcome-container .banner {
-    height: 350px;
+    height: 370px;
   }
 }
 
@@ -6972,7 +6956,7 @@ label.checkbox-inline {
 .welcome-dialog-section .welcome-container .banner .display-img {
   position: absolute;
   bottom: 0;
-  width: 90%;
+  width: 700px;
   left: 50%;
   -webkit-transform: translateX(-50%);
      -moz-transform: translateX(-50%);
@@ -6983,19 +6967,13 @@ label.checkbox-inline {
 
 @media only screen and (max-width: 991px) {
   .welcome-dialog-section .welcome-container .banner .display-img {
-    width: 65%;
-  }
-}
-
-@media only screen and (max-width: 991px) {
-  .welcome-dialog-section .welcome-container .banner .display-img {
-    width: 70%;
+    width: 680px;
   }
 }
 
 @media only screen and (max-width: 767px) {
   .welcome-dialog-section .welcome-container .banner .display-img {
-    width: 75%;
+    width: 80%;
   }
 }
 
@@ -7018,8 +6996,8 @@ label.checkbox-inline {
 
 @media only screen and (max-width: 450px) {
   .welcome-dialog-section .welcome-container .banner .brand-icon {
-    width: 115px;
-    height: 110px;
+    width: 105px;
+    height: 100px;
   }
 }
 

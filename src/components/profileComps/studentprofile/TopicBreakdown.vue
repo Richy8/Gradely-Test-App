@@ -144,6 +144,12 @@ export default {
     position: relative;
     width: 100px;
 
+    .form-control {
+      &:focus {
+        background: unset;
+      }
+    }
+
     &::after {
       position: absolute;
       content: "\25BE";

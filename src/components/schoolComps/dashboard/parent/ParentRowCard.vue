@@ -37,9 +37,9 @@
             <li>
               <router-link to @click.native="$emit('openParentProfile')">View Details</router-link>
             </li>
-            <li>
+            <!-- <li>
               <router-link to @click.native="$emit('toggleMessage')">Send a Message</router-link>
-            </li>
+            </li>-->
           </ul>
         </div>
       </div>

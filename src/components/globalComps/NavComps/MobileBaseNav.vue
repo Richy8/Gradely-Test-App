@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- MOBILE NAVIGATIONS BASE -->
-    <div class="mobile-nav-base index-99 w-100 h-auto white d-md-none">
+    <div class="mobile-nav-base index-99 w-100 h-auto white d-md-none" v-if="show_nav">
       <!-- NAVIGATION-->
       <div class="mobile-nav w-25 h-auto" v-for="(text, index) in nav_text" :key="index">
         <router-link :to="{name: nav_name[index]}" :class="{'active': nav_active[index]}">
@@ -21,7 +21,11 @@ export default {
   props: {
     nav_text: Array,
     nav_icon: Array,
-    nav_name: Array
+    nav_name: Array,
+    show_nav: {
+      type: Boolean,
+      default: true
+    }
   },
 
   data() {

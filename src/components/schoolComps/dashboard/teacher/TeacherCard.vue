@@ -1,25 +1,30 @@
 <template>
   <div>
     <!-- TEACHER CARD -->
-    <div class="teacher-card w-100 white rounded-20 position-relative border-0">
+    <div class="teacher-card w-100 white rounded-20 position-relative border-0 pointer">
       <!-- TEACHER CARD TOP -->
-      <div class="teacher-card-top rounded-top-20 position-relative w-100">
+      <div
+        class="teacher-card-top rounded-top-20 position-relative w-100"
+        @click.self="goToProfile()"
+      >
         <!-- CARD OPTIONS -->
         <div class="card-option position-absolute d-flex justify-content-end align-items-start">
-          <span
-            class="icon-ellipsis-h font-20 pointer"
-            v-on-clickaway="onDrop"
-            @click="toggleDropdown"
-          ></span>
+          <div class="avatar drop-menu">
+            <span
+              class="icon-ellipsis-h font-20 pointer flex-center"
+              v-on-clickaway="onDrop"
+              @click="toggleDropdown"
+            ></span>
+          </div>
           <!-- DRODOWN MENU -->
           <div class="dropdown-btn-menu placement-bottom" v-if="card_option">
             <ul class="list-unstyled">
               <li class="mb-1">
                 <router-link :to="{name: 'TeacherProfile'}">View Profile</router-link>
               </li>
-              <li class="mb-1">
+              <!-- <li class="mb-1">
                 <router-link to @click.native="$emit('toggleMessage')">Send a Message</router-link>
-              </li>
+              </li>-->
               <li class="mb-1">
                 <router-link to>Assign to Class</router-link>
               </li>
@@ -46,7 +51,10 @@
       </div>
 
       <!-- TEACHER CARD BOTTOM -->
-      <div class="teacher-card-bottom rounded-bottom-20 position-relative w-100">
+      <div
+        class="teacher-card-bottom rounded-bottom-20 position-relative w-100"
+        @click.self="goToProfile()"
+      >
         <!-- CLASSES -->
         <div class="teacher-column classes">
           <div class="counter font-weight-bold color_text mb-1">{{ classes }}</div>
@@ -96,6 +104,11 @@ export default {
   },
 
   methods: {
+    goToProfile() {
+      this.$router.push("/school/dashboard/teacher/profile");
+      console.log("clicked");
+    },
+
     toggleDropdown() {
       this.card_option = !this.card_option;
     },
@@ -113,6 +126,12 @@ export default {
   height: 226.84px;
   box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
   margin-bottom: 30px;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    transform: scale(0.95);
+    box-shadow: 0px 1.5px 5px rgba(0, 0, 0, 0.15);
+  }
 
   @include breakpoint_max(xl) {
     height: 220px;
@@ -137,6 +156,14 @@ export default {
       margin: 25px auto 0;
       top: 0;
       width: 90%;
+
+      .drop-menu {
+        transition: border 0.1s ease-in-out;
+        &:hover {
+          border: 0.6px solid $border_grey;
+          box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.15);
+        }
+      }
 
       @include breakpoint_max(xs) {
         width: 88%;

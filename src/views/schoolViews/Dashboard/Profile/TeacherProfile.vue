@@ -18,14 +18,14 @@
           <!-- PROFILE PHOTO -->
           <div class="col-12 col-md-3 d-none d-md-block side-photo mx-auto">
             <!-- AVATAR -->
-            <div class="avatar avatar_big avatar-square">
+            <div class="avatar avatar_big avatar-square brand_inverse_light_bg">
               <img v-lazy="dynamicImg('TeacherOneLg.png')" alt class="avatar-img">
             </div>
 
             <!-- SEND MESSAGE BUTTON -->
-            <button class="btn btn-md btn-inverse" @click="toggleMessageModal">
+            <!-- <button class="btn btn-md btn-inverse" @click="toggleMessageModal">
               <span class="icon-chat mr-2 font-16"></span> Send a Message
-            </button>
+            </button>-->
           </div>
 
           <!-- PROFILE DETAILS -->

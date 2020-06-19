@@ -19,9 +19,9 @@
         </div>
 
         <!-- POLLS -->
-        <div class="avatar" @click="$emit('pollClicked')">
+        <!-- <div class="avatar" @click="$emit('pollClicked')">
           <span class="flex-center icon-poll"></span>
-        </div>
+        </div>-->
       </div>
 
       <!-- POST BUTTON -->
@@ -31,7 +31,7 @@
           :class="setButtonType"
           v-if="comment_type"
         >Reply</span>
-        <span class="color_text rounded-20 text-uppercase" :class="setButtonType" v-else>Post</span>
+        <span class="color_text rounded-20 text-uppercase" :class="setButtonType" v-else>Create</span>
       </div>
     </div>
   </div>

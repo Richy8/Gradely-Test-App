@@ -2,9 +2,9 @@
   <div>
     <!-- BASE NAV COMPONENT -->
     <BaseNav
-      :nav_text="['Home', 'Teachers', 'Parents', 'Messages']"
-      :nav_icon="['icon-tachometer', 'icon-teacher', 'icon-parent-child', 'icon-message']"
-      :nav_name="['SchoolDashboard', 'SchoolDashboardTeacher', 'SchoolDashboardParent', 'SchoolDashboardMessage']"
+      :nav_text="['Home', 'Teachers', 'Parents']"
+      :nav_icon="['icon-tachometer', 'icon-teacher', 'icon-parent-child']"
+      :nav_name="['SchoolDashboard', 'SchoolDashboardTeacher', 'SchoolDashboardParent']"
       nav_type="school"
       :show_nav="true"
     ></BaseNav>
@@ -19,6 +19,7 @@
       :nav_text="['Feeds', 'Members', 'Homework', 'Report']"
       :nav_icon="['icon-feeds', 'icon-members', 'icon-library', 'icon-pie-chart']"
       :nav_name="['ClassFeeds', 'ClassMembers', 'ClassHomework', 'ClassReport']"
+      :show_nav="false"
     ></MobileBaseNav>
     <!-- MOBILE BASE NAV COMPONENT -->
   </div>

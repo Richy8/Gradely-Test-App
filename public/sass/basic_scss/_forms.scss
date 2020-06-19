@@ -5,7 +5,7 @@
 // INPUT PLACEHOLDER
 input {
     &::placeholder {
-        color: $border_grey_dark;
+        color: $color_ash_lighter !important;
     }
 
     &:focus {
@@ -470,5 +470,4 @@ label {
     @include breakpoint_max(xs) {
         font-size: 12px;
     }
-
 }
