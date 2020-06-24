@@ -62,6 +62,35 @@
               </ul>
             </li>
           </ul>
+
+          <!-- PARENT LINKS -->
+          <ul class="list-unstyled mt-3">
+            <li class="brand_navy">
+              PARENT PAGES
+              <ul class="list-unstyled ml-4 mt-2">
+                <!-- PARENT SIGNUP -->
+                <li class="mb-2">
+                  <router-link to="/parent/signup" class="btn-link">
+                    <span class="icon-arrow-right"></span> PARENT SIGN UP
+                  </router-link>
+                </li>
+
+                <!-- TEACHER ONBOARDING -->
+                <li class="mb-2">
+                  <router-link to="/teacher/onboarding" class="btn-link">
+                    <span class="icon-arrow-right"></span> TEACHER ONBOARDING
+                  </router-link>
+                </li>
+
+                <!-- TEACHER DASBOARD -->
+                <li class="mb-2">
+                  <router-link to="/parent/dashboard/feeds" class="btn-link">
+                    <span class="icon-arrow-right"></span> PARENT DASHBOARD
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
