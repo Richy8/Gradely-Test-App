@@ -91,6 +91,35 @@
               </ul>
             </li>
           </ul>
+
+          <!-- OTHER LINKS -->
+          <ul class="list-unstyled mt-3">
+            <li class="brand_navy">
+              PARENT PAGES
+              <ul class="list-unstyled ml-4 mt-2">
+                <!-- LOGIN -->
+                <li class="mb-2">
+                  <router-link to="/login" class="btn-link">
+                    <span class="icon-arrow-right"></span> LOGIN
+                  </router-link>
+                </li>
+
+                <!-- FORGET PASSWORD -->
+                <li class="mb-2">
+                  <router-link to="/forget_password" class="btn-link">
+                    <span class="icon-arrow-right"></span> FORGET PASSWORD
+                  </router-link>
+                </li>
+
+                <!-- RESET PASSWORD -->
+                <li class="mb-2">
+                  <router-link to="reset_password" class="btn-link">
+                    <span class="icon-arrow-right"></span> RESET PASSWORD
+                  </router-link>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>

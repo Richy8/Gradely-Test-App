@@ -11,7 +11,7 @@ const parentsRoute = [
         component: BaseEntry,
         children: [{
                 path: "",
-                name: "TeacherFeeds",
+                name: "ParentFeeds",
                 component: () => import( /* webpackChunkName: "teacherdashboard" */ "@/views/parentViews/Dashboard/Feeds"),
                 meta: {
                     requiresAuth: true

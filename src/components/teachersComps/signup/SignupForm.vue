@@ -10,16 +10,23 @@
       <!-- ERROR ALERT -->
       <AuthAlertCard v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></AuthAlertCard>
 
-      <form action @submit.prevent class="auth-form">
+      <form action @submit.prevent="signup" class="auth-form">
         <!-- FIRSTNAME -->
         <div class="form-group compact-row">
+          <div class="alert alert-danger" v-if="show_err">
+          <li
+          v-for="(error,index) in error_msg"
+          :key="index">
+          {{ error[0] }}
+          </li>
+        </div>
           <label
             for="firstName"
             class="label-compact label-sm font-weight-bold brand_primary font-11-5"
           >First Name</label>
           <input
             type="text"
-            v-model="form.firstname"
+            v-model="form.first_name"
             id="firstName"
             class="form-control"
             required
@@ -35,7 +42,7 @@
           >Last Name</label>
           <input
             type="text"
-            v-model="form.lastname"
+            v-model="form.last_name"
             id="lastName"
             class="form-control"
             required
@@ -53,6 +60,22 @@
             type="text"
             v-model="form.email"
             id="email"
+            class="form-control"
+            required
+            placeholder="Enter your email address"
+          >
+        </div>
+
+        <!-- PHONE NUMBER -->
+        <div class="form-group compact-row">
+          <label
+            for="email"
+            class="label-compact label-sm font-weight-bold brand_primary font-11-5"
+          >Phone Number</label>
+          <input
+            type="text"
+            v-model="form.phone"
+            id="phoneNumber"
             class="form-control"
             required
             placeholder="Enter your email address"
@@ -107,6 +130,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: "SignupForm",
 
@@ -118,23 +142,49 @@ export default {
   data() {
     return {
       form: {
-        firstname: "",
-        lastname: "",
-        email: "",
-        password: ""
+        first_name: "teacher",
+        last_name: "teacher",
+        email: "teacher@mail.com",
+        phone: "09038366937",
+        password: "password",
+        userType: 'teacher'
       },
       passwordType: true,
       show_alert: false,
       alert_type: "",
-      alert_msg: ""
+      alert_msg: "",
+      show_err: false,
+      error_msg: null
     };
   },
 
   methods: {
+     ...mapActions(['signupUser']),
     showPwd() {
       let pwd_icon = document.querySelector(".show-pwd");
       this.passwordType = !this.passwordType;
       pwd_icon.classList.toggle("show_pass");
+    },
+    signup(){
+      this.signupUser({...this.form})
+      .then(res => {
+        if (res.data.code == 200){
+          const data = res.data.data;   
+          //STORE TOKEN IN LOCAL STORAGE
+          if (localStorage.getItem("gradelyAuthToken")) {
+            localStorage.removeItem("gradelyAuthToken")
+          }    
+          localStorage.setItem("gradelyAuthToken",data.token)
+          //redirect to next phase
+          this.$router.replace({
+            path: `/${data.type}/${!data.is_boarded ? 'onboarding' : 'dashboard'}`
+            });
+        }else{
+          this.show_err = true;
+          this.error_msg = Object.values(res.data.data);
+
+        }
+      });
     }
   }
 };

@@ -19,7 +19,7 @@
             <!-- SETUP BOTTOM -->
             <div class="setup-bottom w-100 rounded-bottom-20">
               <button class="btn btn-whitish">Back</button>
-              <button class="btn btn-accent">Continue</button>
+              <button class="btn btn-accent" @click="update">Continue</button>
             </div>
           </div>
         </div>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 import setupForm from "@/components/schoolComps/onboarding/setupForm.vue";
 import { bgColorSetter } from "@/scripts/utilities";
 
@@ -39,7 +40,22 @@ export default {
   },
 
   mounted() {
+    if (!localStorage.getItem("gradelyAuthToken")) {
+      this.$router.replace({path: "/login"})
+    }
     bgColorSetter("#f0f0f0");
+  },
+  methods: {
+    ...mapActions(["updateBoardingStatus"]),
+    update(){
+      this.updateBoardingStatus()
+      .then(res => {
+        console.log(res);
+        if(res.data.code == 200){
+          this.$router.replace({path: '/school/dashboard/feeds'})
+        }
+      })
+    }
   }
 };
 </script>
