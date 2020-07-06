@@ -28,27 +28,45 @@ const actions = {
         try {
             const query = await axios.post('/login',data)
             const response = query.data
-
             //SET STATE IF VALIDATED PROPERLY
             if (query.status == 200) {
                 commit('VALIDATE_USER', response);
             }
-
             return query;
         } catch (err) {
             console.log('failed');
         }
 
     },
+    async getBoardingStatus(){
+        try {
+            const token = localStorage.getItem("gradelyAuthToken");
+            console.log(token)
+            const query =  await axios.get("/general/boarding-status",{
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            return query
+        } catch (error) {
+            console.log(error)
+        }
+        
+        
+    },
     async updateBoardingStatus(){
         const token = localStorage.getItem("gradelyAuthToken");
-        console.log(token);
-        const query =  await axios.put("/general/update-boarding",null,{
-            headers: {
-                "Authorization": `Bearer ${token}`
-            }
-        })
-        return query
+        try {
+            const query =  await axios.put("/general/update-boarding",null,{
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            return query
+        } catch (error) {
+            console.log(error)
+        }
+       
         
     },
     async sendResetLink(_,email) {
@@ -71,11 +89,22 @@ const actions = {
     },
 
     logout({ commit }){
+        // END USER SESSION
+        const query = axios.post("/logout",null,{
+            headers: {
+                "Authorization": `Bearer ${localStorage.getItem('gradelyAuthToken')}`
+            }
+        })
+       // REMOVE TOKEN FROM LOCAL STORAGE
         localStorage.removeItem('gradelyAuthToken')
         let response = {
             data: null
         }
+
+        // EMPTY VUEX STORE
         commit('VALIDATE_USER',response)
+
+        return query
     }
 
 };

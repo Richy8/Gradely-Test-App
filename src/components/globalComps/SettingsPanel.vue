@@ -86,7 +86,7 @@
           </li>
 
           <!-- LOG OUT -->
-          <li>
+          <li @click.prevent="logoutAction">
             <router-link to class="d-flex justify-content-start align-items-center nowrap">
               <span class="icon icon-log-out border_grey_dark"></span>
               <div class="link-text">Log Out</div>
@@ -99,6 +99,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex"
 import { colors, random, shuffle, setInitial } from "@/scripts/utilities";
 
 export default {
@@ -110,7 +111,17 @@ export default {
     email: String,
     panel_type: String
   },
-
+  methods: {
+    ...mapActions(["logout"]),
+    logoutAction() {
+      this.logout()
+      .then(()=>{
+        this.$router.replace({
+          path: "/login"
+        })
+      })
+    }
+  },
   computed: {
     getInitial() {
       return setInitial(this.user_name);

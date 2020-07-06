@@ -116,26 +116,32 @@ export default {
     // HANDLE LOGIN OF USERS
     handleLogin() {
       this.$refs.loginBtn.innerText = "LOGGING IN..";
-      // DISPATCH AN ACTION
+      // DISPATCH LOGIN ACTION
       let {email,password} = this.loginform 
       this.loginUser({
         email,
         password
       })
       .then(res => {
-        console.log(res.status,res);
-        if (res.status !== 200) {
+        // CONDITION FOR INVALID LOGIN DETAILS
+        if (res.data.code !== 200) {
           this.show_error = true
           this.error_msg = res.data.message
           this.$refs.loginBtn.innerText = "LOG IN";
         }else{
+          // RETRIEVE DATA FROM API
           const data = res.data.data;
           
-          //STORE TOKEN IN LOCAL STORAGE
+          // REMOVE PREVIOUS TOKEN IF PRESENT
+          if (localStorage.getItem("gradelyAuthTken")) {
+            localStorage.removeItem("gradelyAuthToken");
+          }
+          // STORE TOKEN IN LOCAL STORAGE
           localStorage.setItem("gradelyAuthToken",data.token)
 
+          // REDIRECT TO DASHBOARD PAGE
           this.$router.replace({
-            path: `/${data.type}/${!data.is_boarded ? 'onboarding' : 'dashboard'}`
+            path: `/${data.type}/dashboard`
             });
         }
         

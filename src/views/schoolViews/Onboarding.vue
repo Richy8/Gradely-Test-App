@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 import setupForm from "@/components/schoolComps/onboarding/setupForm.vue";
 import { bgColorSetter } from "@/scripts/utilities";
 
@@ -46,16 +45,7 @@ export default {
     bgColorSetter("#f0f0f0");
   },
   methods: {
-    ...mapActions(["updateBoardingStatus"]),
-    update(){
-      this.updateBoardingStatus()
-      .then(res => {
-        console.log(res);
-        if(res.data.code == 200){
-          this.$router.replace({path: '/school/dashboard/feeds'})
-        }
-      })
-    }
+    
   }
 };
 </script>
