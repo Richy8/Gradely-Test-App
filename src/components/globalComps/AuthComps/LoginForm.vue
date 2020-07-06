@@ -12,6 +12,7 @@
 
       <form action @submit.prevent="handleLogin" class="auth-form">
         <!-- EMAIL -->
+        <div class="alert alert-danger" v-if="show_error">{{ error_msg }}</div>
         <div class="form-group compact-row">
           <label
             for="userinfo"
@@ -85,17 +86,19 @@ export default {
 
   components: {
     AuthAlertCard: () =>
-      import(/* webpackChunkName: "AuthAlertCard" */ "@/components/globalComps/AuthComps/AuthAlertCard")
+      import(/* webpackChunkName: "AuthAlertCard" */ "@/components/globalComps/AuthComps/AuthAlertCard.vue")
   },
 
   data() {
     return {
       loginform: {
-        email: "",
-        password: ""
+        email: "sample2@email.com",
+        password: "password"
       },
       passwordType: true,
       show_alert: false,
+      show_error: false,
+      error_msg: "",
       alert_type: "",
       alert_msg: ""
     };
@@ -113,8 +116,37 @@ export default {
     // HANDLE LOGIN OF USERS
     handleLogin() {
       this.$refs.loginBtn.innerText = "LOGGING IN..";
-      // DISPATCH AN ACTION
-      this.loginUser(this.loginform);
+      // DISPATCH LOGIN ACTION
+      let {email,password} = this.loginform 
+      this.loginUser({
+        email,
+        password
+      })
+      .then(res => {
+        // CONDITION FOR INVALID LOGIN DETAILS
+        if (res.data.code !== 200) {
+          this.show_error = true
+          this.error_msg = res.data.message
+          this.$refs.loginBtn.innerText = "LOG IN";
+        }else{
+          // RETRIEVE DATA FROM API
+          const data = res.data.data;
+          
+          // REMOVE PREVIOUS TOKEN IF PRESENT
+          if (localStorage.getItem("gradelyAuthTken")) {
+            localStorage.removeItem("gradelyAuthToken");
+          }
+          // STORE TOKEN IN LOCAL STORAGE
+          localStorage.setItem("gradelyAuthToken",data.token)
+
+          // REDIRECT TO DASHBOARD PAGE
+          this.$router.replace({
+            path: `/${data.type}/dashboard`
+            });
+        }
+        
+      })
+      ;
     }
   }
 };

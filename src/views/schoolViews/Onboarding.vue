@@ -19,7 +19,7 @@
             <!-- SETUP BOTTOM -->
             <div class="setup-bottom w-100 rounded-bottom-20">
               <button class="btn btn-whitish">Back</button>
-              <button class="btn btn-accent">Continue</button>
+              <button class="btn btn-accent" @click="update">Continue</button>
             </div>
           </div>
         </div>
@@ -39,7 +39,13 @@ export default {
   },
 
   mounted() {
+    if (!localStorage.getItem("gradelyAuthToken")) {
+      this.$router.replace({path: "/login"})
+    }
     bgColorSetter("#f0f0f0");
+  },
+  methods: {
+    
   }
 };
 </script>

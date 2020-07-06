@@ -1,4 +1,4 @@
-<template>
+  <template>
   <div>
     <div
       class="parent-child-card position-relative overflow-hidden rounded-5 pointer"

@@ -8,7 +8,10 @@
 
       <!-- CLOSE DIALOG -->
       <div class="pageClose dialogDismiss">
-        <button type="button" class="close_dialog cls_lg transparent_bg" @click="backToCatchup"></button>
+        <router-link
+          :to="'/'+account_type+'/dashboard/catchup'"
+          class="close_dialog cls_lg transparent_bg"
+        ></router-link>
       </div>
       <!-- CLOSE DIALOG -->
 
@@ -57,7 +60,7 @@
 
                     <!-- DASHBOARD BUTTON -->
                     <router-link
-                      :to="{name: 'ParentCatchup'}"
+                      :to="'/'+account_type+'/dashboard/catchup'"
                       class="btn btn-md btn-accent font-weight-bold color_text mx-0 position-relative"
                     >Go to Dashboard</router-link>
                   </div>
@@ -150,13 +153,20 @@ export default {
       import(/* webpackChunkName: "QuestionCard" */ "@/components/classComps/homework/QuestionCard")
   },
 
+  data() {
+    return {
+      account_type: ""
+    };
+  },
+
   mounted() {
     document.body.style.backgroundColor = "#113255";
+    this.getAccountType();
   },
 
   methods: {
-    backToCatchup() {
-      this.$router.push("/parent/dashboard/catchup");
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
     }
   }
 };

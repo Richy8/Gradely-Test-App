@@ -14,6 +14,10 @@
       <AuthAlertCard v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></AuthAlertCard>
 
       <form action @submit.prevent="handleForgetPassword" class="auth-form">
+        
+        <div v-if="showError" class="alert alert-danger">
+          <li v-for="(error,index) in err_msg" :key="index"> {{ error[0] }} </li>
+        </div>
         <!-- EMAIL -->
         <div class="form-group compact-row">
           <label
@@ -44,7 +48,6 @@
 </template>
 
 <script>
-import { setTimeout } from "timers";
 import { mapActions } from "vuex";
 
 export default {
@@ -58,11 +61,13 @@ export default {
   data() {
     return {
       form: {
-        email: "menaelvisjones@gmail.com"
+        email: "school@mail.com"
       },
       show_alert: false,
       alert_type: "",
-      alert_msg: ""
+      alert_msg: "",
+      showError: false,
+      err_msg: null
     };
   },
 
@@ -71,11 +76,19 @@ export default {
 
     handleForgetPassword() {
       this.$refs.sendBtn.innerText = "Sending...";
-      setTimeout(() => {
         // DISPATCH AN ACTION
-        this.sendResetLink(this.form.email);
-        this.this.$emit("toggleResetMsg", this.form.email);
-      }, 2000);
+        this.sendResetLink(this.form.email)
+        .then(res =>{
+          if (res.data.code == 200){
+              this.$emit("toggleResetMsg", this.form.email);
+          }else{
+            this.$refs.sendBtn.innerText = "SEND RESET LINK";
+            this.showError = true;
+            this.err_msg = Object.values(res.data.data)
+          }
+        })
+        
+
     }
   }
 };

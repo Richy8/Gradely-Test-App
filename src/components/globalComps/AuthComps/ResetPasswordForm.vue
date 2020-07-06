@@ -19,7 +19,7 @@
           >New Password</label>
           <input
             type="password"
-            v-model="resetForm.password_one"
+            v-model="resetForm.password"
             id="new_password"
             class="form-control"
             required
@@ -36,7 +36,7 @@
           >Confirm Password</label>
           <input
             type="password"
-            v-model="resetForm.password_two"
+            v-model="resetForm.confirm_password"
             id="confirm_password"
             class="form-control"
             required
@@ -72,8 +72,8 @@ export default {
   data() {
     return {
       resetForm: {
-        password_one: "",
-        password_two: ""
+        password: "password",
+        confirm_password: "password"
       },
       show_alert: false,
       alert_type: "",
@@ -85,7 +85,7 @@ export default {
     ...mapActions(["resetPassword"]),
 
     validateForm() {
-      if (this.resetForm.password_one !== this.resetForm.password_two) {
+      if (this.resetForm.password !== this.resetForm.confirm_password) {
         this.show_alert = true;
         this.alert_type = "error";
         this.alert_msg = "Passwords do not match. Please try again.";
@@ -101,7 +101,8 @@ export default {
     handleResetPassword() {
       if (this.validateForm()) {
         this.$refs.resetBtn.innerText = "Resetting...";
-        this.resetPassword(this.resetForm.password_one);
+        this.resetPassword({...this.resetForm})
+        .then(res => console.log(res))
       }
     }
   }

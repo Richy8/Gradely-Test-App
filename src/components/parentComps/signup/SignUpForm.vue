@@ -3,7 +3,7 @@
     <div class="auth-form-block">
       <!-- BLOCK HEADER -->
       <div class="auth-block-header w-100 text-center">
-        <h3 class="sub-title font-weight-900 brand_primary">Teacher Sign Up</h3>
+        <h3 class="sub-title font-weight-900 brand_primary">Parent Sign Up</h3>
       </div>
       <!-- BLOCK HEADER -->
 
@@ -12,14 +12,14 @@
 
       <form action @submit.prevent="signup" class="auth-form">
         <!-- FIRSTNAME -->
-        <div class="form-group compact-row">
-          <div class="alert alert-danger" v-if="show_err">
+        <div class="alert alert-danger" v-if="show_err">
           <li
           v-for="(error,index) in error_msg"
           :key="index">
           {{ error[0] }}
           </li>
         </div>
+        <div class="form-group compact-row">
           <label
             for="firstName"
             class="label-compact label-sm font-weight-bold brand_primary font-11-5"
@@ -142,12 +142,12 @@ export default {
   data() {
     return {
       form: {
-        first_name: "teacher",
-        last_name: "teacher",
-        email: "teacher@mail.com",
-        phone: "09038366937",
+        first_name: "parent",
+        last_name: "test",
+        email: "parent@mail.com",
+        phone: "123456789",
         password: "password",
-        userType: 'teacher'
+        userType: 'parent'   
       },
       passwordType: true,
       show_alert: false,
@@ -159,14 +159,16 @@ export default {
   },
 
   methods: {
-     ...mapActions(['signupUser']),
+    ...mapActions(['signupUser']),
     showPwd() {
       let pwd_icon = document.querySelector(".show-pwd");
       this.passwordType = !this.passwordType;
       pwd_icon.classList.toggle("show_pass");
     },
     signup(){
-      this.signupUser({...this.form})
+      let {first_name,last_name,email,phone,password,userType} = this.form
+
+      this.signupUser({first_name,last_name,email,phone,password,userType})
       .then(res => {
         if (res.data.code == 200){
           const data = res.data.data;   

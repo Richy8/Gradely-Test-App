@@ -108,7 +108,7 @@
           </li>
 
           <!-- LOG OUT -->
-          <li>
+          <li @click.prevent="logoutAction">
             <router-link to class="d-flex justify-content-start align-items-center nowrap">
               <span class="icon icon-log-out border_grey_dark"></span>
               <div class="link-text">Log Out</div>

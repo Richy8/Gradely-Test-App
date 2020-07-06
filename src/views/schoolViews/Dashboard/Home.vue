@@ -61,13 +61,12 @@
 
 
 <script>
+import { mapActions } from "vuex";
 import SchoolBanner from "@/components/schoolComps/dashboard/home/SchoolBanner";
 import DefaultInfo from "@/components/schoolComps/dashboard/home/DefaultInfo";
 import ContentInfo from "@/components/schoolComps/dashboard/home/ContentInfo";
 import ClassStructure from "@/components/schoolComps/dashboard/home/ClassStructure";
 
-// MODAL
-import WelcomeDialogue from "@/components/schoolComps/welcome/WelcomeDialog";
 
 export default {
   name: "Home",
@@ -77,7 +76,8 @@ export default {
     DefaultInfo,
     ContentInfo,
     ClassStructure,
-    WelcomeDialogue,
+    WelcomeDialogue: () =>
+      import(/* webpackChunkName: "phonecall" */ "@/components/schoolComps/welcome/WelcomeDialog"),
     PhoneCall: () =>
       import(/* webpackChunkName: "phonecall" */ "@/components/schoolComps/dashboard/home/PhoneCall"),
     AddTeacherModal: () =>
@@ -93,7 +93,7 @@ export default {
       view: ContentInfo,
       in_view: false,
       default_value: true,
-      welcome_dialogue: true,
+      welcome_dialogue: null,
       toggle_teacher_modal: false,
       toggle_branch_modal: false,
       toggle_class_modal: false,
@@ -110,10 +110,16 @@ export default {
   },
 
   mounted() {
-    this.updateBanner();
+    this.getBoardingStatus()
+    .then(res => {
+      console.log(res)
+      //res.data.data == 1 ? this.welcome_dialogue = false : this.welcome_dialogue = true
+    })
+    .catch(err => console.log(err))
   },
 
   methods: {
+    ...mapActions(["getBoardingStatus","updateBoardingStatus"]),
     updateBanner() {
       this.default_value = false;
       this.view === "DefaultInfo" ? (this.default_value = true) : "";
@@ -132,7 +138,11 @@ export default {
     },
 
     dialogueCompleted() {
-      this.welcome_dialogue = !this.welcome_dialogue;
+      this.updateBoardingStatus()
+      .then(() => {
+        this.welcome_dialogue = false
+      })
+      
     },
 
     switchSidebar() {
