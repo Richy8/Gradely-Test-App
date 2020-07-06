@@ -16,8 +16,8 @@
           </div>
 
           <!-- EVENT TIMING INFO -->
-          <div class="join-class-btn" v-if="account_type==='school'">
-            <a href class="color_white_bg color_grey_dark rounded-50">JOIN CLASS</a>
+          <div class="join-class-btn" v-if="account_type==='school' || account_type==='parent'">
+            <a href class="color_white_bg brand_accent font-weight-bold rounded-50">JOIN CLASS</a>
           </div>
 
           <!-- TEACHER VIEW -->

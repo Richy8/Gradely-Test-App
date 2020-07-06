@@ -25,6 +25,7 @@ $color_ash_lighter: #a8a8a8;
 $off_white: #ebebeb;
 $brand_white: #f4f4f4;
 $pale_orange: #FCEACF;
+$brand_blue: #0980EE;
 // $pale_orange: #3873b3;
 
 // App Color Pallete
@@ -54,7 +55,8 @@ $app-color: map-merge(("brand_primary": $brand_primary,
         "off_white": $off_white,
         "color_ash_lighter": $color_ash_lighter,
         "brand_white": $brand_white,
-        "pale_orange": $pale_orange), $app-color);
+        "pale_orange": $pale_orange,
+        "brand_blue": $brand_blue), $app-color);
 
 /*------------------------------------*\
 	App Color Palette
@@ -81,6 +83,16 @@ $color in $app-color {
     background-color: transparent !important;
 }
 
+// HALF ACCENT
+.half_accent {
+    background: -webkit-linear-gradient(90deg,
+            $brand_accent 50%,
+            $border_grey 50%);
+    background: linear-gradient(90deg, $brand_accent 50%, $border_grey 50%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 /*------------------------------------*\
 	Social Brand Color Palette

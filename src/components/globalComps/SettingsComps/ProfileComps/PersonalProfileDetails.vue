@@ -6,7 +6,10 @@
       <div class="user-data d-flex justify-content-start align-items-center nowrap">
         <div class="value">{{ fullname }}</div>
         <div class="update-link font-weight-bold">
-          <router-link :to="{name: user_edit_route}" class="btn-link font-weight-bold">Update</router-link>
+          <router-link
+            :to="'/'+account_type+'/dashboard/settings'"
+            class="btn-link font-weight-bold"
+          >Update</router-link>
         </div>
       </div>
     </div>
@@ -20,6 +23,14 @@
       </div>
     </div>
 
+    <!-- STUDENT CODE -->
+    <div class="user-group-row" v-if="account_type==='student'">
+      <div class="label">Student Code</div>
+      <div class="user-data d-flex justify-content-start align-items-center nowrap">
+        <div class="value">{{ student_code }}</div>
+      </div>
+    </div>
+
     <!-- PASSWORD -->
     <div class="user-group-row">
       <div class="label">Password</div>
@@ -27,7 +38,7 @@
         <div class="value">**********</div>
         <div class="update-link font-weight-bold">
           <router-link
-            :to="{name: settings_route, params: {account_type: account_type}}"
+            :to="'/'+account_type+'/dashboard/settings/account_settings'"
             class="btn-link font-weight-bold"
           >Update</router-link>
         </div>
@@ -48,23 +59,26 @@ export default {
       import(/* webpackChunkName: "updateEmailModal" */ "@/components/modalComps/settingsModals/UpdateEmailModal")
   },
 
-  props: [
-    "fullname",
-    "email",
-    "user_edit_route",
-    "settings_route",
-    "account_type"
-  ],
+  props: ["fullname", "email", "student_code"],
 
   data() {
     return {
+      account_type: "",
       email_modal: false
     };
+  },
+
+  mounted() {
+    this.getAccountType();
   },
 
   methods: {
     toggleEmailModal() {
       this.email_modal = !this.email_modal;
+    },
+
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
     }
   }
 };

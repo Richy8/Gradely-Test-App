@@ -44,7 +44,7 @@ $radius: 5,
 /* ===================
 Font Sizes
 ======================= */
-@for $i from 8 through 35 {
+@for $i from 8 through 50 {
     .font-#{$i} {
         font-size: #{$i/16}rem !important;
         line-height: #{($i+4.5)/16}rem !important;

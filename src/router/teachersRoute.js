@@ -20,19 +20,19 @@ const teachersRoute = [{
         children: [{
             path: "",
             name: "TeacherCalendar",
-            component: () => import( /* webpackChunkName: "teacherCalendar" */ "@/views/globalViews/Calendar"),
+            component: () => import( /* webpackChunkName: "calendar" */ "@/views/globalViews/Calendar"),
             meta: {
                 requiresAuth: true
             }
         }]
     },
     {
-        path: "/teacher/dashboard/feeds",
+        path: "/teacher/dashboard",
         component: BaseEntry,
         children: [{
                 path: "",
                 name: "TeacherFeeds",
-                component: () => import( /* webpackChunkName: "teacherdashboard" */ "@/views/teacherViews/Dashboard/Feeds"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Feeds"),
                 meta: {
                     requiresAuth: true
                 },
@@ -40,7 +40,7 @@ const teachersRoute = [{
             {
                 path: "/teacher/dashboard/members",
                 name: "TeacherMembers",
-                component: () => import( /* webpackChunkName: "teacherdashboard" */ "@/views/teacherViews/Dashboard/Members"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Members"),
                 meta: {
                     requiresAuth: true
                 }
@@ -48,7 +48,7 @@ const teachersRoute = [{
             {
                 path: "/teacher/dashboard/homework",
                 name: "TeacherHomework",
-                component: () => import( /* webpackChunkName: "teacherdashboard" */ "@/views/teacherViews/Dashboard/Homework"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Homework"),
                 meta: {
                     requiresAuth: true
                 }
@@ -56,7 +56,7 @@ const teachersRoute = [{
             {
                 path: "/teacher/dashboard/report",
                 name: "TeacherReport",
-                component: () => import( /* webpackChunkName: "teacherdashboard" */ "@/views/teacherViews/Dashboard/Report"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Report"),
                 meta: {
                     requiresAuth: true
                 }
@@ -64,7 +64,7 @@ const teachersRoute = [{
             {
                 path: "/teacher/dashboard/message",
                 name: "TeacherDasboardMessage",
-                component: () => import( /* webpackChunkName: "teacherdashboard" */ "@/views/globalViews/Message"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/globalViews/Message"),
                 meta: {
                     requiresAuth: true
                 }
@@ -72,7 +72,7 @@ const teachersRoute = [{
             {
                 path: "/teacher/dashboard/add_students",
                 name: "AddStudents_TP",
-                component: () => import( /* webpackChunkName: "teacherdashboard" */ "@/views/schoolViews/Dashboard/Classes/AddStudents"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/AddStudents"),
                 meta: {
                     requiresAuth: true
                 }
@@ -86,7 +86,7 @@ const teachersRoute = [{
         children: [{
                 path: "",
                 name: "TeacherSettingsProfile",
-                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/TeacherSettingsProfile"),
+                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsProfile"),
                 meta: {
                     requiresAuth: true
                 }
@@ -94,7 +94,7 @@ const teachersRoute = [{
             {
                 path: "/teacher/dashboard/settings/preferences",
                 name: "TeacherSettingsPreferences",
-                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/TeacherPreferences"),
+                component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsPreferences"),
                 meta: {
                     requiresAuth: true
                 }
@@ -123,7 +123,7 @@ const teachersRoute = [{
         children: [{
                 path: "",
                 name: "HomeworkReview_TP",
-                component: () => import( /* webpackChunkName: "teacherdashboard" */ "@/views/schoolViews/Dashboard/Classes/HomeworkReview"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/HomeworkReview"),
                 meta: {
                     requiresAuth: true
                 }

@@ -62,6 +62,8 @@ export default {
       import(/* webpackChunkName: "PostVideoBlock" */ "@/components/classComps/feeds/post_content/PostVideoBlock"),
     PostPollBlock: () =>
       import(/* webpackChunkName: "PostPollBlock" */ "@/components/classComps/feeds/post_content/PostPollBlock"),
+    PostTutorBlock: () =>
+      import(/* webpackChunkName: "PostTutorBlock" */ "@/components/classComps/feeds/post_content/PostTutorBlock"),
     PostRecommendationBlock: () =>
       import(/* webpackChunkName: "PostRecommendationBlock" */ "@/components/classComps/feeds/post_content/PostRecommendationBlock"),
     CommentViewCard: () =>

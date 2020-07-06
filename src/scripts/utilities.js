@@ -24,10 +24,16 @@ const setInitial = fullname => {
     }
 }
 
+// CAPITALIZE FIRST LETTER
+const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 export {
     bgColorSetter,
     colors,
     random,
     shuffle,
-    setInitial
+    setInitial,
+    capitalizeFirstLetter
 }

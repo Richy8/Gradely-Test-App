@@ -25,7 +25,7 @@ const schoolRoute = [{
         children: [{
             path: "",
             name: "SchoolCalendar",
-            component: () => import( /* webpackChunkName: "SchoolCalendar" */ "@/views/globalViews/Calendar"),
+            component: () => import( /* webpackChunkName: "calendar" */ "@/views/globalViews/Calendar"),
             meta: {
                 requiresAuth: true
             }
@@ -37,7 +37,7 @@ const schoolRoute = [{
         children: [{
                 path: "",
                 name: "SchoolDashboard",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Home"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Home"),
                 meta: {
                     requiresAuth: true
                 }
@@ -45,7 +45,7 @@ const schoolRoute = [{
             {
                 path: "/school/dashboard/teacher",
                 name: "SchoolDashboardTeacher",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Teacher"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Teacher"),
                 meta: {
                     requiresAuth: true
                 }
@@ -53,7 +53,7 @@ const schoolRoute = [{
             {
                 path: "/school/dashboard/parent",
                 name: "SchoolDashboardParent",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Parent"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Parent"),
                 meta: {
                     requiresAuth: true
                 }
@@ -61,7 +61,7 @@ const schoolRoute = [{
             {
                 path: "/school/dashboard/message",
                 name: "SchoolDashboardMessage",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/globalViews/Message"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/globalViews/Message"),
                 meta: {
                     requiresAuth: true
                 }
@@ -69,7 +69,7 @@ const schoolRoute = [{
             {
                 path: "/school/dashboard/profile",
                 name: "SchoolProfile",
-                component: () => import( /* webpackChunkName: "schooldashboard" */ "@/views/schoolViews/Dashboard/Profile/SchoolProfile"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Profile/SchoolProfile"),
                 meta: {
                     requiresAuth: true
                 }
@@ -135,7 +135,7 @@ const schoolRoute = [{
         children: [{
                 path: "",
                 name: "ClassFeeds",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassFeeds"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassFeeds"),
                 meta: {
                     requiresAuth: true
                 }
@@ -143,7 +143,7 @@ const schoolRoute = [{
             {
                 path: "/school/dashboard/class/members",
                 name: "ClassMembers",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassMembers"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassMembers"),
                 meta: {
                     requiresAuth: true
                 }
@@ -151,7 +151,7 @@ const schoolRoute = [{
             {
                 path: "/school/dashboard/class/homework",
                 name: "ClassHomework",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassHomework"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassHomework"),
                 meta: {
                     requiresAuth: true
                 }
@@ -159,7 +159,7 @@ const schoolRoute = [{
             {
                 path: "/school/dashboard/class/report",
                 name: "ClassReport",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassReport"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassReport"),
                 meta: {
                     requiresAuth: true
                 }
@@ -167,7 +167,7 @@ const schoolRoute = [{
             {
                 path: "/school/dashboard/add_students",
                 name: "AddStudents",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/AddStudents"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/AddStudents"),
                 meta: {
                     requiresAuth: true
                 }
@@ -180,7 +180,7 @@ const schoolRoute = [{
         children: [{
             path: "",
             name: "ClassFeedView",
-            component: () => import( /* webpackChunkName: "classfeedview" */ "@/views/schoolViews/Dashboard/Classes/ClassFeedView"),
+            component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassFeedView"),
             meta: {
                 requiresAuth: true
             }
@@ -192,7 +192,7 @@ const schoolRoute = [{
         children: [{
                 path: "",
                 name: "HomeworkReview",
-                component: () => import( /* webpackChunkName: "classdashboard" */ "@/views/schoolViews/Dashboard/Classes/HomeworkReview"),
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/HomeworkReview"),
                 meta: {
                     requiresAuth: true
                 }

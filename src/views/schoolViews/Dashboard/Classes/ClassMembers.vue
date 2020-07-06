@@ -185,17 +185,6 @@ export default {
 </script>
 
 <style lang="scss">
-// PAGE TAB PLACEHOLDER
-%page-tab-styling {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 3px;
-  bottom: -7.5px;
-  left: 0;
-  background: $brand_accent;
-}
-
 .class-members-section {
   .right-layout {
     @include breakpoint_max(md) {
@@ -215,44 +204,6 @@ export default {
 
     @include breakpoint_max(sm) {
       font-size: 18px;
-    }
-  }
-}
-
-.page-tab {
-  padding-bottom: 8px;
-  border-bottom: 1px solid $border_grey;
-
-  .tab {
-    position: relative;
-    font-size: 14px;
-    line-height: 19px;
-    color: $border_grey_dark;
-    padding-left: 15.5px;
-    padding-right: 15.5px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-
-    @include breakpoint_max(lg) {
-      font-size: 13.5px;
-    }
-
-    &:hover {
-      color: #2e2d2d;
-      font-weight: 500;
-
-      &:after {
-        @extend %page-tab-styling;
-      }
-    }
-  }
-
-  .active {
-    color: #2e2d2d;
-    font-weight: 500;
-
-    &:after {
-      @extend %page-tab-styling;
     }
   }
 }

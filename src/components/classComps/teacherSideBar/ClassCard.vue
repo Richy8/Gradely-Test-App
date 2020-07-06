@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  name: "TeacherClassCard",
+  name: "ClassCard",
 
   props: {
     class_year: String,

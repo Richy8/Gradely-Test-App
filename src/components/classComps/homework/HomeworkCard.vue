@@ -23,7 +23,10 @@
         </div>
 
         <!-- PROGRESS -->
-        <div class="d-flex justify-content-start align-items-center progress-container">
+        <!-- SEY EMPTY DIV -->
+        <div v-if="account_type==='parent' || account_type==='student'"></div>
+        <!-- OTHERS -->
+        <div class="d-flex justify-content-start align-items-center progress-container" v-else>
           <div class="progress">
             <div
               class="progress-bar"
@@ -37,7 +40,25 @@
 
         <!-- OPTION -->
         <div class="option">
-          <router-link :to="{name: route_name}">
+          <router-link
+            to
+            @click.native="toggleHomeworkModal"
+            v-if="account_type==='parent' || account_type==='student'"
+          >
+            <span
+              v-if="account_type==='parent'"
+              class="font-weight-bold font-14 link-no-underline btn-link d-none d-sm-block"
+            >Attempt</span>
+            <span
+              v-if="account_type==='student'"
+              class="font-weight-bold font-14 link-no-underline btn-link d-none d-sm-block"
+            >Start</span>
+            <span
+              class="icon-caret-right border_grey_dark font-14 link-no-underline d-block d-sm-none"
+            ></span>
+          </router-link>
+
+          <router-link :to="{name: route_name}" v-else>
             <span class="font-weight-bold font-14 link-no-underline btn-link d-none d-sm-block">View</span>
             <span
               class="icon-caret-right border_grey_dark font-14 link-no-underline d-block d-sm-none"
@@ -46,6 +67,10 @@
         </div>
       </div>
     </div>
+
+    <!-- MODAL -->
+    <StartHomeworkModal v-if="homework_modal" @closeTriggered="toggleHomeworkModal"></StartHomeworkModal>
+    <!-- MODAL -->
   </div>
 </template>
 
@@ -61,6 +86,11 @@ export default {
     class_year: String,
     class_branch: String,
     progress: Number
+  },
+
+  components: {
+    StartHomeworkModal: () =>
+      import(/* webpackChunkName: "StartHomeworkModal" */ "@/components/modalComps/parentModals/StartHomeworkModal")
   },
 
   computed: {
@@ -84,7 +114,8 @@ export default {
     return {
       account_type: "",
       route_name: "",
-      progress_color: ""
+      progress_color: "",
+      homework_modal: false
     };
   },
 
@@ -95,6 +126,10 @@ export default {
         this.route_name = "HomeworkReview";
       } else if (this.account_type === "teacher") {
         this.route_name = "HomeworkReview_TP";
+      } else if (this.account_type === "parent") {
+        this.route_name = "ParentHomeworkTest";
+      } else if (this.account_type === "student") {
+        this.route_name = "StudentHomeworkTest";
       }
     },
 
@@ -106,6 +141,10 @@ export default {
       } else if (this.progress <= 44) {
         this.progress_color = "brand_tonic_bg";
       }
+    },
+
+    toggleHomeworkModal() {
+      this.homework_modal = !this.homework_modal;
     }
   }
 };

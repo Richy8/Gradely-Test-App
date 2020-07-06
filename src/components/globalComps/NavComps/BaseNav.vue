@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="navbar-section fixed-top w-100 index-9 white">
+    <div class="navbar-section fixed-top w-100 index-9" :class="color_theme">
       <!-- DESKTOP SCREEN VIEW -->
       <div class="container h-auto d-none d-md-block">
         <div class="row d-flex justify-content-between align-items-center nowrap">
@@ -14,10 +14,27 @@
           <!-- NAVIGATION -->
           <div
             class="nav-items d-flex justify-content-center align-items-center nowrap"
-            v-if="show_nav"
+            v-if="show_nav && color_theme==='white'"
           >
             <div class="nav-item" v-for="(text, index) in nav_text" :key="index">
-              <router-link :to="{name: nav_name[index]}" :class="{'active': nav_active[index]}">
+              <router-link :to="{name: nav_name[index]}" :class="nav_active[index] ? 'active' : ''">
+                <span :class="nav_icon[index]"></span>
+                <div class="nav-text">{{text}}</div>
+              </router-link>
+            </div>
+          </div>
+
+          <!-- DARK THEME -->
+          <div
+            class="nav-items d-flex justify-content-center align-items-center nowrap"
+            v-if="show_nav && color_theme==='black'"
+          >
+            <div class="nav-item" v-for="(text, index) in nav_text" :key="index">
+              <router-link
+                :to="{name: nav_name[index]}"
+                class="dark-nav-item"
+                :class="nav_active[index] ? 'dark-active' : ''"
+              >
                 <span :class="nav_icon[index]"></span>
                 <div class="nav-text">{{text}}</div>
               </router-link>
@@ -67,6 +84,18 @@
               >AJ</div>
               <i class="icon-caret-fill-down color_text font-9"></i>
             </div>
+
+            <!-- STUDENT AVATAR -->
+            <div
+              class="icon rounded-5 icon__user"
+              :class="[nav_type==='student' ? 'brand_inverse_light_bg' : '']"
+              v-on-clickaway="onUserSlideOut"
+              @click="toggleUserSettings"
+              v-if="nav_type==='student'"
+            >
+              <img v-lazy="dynamicImg('MaleChild.png')" alt>
+              <i class="icon-caret-fill-down color_text font-9"></i>
+            </div>
           </div>
           <!-- MORE ICONS -->
         </div>
@@ -79,6 +108,8 @@
       user_name="Kunle Ajayi"
       school_name="Christland Intl College"
       email="rotimi_os@gmail.com"
+      student_code="KUNLEAJ"
+      student_image="MaleChild.png"
       :panel_type="nav_type"
       v-if="slide_panel"
       @onClose="slide_panel=false"
@@ -89,6 +120,8 @@
       user_name="Anthony Joshua"
       school_name="Christland Intl College"
       email="rotimi_os@gmail.com"
+      student_code="ANTHOJO"
+      student_image="MaleChild.png"
       :panel_type="nav_type"
       v-if="slide_user_panel"
       @onClose="slide_user_panel=false"
@@ -121,6 +154,10 @@ export default {
     show_nav: {
       type: Boolean,
       default: true
+    },
+    color_theme: {
+      type: String,
+      default: "white"
     }
   },
 
@@ -155,9 +192,23 @@ export default {
         url === "StudentTopicTrend" ||
         url === "StudentTopicTrend_TP" ||
         url === "StudentProfile" ||
-        url === "StudentProfile_TP"
+        url === "StudentProfile_TP" ||
+        url === "ParentCatchupVideo" ||
+        url === "ParentCatchupTutor" ||
+        url === "StudentCatchupVideo" ||
+        url === "StudentCatchupTutor"
       ) {
         this.nav_active[1] = true;
+      } else if (
+        url === "ParentHomeworkReview" ||
+        url === "StudentHomeworkReview"
+      ) {
+        this.nav_active[2] = true;
+      } else if (
+        url === "StudentTopicTrend_PP" ||
+        url === "StudentTopicTrend_SP"
+      ) {
+        this.nav_active[3] = true;
       }
     },
 

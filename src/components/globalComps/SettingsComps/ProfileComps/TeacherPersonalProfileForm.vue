@@ -58,7 +58,7 @@
           </div>
         </div>
 
-        <!-- EMAIL ADDRESS -->
+        <!-- ABOUT ME -->
         <div class="row form-group-row d-flex align-items-start">
           <!-- LABEL -->
           <div class="col-12 px-0 col-md-4 col-lg-3 col-xl-4 form-group-item">
@@ -217,7 +217,7 @@
 import Datepicker from "vuejs-datepicker";
 
 export default {
-  name: "ProfileForm",
+  name: "TeacherPersonalProfileForm",
   components: { Datepicker },
   data() {
     return {

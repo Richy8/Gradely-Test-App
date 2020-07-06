@@ -6,7 +6,7 @@
       <div class="user-data d-flex justify-content-start align-items-center nowrap">
         <div class="value font-14">{{notification_msg}}</div>
         <div class="update-link btn-link">
-          <router-link :to="{name: notification_route}">Update</router-link>
+          <router-link :to="notification_route">Update</router-link>
         </div>
       </div>
     </div>

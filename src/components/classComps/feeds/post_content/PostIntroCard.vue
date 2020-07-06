@@ -76,7 +76,11 @@ export default {
 
   computed: {
     getInitial() {
-      return setInitial(this.post.author_name);
+      if (this.post.author_name === "You") {
+        return setInitial(this.current_user);
+      } else {
+        return setInitial(this.post.author_name);
+      }
     },
 
     setAvatarBg() {
@@ -98,6 +102,7 @@ export default {
       post_option: false,
       message_modal: false,
       report_modal: false,
+      current_user: "Anthony Joshua",
       intro_text: ""
     };
   },
@@ -138,6 +143,11 @@ export default {
         case "Recommendation":
           this.intro_text =
             "<span>recommendation for the <span class='font-weight-bold'>Class</span> </span>";
+          break;
+
+        case "Tutor":
+          this.intro_text =
+            "<span>scheduled <span class='font-weight-bold'>tutor sessions for the month!</span> </span>";
           break;
 
         default:

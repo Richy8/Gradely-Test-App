@@ -32,8 +32,11 @@
         </router-link>
       </div>
 
-      <!-- PARENT - TEACHER PREFERENCES -->
-      <div class="side-item" v-if="settings_type==='parent' || settings_type==='teacher'">
+      <!-- PARENT - TEACHER - STUDENT PREFERENCES -->
+      <div
+        class="side-item"
+        v-if="settings_type==='parent' || settings_type==='teacher' || settings_type==='student'"
+      >
         <router-link
           :to="'/'+settings_type+'/dashboard/settings/preferences'"
           :class="{'active': preference_active}"
@@ -43,8 +46,11 @@
         </router-link>
       </div>
 
-      <!-- PARENT - TEACHER PROFILE -->
-      <div class="side-item" v-if="settings_type==='parent' || settings_type==='teacher'">
+      <!-- PARENT - TEACHER - STUDENT PROFILE -->
+      <div
+        class="side-item"
+        v-if="settings_type==='parent' || settings_type==='teacher' || settings_type==='student'"
+      >
         <router-link
           :to="'/'+settings_type+'/dashboard/settings'"
           :class="{'active': profile_active}"
@@ -55,10 +61,10 @@
       </div>
 
       <!-- BILLING -->
-      <div class="side-item" v-if="settings_type==='parent'">
+      <div class="side-item" v-if="settings_type==='parent' || settings_type==='student'">
         <router-link
           :to="'/'+settings_type+'/dashboard/settings/billing'"
-          :class="{'active': personal_active}"
+          :class="{'active': billing_active}"
         >
           <span class="icon icon-credit-card"></span>
           <div class="link-title">Billing</div>
@@ -95,7 +101,8 @@ export default {
       profile_active: "",
       personal_active: "",
       preference_active: "",
-      account_active: ""
+      account_active: "",
+      billing_active: ""
     };
   },
 
@@ -110,7 +117,10 @@ export default {
 
   methods: {
     activeSideRoute(url) {
-      url === "SchoolSettingsProfile" || url === "TeacherSettingsProfile"
+      url === "SchoolSettingsProfile" ||
+      url === "TeacherSettingsProfile" ||
+      url === "ParentSettingsProfile" ||
+      url === "StudentSettingsProfile"
         ? (this.profile_active = true)
         : (this.profile_active = false);
       url === "SchoolSettingsUser" ||
@@ -120,12 +130,23 @@ export default {
         : (this.personal_active = false);
       url === "SchoolSettingsPreferences" ||
       url === "TeacherSettingsPreferences" ||
-      url === "TeacherSettingsNotification"
+      url === "ParentSettingsPreferences" ||
+      url === "StudentSettingsPreferences" ||
+      url === "TeacherSettingsNotification" ||
+      url === "ParentSettingsNotification" ||
+      url === "StudentSettingsNotification"
         ? (this.preference_active = true)
         : (this.preference_active = false);
-      url === "SchoolSettingsAccount" || url === "TeacherSettingsAccount"
+      url === "SchoolSettingsAccount" ||
+      url === "TeacherSettingsAccount" ||
+      url === "ParentSettingsAccount" ||
+      url === "StudentSettingsAccount"
         ? (this.account_active = true)
         : (this.account_active = false);
+
+      url === "ParentSettingsBilling" || url === "StudentSettingsBilling"
+        ? (this.billing_active = true)
+        : (this.billing_active = false);
     },
 
     onSideClick() {

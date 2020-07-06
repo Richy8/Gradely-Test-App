@@ -3,23 +3,34 @@
     <div class="event-holder position-relative pointer">
       <!-- EVENT INFO -->
       <div class="event-info">
-        <!-- EVENT ICON -->
-        <div class="avatar" :class="setEventBg" v-if="account_type==='school'">
-          <span class="flex-center font-22" :class="setEventIcon"></span>
+        <!-- DEFAULT ICON -->
+        <div class="avatar" :class="setEventBg" v-if="event_type==='default'">
+          <span class="flex-center font-22 icon-pie"></span>
         </div>
 
+        <!-- EVENT ICON -->
         <div
-          class="avatar avatar-square avatar_sm_md"
+          class="avatar"
           :class="setEventBg"
-          v-else-if="account_type==='teacher' && event_type==='live class'"
+          v-if="(account_type==='school' && event_type!=='default')"
         >
           <span class="flex-center font-22" :class="setEventIcon"></span>
         </div>
 
+        <!-- LIVE CLASS AVATAR -->
         <div
           class="avatar avatar-square avatar_sm_md"
           :class="setEventBg"
-          v-else-if="account_type==='teacher' && event_type==='homework'"
+          v-else-if="(account_type==='teacher' || account_type==='parent' || account_type==='student') && event_type==='live class'"
+        >
+          <span class="flex-center font-22" :class="setEventIcon"></span>
+        </div>
+
+        <!-- HOMEWORK DATE AVATAR -->
+        <div
+          class="avatar avatar-square avatar_sm_md"
+          :class="setEventBg"
+          v-else-if="(account_type==='teacher' || account_type==='parent' || account_type==='student') && event_type==='homework'"
         >
           <div class="avatar-with-meta">
             <div class="avatar-title font-11 mt-2">{{ event_date }}</div>
@@ -32,17 +43,40 @@
           <div class="title white-text">{{ event_title }}</div>
           <div
             class="meta brand_inverse_light"
-            v-if="account_type==='school' || event_type==='live class'"
-          >{{ event_meta }} • {{ event_time }}</div>
+            v-if="(account_type==='school' || event_type==='live class')"
+          >
+            {{ event_meta }}
+            <span v-if="event_type!=='default'">•</span>
+            {{ event_time }}
+          </div>
 
           <!-- OPTIONS -->
           <div
             class="homework-event-option d-flex justify-content-start align-items-center position-relative"
-            v-if="account_type==='teacher' && event_type==='homework'"
+            v-if="(account_type==='teacher' || account_type==='parent' || account_type==='student') && event_type==='homework'"
           >
-            <router-link to class="event-option-title btn-link link-no-underline mr-3">View</router-link>
+            <router-link
+              to
+              class="event-option-title btn-link link-no-underline mr-3"
+              v-if="account_type==='teacher'"
+            >View</router-link>
+            <router-link
+              to
+              class="event-option-title btn-link link-no-underline mt-1"
+              v-else-if="account_type==='parent'"
+            >Attempt</router-link>
+            <router-link
+              to
+              class="event-option-title btn-link link-no-underline mt-1"
+              v-else-if="account_type==='student'"
+            >Start</router-link>
             <!-- Option -->
-            <div class="avatar" v-on-clickaway="dropHomework" @click="toggleHomework">
+            <div
+              class="avatar"
+              v-on-clickaway="dropHomework"
+              @click="toggleHomework"
+              v-if="account_type==='teacher'"
+            >
               <span class="icon-ellipsis-h brand_white flex-center font-18 pointer"></span>
             </div>
 
@@ -70,11 +104,26 @@
 
           <div
             class="d-flex justify-content-start align-items-center position-relative"
-            v-else-if="account_type==='teacher' && event_type==='live class'"
+            v-else-if="(account_type==='teacher' || account_type==='parent' || account_type==='student') && event_type==='live class'"
           >
-            <router-link to class="event-option-title btn-link link-no-underline mr-3">Start</router-link>
+            <router-link
+              to
+              class="event-option-title btn-link link-no-underline mr-3"
+              v-if="account_type==='teacher'"
+            >Start</router-link>
+            <router-link
+              to
+              class="event-option-title btn-link link-no-underline mr-3"
+              v-else-if="account_type==='parent' || account_type==='student'"
+            >Join Class</router-link>
+
             <!-- Option -->
-            <div class="avatar" v-on-clickaway="dropEvent" @click="toggleEvent">
+            <div
+              class="avatar"
+              v-on-clickaway="dropEvent"
+              @click="toggleEvent"
+              v-if="account_type==='teacher'"
+            >
               <span class="icon-ellipsis-h brand_white flex-center font-18 pointer"></span>
             </div>
 
@@ -134,8 +183,8 @@ export default {
       ) {
         return this.icons.school_live_class;
       } else if (
-        this.event_type === "live class" &&
-        this.account_type === "teacher"
+        (this.event_type === "live class" && this.account_type === "teacher") ||
+        this.account_type === "parent"
       ) {
         return this.icons.teacher_live_class;
       } else if (this.event_type === "default") {
@@ -176,7 +225,7 @@ export default {
 
       bg_color: {
         homework: "brand_inverse_light_bg",
-        live_class: "brand_red_light_bg",
+        live_class: "brand_accent_light_bg",
         default: "border_grey_light_bg"
       }
     };

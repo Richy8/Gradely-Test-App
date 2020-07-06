@@ -10,10 +10,7 @@
       <div class="page-title">Personal Information</div>
 
       <!-- PERSONAL PROFILE CARD COMPONENT -->
-      <PersonalProfileCard
-        fullname="Kola Ajayi"
-        color_scheme="brand_inverse_light_bg brand_primary"
-      ></PersonalProfileCard>
+      <PersonalProfileCard fullname="Kola Ajayi" avatar_img></PersonalProfileCard>
       <!-- PERSONAL PROFILE CARD COMPONENT -->
 
       <!-- PERSONAL PROFILE FORM COMPONENT -->

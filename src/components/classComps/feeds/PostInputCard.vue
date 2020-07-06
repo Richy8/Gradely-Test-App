@@ -2,14 +2,15 @@
   <div>
     <div
       class="post-input-container w-100 h-100 white rounded-5 overflow-hidden"
-      :class="account_type==='teacher' ? 'd-none d-md-block' : ''"
+      :class="account_type==='teacher' || account_type==='parent' ? 'd-none d-md-block' : ''"
     >
       <!-- INPUT AREA -->
       <div class="input-area">
         <!-- USER INFO ROW -->
         <div class="user-info-row d-flex justify-content-start align-items-center nowrap">
           <div class="avatar avatar-square">
-            <div class="avatar-text font-weight-bold" :class="color_scheme">{{ getInitial }}</div>
+            <img v-lazy="dynamicImg(avatar_img)" alt class="avatar-img" v-if="avatar_img">
+            <div class="avatar-text font-weight-bold" :class="color_scheme" v-else>{{ getInitial }}</div>
           </div>
 
           <!-- POST INFO TEXT -->
@@ -21,7 +22,7 @@
           <div
             class="post-text color_grey_dark"
             @click="togglePostModal"
-            v-else-if="account_type === 'teacher'"
+            v-else-if="account_type === 'teacher' || account_type === 'parent' || account_type === 'student'"
           >Share some material with your class</div>
         </div>
       </div>
@@ -33,8 +34,8 @@
     <!-- TEACHER MOBILE POST INPUT CARD -->
     <div
       class="teacher-mobile-post-input rounded-5 white d-flex justify-content-between align-items-center nowrap pointer"
-      :class="account_type==='teacher' ? 'd-md-none' : ''"
-      v-if="account_type==='teacher'"
+      :class="account_type==='teacher' || account_type==='parent' || account_type==='student' ? 'd-md-none' : ''"
+      v-if="account_type==='teacher' || account_type==='parent' || account_type==='student'"
       @click="togglePostModal"
     >
       <!-- POST INPUT PLACEHOLDER -->
@@ -60,14 +61,18 @@
 
 <script>
 import { setInitial } from "@/scripts/utilities";
+import RenderImages from "@/scripts/mixins/RenderImages";
 import PostInputOptions from "@/components/classComps/feeds/PostInputOptions";
 
 export default {
   name: "PostInputCard",
 
   props: {
-    fullname: String
+    fullname: String,
+    avatar_img: String
   },
+
+  mixins: [RenderImages],
 
   components: {
     PostInputOptions,
@@ -100,6 +105,8 @@ export default {
         this.color_scheme = "brand_inverse_light_bg brand_primary";
       } else if (this.account_type === "teacher") {
         this.color_scheme = "brand_tonic_bg brand_white";
+      } else if (this.account_type === "parent") {
+        this.color_scheme = "brand_navy_bg brand_white";
       }
     },
 

@@ -147,6 +147,28 @@ const PostData = {
                 },
                 {
                     id: 6,
+                    type: "Tutor",
+                    author_img: "",
+                    author_name: "You",
+                    time: "2 hrs ago",
+                    text: "",
+                    img: "",
+                    video: "",
+                    activity: false,
+                    comment: [],
+                    poll_data: [],
+                    event_data: {},
+                    homework_data: {},
+                    recommendation_data: [],
+                    tutor_data: {
+                        tutor_img: "TutorOne.png",
+                        tutor_name: "Oluwatosin Oloko-Obi",
+                        tutor_subject: "Mathematics",
+                        tutor_sessions: "12"
+                    }
+                },
+                {
+                    id: 7,
                     type: "Video",
                     author_img: "",
                     author_name: "Anthony Joshua",
@@ -161,58 +183,58 @@ const PostData = {
                     homework_data: {},
                     recommendation_data: []
                 },
-                // {
-                //     id: 7,
-                //     type: "Poll",
-                //     author_img: "",
-                //     author_name: "Francis Sanni",
-                //     time: "3 hrs ago",
-                //     text: "How many times can you practice mathematics in one day?",
-                //     img: "",
-                //     video: "",
-                //     activity: true,
-                //     comment: [{
-                //             comment_author_img: "ChildSqr2.png",
-                //             comment_author_name: "Ikram Jimoh",
-                //             comment_body: "I’m afraid this is not a good time for whatever the announcement says. I just need to say that.",
-                //             comment_time: "30 minutes ago",
-                //             comment_like_count: "2",
-                //             comment_reply_count: "1"
-                //         },
-                //         {
-                //             comment_author_img: "ChildSqr6.png",
-                //             comment_author_name: "Ikechukwu Ogbona",
-                //             comment_body: "This is unfair",
-                //             comment_time: "10 minutes ago",
-                //             comment_like_count: "0",
-                //             comment_reply_count: "2"
-                //         }
-                //     ],
-                //     poll_data: [{
-                //             text: "Just once in a day",
-                //             selected: false,
-                //             progress: 40
-                //         },
-                //         {
-                //             text: "At least twice a day",
-                //             selected: false,
-                //             progress: 20
-                //         },
-                //         {
-                //             text: "As the spirit leads",
-                //             selected: false,
-                //             progress: 65
-                //         },
-                //         {
-                //             text: "I don’t even practice",
-                //             selected: false,
-                //             progress: 10
-                //         }
-                //     ],
-                //     event_data: {},
-                //     homework_data: {},
-                //     recommendation_data: []
-                // },
+                {
+                    id: 8,
+                    type: "Poll",
+                    author_img: "",
+                    author_name: "Francis Sanni",
+                    time: "3 hrs ago",
+                    text: "How many times can you practice mathematics in one day?",
+                    img: "",
+                    video: "",
+                    activity: true,
+                    comment: [{
+                            comment_author_img: "ChildSqr2.png",
+                            comment_author_name: "Ikram Jimoh",
+                            comment_body: "I’m afraid this is not a good time for whatever the announcement says. I just need to say that.",
+                            comment_time: "30 minutes ago",
+                            comment_like_count: "2",
+                            comment_reply_count: "1"
+                        },
+                        {
+                            comment_author_img: "ChildSqr6.png",
+                            comment_author_name: "Ikechukwu Ogbona",
+                            comment_body: "This is unfair",
+                            comment_time: "10 minutes ago",
+                            comment_like_count: "0",
+                            comment_reply_count: "2"
+                        }
+                    ],
+                    poll_data: [{
+                            text: "Just once in a day",
+                            selected: false,
+                            progress: 40
+                        },
+                        {
+                            text: "At least twice a day",
+                            selected: false,
+                            progress: 20
+                        },
+                        {
+                            text: "As the spirit leads",
+                            selected: false,
+                            progress: 65
+                        },
+                        {
+                            text: "I don’t even practice",
+                            selected: false,
+                            progress: 10
+                        }
+                    ],
+                    event_data: {},
+                    homework_data: {},
+                    recommendation_data: []
+                },
             ]
         }
     }
