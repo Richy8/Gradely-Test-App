@@ -3,6 +3,7 @@
     <div class="teacher-class-container white rounded-5 w-100 h-auto">
       <!-- CLASS CARD COMPONENT -->
       <ChildCard
+        :child_img="data.child_img"
         :child_name="data.child_name"
         :child_code="data.child_code"
         :active="data.active"
@@ -13,16 +14,12 @@
 
       <!-- ADD CLASS OPTION -->
       <div class="add-more-class">
-        <div class="add-new-item pointer w-100 my-1" @click="toggleClassModal">
+        <div class="add-new-item pointer w-100 my-1" @click="goToAddChild">
           <div class="undone"></div>
           <div class="label-text color_text">Add another Child</div>
         </div>
       </div>
     </div>
-
-    <!-- MODAL -->
-    <AddClassModal v-if="class_modal" @closeTriggered="toggleClassModal"></AddClassModal>
-    <!-- MODAL -->
   </div>
 </template>
 
@@ -33,32 +30,31 @@ export default {
   name: "ParentChildCard",
 
   components: {
-    ChildCard,
-    AddClassModal: () =>
-      import(/* webpackChunkName: "AddClassModal" */ "@/components/modalComps/teacherModals/AddClassModal")
+    ChildCard
   },
 
   data() {
     return {
       children: [
         {
-          child_name: "Andre Oshinaga",
-          child_code: "IMD/Y7GLD",
+          child_img: "avatar2.png",
+          child_name: "Andrew Oshinaga",
+          child_code: "FDR/2019/1128",
           active: true
         },
         {
+          child_img: "avatar14.png",
           child_name: "Jasmine Oshinaga",
-          child_code: "IMD/Y7GLD",
+          child_code: "JMD/2019/1022",
           active: false
         }
-      ],
-      class_modal: false
+      ]
     };
   },
 
   methods: {
-    toggleClassModal() {
-      this.class_modal = !this.class_modal;
+    goToAddChild() {
+      this.$router.push("/parent/onboarding/new_child");
     }
   }
 };
