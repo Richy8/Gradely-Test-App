@@ -20,6 +20,7 @@ import vueHeadful from "vue-headful";
 import CKEditor from '@ckeditor/ckeditor5-vue';
 import VueLazyload from "vue-lazyload";
 import vWow from 'v-wow';
+import RenderAssets from "@/scripts/mixins/RenderAssets";
 
 // SETUP API VARIABLES
 Vue.prototype.$axios = Axios;
@@ -35,6 +36,9 @@ Vue.use(BootstrapVueIcons);
 Vue.use(CKEditor);
 Vue.use(VueLazyload);
 Vue.use(vWow);
+Vue.mixin(
+  RenderAssets
+)
 
 Vue.config.productionTip = false;
 

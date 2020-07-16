@@ -110,7 +110,7 @@ export default {
     return {
       account_type: "",
       event_options: false,
-      event_count: 0,
+      event_count: 1,
       event_data: [
         {
           title: "Homework title goes here.",

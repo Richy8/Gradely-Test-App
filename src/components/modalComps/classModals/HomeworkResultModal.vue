@@ -11,11 +11,13 @@
         <div class="content">
           <div class="d-flex justify-content-start align-items-start nowrap">
             <!-- IMG SECTION -->
-            <div class="img-section" v-if="score>75">
-              <img v-lazy="localImg('PerformanceTop.png')" alt>
-            </div>
-            <div class="img-section" v-else>
-              <img v-lazy="localImg('PerformancePoor.png')" alt>
+            <div class="img-container">
+              <div class v-if="score>75">
+                <img v-lazy="localImg('PerformanceTop.png')" alt>
+              </div>
+              <div class v-else>
+                <img v-lazy="localImg('PerformancePoor.png')" alt>
+              </div>
             </div>
 
             <!-- RESULT INFO -->
@@ -53,7 +55,7 @@
 
               <!-- REVIEW BUTTON -->
               <router-link
-                :to="{name: 'ParentHomeworkReview'}"
+                :to="'/'+account_type+'/dashboard/homework/homework_review'"
                 class="btn btn-md btn-accent font-weight-bold brand_navy mx-0"
               >Review Homework</router-link>
             </div>
@@ -66,7 +68,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import ModalCover from "@/components/globalComps/ModalCover";
 
 export default {
@@ -76,8 +77,6 @@ export default {
     ModalCover
   },
 
-  mixins: [RenderImages],
-
   props: {
     subject: String,
     score: Number
@@ -85,15 +84,21 @@ export default {
 
   data() {
     return {
+      account_type: "",
       progress_color: ""
     };
   },
 
   mounted() {
+    this.getAccountType();
     this.setProgressColor();
   },
 
   methods: {
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
+    },
+
     setProgressColor() {
       if (this.score > 75) {
         this.progress_color = "brand_green_bg";
@@ -119,20 +124,50 @@ export default {
   .content {
     padding: 60px 55px 60px;
 
-    .img-section {
+    @include breakpoint_max(sm) {
+      padding: 60px 25px 60px;
+    }
+
+    .img-container {
+      position: relative;
+      @include custom_min_edge(160, 220);
       margin-right: 20px;
+
+      @include breakpoint_max(sm) {
+        @include custom_min_edge(130, 190);
+      }
+
+      @include breakpoint_max(xs) {
+        @include custom_min_edge(100, 150);
+        margin-right: 10px;
+      }
+
+      img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        // @include img_cover;
+      }
     }
 
     .title {
       font-size: 23px;
       line-height: 29px;
       margin-bottom: 25px;
+
+      @include breakpoint_max(xs) {
+        font-size: 20px;
+      }
     }
 
     .message {
       font-size: 15px;
       line-height: 165%;
       margin-bottom: 23px;
+
+      @include breakpoint_max(xs) {
+        font-size: 14px;
+      }
     }
 
     .text {
@@ -143,10 +178,18 @@ export default {
     .score {
       font-size: 16px;
       line-height: 165%;
+
+      @include breakpoint_max(xs) {
+        font-size: 13px;
+      }
     }
 
     .btn {
       margin-top: 35px;
+
+      @include breakpoint_max(xs) {
+        font-size: 10px;
+      }
     }
   }
 }

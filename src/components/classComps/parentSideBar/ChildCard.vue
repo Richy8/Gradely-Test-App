@@ -33,12 +33,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "ChildCard",
-
-  mixins: [RenderImages],
 
   props: {
     child_img: String,

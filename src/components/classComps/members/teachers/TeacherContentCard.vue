@@ -58,12 +58,11 @@
 <script>
 import { colors, random, shuffle, setInitial } from "@/scripts/utilities";
 import { mixin as clickaway } from "vue-clickaway";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "TeacherContentCard",
 
-  mixins: [clickaway, RenderImages],
+  mixins: [clickaway],
 
   props: {
     teacher_img: String,

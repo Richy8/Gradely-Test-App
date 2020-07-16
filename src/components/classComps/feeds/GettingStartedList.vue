@@ -118,14 +118,11 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import GettingStartedTop from "@/components/classComps/feeds/GettingStartedTop";
 import DiagnosticTestCard from "@/components/classComps/feeds/DiagnosticTestCard";
 
 export default {
   name: "GettingStartedList",
-
-  mixins: [RenderImages],
 
   components: {
     GettingStartedTop,

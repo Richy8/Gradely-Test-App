@@ -138,7 +138,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import TutorIntroBlock from "@/components/classComps/catchup/catchuptutor/TutorIntroBlock";
 import TutorAboutMe from "@/components/classComps/catchup/catchuptutor/TutorAboutMe";
 import TutorProfileCard from "@/components/classComps/catchup/catchuptutor/TutorProfileCard";
@@ -160,9 +159,7 @@ export default {
       import(/* webpackChunkName: "TutorCatchup" */ "@/components/classComps/catchup/catchuptutor/TutorBookingCard"),
     TutorFAQ: () =>
       import(/* webpackChunkName: "TutorCatchup" */ "@/components/classComps/catchup/catchuptutor/TutorFAQ")
-  },
-
-  mixins: [RenderImages]
+  }
 };
 </script>
 

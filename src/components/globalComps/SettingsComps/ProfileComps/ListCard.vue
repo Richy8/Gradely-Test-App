@@ -31,8 +31,6 @@
 
 <script>
 import { setInitial } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "ListCard",
 
@@ -41,8 +39,6 @@ export default {
     card_text_top: String,
     card_text_bottom: String
   },
-
-  mixins: [RenderImages],
 
   computed: {
     getInitial() {

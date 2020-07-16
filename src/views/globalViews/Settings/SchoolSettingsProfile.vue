@@ -61,12 +61,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "SchoolSettingsProfile",
-
-  mixins: [RenderImages],
 
   components: {
     SchoolProfileForm: () =>

@@ -109,7 +109,7 @@ export default {
       account_type: "",
       welcome_dialogue: true,
       upgrade_alert: true,
-      post_count: 0
+      post_count: 1
     };
   },
 

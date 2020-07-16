@@ -130,7 +130,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import SettingsPanel from "@/components/globalComps/SettingsPanel";
 import { mixin as clickaway } from "vue-clickaway";
 
@@ -141,7 +140,7 @@ export default {
     SettingsPanel
   },
 
-  mixins: [clickaway, RenderImages],
+  mixins: [clickaway],
 
   props: {
     nav_text: Array,

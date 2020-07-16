@@ -33,14 +33,11 @@
 
 <script>
 import Modal from "@/components/globalComps/Modal";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "StudentInvitationModal",
 
   components: { Modal },
-
-  mixins: [RenderImages],
 
   data() {
     return {};

@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import { setInitial } from "@/scripts/utilities";
 
 export default {
@@ -46,8 +45,6 @@ export default {
     review_rating: Number,
     review_text: String
   },
-
-  mixins: [RenderImages],
 
   computed: {
     getInitial() {

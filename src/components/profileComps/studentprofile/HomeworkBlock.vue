@@ -21,7 +21,7 @@
 
         <!-- HOMEWORK TITLE -->
         <div class="homework-info">
-          <div class="homework-title color_text text-truncate">{{ title }}</div>
+          <div class="homework-title brand_navy font-weight-bold text-truncate">{{ title }}</div>
           <div class="homework-subject color_grey_dark">
             <span class="subject">{{ subject }}</span> •
             <span
@@ -286,12 +286,12 @@ export default {
     }
 
     .text {
-      font-size: 13.5px;
+      font-size: 12.5px;
       line-height: 19px;
     }
 
     .percent {
-      font-size: 13px;
+      font-size: 12.5px;
       line-height: 19px;
     }
 

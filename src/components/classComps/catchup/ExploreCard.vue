@@ -41,8 +41,6 @@
 
 <script>
 import { setInitial, colors, random, shuffle } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "ExploreCard",
 
@@ -75,8 +73,6 @@ export default {
       }
     }
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {

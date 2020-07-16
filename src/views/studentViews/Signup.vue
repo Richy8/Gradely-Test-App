@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import SignUpForm from "@/components/studentsComps/signup/SignUpForm.vue";
 import AuthFooter from "@/components/globalComps/AuthComps/AuthFooter";
 
@@ -47,9 +46,7 @@ export default {
   components: {
     SignUpForm,
     AuthFooter
-  },
-
-  mixins: [RenderImages]
+  }
 };
 </script>
 

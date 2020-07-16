@@ -36,13 +36,10 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import { colors, shuffle, random, setInitial } from "@/scripts/utilities";
 
 export default {
   name: "CommentViewCard",
-
-  mixins: [RenderImages],
 
   props: {
     comments: Array

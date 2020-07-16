@@ -79,7 +79,6 @@
 </template>
 
 <script>
-import RenderImagess from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "PlanDetailCard",
@@ -96,8 +95,6 @@ export default {
     catchup_plan: String,
     tutoring_plan: String
   },
-
-  mixins: [RenderImagess],
 
   data() {
     return {

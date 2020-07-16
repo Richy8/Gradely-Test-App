@@ -115,14 +115,10 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "BookingComplete",
 
   components: {},
-
-  mixins: [RenderImages],
 
   data() {
     return {};

@@ -20,7 +20,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "DiagnosticTestCard",
@@ -35,7 +34,6 @@ export default {
       import(/* webpackChunkName: "StartPracticeModal" */ "@/components/modalComps/parentModals/StartPracticeModal")
   },
 
-  mixins: [RenderImages],
 
   data() {
     return {

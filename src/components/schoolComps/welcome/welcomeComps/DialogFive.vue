@@ -19,14 +19,11 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "DialogFive",
 
   props: ["banner", "display_img"],
-
-  mixins: [RenderImages],
 
   data() {
     return {

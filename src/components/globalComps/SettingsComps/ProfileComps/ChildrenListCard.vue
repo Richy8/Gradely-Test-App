@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "ChildrenListCard",
 
@@ -47,9 +45,7 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-
-  mixins: [RenderImages]
+  }
 };
 </script>
 

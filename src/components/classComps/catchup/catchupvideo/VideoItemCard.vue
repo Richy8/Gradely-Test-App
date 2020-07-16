@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "VideoItemCard",
@@ -35,7 +34,6 @@ export default {
     card_topic: String
   },
 
-  mixins: [RenderImages]
 };
 </script>
 

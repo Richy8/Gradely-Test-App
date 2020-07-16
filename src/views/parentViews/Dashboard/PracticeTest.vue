@@ -26,11 +26,16 @@
               <!-- TOP ROW -->
               <div class="d-flex justify-content-between align-items-start nowrap mt-4">
                 <!-- LEFT MENU COMPONENT -->
-                <LeftMenu></LeftMenu>
+                <LeftMenu
+                  :is_play="play_game"
+                  @gamePaused="toggleSettings"
+                  @gamePlay="toggleSettings"
+                  v-if="!badge_update"
+                ></LeftMenu>
                 <!-- LEFT MENU COMPONENT -->
 
                 <!-- RIGHT MENU COMPONENT-->
-                <RightMenu></RightMenu>
+                <RightMenu v-if="!badge_update"></RightMenu>
                 <!-- RIGHT MENU COMPONENT-->
               </div>
             </div>
@@ -39,26 +44,43 @@
       </section>
       <!-- MENU SECTION -->
 
-      <!-- QUESTION CONTAINER -->
       <transition name="fade" mode="out-in">
         <div class="container px-1">
           <div class="row question-row">
             <div class="col-12 position-relative">
-              <QuestionBlock
-                :question_id="questions[current_index].id"
-                :is_question_image="questions[current_index].question_image"
-                :is_option_image="questions[current_index].option_image"
-                :question="questions[current_index].question"
-                :question_image="questions[current_index].image"
-                :question_answer="questions[current_index].answer"
-                :question_option="questions[current_index].options"
-                @questionSelected="revealNextQuestion"
-              ></QuestionBlock>
+              <transition name="fade" mode="out-in">
+                <keep-alive>
+                  <div v-if="!badge_update">
+                    <!-- SETTINGS BLOCK -->
+                    <SettingsBlock v-if="pause_game" @gamePlay="togglePlayIcon"></SettingsBlock>
+                    <!-- SETTINGS BLOCK -->
+
+                    <!-- QUESTION CONTAINER -->
+                    <QuestionBlock
+                      :question_id="questions[current_index].id"
+                      :is_question_image="questions[current_index].question_image"
+                      :is_option_image="questions[current_index].option_image"
+                      :question="questions[current_index].question"
+                      :question_image="questions[current_index].image"
+                      :question_answer="questions[current_index].answer"
+                      :question_option="questions[current_index].options"
+                      @questionSelected="revealNextQuestion"
+                      v-else
+                    ></QuestionBlock>
+                    <!-- QUESTION CONTAINER -->
+                  </div>
+
+                  <div></div>
+                </keep-alive>
+              </transition>
+
+              <!-- BADGE CARD -->
+              <BadgeHintCard v-if="badge_update" @toggleUpdate="continueGame"></BadgeHintCard>
+              <!-- BADGE CARD -->
             </div>
           </div>
         </div>
       </transition>
-      <!-- QUESTION CONTAINER -->
 
       <!-- HELP FLAG -->
       <section class="position-fixed w-100 help-flag-section">
@@ -78,7 +100,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import LeftMenu from "@/components/classComps/practicetest/LeftMenu";
 import RightMenu from "@/components/classComps/practicetest/RightMenu";
 import QuestionBlock from "@/components/classComps/practicetest/QuestionBlock";
@@ -87,17 +108,22 @@ import { setTimeout } from "timers";
 export default {
   name: "PracticeTest",
 
-  mixins: [RenderImages],
-
   components: {
     LeftMenu,
     RightMenu,
-    QuestionBlock
+    QuestionBlock,
+    BadgeHintCard: () =>
+      import(/* webpackChunkNmae:"BadgeHintCard" */ "@/components/classComps/practicetest/BadgeHintCard"),
+    SettingsBlock: () =>
+      import(/* webpackChunkNmae:"SettingsBlock" */ "@/components/classComps/practicetest/SettingsBlock")
   },
 
   data() {
     return {
       account_type: "",
+      play_game: false,
+      pause_game: false,
+      badge_update: true,
       start_index: 0,
       current_index: 0,
 
@@ -166,6 +192,19 @@ export default {
           this.current_index = this.start_index;
         }
       }, 1000);
+    },
+
+    togglePlayIcon() {
+      this.play_game = !this.play_game;
+      this.toggleSettings();
+    },
+
+    toggleSettings() {
+      this.pause_game = !this.pause_game;
+    },
+
+    continueGame() {
+      this.badge_update = !this.badge_update;
     }
   }
 };

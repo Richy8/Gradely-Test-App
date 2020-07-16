@@ -39,8 +39,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "TutorIntroBlock",
 
@@ -55,8 +53,6 @@ export default {
     StarRating: () =>
       import(/* webpackChunkName: "TutorCatchup" */ "@/components/classComps/catchup/catchuptutor/StarRating")
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {};

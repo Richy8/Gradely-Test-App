@@ -39,14 +39,12 @@ export default {
   },
 
   mounted() {
-    if (!localStorage.getItem("gradelyAuthToken")) {
-      this.$router.replace({path: "/login"})
-    }
     bgColorSetter("#f0f0f0");
+    if (!localStorage.getItem("gradelyAuthToken")) {
+      this.$router.replace({ path: "/login" });
+    }
   },
-  methods: {
-    
-  }
+  methods: {}
 };
 </script>
 

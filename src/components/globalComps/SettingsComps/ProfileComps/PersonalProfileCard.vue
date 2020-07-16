@@ -43,7 +43,6 @@
 
 <script>
 import { setInitial } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "PersonalProfileCard",
@@ -54,8 +53,6 @@ export default {
     SelectAvatarModal: () =>
       import(/* webPackChunkName: "modal" */ "@/components/modalComps/studentModals/SelectAvatarModal")
   },
-
-  mixins: [RenderImages],
 
   computed: {
     getInitial() {

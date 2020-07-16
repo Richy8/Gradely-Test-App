@@ -11,11 +11,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "PostImageBlock",
-
-  mixins: [RenderImages],
 
   props: {
     post: Object

@@ -30,11 +30,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "EmptyContent",
-
-  mixins: [RenderImages],
 
   props: {
     display_img: String,

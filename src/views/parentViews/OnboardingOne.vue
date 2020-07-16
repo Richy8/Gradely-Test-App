@@ -19,41 +19,29 @@
         </div>
       </div>
     </div>
-
-    <!-- MODAL -->
-    <WelcomeDialogue v-if="welcome_dialogue" @closeDialog="dialogueCompleted"></WelcomeDialogue>
-    <!-- MODAL -->
   </div>
 </template>
 
 <script>
 import { bgColorSetter } from "@/scripts/utilities";
-import WelcomeDialogue from "@/components/schoolComps/welcome/WelcomeDialog";
 import NewChildForm from "@/components/parentsComps/onboarding/NewChildForm.vue";
 
 export default {
   name: "OnboardingOne",
 
   components: {
-    WelcomeDialogue,
     NewChildForm
   },
 
   data() {
-    return {
-      welcome_dialogue: true
-    };
+    return {};
   },
 
   mounted() {
     bgColorSetter("#f0f0f0");
   },
 
-  methods: {
-    dialogueCompleted() {
-      this.welcome_dialogue = !this.welcome_dialogue;
-    }
-  }
+  methods: {}
 };
 </script>
 

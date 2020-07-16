@@ -13,12 +13,9 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "AuthAlertCard",
-
-  mixins: [RenderImages],
 
   props: {
     alert_type: String,

@@ -22,11 +22,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
-  name: "WelcomeBlock",
-
-  mixins: [RenderImages]
+  name: "WelcomeBlock"
 };
 </script>
 

@@ -91,12 +91,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
-  name: "BadgeDefaultRow",
-
-  mixins: [RenderImages]
+  name: "BadgeDefaultRow"
 };
 </script>
 

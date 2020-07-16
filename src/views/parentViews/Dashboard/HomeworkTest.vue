@@ -1,13 +1,13 @@
 <template>
   <div>
-    <vue-headful title="Homework Test | Parents" description="Description goes here"/>
+    <vue-headful :title="getPageTitle" description="Description goes here"/>
     <div class="homework-test-section">
       <div class="img-frame">
         <img v-lazy="localImg('MathsDoodle.png')" alt>
       </div>
 
       <!-- CLOSE TRIGGER -->
-      <div class="pageClose dialogDismiss">
+      <div class="pageClose dialogDismiss" :class="{'d-none': processing_page}">
         <button type="button" class="close_dialog cls_lg transparent_bg" @click="backToHomework"></button>
       </div>
       <!-- CLOSE TRIGGER -->
@@ -101,7 +101,7 @@
                 <HomeworkTimer
                   :start_minutes="15"
                   :test_complete="result_modal"
-                  @timeElapsed="toggleHomeworkResultModal"
+                  @timeElapsed="revealProcessingPage"
                 ></HomeworkTimer>
               </div>
               <!-- HOMEWORK TIMER -->
@@ -131,7 +131,7 @@
               <!-- RIGHT BUTTON -->
               <button
                 class="btn btn-md btn-accent brand_navy font-weight-bold font-10-5"
-                @click="toggleHomeworkResultModal"
+                @click="revealProcessingPage"
                 v-if="last_question"
               >Finish</button>
               <button
@@ -145,6 +145,12 @@
         </div>
       </div>
       <!-- FOOTER ROW -->
+
+      <!-- TEST PROCESSING COMPONENT -->
+      <transition name="fade" mode="out-in">
+        <TestProcessing v-if="processing_page" :hide_info="hide"></TestProcessing>
+      </transition>
+      <!-- TEST PROCESSING COMPONENT -->
     </div>
 
     <!-- MODAL -->
@@ -154,28 +160,37 @@
 </template>
 
 <script>
-import { bgColorSetter } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
+import { bgColorSetter, capitalizeFirstLetter } from "@/scripts/utilities";
 import HomeworkTimer from "@/components/classComps/homework/HomeworkTimer";
+import { setTimeout } from "timers";
 
 export default {
   name: "HomeworkTest",
 
-  mixins: [RenderImages],
-
   components: {
     HomeworkTimer,
     HomeworkResultModal: () =>
-      import(/* webpackChunkName: "HomeworkResultModal" */ "@/components/modalComps/classModals/HomeworkResultModal")
+      import(/* webpackChunkName: "HomeworkResultModal" */ "@/components/modalComps/classModals/HomeworkResultModal"),
+    TestProcessing: () =>
+      import(/* webpackChunkName: "TestProcessing" */ "@/components/classComps/homework/TestProcessing")
+  },
+
+  computed: {
+    getPageTitle() {
+      return `Homework Test | ${capitalizeFirstLetter(this.account_type)}`;
+    }
   },
 
   data() {
     return {
+      account_type: "",
       form: {
         option: ""
       },
 
       result: 80,
+      hide: false,
+      processing_page: false,
       result_modal: false,
 
       question_progress: "",
@@ -219,9 +234,14 @@ export default {
   mounted() {
     bgColorSetter("#f0f0f0");
     this.setProgressCount();
+    this.getAccountType();
   },
 
   methods: {
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
+    },
+
     backToHomework() {
       this.$router.push("/parent/dashboard/homework");
     },
@@ -242,6 +262,17 @@ export default {
       if (total_questions - 1 === this.current_question) {
         this.last_question = true;
       }
+    },
+
+    revealProcessingPage() {
+      setTimeout(() => {
+        this.processing_page = !this.processing_page;
+      }, 1000);
+
+      setTimeout(() => {
+        this.toggleHomeworkResultModal();
+        this.hide = !this.hide;
+      }, 3000);
     },
 
     toggleHomeworkResultModal() {

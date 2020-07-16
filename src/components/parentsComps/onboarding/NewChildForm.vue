@@ -14,7 +14,7 @@
       <span class="icon-error-report brand_navy font-17 mr-2"></span>
       Student already registered?
       <router-link
-        :to="{name: 'ParentConnectCildOnboarding'}"
+        :to="{name: 'ParentConnectChildOnboarding'}"
         class="connect-link link-underline"
       >Connect with student code</router-link>
     </div>

@@ -15,6 +15,11 @@ const teachersRoute = [{
         component: () => import( /* webpackChunkName: "onboarding" */ "@/views/teacherViews/Onboarding")
     },
     {
+        path: "/teacher/dashboard/viewer",
+        name: "TeacherViewer",
+        component: () => import( /* webpackChunkName: "onboarding" */ "@/views/globalViews/LibraryViewer")
+    },
+    {
         path: "/teacher/calendar",
         component: BaseTeacherEntry,
         children: [{
@@ -57,6 +62,38 @@ const teachersRoute = [{
                 path: "/teacher/dashboard/report",
                 name: "TeacherReport",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Report"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/teacher/dashboard/documents",
+                name: "TeacherDocuments",
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Documents"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/teacher/dashboard/videos",
+                name: "TeacherVideos",
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Videos"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/teacher/dashboard/assesments",
+                name: "TeacherAssessments",
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Assessments"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/teacher/dashboard/discussions",
+                name: "TeacherDiscussions",
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Discussions"),
                 meta: {
                     requiresAuth: true
                 }

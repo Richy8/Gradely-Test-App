@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import AuthFooter from "@/components/globalComps/AuthComps/AuthFooter";
 
 export default {
@@ -53,9 +52,7 @@ export default {
       type: Boolean,
       default: false
     }
-  },
-
-  mixins: [RenderImages]
+  }
 };
 </script>
 

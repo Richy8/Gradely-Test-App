@@ -61,7 +61,6 @@
 
 <script>
 import { setInitial } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
 import PostInputOptions from "@/components/classComps/feeds/PostInputOptions";
 
 export default {
@@ -71,8 +70,6 @@ export default {
     fullname: String,
     avatar_img: String
   },
-
-  mixins: [RenderImages],
 
   components: {
     PostInputOptions,

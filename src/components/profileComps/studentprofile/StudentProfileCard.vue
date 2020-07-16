@@ -62,12 +62,9 @@
 
 <script>
 import { setInitial } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "StudentProfileCard",
-
-  mixins: [RenderImages],
 
   props: {
     child_img: String,

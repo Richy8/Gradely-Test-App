@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="modal-overlay">
-      <div class="modal-box modal-sm-md" :class="modal_size">
+      <div class="modal-box modal-sm-md rounded-10" :class="modal_style">
         <div class="container">
           <div class="row">
             <div class="col-12 d-flex justify-content-between align-items-center">
@@ -26,7 +26,7 @@ export default {
   name: "Modal",
 
   props: {
-    modal_size: {
+    modal_style: {
       type: String,
       required: false
     }

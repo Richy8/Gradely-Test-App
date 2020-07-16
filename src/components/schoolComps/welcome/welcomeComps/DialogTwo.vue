@@ -23,14 +23,11 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "DialogTwo",
 
   props: ["banner", "display_img"],
-
-  mixins: [RenderImages],
 
   data() {
     return {

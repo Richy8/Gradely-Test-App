@@ -42,12 +42,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "BreakdownCard",
-
-  mixins: [RenderImages],
 
   props: {
     topic_img: String,

@@ -19,7 +19,8 @@
         month="March"
         title="Week 1 Homework"
         subject="Mathematics"
-        :progress="78"
+        status="Open"
+        :progress="0"
       ></HomeworkCard>
 
       <HomeworkCard
@@ -27,10 +28,18 @@
         month="August"
         title="Week 4 Homework"
         subject="Mathematics"
+        status="Closed"
         :progress="54"
       ></HomeworkCard>
 
-      <HomeworkCard :day="24" month="July" title="Week 1 Homework" subject="Biology" :progress="25"></HomeworkCard>
+      <HomeworkCard
+        :day="24"
+        month="July"
+        title="Week 1 Homework"
+        subject="Biology"
+        status="Closed"
+        :progress="25"
+      ></HomeworkCard>
       <!-- CONTENT CARD COMPONENT -->
 
       <!-- PAFINATION COMPONENT -->

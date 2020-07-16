@@ -25,12 +25,10 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "UpgradeAlertCard",
 
-  mixins: [RenderImages]
 };
 </script>
 

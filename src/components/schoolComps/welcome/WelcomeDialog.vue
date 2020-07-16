@@ -73,11 +73,12 @@
             v-if="account_type!=='parent'"
             @click="$emit('closeDialog')"
           >Done</button>
-          <button
+          <router-link
+            :to="{name: 'ParentNewChildOnboarding'}"
             class="btn btn-accent done-btn d-none"
             v-else
             @click="$emit('closeDialog')"
-          >Add a Child</button>
+          >Add a Child</router-link>
 
           <div
             class="navigations d-flex justify-content-center align-items-start"

@@ -92,7 +92,6 @@
 
 <script>
 import { bgColorSetter } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "PlanUpgrade",
@@ -107,7 +106,6 @@ export default {
     SessionSchedule: () =>
       import(/* webpackChunkName: "SessionSchedule" */ "@/components/classComps/catchup/catchupbooking/SessionSchedule")
   },
-  mixins: [RenderImages],
 
   data() {
     return {

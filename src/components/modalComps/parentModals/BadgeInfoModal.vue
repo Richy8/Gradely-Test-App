@@ -40,7 +40,6 @@
 
 <script>
 import ModalCover from "@/components/globalComps/ModalCover";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "ChildAddedModal",
@@ -51,8 +50,6 @@ export default {
   },
 
   components: { ModalCover },
-
-  mixins: [RenderImages],
 
   data() {
     return {};

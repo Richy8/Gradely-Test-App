@@ -49,7 +49,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import { colors, random, shuffle, setInitial } from "@/scripts/utilities";
 
 export default {
@@ -60,8 +59,6 @@ export default {
     teacher_name: String,
     teacher_subject: String
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {

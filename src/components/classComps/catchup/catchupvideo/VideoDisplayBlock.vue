@@ -40,8 +40,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "VideoDisplayBlock",
 
@@ -53,8 +51,6 @@ export default {
   },
 
   components: {},
-
-  mixins: [RenderImages],
 
   data() {
     return {

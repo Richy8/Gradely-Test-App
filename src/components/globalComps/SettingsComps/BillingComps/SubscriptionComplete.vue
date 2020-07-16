@@ -62,14 +62,10 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "SubscriptionComplete",
 
   components: {},
-
-  mixins: [RenderImages],
 
   data() {
     return {};

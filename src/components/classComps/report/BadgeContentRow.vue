@@ -30,8 +30,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "BadgeContentRow",
 
@@ -39,8 +37,6 @@ export default {
     BadgeInfoModal: () =>
       import(/* webpackChunkName: "BadgeInfoModal" */ "@/components/modalComps/parentModals/BadgeInfoModal")
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {

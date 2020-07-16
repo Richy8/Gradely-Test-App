@@ -14,19 +14,24 @@
 
           <!-- CLASS FEEDS -->
           <div class="col-12 col-md-9 col-lg-9 right-layout">
-            <PostInputCard fullname="Anthony Joshua"></PostInputCard>
-
-            <!-- FILTER -->
-            <FilterPost></FilterPost>
+            <PostInputCardNew fullname="Anthony Joshua"></PostInputCardNew>
 
             <div class="row">
               <!-- POSTS SECTION -->
               <div class="col-12 col-md-7 order-2 order-lg-1 post-component">
                 <!-- POST BLOCK COMPONENTS -->
 
+                <!-- FILTER COMPONENTS -->
+                <FilterPostLibrary @switchView="togglePostBlock"></FilterPostLibrary>
+                <!-- FILTER COMPONENTS -->
+
                 <div class="content-post-section" v-if="post_count > 0">
-                  <PostBlock></PostBlock>
+                  <transition>
+                    <components :is="in_view"></components>
+                  </transition>
                 </div>
+
+                <!-- DEFAULT BLOCK -->
                 <div class="default-post-section" v-else>
                   <DefaultPostBlock account_type="teacher"></DefaultPostBlock>
                 </div>
@@ -54,10 +59,11 @@
 <script>
 import WelcomeDialogue from "@/components/schoolComps/welcome/WelcomeDialog";
 import TeacherClassCard from "@/components/classComps/teacherSideBar/TeacherClassCard";
-import PostInputCard from "@/components/classComps/feeds/PostInputCard";
-import FilterPost from "@/components/classComps/feeds/FilterPost";
+import PostInputCardNew from "@/components/classComps/feeds/PostInputCardNew";
+import FilterPostLibrary from "@/components/classComps/feeds/FilterPostLibrary";
 import DefaultPostBlock from "@/components/classComps/feeds/DefaultPostBlock";
 import PostBlock from "@/components/classComps/feeds/PostBlock";
+import PostLibraryBlock from "@/components/classComps/feeds/PostLibraryBlock";
 
 export default {
   name: "Feeds",
@@ -65,10 +71,11 @@ export default {
   components: {
     WelcomeDialogue,
     TeacherClassCard,
-    PostInputCard,
-    FilterPost,
+    PostInputCardNew,
+    FilterPostLibrary,
     DefaultPostBlock,
     PostBlock,
+    PostLibraryBlock,
     UpcomingEventBlock: () =>
       import(/* webpackChunkName: "upcomingevent" */ "@/components/classComps/feeds/UpcomingEventBlock"),
     AddTeacherModal: () =>
@@ -79,6 +86,8 @@ export default {
     return {
       welcome_dialogue: true,
       teacher_modal: false,
+      in_view: "PostBlock",
+      active: true,
       post_count: 1
     };
   },
@@ -90,6 +99,15 @@ export default {
 
     dialogueCompleted() {
       this.welcome_dialogue = !this.welcome_dialogue;
+    },
+
+    togglePostBlock() {
+      this.active = !this.active;
+      if (this.active) {
+        this.in_view = "PostLibraryBlock";
+      } else {
+        this.in_view = "PostBlock";
+      }
     }
   }
 };

@@ -7,12 +7,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
-  name: "CatchupBanner",
-
-  mixins: [RenderImages]
+  name: "CatchupBanner"
 };
 </script>
 

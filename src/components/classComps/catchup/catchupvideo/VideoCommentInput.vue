@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import { setInitial } from "@/scripts/utilities";
 
 export default {
@@ -42,8 +41,6 @@ export default {
     card_img: String,
     card_name: String
   },
-
-  mixins: [RenderImages],
 
   computed: {
     getInitial() {

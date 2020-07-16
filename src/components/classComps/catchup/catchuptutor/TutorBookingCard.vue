@@ -142,8 +142,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "TutorBookingCard",
 
@@ -165,8 +163,6 @@ export default {
     tutor_session: String,
     tutor_date: String
   },
-
-  mixins: [RenderImages],
 
   computed: {
     formatWithComma() {

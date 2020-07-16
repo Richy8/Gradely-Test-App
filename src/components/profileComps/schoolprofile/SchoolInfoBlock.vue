@@ -45,8 +45,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "SchoolInfoBlock",
   props: {
@@ -57,8 +55,7 @@ export default {
     boarding_type: String,
     education_scope: String,
     date_established: String
-  },
-  mixins: [RenderImages]
+  }
 };
 </script>
 

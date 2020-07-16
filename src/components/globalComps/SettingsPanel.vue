@@ -122,7 +122,6 @@
 
 <script>
 import { colors, random, shuffle, setInitial } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "SettingsPanel",
@@ -135,8 +134,6 @@ export default {
     student_code: String,
     panel_type: String
   },
-
-  mixins: [RenderImages],
 
   computed: {
     getInitial() {

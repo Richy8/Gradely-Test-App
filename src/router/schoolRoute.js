@@ -20,6 +20,11 @@ const schoolRoute = [{
         }
     },
     {
+        path: "/school/dashboard/viewer",
+        name: "SchoolViewer",
+        component: () => import( /* webpackChunkName: "onboarding" */ "@/views/globalViews/LibraryViewer")
+    },
+    {
         path: "/school/calendar",
         component: BaseSchoolEntry,
         children: [{
@@ -160,6 +165,38 @@ const schoolRoute = [{
                 path: "/school/dashboard/class/report",
                 name: "ClassReport",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/ClassReport"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/school/dashboard/documents",
+                name: "SchoolDocuments",
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Documents"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/school/dashboard/videos",
+                name: "SchoolVideos",
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Videos"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/school/dashboard/assessments",
+                name: "SchoolAssessments",
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Assessments"),
+                meta: {
+                    requiresAuth: true
+                }
+            },
+            {
+                path: "/school/dashboard/discussions",
+                name: "SchoolDiscussions",
+                component: () => import( /* webpackChunkName: "dashboard" */ "@/views/teacherViews/Dashboard/Discussions"),
                 meta: {
                     requiresAuth: true
                 }

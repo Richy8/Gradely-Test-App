@@ -45,12 +45,9 @@
 
 <script>
 import NinjaIcon from "@/components/coloredIconPack/NinjaIcon";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "SelectAvatar",
-
-  mixins: [RenderImages],
 
   components: {
     NinjaIcon

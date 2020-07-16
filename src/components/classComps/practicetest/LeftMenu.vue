@@ -3,8 +3,9 @@
     <div class="left-menu-section">
       <div class="d-flex justify-content-start align-items-center nowrap">
         <!-- PAUSE -->
-        <div class="pause-box rounded-5 pointer">
-          <span class="icon-pause-no-fill brand_inverse_light font-15 flex-center"></span>
+        <div class="pause-box rounded-5 pointer" @click="toggleSettings">
+          <span class="icon-play brand_inverse_light font-15 flex-center" v-if="paused"></span>
+          <span class="icon-pause-no-fill brand_inverse_light font-15 flex-center" v-else></span>
         </div>
 
         <!-- PRACTICE COUNT -->
@@ -37,8 +38,36 @@ import FlameIcon from "@/components/coloredIconPack/FlameIcon";
 export default {
   name: "LeftMenu",
 
+  props: {
+    is_play: {
+      type: Boolean,
+      default: false
+    }
+  },
+
   components: {
     FlameIcon
+  },
+
+  data() {
+    return {
+      paused: false
+    };
+  },
+
+  watch: {
+    is_play: "togglePlay"
+  },
+
+  methods: {
+    togglePlay() {
+      this.paused = false;
+    },
+
+    toggleSettings() {
+      this.paused = !this.paused;
+      this.paused ? this.$emit("gamePaused") : this.$emit("gamePlay");
+    }
   }
 };
 </script>
@@ -51,6 +80,10 @@ export default {
     padding: 10px 13px;
     background: rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease-in-out;
+
+    span {
+      transition: all 0.3s ease-in-out;
+    }
 
     &:hover {
       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.15);

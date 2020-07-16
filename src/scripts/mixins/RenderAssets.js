@@ -1,4 +1,4 @@
-const RenderImages = {
+const RenderAssets = {
     methods: {
         localImg(src) {
             return require('@/assets/local/' + src + '');
@@ -10,8 +10,12 @@ const RenderImages = {
 
         dynamicVid(src) {
             return require('@/assets/video/' + src + '');
-        }
+        },
+
+        // loadFile(src) {
+        //     return require('@/assets/files/' + src + '');
+        // }
     }
 }
 
-export default RenderImages;
+export default RenderAssets;

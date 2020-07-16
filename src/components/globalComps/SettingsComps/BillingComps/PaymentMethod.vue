@@ -36,13 +36,10 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "PaymentMethod",
-
-  mixins: [RenderImages],
-
+  
   components: {
     ChangeCardModal: () =>
       import(/* webpackChunkName: "ChangeCardModal" */ "@/components/modalComps/settingsModals/ChangeCardModal")

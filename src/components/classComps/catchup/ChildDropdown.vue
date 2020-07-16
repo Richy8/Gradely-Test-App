@@ -27,12 +27,8 @@
 </template>
 
 <script>
-import RenderImges from "@/scripts/mixins/RenderImages";
-
 export default {
-  name: "ChildDropdown",
-
-  mixins: [RenderImges]
+  name: "ChildDropdown"
 };
 </script>
 

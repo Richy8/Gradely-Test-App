@@ -95,7 +95,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "AboutMeSection",
 
@@ -109,9 +108,7 @@ export default {
     teacher_phone: String,
     teacher_email: String,
     teacher_address: String
-  },
-
-  mixins: [RenderImages]
+  }
 };
 </script>
 

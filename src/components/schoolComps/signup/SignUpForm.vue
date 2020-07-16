@@ -4,11 +4,7 @@
       <!-- FIRST NAME AND LAST NAME -->
       <div class="row">
         <div class="alert alert-danger" v-if="show_err">
-          <li
-          v-for="(error,index) in error_msg"
-          :key="index">
-          {{ error[0] }}
-          </li>
+          <li v-for="(error,index) in error_msg" :key="index">{{ error[0] }}</li>
         </div>
         <div class="form-group col-sm-6">
           <label for class="control-label font-weight-bold text-uppercase">First Name</label>
@@ -16,7 +12,12 @@
         </div>
         <div class="form-group col-sm-6">
           <label for class="control-label font-weight-bold text-uppercase">Last Name (Surname)</label>
-          <input type="text" v-model="form.last_name" class="form-control" placeholder="E.g Nwankwo">
+          <input
+            type="text"
+            v-model="form.last_name"
+            class="form-control"
+            placeholder="E.g Nwankwo"
+          >
         </div>
       </div>
 
@@ -91,8 +92,8 @@
         <div class="disclaimer-block col-md-7 mt-3 mt-md-0 color_ash">
           <p>
             By creating an account, you agree to our
-            <a href="#" class="btn-link">Terms</a> and
-            <a href="#" class="btn-link">Policies</a>.
+            <router-link :to="{name: ''}" class="btn-link">Terms</router-link>and
+            <router-link :to="{name: ''}" class="btn-link">Policies</router-link>.
           </p>
         </div>
       </div>
@@ -101,7 +102,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions } from "vuex";
 
 //import axios from 'axios';
 
@@ -117,12 +118,11 @@ export default {
         email: "school@mail.com",
         phone: "9090527304",
         password: "password",
-        userType: 'school'
+        userType: "school"
       },
       passwordType: true,
       show_err: false,
       error_msg: null
-
     };
   },
 
@@ -133,37 +133,36 @@ export default {
       this.passwordType = !this.passwordType;
       pwd_icon.classList.toggle("show_pass");
     },
-    async schoolSignup(){
-      if(this.form.phone[0] !== "0" && this.form.phone.length == 10 ){
-          let phone = this.form.phone.split('');
-          phone.unshift("0");
-          this.form.phone = phone.join("");
-      }       
-      this.signupUser({...this.form})
-      .then(res => {
-        if (res.data.code == 200){
-          const data = res.data.data;   
-          //STORE TOKEN IN LOCAL STORAGE
-          if (localStorage.getItem("gradelyAuthToken")) {
-            localStorage.removeItem("gradelyAuthToken")
-          }    
-          localStorage.setItem("gradelyAuthToken",data.token)
-          //redirect to next phase
-          this.$router.replace({
-            path: `/${data.type}/${!data.is_boarded ? 'onboarding' : 'dashboard'}`
+    async schoolSignup() {
+      if (this.form.phone[0] !== "0" && this.form.phone.length == 10) {
+        let phone = this.form.phone.split("");
+        phone.unshift("0");
+        this.form.phone = phone.join("");
+      }
+      this.signupUser({ ...this.form })
+        .then(res => {
+          if (res.data.code == 200) {
+            const data = res.data.data;
+            //STORE TOKEN IN LOCAL STORAGE
+            if (localStorage.getItem("gradelyAuthToken")) {
+              localStorage.removeItem("gradelyAuthToken");
+            }
+            localStorage.setItem("gradelyAuthToken", data.token);
+            //redirect to next phase
+            this.$router.replace({
+              path: `/${data.type}/${
+                !data.is_boarded ? "onboarding" : "dashboard"
+              }`
             });
-        }else{
-          this.show_err = true;
-          this.error_msg = Object.values(res.data.data);
-
-        }
-      })
-      .catch(err => console.log(err))
+          } else {
+            this.show_err = true;
+            this.error_msg = Object.values(res.data.data);
+          }
+        })
+        .catch(err => console.log(err));
     }
   },
-  computed: {
-
-  }
+  computed: {}
 };
 </script>
 

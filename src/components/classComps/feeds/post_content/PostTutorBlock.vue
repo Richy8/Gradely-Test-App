@@ -40,16 +40,12 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "PostTutorBlock",
 
   props: {
     post: Object
-  },
-
-  mixins: [RenderImages]
+  }
 };
 </script>
 

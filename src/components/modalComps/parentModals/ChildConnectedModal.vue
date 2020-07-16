@@ -51,14 +51,11 @@
 
 <script>
 import Modal from "@/components/globalComps/Modal";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "ChildAddedModal",
 
   components: { Modal },
-
-  mixins: [RenderImages],
 
   data() {
     return {};

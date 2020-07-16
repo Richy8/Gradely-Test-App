@@ -54,7 +54,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import { mixin as clickaway } from "vue-clickaway";
 import { colors, shuffle, random, setInitial } from "@/scripts/utilities";
 
@@ -72,7 +71,7 @@ export default {
     post: Object
   },
 
-  mixins: [clickaway, RenderImages],
+  mixins: [clickaway],
 
   computed: {
     getInitial() {

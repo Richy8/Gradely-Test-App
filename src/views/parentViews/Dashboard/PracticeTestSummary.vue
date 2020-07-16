@@ -139,13 +139,10 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import BadgeCard from "@/components/classComps/report/BadgeCard";
 
 export default {
   name: "PracticeSummaryTest",
-
-  mixins: [RenderImages],
 
   components: {
     BadgeCard,

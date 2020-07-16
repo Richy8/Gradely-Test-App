@@ -83,7 +83,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import ModalCover from "@/components/globalComps/ModalCover";
 
 export default {
@@ -93,7 +92,6 @@ export default {
     ModalCover
   },
 
-  mixins: [RenderImages],
 
   data() {
     return {

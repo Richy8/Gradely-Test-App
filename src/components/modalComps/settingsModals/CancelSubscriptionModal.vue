@@ -45,14 +45,11 @@
 
 <script>
 import Modal from "@/components/globalComps/Modal";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "CancelSubscriptionModal",
 
   components: { Modal },
-
-  mixins: [RenderImages],
 
   data() {
     return {};

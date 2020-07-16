@@ -34,8 +34,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "QuestionBlock",
 
@@ -54,8 +52,6 @@ export default {
     question_answer: String,
     question_option: Array
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {

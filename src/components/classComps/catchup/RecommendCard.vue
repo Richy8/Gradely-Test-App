@@ -101,8 +101,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "RecommendCard",
 
@@ -132,8 +130,6 @@ export default {
       default: false
     }
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {

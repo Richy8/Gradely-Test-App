@@ -26,12 +26,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "SchoolBanner",
-
-  mixins: [RenderImages],
 
   props: {
     school_name: String,

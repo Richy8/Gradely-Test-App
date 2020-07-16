@@ -14,7 +14,7 @@
       <span class="icon-error-report brand_navy font-17 mr-2"></span>
       Student code does not exist.
       <router-link
-        :to="{name: 'ParentNewCildOnboarding'}"
+        :to="{name: 'ParentNewChildOnboarding'}"
         class="connect-link link-underline"
       >Create an account instead</router-link>
     </div>
@@ -77,7 +77,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import ChildIcon from "@/components/coloredIconPack/ChildIcon";
 
 export default {
@@ -88,8 +87,6 @@ export default {
     ChildConnectedModal: () =>
       import(/* webpackChunkName: "ChildConnectedModal" */ "@/components/modalComps/parentModals/ChildConnectedModal")
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {
