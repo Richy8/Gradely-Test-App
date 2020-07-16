@@ -42,9 +42,8 @@
 </template>
 
 <script>
-
 export default {
-  name: "BadgeHintCard",
+  name: "BadgeHintCard"
 };
 </script>
 

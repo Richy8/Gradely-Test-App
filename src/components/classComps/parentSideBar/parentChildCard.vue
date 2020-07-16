@@ -3,6 +3,7 @@
     <div class="teacher-class-container white rounded-5 w-100 h-auto">
       <!-- CLASS CARD COMPONENT -->
       <ChildCard
+        :child_img="data.child_img"
         :child_name="data.child_name"
         :child_code="data.child_code"
         :active="data.active"
