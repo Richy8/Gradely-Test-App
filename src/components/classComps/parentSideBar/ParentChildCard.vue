@@ -54,7 +54,7 @@ export default {
 
   methods: {
     goToAddChild() {
-      this.$router.push("/parent/onboarding/new_child");
+      this.$router.push("/parent/onboarding/new-child");
     }
   }
 };
