@@ -17,16 +17,23 @@
                   </router-link>
                 </li>
 
+                <!-- SIGNUP LANDER -->
+                <li class="mb-2">
+                  <router-link to="/signup-lander" class="btn-link">
+                    <span class="icon-arrow-right"></span> SIGNUP LANDER
+                  </router-link>
+                </li>
+
                 <!-- FORGET PASSWORD -->
                 <li class="mb-2">
-                  <router-link to="/forget_password" class="btn-link">
+                  <router-link to="/forget-password" class="btn-link">
                     <span class="icon-arrow-right"></span> FORGET PASSWORD
                   </router-link>
                 </li>
 
                 <!-- RESET PASSWORD -->
                 <li class="mb-2">
-                  <router-link to="/reset_password" class="btn-link">
+                  <router-link to="/reset-password" class="btn-link">
                     <span class="icon-arrow-right"></span> RESET PASSWORD
                   </router-link>
                 </li>
@@ -104,7 +111,7 @@
 
                 <!--PARENT ONBOARDING -->
                 <li class="mb-2">
-                  <router-link to="/parent/onboarding/new_child" class="btn-link">
+                  <router-link to="/parent/onboarding/new-child" class="btn-link">
                     <span class="icon-arrow-right"></span> PARENT ONBOARDING
                   </router-link>
                 </li>

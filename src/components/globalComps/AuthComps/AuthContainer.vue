@@ -8,7 +8,7 @@
 
       <!-- CLOSE DIALOG -->
       <div class="pageClose dialogDismiss">
-        <button type="button" class="close_dialog cls_lg transparent_bg"></button>
+        <router-link :to="{name: 'GradelySignupLander'}" class="close_dialog cls_lg transparent_bg"></router-link>
       </div>
 
       <!-- AUTHENTICATION FORM DISPLAY SECTION -->

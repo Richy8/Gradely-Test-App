@@ -6,7 +6,10 @@ import SettingsEntry from "@/views/studentViews/EntryViews/SettingsEntry";
 const studentsRoute = [{
         path: "/student/signup",
         name: "StudentSignup",
-        component: () => import( /* webpackChunkName: "signup" */ "@/views/studentViews/Signup")
+        component: () => import( /* webpackChunkName: "signup" */ "@/views/studentViews/Signup"),
+        meta: {
+            guest: true
+        }
     },
     {
         path: "/student/onboarding",
@@ -14,10 +17,16 @@ const studentsRoute = [{
         component: () => import( /* webpackChunkName: "setup" */ "@/views/studentViews/Onboarding"),
         meta: {
             requiresAuth: true
+        },
+        beforeEnter(to, from, next) {
+            let is_boarded = JSON.parse(localStorage.getItem('authUser')).is_boarded;
+            is_boarded === 1 ? next({
+                name: 'StudentFeeds'
+            }) : next();
         }
     },
     {
-        path: "/student/parent_invitation",
+        path: "/student/parent-invitation",
         name: "ParentInvitation",
         component: () => import( /* webpackChunkName: "invitation" */ "@/views/studentViews/ParentInvitation"),
         meta: {
@@ -25,7 +34,7 @@ const studentsRoute = [{
         }
     },
     {
-        path: "/student/settings/upgrade_plan",
+        path: "/student/settings/upgrade-plan",
         name: "StudentUpgradePlan",
         component: () => import( /* webpackChunkName: "billing" */ "@/views/globalViews/Settings/PlanUpgrade"),
         meta: {
@@ -33,7 +42,7 @@ const studentsRoute = [{
         }
     },
     {
-        path: "/student/settings/subscription_success",
+        path: "/student/settings/subscription-success",
         name: "StudentSubscriptionSuccess",
         component: () => import( /* webpackChunkName: "billing" */ "@/views/globalViews/Settings/SubscriptionSuccess"),
         meta: {
@@ -41,7 +50,7 @@ const studentsRoute = [{
         }
     },
     {
-        path: "/student/catchup/book_session",
+        path: "/student/catchup/book-session",
         name: "StudentSessionBooking",
         component: () => import( /* webpackChunkName: "billing" */ "@/views/parentViews/Dashboard/BookSession"),
         meta: {
@@ -49,7 +58,7 @@ const studentsRoute = [{
         }
     },
     {
-        path: "/student/catchup/booking_success",
+        path: "/student/catchup/booking-success",
         name: "StudentBookingSuccess",
         component: () => import( /* webpackChunkName: "billing" */ "@/views/parentViews/Dashboard/BookingSuccess"),
         meta: {
@@ -57,7 +66,7 @@ const studentsRoute = [{
         }
     },
     {
-        path: "/student/homework/homework_test",
+        path: "/student/homework/homework-test",
         name: "StudentHomeworkTest",
         component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/HomeworkTest"),
         meta: {
@@ -65,7 +74,7 @@ const studentsRoute = [{
         }
     },
     {
-        path: "/student/homework/practice_test",
+        path: "/student/homework/practice-test",
         name: "StudentPracticeTest",
         component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/PracticeTest"),
         meta: {
@@ -73,7 +82,7 @@ const studentsRoute = [{
         }
     },
     {
-        path: "/student/homework/practice_summary",
+        path: "/student/homework/practice-summary",
         name: "StudentPracticeSummary",
         component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/PracticeTestSummary"),
         meta: {
@@ -120,7 +129,7 @@ const studentsRoute = [{
                 }
             },
             {
-                path: "/student/dashboard/student/topic_trend",
+                path: "/student/dashboard/student/topic-trend",
                 name: "StudentTopicTrend_SP",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/StudentTopicTrend"),
                 meta: {
@@ -128,7 +137,7 @@ const studentsRoute = [{
                 }
             },
             {
-                path: "/student/dashboard/homework/homework_review",
+                path: "/student/dashboard/homework/homework-review",
                 name: "StudentHomeworkReview",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/HomeworkReview"),
                 meta: {
@@ -149,7 +158,7 @@ const studentsRoute = [{
                 }
             },
             {
-                path: "/student/dashboard/catchup/video_lesson",
+                path: "/student/dashboard/catchup/video-lesson",
                 name: "StudentCatchupVideo",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/CatchupVideo"),
                 meta: {
@@ -157,7 +166,7 @@ const studentsRoute = [{
                 }
             },
             {
-                path: "/student/dashboard/catchup/tutor_profile",
+                path: "/student/dashboard/catchup/tutor-profile",
                 name: "StudentCatchupTutor",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/CatchupTutor"),
                 meta: {
@@ -202,7 +211,7 @@ const studentsRoute = [{
                 }
             },
             {
-                path: "/student/dashboard/settings/account_settings",
+                path: "/student/dashboard/settings/account-settings",
                 name: "StudentSettingsAccount",
                 component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsAccount"),
                 meta: {

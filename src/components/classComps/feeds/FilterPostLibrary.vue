@@ -2,14 +2,28 @@
   <div>
     <div class="filter-post-library w-100">
       <!-- LEFT -->
-      <div
-        class="left d-flex justify-content-start align-items-center nowrap index-1 pointer"
-        @click="toggleSection"
-      >
-        <div class="avatar">
-          <span class="font-20 flex-center brand_primary" :class="active_icon"></span>
+      <div class="left index-1 pointer">
+        <div
+          class="d-flex justify-content-start align-items-center nowrap"
+          v-if="active"
+          @click="toggleSection"
+        >
+          <div class="avatar">
+            <span class="font-20 flex-center brand_primary icon-folder"></span>
+          </div>
+          <div class="text brand_primary">Library</div>
         </div>
-        <div class="text brand_primary">{{ active_section }}</div>
+
+        <div
+          class="d-flex justify-content-start align-items-center nowrap"
+          v-else
+          @click="toggleSection"
+        >
+          <div class="avatar">
+            <span class="font-20 flex-center brand_primary icon-timeline"></span>
+          </div>
+          <div class="text brand_primary">Class Feed</div>
+        </div>
       </div>
 
       <!-- CENTER -->
@@ -30,25 +44,24 @@ export default {
 
   data() {
     return {
-      active_section: "Library",
-      active_icon: "icon-folder",
-      active: false
+      active: true
     };
   },
 
   methods: {
     toggleSection() {
       this.active = !this.active;
+      this.$emit("switchView");
 
-      if (this.active) {
-        this.active_section = "Class Feed";
-        this.active_icon = "icon-timeline";
-        this.$emit("switchView");
-      } else {
-        this.active_section = "Library";
-        this.active_icon = "icon-folder";
-        this.$emit("switchView");
-      }
+      // if (this.active) {
+      //   this.active_section = "Class Feed";
+      //   this.active_icon = "icon-timeline";
+      //   this.$emit("switchView");
+      // } else {
+      //   this.active_section = "Library";
+      //   this.active_icon = "icon-folder";
+      //   this.$emit("switchView");
+      // }
     }
   }
 };
@@ -63,6 +76,7 @@ export default {
   .left {
     padding: 6px 7px;
     background: #f0f0f0;
+    transition: all 0.3s ease-in-out;
 
     .avatar {
       margin-right: 10px;

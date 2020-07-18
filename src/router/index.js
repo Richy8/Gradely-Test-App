@@ -23,22 +23,44 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
-  duplicateNavigationPolicy: 'reload'
+  duplicateNavigationPolicy: 'reload',
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return {
+        x: 0,
+        y: 0
+      }
+    }
+  }
 });
 
 // CHECK ALL ROUTE BEFORE ENTRY
-// router.beforeEach((to, from, next) => {
-//   if (to.matched.some(record => record.meta.requiresAuth)) {
-//     if (localStorage.getItem('token') === null) {
-//       next({
-//         name: 'GradelyLogin'
-//       })
-//     } else {
-//       next();
-//     }
-//   } else {
-//     next();
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  // VERIFY IF ROUTE NEEDS AUTHENTICATION
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (localStorage.getItem('gradelyAuthToken') === null) {
+      next({
+        name: 'GradelyLogin'
+      })
+    } else if (localStorage.getItem('gradelyAuthToken') !== null) {
+      let route_type_to = to.path.split("/")[1]; // ACCOUNT TYPE ACCESSING 
+      let user_type = JSON.parse(localStorage.getItem('authUser')).type; // CURRENT ACCOUNT TYPE
+      (route_type_to !== user_type) ? next(`${user_type}/dashboard`): next();
+    }
+  }
+  // VERIFY IF ROUTE IS A JUST A GUEST 
+  else if (to.matched.some(record => record.meta.guest)) {
+    if (localStorage.getItem('gradelyAuthToken') === null) {
+      next();
+    } else {
+      let user_type = JSON.parse(localStorage.getItem('authUser')).type;
+      next(`/${user_type}/dashboard`)
+    }
+  } else {
+    next();
+  }
+})
 
 export default router;

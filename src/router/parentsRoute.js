@@ -6,26 +6,41 @@ import SettingsEntry from "@/views/parentViews/EntryViews/SettingsEntry";
 const parentsRoute = [{
         path: "/parent/signup",
         name: "ParentSignup",
-        component: () => import( /* webpackChunkName: "signup" */ "@/views/parentViews/Signup")
+        component: () => import( /* webpackChunkName: "signup" */ "@/views/parentViews/Signup"),
+        meta: {
+            guest: true
+        }
     },
     {
-        path: "/parent/onboarding/new_child",
+        path: "/parent/onboarding/new-child",
         name: "ParentNewChildOnboarding",
         component: () => import( /* webpackChunkName: "setup" */ "@/views/parentViews/OnboardingOne"),
         meta: {
             requiresAuth: true
+        },
+        beforeEnter(to, from, next) {
+            let is_boarded = JSON.parse(localStorage.getItem('authUser')).is_boarded;
+            is_boarded === 1 ? next({
+                name: 'ParentFeeds'
+            }) : next();
         }
     },
     {
-        path: "/parent/onboarding/connect_child",
+        path: "/parent/onboarding/connect-child",
         name: "ParentConnectChildOnboarding",
         component: () => import( /* webpackChunkName: "setup" */ "@/views/parentViews/OnboardingTwo"),
         meta: {
             requiresAuth: true
+        },
+        beforeEnter(to, from, next) {
+            let is_boarded = JSON.parse(localStorage.getItem('authUser')).is_boarded;
+            is_boarded === 1 ? next({
+                name: 'ParentFeeds'
+            }) : next();
         }
     },
     {
-        path: "/parent/settings/upgrade_plan",
+        path: "/parent/settings/upgrade-plan",
         name: "ParentUpgradePlan",
         component: () => import( /* webpackChunkName: "billing" */ "@/views/globalViews/Settings/PlanUpgrade"),
         meta: {
@@ -33,7 +48,7 @@ const parentsRoute = [{
         }
     },
     {
-        path: "/parent/settings/subscription_success",
+        path: "/parent/settings/subscription-success",
         name: "ParentSubscriptionSuccess",
         component: () => import( /* webpackChunkName: "billing" */ "@/views/globalViews/Settings/SubscriptionSuccess"),
         meta: {
@@ -41,7 +56,7 @@ const parentsRoute = [{
         }
     },
     {
-        path: "/parent/catchup/book_session",
+        path: "/parent/catchup/book-session",
         name: "ParentSessionBooking",
         component: () => import( /* webpackChunkName: "billing" */ "@/views/parentViews/Dashboard/BookSession"),
         meta: {
@@ -49,7 +64,7 @@ const parentsRoute = [{
         }
     },
     {
-        path: "/parent/catchup/booking_success",
+        path: "/parent/catchup/booking-success",
         name: "ParentBookingSuccess",
         component: () => import( /* webpackChunkName: "billing" */ "@/views/parentViews/Dashboard/BookingSuccess"),
         meta: {
@@ -57,7 +72,7 @@ const parentsRoute = [{
         }
     },
     {
-        path: "/parent/homework/homework_test",
+        path: "/parent/homework/homework-test",
         name: "ParentHomeworkTest",
         component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/HomeworkTest"),
         meta: {
@@ -65,7 +80,7 @@ const parentsRoute = [{
         }
     },
     {
-        path: "/parent/homework/practice_test",
+        path: "/parent/homework/practice-test",
         name: "ParentPracticeTest",
         component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/PracticeTest"),
         meta: {
@@ -73,7 +88,7 @@ const parentsRoute = [{
         }
     },
     {
-        path: "/parent/homework/practice_summary",
+        path: "/parent/homework/practice-summary",
         name: "ParentPracticeSummary",
         component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/PracticeTestSummary"),
         meta: {
@@ -120,7 +135,7 @@ const parentsRoute = [{
                 }
             },
             {
-                path: "/parent/dashboard/student/topic_trend",
+                path: "/parent/dashboard/student/topic-trend",
                 name: "StudentTopicTrend_PP",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/StudentTopicTrend"),
                 meta: {
@@ -128,7 +143,7 @@ const parentsRoute = [{
                 }
             },
             {
-                path: "/parent/dashboard/homework/homework_review",
+                path: "/parent/dashboard/homework/homework-review",
                 name: "ParentHomeworkReview",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/HomeworkReview"),
                 meta: {
@@ -149,7 +164,7 @@ const parentsRoute = [{
                 }
             },
             {
-                path: "/parent/dashboard/catchup/video_lesson",
+                path: "/parent/dashboard/catchup/video-lesson",
                 name: "ParentCatchupVideo",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/CatchupVideo"),
                 meta: {
@@ -157,7 +172,7 @@ const parentsRoute = [{
                 }
             },
             {
-                path: "/parent/dashboard/catchup/tutor_profile",
+                path: "/parent/dashboard/catchup/tutor-profile",
                 name: "ParentCatchupTutor",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/parentViews/Dashboard/CatchupTutor"),
                 meta: {
@@ -202,7 +217,7 @@ const parentsRoute = [{
                 }
             },
             {
-                path: "/parent/dashboard/settings/account_settings",
+                path: "/parent/dashboard/settings/account-settings",
                 name: "ParentSettingsAccount",
                 component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsAccount"),
                 meta: {

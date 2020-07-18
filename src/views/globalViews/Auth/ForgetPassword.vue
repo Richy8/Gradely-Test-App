@@ -5,7 +5,12 @@
     <AuthContainer :left_align="logo_alignment">
       <div slot="auth_form_block">
         <transition name="fade" mode="out-in">
-          <component :is="in_view" :email="user_email" @toggleResetMsg="changeView($event)"></component>
+          <component
+            :is="in_view"
+            :email="user_email"
+            @toggleResetMsg="resetMessage($event)"
+            @toggleEmailForm="emailForm"
+          ></component>
         </transition>
       </div>
     </AuthContainer>
@@ -35,10 +40,15 @@ export default {
   },
 
   methods: {
-    changeView(event) {
+    resetMessage(event) {
       this.in_view = "ResetMessage";
       this.logo_alignment = true;
       this.user_email = event;
+    },
+
+    emailForm() {
+      this.in_view = "ForgetPasswordForm";
+      this.logo_alignment = false;
     }
   }
 };

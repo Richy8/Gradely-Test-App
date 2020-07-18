@@ -184,16 +184,16 @@ export default {
     pageRedirect() {
       if (this.card_type === "video" && this.show_lock === false) {
         this.$router.push(
-          `/${this.account_type}/dashboard/catchup/video_lesson`
+          `/${this.account_type}/dashboard/catchup/video-lesson`
         );
       } else if (this.card_type === "tutor" && this.show_lock === false) {
         this.$router.push(
-          `/${this.account_type}/dashboard/catchup/tutor_profile`
+          `/${this.account_type}/dashboard/catchup/tutor-profile`
         );
       } else if (this.card_type === "practice" && this.show_lock === false) {
         this.togglePracticeModal();
       } else {
-        this.$router.push(`/${this.account_type}/settings/upgrade_plan`);
+        this.$router.push(`/${this.account_type}/settings/upgrade-plan`);
       }
     }
   }

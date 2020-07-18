@@ -3,7 +3,7 @@
     <div class="curriculum-preference">
       <div class="preference-title-row">
         <!-- TITLE -->
-        <div class="preference-title">School CUrriculum</div>
+        <div class="preference-title">School Curriculum</div>
       </div>
 
       <form @submit.prevent>

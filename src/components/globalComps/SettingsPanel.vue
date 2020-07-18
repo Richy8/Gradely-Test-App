@@ -108,8 +108,12 @@
           </li>
 
           <!-- LOG OUT -->
-          <li @click.prevent="logoutAction">
-            <router-link to class="d-flex justify-content-start align-items-center nowrap">
+          <li>
+            <router-link
+              to
+              @click.native="logout"
+              class="d-flex justify-content-start align-items-center nowrap"
+            >
               <span class="icon icon-log-out border_grey_dark"></span>
               <div class="link-text">Log Out</div>
             </router-link>
@@ -121,6 +125,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { colors, random, shuffle, setInitial } from "@/scripts/utilities";
 
 export default {
@@ -143,6 +148,25 @@ export default {
     setAvatarBg() {
       let shuffled = shuffle(colors);
       return shuffled[random(15, 0)];
+    }
+  },
+
+  methods: {
+    ...mapActions(["logoutUser"]),
+
+    logout() {
+      this.logoutUser()
+        .then(response => {
+          response.code === 200
+            ? this.$router.push({
+                name: "GradelyLogin",
+                params: {
+                  nextUrl: null
+                }
+              })
+            : "";
+        })
+        .catch(err => console.log(err));
     }
   }
 };

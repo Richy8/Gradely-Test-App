@@ -87,7 +87,7 @@ export default {
       welcome_dialogue: true,
       teacher_modal: false,
       in_view: "PostBlock",
-      active: true,
+      active: false,
       post_count: 1
     };
   },

@@ -3,116 +3,176 @@ const api_version = "v2";
 axios.defaults.baseURL = `https://apitest.gradely.ng/${api_version}`;
 
 const state = {
-    authUser: {},
+    status: null,
+    token: localStorage.getItem('gradelyAuthToken') || "",
+    authUser: JSON.parse(localStorage.getItem('authUser') || "{}"),
 };
 
 const getters = {
-    getAuthToken: (state) => {
-        return state.authUser.token
-    }
+    isAuthenticated: state => !!state.token,
+    getAuthUser: state => state.authUser,
+    getAuthToken: state => state.token
+
 };
 
 const actions = {
     //HANDLE USER SIGNUP
-    async signupUser(_,data){
-        const url = `signup/${data.userType}`;
-        const response = await axios.post(url,data)
-        return response;
+    async signupUser({
+        commit
+    }, data) {
+        try {
+            const url = `signup/${data.account_type}` // SETUP URL
+
+            delete data.account_type // DELETE ACCOUNT TYPE PROPERTY FROM OBJECT
+
+            let query = await axios.post(url, data)
+            let response = query.data
+
+            if (response.code === 200) {
+                localStorage.setItem('gradelyAuthToken', response.data.token)
+                commit('AUTH_SUCCESS', response.data);
+            }
+
+            return response;
+        } catch (err) {
+            localStorage.removeItem('gradelyAuthToken')
+            commit('AUTH_ERROR')
+            return err;
+        }
     },
 
 
     // HANDLE USER LOGIN
     async loginUser({
         commit
-    },data) {
+    }, data) {
         try {
-            const query = await axios.post('/login',data)
+            const query = await axios.post('/login', data)
             const response = query.data
+
             //SET STATE IF VALIDATED PROPERLY
-            if (query.status == 200) {
-                commit('VALIDATE_USER', response);
+            if (response.code === 200) {
+                localStorage.setItem('gradelyAuthToken', response.data.token)
+                commit('AUTH_SUCCESS', response.data);
             }
-            return query;
+            return response;
         } catch (err) {
-            console.log('failed');
+            localStorage.removeItem('gradelyAuthToken')
+            commit('AUTH_ERROR')
+            return err;
         }
 
     },
-    async getBoardingStatus(){
+
+
+    // HANDLE USER FORGET PASSWORD ACTION
+    async sendResetLink(_, email) {
+        try {
+            const response = await axios.post('/forgot-password', email);
+            return response.data
+        } catch (err) {
+            return err;
+        }
+    },
+
+
+    // HANDLE USER PASSWORD RESET ACTION
+    async resetPassword(_, data) {
+        try {
+            const response = await axios.post('/reset-password', data);
+            return response.data
+        } catch (err) {
+            return err
+        }
+    },
+
+
+    // HANDLE USER LOGOUT
+    async logoutUser({
+        commit
+    }) {
+        try {
+            const token = localStorage.getItem("gradelyAuthToken");
+            const query = await axios.post("/logout", null, {
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            })
+            let response = query.data;
+
+            // REMOVE TOKEN FROM LOCAL STORAGE
+            localStorage.removeItem('gradelyAuthToken');
+            localStorage.removeItem('authUser');
+            commit('AUTH_LOGOUT');
+
+            return response;
+        } catch (err) {
+            return err;
+        }
+    },
+
+
+    // GET USER BOARDING STATUS
+    async getBoardingStatus() {
         try {
             const token = localStorage.getItem("gradelyAuthToken");
             console.log(token)
-            const query =  await axios.get("/general/boarding-status",{
+            const response = await axios.get("/general/boarding-status", {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             })
-            return query
+            return response.data
         } catch (error) {
             console.log(error)
+            return error
         }
-        
-        
     },
-    async updateBoardingStatus(){
+
+
+    // UPDATE USER BOARDING STATUS
+    async updateBoardingStatus({
+        commit
+    }) {
         const token = localStorage.getItem("gradelyAuthToken");
         try {
-            const query =  await axios.put("/general/update-boarding",null,{
+            const response = await axios.put("/general/update-boarding", {}, {
                 headers: {
                     "Authorization": `Bearer ${token}`
                 }
             })
-            return query
+            commit('BOARD_SUCCESS')
+            return response.data
+
         } catch (error) {
             console.log(error)
-        }
-       
-        
-    },
-    async sendResetLink(_,email) {
-        try {
-            const response =  await axios.post('/forgot-password',{email});
-            return response
-        } catch (err) {
-            console.log(err)
+            return error
         }
     },
-
-    async resetPassword(_,data) {
-        const token = localStorage.getItem('gradelyAuthToken');
-        try {
-            const response =  await axios.post('/reset-password',{...data,token});
-            return response
-        } catch (err) {
-            console.log(err)
-        }
-    },
-
-    logout({ commit }){
-        // END USER SESSION
-        const query = axios.post("/logout",null,{
-            headers: {
-                "Authorization": `Bearer ${localStorage.getItem('gradelyAuthToken')}`
-            }
-        })
-       // REMOVE TOKEN FROM LOCAL STORAGE
-        localStorage.removeItem('gradelyAuthToken')
-        let response = {
-            data: null
-        }
-
-        // EMPTY VUEX STORE
-        commit('VALIDATE_USER',response)
-
-        return query
-    }
 
 };
 
 const mutations = {
-    VALIDATE_USER: (state, response) => {
-        state.authUser = response.data
+    AUTH_SUCCESS: (state, response) => {
+        state.authUser = response
+        state.status = "success"
+        localStorage.setItem("authUser", JSON.stringify(state.authUser))
     },
+
+    BOARD_SUCCESS: state => {
+        state.authUser.is_boarded = 1
+        localStorage.setItem("authUser", JSON.stringify(state.authUser))
+    },
+
+    AUTH_ERROR: state => {
+        state.status = "error"
+    },
+
+    AUTH_LOGOUT: state => {
+        state.status = ""
+        state.token = ""
+        state.authUser = {}
+    }
 };
 
 export default {

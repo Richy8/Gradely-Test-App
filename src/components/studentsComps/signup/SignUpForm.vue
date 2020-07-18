@@ -2,9 +2,11 @@
   <div>
     <div class="auth-form-block">
       <!-- ERROR ALERT -->
-      <AuthAlertCard v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></AuthAlertCard>
+      <div style="position: relative; top: -30px">
+        <AuthAlertCard v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></AuthAlertCard>
+      </div>
 
-      <form action @submit.prevent class="auth-form">
+      <form action @submit.prevent="studentSignup" class="auth-form mt-2" autocomplete="off">
         <!-- FIRST NAME -->
         <div class="form-group compact-row">
           <label
@@ -37,6 +39,38 @@
           >
         </div>
 
+        <!-- CLASS -->
+        <div class="form-group compact-row">
+          <label
+            for="class"
+            class="label-compact label-sm font-weight-bold brand_primary font-11-5"
+          >Class</label>
+          <input
+            type="text"
+            v-model="form.class"
+            id="class"
+            class="form-control"
+            required
+            placeholder="Enter your class"
+          >
+        </div>
+
+        <!-- COUNTRY -->
+        <div class="form-group compact-row">
+          <label
+            for="country"
+            class="label-compact label-sm font-weight-bold brand_primary font-11-5"
+          >Country</label>
+          <input
+            type="text"
+            v-model="form.country"
+            id="country"
+            class="form-control"
+            required
+            placeholder="Enter your country"
+          >
+        </div>
+
         <!-- PASSWORD -->
         <div class="form-group compact-row">
           <label
@@ -45,7 +79,7 @@
           >Password</label>
           <div class="input-group">
             <input
-              :type="passwordType ? 'password': 'text'"
+              :type="password_type ? 'password': 'text'"
               v-model="form.password"
               class="form-control"
               id="password"
@@ -63,8 +97,8 @@
         <div class="disclaimer-block color_grey_dark">
           <p class="text-center">
             By creating an account, you agree to our
-            <router-link :to="{name: 'GradelyForgetPassword'}" class="btn-link">Terms and coditions</router-link>&nbsp;and&nbsp;
-            <router-link :to="{name: 'GradelyForgetPassword'}" class="btn-link">Privacy Policies</router-link>
+            <router-link :to="{name: ''}" class="btn-link">Terms and coditions</router-link>&nbsp;and&nbsp;
+            <router-link :to="{name: ''}" class="btn-link">Privacy Policies</router-link>
           </p>
         </div>
 
@@ -88,6 +122,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "SignUpForm",
 
@@ -99,21 +135,71 @@ export default {
   data() {
     return {
       form: {
-        email: "",
-        password: ""
+        first_name: null,
+        last_name: null,
+        class: null,
+        country: null,
+        password: null,
+        account_type: null
       },
-      passwordType: true,
+      password_type: true,
       show_alert: false,
-      alert_type: "",
-      alert_msg: ""
+      alert_type: null,
+      alert_msg: null
     };
   },
 
+  mounted() {
+    this.getAccountType()
+  },
+
   methods: {
+    ...mapActions(["signupUser"]),
+
+    getAccountType() {
+      this.form.account_type = this.$route.path.split("/")[1];
+    },
+
     showPwd() {
       let pwd_icon = document.querySelector(".show-pwd");
-      this.passwordType = !this.passwordType;
+      this.password_type = !this.password_type;
       pwd_icon.classList.toggle("show_pass");
+    },
+
+    studentSignup() {
+      // DISPATCH SIGNUP ACTION
+      this.signupUser(this.form)
+        .then(response => {
+          // PROCESS A NON 200 RESPONSE
+          if (response.code !== 200) {
+            setTimeout(() => {
+              this.show_alert = true;
+              this.alert_type = "error";
+
+              // CHECK IF RESPONSE MESSAGE IS A NETWORK ERROR
+              if (response.message === "Network Error") {
+                this.alert_msg = "0ops! No internet connection, try again!";
+              } else if (response.message === "Unable to perform action") {
+                this.alert_msg =
+                  "This phone number has already been registered!";
+              } else {
+                this.alert_msg = "This email has already been registered!";
+              }
+            }, 1000);
+          }
+          // PROCESS 200 RESPONSE
+          else {
+            this.show_alert = true;
+            this.alert_type = "success";
+            this.alert_msg =
+              "Signup as student user was successful! Redirecting...";
+
+            setTimeout(() => {
+              this.$router.push({ name: "StudentOnboarding" });
+            }, 2500);
+          }
+        })
+        .catch(err => console.log(err));
     }
   }
 };
@@ -121,9 +207,9 @@ export default {
 
 <style lang='scss' scoped>
 .disclaimer-block {
-    p {
-        font-size: 15px;
-    }
+  p {
+    font-size: 15px;
+  }
 }
 
 .auth-cta {

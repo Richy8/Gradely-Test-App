@@ -19,7 +19,7 @@
             <!-- SETUP BOTTOM -->
             <div class="setup-bottom w-100 rounded-bottom-20">
               <button class="btn btn-whitish">Back</button>
-              <button class="btn btn-accent" @click="update">Continue</button>
+              <button class="btn btn-accent">Continue</button>
             </div>
           </div>
         </div>
@@ -29,8 +29,8 @@
 </template>
 
 <script>
-import setupForm from "@/components/schoolComps/onboarding/setupForm.vue";
 import { bgColorSetter } from "@/scripts/utilities";
+import setupForm from "@/components/schoolComps/onboarding/setupForm.vue";
 
 export default {
   name: "Onboarding",
@@ -38,12 +38,12 @@ export default {
     setupForm
   },
 
+  created() {},
+
   mounted() {
     bgColorSetter("#f0f0f0");
-    if (!localStorage.getItem("gradelyAuthToken")) {
-      this.$router.replace({ path: "/login" });
-    }
   },
+
   methods: {}
 };
 </script>

@@ -95,7 +95,9 @@
               <div class="file-wrapper">
                 <div class="row h-auto">
                   <div class="col-12 col-md-10 offset-md-1 file-container h-auto">
-                    <pdf></pdf>
+                    <pdf
+                      src="https://res.cloudinary.com/richy-jones/image/upload/v1594866912/4_5812035339350443887.pdf"
+                    ></pdf>
                   </div>
                 </div>
               </div>

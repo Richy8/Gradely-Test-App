@@ -84,7 +84,7 @@
             <!-- START BUTTON -->
             <div class="d-flex justify-content-center mb-4">
               <router-link
-                :to="'/'+account_type+'/homework/homework_test'"
+                :to="'/'+account_type+'/homework/homework-test'"
                 class="btn btn-md btn-accent brand_navy font-weight-bold"
               >Start Homework</router-link>
             </div>

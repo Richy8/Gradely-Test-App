@@ -55,7 +55,7 @@ export default {
 
   methods: {
     redirectToAddChild() {
-      this.$router.push("/parent/onboarding/new_child");
+      this.$router.push("/parent/onboarding/new-child");
     }
   }
 };

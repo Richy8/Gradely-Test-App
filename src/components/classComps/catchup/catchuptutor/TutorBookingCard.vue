@@ -98,7 +98,7 @@
         <!-- BUTTON -->
         <div class="d-flex justify-content-center align-items-center flex-wrap">
           <router-link
-            :to="'/'+account_type+'/catchup/book_session'"
+            :to="'/'+account_type+'/catchup/book-session'"
             class="btn btn-md-btn-block btn-accent brand_navy font-weight-bold"
             v-if="!is_booked"
           >Book a session</router-link>

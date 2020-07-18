@@ -70,7 +70,7 @@
             <!-- START BUTTON -->
             <div class="d-flex justify-content-center">
               <router-link
-                :to="'/'+account_type+'/homework/practice_test'"
+                :to="'/'+account_type+'/homework/practice-test'"
                 class="btn btn-md btn-accent brand_navy font-weight-900 py-3 px-5"
               >Start Practice</router-link>
             </div>
@@ -91,7 +91,6 @@ export default {
   components: {
     ModalCover
   },
-
 
   data() {
     return {

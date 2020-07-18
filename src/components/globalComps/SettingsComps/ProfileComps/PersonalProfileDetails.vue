@@ -38,7 +38,7 @@
         <div class="value">**********</div>
         <div class="update-link font-weight-bold">
           <router-link
-            :to="'/'+account_type+'/dashboard/settings/account_settings'"
+            :to="'/'+account_type+'/dashboard/settings/account-settings'"
             class="btn-link font-weight-bold"
           >Update</router-link>
         </div>

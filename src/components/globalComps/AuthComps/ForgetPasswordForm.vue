@@ -13,11 +13,7 @@
       <!-- ERROR ALERT -->
       <AuthAlertCard v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></AuthAlertCard>
 
-      <form action @submit.prevent="handleForgetPassword" class="auth-form">
-        
-        <div v-if="showError" class="alert alert-danger">
-          <li v-for="(error,index) in err_msg" :key="index"> {{ error[0] }} </li>
-        </div>
+      <form action @submit.prevent="handleForgetPassword" class="auth-form" autocomplete="off">
         <!-- EMAIL -->
         <div class="form-group compact-row">
           <label
@@ -49,6 +45,7 @@
 
 <script>
 import { mapActions } from "vuex";
+import { setTimeout } from "timers";
 
 export default {
   name: "ForgetPasswordForm",
@@ -61,13 +58,11 @@ export default {
   data() {
     return {
       form: {
-        email: "school@mail.com"
+        email: null
       },
       show_alert: false,
-      alert_type: "",
-      alert_msg: "",
-      showError: false,
-      err_msg: null
+      alert_type: "", // Error or Success
+      alert_msg: ""
     };
   },
 
@@ -76,19 +71,37 @@ export default {
 
     handleForgetPassword() {
       this.$refs.sendBtn.innerText = "Sending...";
-        // DISPATCH AN ACTION
-        this.sendResetLink(this.form.email)
-        .then(res =>{
-          if (res.data.code == 200){
-              this.$emit("toggleResetMsg", this.form.email);
-          }else{
+      // DISPATCH AN ACTION
+      this.sendResetLink(this.form.email)
+        .then(response => {
+          // PROCESS SUCCESS RESPONSE
+          if (response.code === 200) {
+            this.show_alert = true;
+            this.alert_type = "success";
+            this.alert_msg = "Successful";
             this.$refs.sendBtn.innerText = "SEND RESET LINK";
-            this.showError = true;
-            this.err_msg = Object.values(res.data.data)
+
+            setTimeout(() => {
+              this.$emit("toggleResetMsg", this.form.email);
+            }, 600);
+          }
+          // PROCESS INVALID EMAIL
+          else if (response.code === 406) {
+            this.show_alert = true;
+            this.alert_type = "error";
+            this.alert_msg = "Please check your email and retry...";
+            this.$refs.sendBtn.innerText = "SEND RESET LINK";
+          }
+
+          // PROCESS ERROR RESPONSE
+          else {
+            this.$refs.sendBtn.innerText = "SEND RESET LINK";
+            this.show_alert = true;
+            this.alert_type = "error";
+            this.alert_msg = "Ooops! Please check your internet connection";
           }
         })
-        
-
+        .catch(err => console.log(err));
     }
   }
 };

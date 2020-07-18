@@ -52,9 +52,9 @@
             <div class="parent-role color_grey_dark">{{ parent_role }}</div>
           </div>
         </div>
-        <div class="right" @click="$emit('toggleMessage')">
+        <!-- <div class="right" @click="$emit('toggleMessage')">
           <span class="icon-chat font-20 border_grey_dark pointer" title="Send Message"></span>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>

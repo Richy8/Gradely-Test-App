@@ -10,11 +10,8 @@
       <!-- ERROR ALERT -->
       <AuthAlertCard v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></AuthAlertCard>
 
-      <form action @submit.prevent="signup" class="auth-form">
+      <form action @submit.prevent="parentSignup" class="auth-form" autocomplete="off">
         <!-- FIRSTNAME -->
-        <div class="alert alert-danger" v-if="show_err">
-          <li v-for="(error,index) in error_msg" :key="index">{{ error[0] }}</li>
-        </div>
         <div class="form-group compact-row">
           <label
             for="firstName"
@@ -53,7 +50,7 @@
             class="label-compact label-sm font-weight-bold brand_primary font-11-5"
           >Email Address</label>
           <input
-            type="text"
+            type="email"
             v-model="form.email"
             id="email"
             class="form-control"
@@ -65,16 +62,16 @@
         <!-- PHONE NUMBER -->
         <div class="form-group compact-row">
           <label
-            for="email"
+            for="phoneNumber"
             class="label-compact label-sm font-weight-bold brand_primary font-11-5"
           >Phone Number</label>
           <input
-            type="text"
+            type="phone"
             v-model="form.phone"
             id="phoneNumber"
             class="form-control"
             required
-            placeholder="Enter your email address"
+            placeholder="Enter your phone number"
           >
         </div>
 
@@ -86,7 +83,7 @@
           >Password</label>
           <div class="input-group">
             <input
-              :type="passwordType ? 'password': 'text'"
+              :type="password_type ? 'password': 'text'"
               v-model="form.password"
               class="form-control"
               id="password"
@@ -104,8 +101,8 @@
         <div class="disclaimer-block color_grey_dark">
           <p class="text-center">
             By creating an account, you agree to our
-            <router-link :to="{name: 'GradelyForgetPassword'}" class="btn-link">Terms and coditions</router-link>&nbsp;and&nbsp;
-            <router-link :to="{name: 'GradelyForgetPassword'}" class="btn-link">Privacy Policies</router-link>
+            <router-link :to="{name: ''}" class="btn-link">Terms and coditions</router-link>&nbsp;and&nbsp;
+            <router-link :to="{name: ''}" class="btn-link">Privacy Policies</router-link>
           </p>
         </div>
 
@@ -127,6 +124,7 @@
 
 <script>
 import { mapActions } from "vuex";
+
 export default {
   name: "SignupForm",
 
@@ -138,65 +136,87 @@ export default {
   data() {
     return {
       form: {
-        first_name: "parent",
-        last_name: "test",
-        email: "parent@mail.com",
-        phone: "123456789",
-        password: "password",
-        userType: "parent"
+        first_name: null,
+        last_name: null,
+        email: null,
+        phone: null,
+        password: null,
+        account_type: null
       },
-      passwordType: true,
+      password_type: true,
       show_alert: false,
-      alert_type: "",
-      alert_msg: "",
-      show_err: false,
-      error_msg: null
+      alert_type: null,
+      alert_msg: null
     };
+  },
+
+  mounted() {
+    this.getAccountType();
   },
 
   methods: {
     ...mapActions(["signupUser"]),
+
+    getAccountType() {
+      this.form.account_type = this.$route.path.split("/")[1];
+    },
+
     showPwd() {
       let pwd_icon = document.querySelector(".show-pwd");
-      this.passwordType = !this.passwordType;
+      this.password_type = !this.password_type;
       pwd_icon.classList.toggle("show_pass");
     },
-    signup() {
-      let {
-        first_name,
-        last_name,
-        email,
-        phone,
-        password,
-        userType
-      } = this.form;
 
-      this.signupUser({
-        first_name,
-        last_name,
-        email,
-        phone,
-        password,
-        userType
-      }).then(res => {
-        if (res.data.code == 200) {
-          const data = res.data.data;
-          //STORE TOKEN IN LOCAL STORAGE
-          if (localStorage.getItem("gradelyAuthToken")) {
-            localStorage.removeItem("gradelyAuthToken");
+    validatePhone() {
+      if (this.form.phone.length > 11 || this.form.phone.length < 11) {
+        this.show_alert = true;
+        this.alert_type = "error";
+        this.alert_msg = "Please check length of phone number...";
+        return false;
+      } else {
+        this.show_alert = false;
+        this.alert_type = null;
+        this.alert_msg = null;
+      }
+    },
+
+    parentSignup() {
+      // VLAIDATE PHONE
+      this.validatePhone();
+
+      // DISPATCH SIGNUP ACTION
+      this.signupUser(this.form)
+        .then(response => {
+          // PROCESS A NON 200 RESPONSE
+          if (response.code !== 200) {
+            setTimeout(() => {
+              this.show_alert = true;
+              this.alert_type = "error";
+
+              // CHECK IF RESPONSE MESSAGE IS A NETWORK ERROR
+              if (response.message === "Network Error") {
+                this.alert_msg = "0ops! No internet connection, try again!";
+              } else if (response.message === "Unable to perform action") {
+                this.alert_msg =
+                  "This phone number has already been registered!";
+              } else {
+                this.alert_msg = "This email has already been registered!";
+              }
+            }, 1000);
           }
-          localStorage.setItem("gradelyAuthToken", data.token);
-          //redirect to next phase
-          this.$router.replace({
-            path: `/${data.type}/${
-              !data.is_boarded ? "onboarding" : "dashboard"
-            }`
-          });
-        } else {
-          this.show_err = true;
-          this.error_msg = Object.values(res.data.data);
-        }
-      });
+          // PROCESS 200 RESPONSE
+          else {
+            this.show_alert = true;
+            this.alert_type = "success";
+            this.alert_msg =
+              "Signup as parent user was successful! Redirecting...";
+
+            setTimeout(() => {
+              this.$router.push({ name: "ParentNewChildOnboarding" });
+            }, 2500);
+          }
+        })
+        .catch(err => console.log(err));
     }
   }
 };

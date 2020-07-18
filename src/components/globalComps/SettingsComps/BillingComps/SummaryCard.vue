@@ -83,25 +83,25 @@ export default {
 
     goToSuccessPage() {
       if (
-        this.page_redirect === "plan_upgrade" &&
+        this.page_redirect === "plan-upgrade" &&
         this.account_type === "parent"
       ) {
-        this.$router.push("/parent/settings/subscription_success");
+        this.$router.push("/parent/settings/subscription-success");
       } else if (
-        this.page_redirect === "plan_upgrade" &&
+        this.page_redirect === "plan-upgrade" &&
         this.account_type === "student"
       ) {
-        this.$router.push("/student/settings/subscription_success");
+        this.$router.push("/student/settings/subscription-success");
       } else if (
-        this.page_redirect === "tutor_booking" &&
+        this.page_redirect === "tutor-booking" &&
         this.account_type === "parent"
       ) {
-        this.$router.push("/parent/catchup/booking_success");
+        this.$router.push("/parent/catchup/booking-success");
       } else if (
-        this.page_redirect === "tutor_booking" &&
+        this.page_redirect === "tutor-booking" &&
         this.account_type === "student"
       ) {
-        this.$router.push("/student/catchup/booking_success");
+        this.$router.push("/student/catchup/booking-success");
       }
     }
   }

@@ -9,7 +9,10 @@ import SettingsEntry from "@/views/schoolViews/EntryViews/SettingsEntry";
 const schoolRoute = [{
         path: "/school/signup",
         name: "SchoolSignup",
-        component: () => import( /* webpackChunkName: "signup" */ "@/views/schoolViews/Signup")
+        component: () => import( /* webpackChunkName: "signup" */ "@/views/schoolViews/Signup"),
+        meta: {
+            guest: true
+        }
     },
     {
         path: "/school/onboarding",
@@ -17,12 +20,21 @@ const schoolRoute = [{
         component: () => import( /* webpackChunkName: "setup" */ "@/views/schoolViews/Onboarding"),
         meta: {
             requiresAuth: true
+        },
+        beforeEnter(to, from, next) {
+            let is_boarded = JSON.parse(localStorage.getItem('authUser')).is_boarded;
+            is_boarded === 1 ? next({
+                name: 'SchoolDashboard'
+            }) : next();
         }
     },
     {
         path: "/school/dashboard/viewer",
         name: "SchoolViewer",
-        component: () => import( /* webpackChunkName: "onboarding" */ "@/views/globalViews/LibraryViewer")
+        component: () => import( /* webpackChunkName: "onboarding" */ "@/views/globalViews/LibraryViewer"),
+        meta: {
+            requiresAuth: true
+        }
     },
     {
         path: "/school/calendar",
@@ -101,7 +113,7 @@ const schoolRoute = [{
                 }
             },
             {
-                path: "/school/dashboard/settings/personal_information",
+                path: "/school/dashboard/settings/personal-information",
                 name: "SchoolSettingsUserEdit",
                 component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SchoolSettingsUserEdit"),
                 meta: {
@@ -125,7 +137,7 @@ const schoolRoute = [{
                 }
             },
             {
-                path: "/school/dashboard/settings/account_settings",
+                path: "/school/dashboard/settings/account-settings",
                 name: "SchoolSettingsAccount",
                 component: () => import( /* webpackChunkName: "settings" */ "@/views/globalViews/Settings/SettingsAccount"),
                 meta: {
@@ -202,7 +214,7 @@ const schoolRoute = [{
                 }
             },
             {
-                path: "/school/dashboard/add_students",
+                path: "/school/dashboard/add-students",
                 name: "AddStudents",
                 component: () => import( /* webpackChunkName: "dashboard" */ "@/views/schoolViews/Dashboard/Classes/AddStudents"),
                 meta: {
@@ -224,7 +236,7 @@ const schoolRoute = [{
         }]
     },
     {
-        path: "/school/dashboard/class/homework_review",
+        path: "/school/dashboard/class/homework-review",
         component: BaseClassEntry,
         children: [{
                 path: "",
@@ -251,7 +263,7 @@ const schoolRoute = [{
                 }
             },
             {
-                path: "/school/dashboard/student/topic_trend",
+                path: "/school/dashboard/student/topic-trend",
                 name: "StudentTopicTrend",
                 component: () => import( /* webpackChunkName: "profile" */ "@/views/schoolViews/Dashboard/Classes/StudentTopicTrend"),
                 meta: {

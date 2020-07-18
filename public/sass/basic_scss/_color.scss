@@ -7,6 +7,7 @@ $brand_inverse: #11bdcf;
 $brand_inverse_light: #dbf5f8;
 $brand_black: #07374B;
 $brand_green: #60D2B0;
+$brand_green_light: #ccfced;
 $brand_red: #FE747D;
 $brand_red_light: #FFDCDE;
 $color_text: #353535;
@@ -38,6 +39,7 @@ $app-color: map-merge(("brand_primary": $brand_primary,
         "brand_inverse_light": $brand_inverse_light,
         "brand_black": $brand_black,
         "brand_green": $brand_green,
+        "brand_green_light": $brand_green_light,
         "brand_red": $brand_red,
         "brand_red_light": $brand_red_light,
         "color_text": $color_text,

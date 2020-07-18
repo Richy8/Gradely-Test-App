@@ -21,6 +21,14 @@ export default {
     AuthContainer,
     LoginForm
   }
+
+  // beforeRouteEnter() {
+  //   // let token = !!localStorage.getItem("gradelyAuthToken");
+  //   // if (localStorage.getItem("gradelyAuthToken") !== null) {
+  //   //   let user_type = JSON.parse(localStorage.getItem("authUser")).type;
+  //   //   location.href = location.origin + "/" + user_type + "/dashboard";
+  //   // }
+  // }
 };
 </script>
 

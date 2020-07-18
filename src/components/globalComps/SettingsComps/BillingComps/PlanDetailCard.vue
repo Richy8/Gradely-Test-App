@@ -25,7 +25,7 @@
           <div class="d-flex justify-content-between align-items-center nowrap mb-2">
             <div class="plan-title font-weight-bold text-uppercase color_grey_dark">CatchUp!</div>
             <router-link
-              :to="'/'+account_type+'/settings/upgrade_plan'"
+              :to="'/'+account_type+'/settings/upgrade-plan'"
               class="plan-link btn-link"
             >Change Plan</router-link>
           </div>
@@ -79,7 +79,6 @@
 </template>
 
 <script>
-
 export default {
   name: "PlanDetailCard",
 

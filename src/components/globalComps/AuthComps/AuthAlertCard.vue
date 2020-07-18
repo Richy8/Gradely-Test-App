@@ -3,24 +3,17 @@
     <div
       class="auth-alert h-auto rounded-5 d-flex justify-content-start align-items-center text-left"
       :class="alert_class"
-    >
-      <div class="avatar avatar_sm mr-3 position-relative" style="margin-top: -5px;">
-        <img :src="localImg(alert_icon)" alt class="avatar-img">
-      </div>
-      {{ alert_msg }}
-    </div>
+    >{{ alert_msg }}</div>
   </div>
 </template>
 
 <script>
-
 export default {
   name: "AuthAlertCard",
 
   props: {
     alert_type: String,
-    alert_msg: String,
-    alert_icon: String
+    alert_msg: String
   },
 
   data() {

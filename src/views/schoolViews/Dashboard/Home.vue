@@ -61,12 +61,11 @@
 
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import SchoolBanner from "@/components/schoolComps/dashboard/home/SchoolBanner";
 import DefaultInfo from "@/components/schoolComps/dashboard/home/DefaultInfo";
 import ContentInfo from "@/components/schoolComps/dashboard/home/ContentInfo";
 import ClassStructure from "@/components/schoolComps/dashboard/home/ClassStructure";
-
 
 export default {
   name: "Home",
@@ -86,6 +85,10 @@ export default {
       import(/* webpackChunkName: "addbranchmodal" */ "@/components/modalComps/schoolModals/AddBranchModal"),
     ClassDetailsModal: () =>
       import(/* webpackChunkName: "classdetailsmodal" */ "@/components/modalComps/schoolModals/ClassDetailsModal")
+  },
+
+  computed: {
+    ...mapGetters(["getAuthUser"])
   },
 
   data() {
@@ -110,16 +113,16 @@ export default {
   },
 
   mounted() {
-    this.getBoardingStatus()
-    .then(res => {
-      console.log(res)
-      //res.data.data == 1 ? this.welcome_dialogue = false : this.welcome_dialogue = true
-    })
-    .catch(err => console.log(err))
+    if (this.getAuthUser.is_boarded) {
+      this.welcome_dialogue = false;
+    } else {
+      this.welcome_dialogue = true;
+    }
   },
 
   methods: {
-    ...mapActions(["getBoardingStatus","updateBoardingStatus"]),
+    ...mapActions(["updateBoardingStatus"]),
+
     updateBanner() {
       this.default_value = false;
       this.view === "DefaultInfo" ? (this.default_value = true) : "";
@@ -138,11 +141,14 @@ export default {
     },
 
     dialogueCompleted() {
-      this.updateBoardingStatus()
-      .then(() => {
-        this.welcome_dialogue = false
-      })
-      
+      this.welcome_dialogue = false;
+      // this.updateBoardingStatus()
+      //   .then(response => {
+      //     if (response.code === 200) {
+      //       this.welcome_dialogue = false;
+      //     }
+      //   })
+      //   .catch(err => console.log(err));
     },
 
     switchSidebar() {

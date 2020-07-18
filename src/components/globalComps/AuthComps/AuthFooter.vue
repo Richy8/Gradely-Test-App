@@ -6,35 +6,60 @@
         <div class="social-links">
           <!-- FACEBOOK -->
           <div class="avatar transparent_bg">
-            <a href class="border_grey_dark">
+            <a
+              href="https://www.facebook.com/gradelyng/"
+              target="_blank"
+              title="Follow us on Facebook"
+              class="border_grey_dark"
+            >
               <span class="flex-center icon-facebook font-19"></span>
             </a>
           </div>
 
           <!-- TWITTER -->
           <div class="avatar transparent_bg">
-            <a href class="border_grey_dark">
+            <a
+              href="https://twitter.com/gradelyng"
+              target="_blank"
+              title="Follow us on twitter"
+              class="border_grey_dark"
+            >
               <span class="flex-center icon-twitter font-17"></span>
             </a>
           </div>
 
           <!-- INSTAGRAM -->
           <div class="avatar transparent_bg">
-            <a href class="border_grey_dark">
+            <a
+              href="https://www.instagram.com/gradelyng/"
+              target="_blank"
+              title="Follow on Instagram"
+              class="border_grey_dark"
+            >
               <span class="flex-center icon-instagram font-19"></span>
             </a>
           </div>
 
           <!-- LINKEDIN -->
           <div class="avatar transparent_bg">
-            <a href class="border_grey_dark">
+            <a
+              href="https://www.linkedin.com/company/gradelyng/about/"
+              target="_blank"
+              title="Connect on linkedIn"
+              class="border_grey_dark"
+            >
               <span class="flex-center icon-linkedin font-18"></span>
             </a>
           </div>
 
           <!-- YOUTUBE -->
           <div class="avatar transparent_bg">
-            <a href class="border_grey_dark">
+            <a
+              href="https://www.youtube.com/channel/UCsiHe1Qm8SZ_8LD5zkEY1Rw/"
+              target="_blank"
+              title="follow our youtube channel"
+              class="border_grey_dark"
+            >
               <span class="flex-center icon-youtube font-15"></span>
             </a>
           </div>

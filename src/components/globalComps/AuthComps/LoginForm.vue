@@ -10,9 +10,8 @@
       <!-- ERROR ALERT -->
       <AuthAlertCard v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></AuthAlertCard>
 
-      <form action @submit.prevent="handleLogin" class="auth-form">
+      <form action @submit.prevent="handleLogin" class="auth-form" autocomplete="off">
         <!-- EMAIL -->
-        <div class="alert alert-danger" v-if="show_error">{{ error_msg }}</div>
         <div class="form-group compact-row">
           <label
             for="userinfo"
@@ -71,7 +70,7 @@
       <div class="auth-signup-cta color_ash mt-3">
         <p class="text-center font-15">
           New to Gradely?
-          <router-link to class="btn-link">&nbsp; Sign Up now</router-link>
+          <router-link :to="{name: 'GradelySignupLander'}" class="btn-link">&nbsp; Sign Up now</router-link>
         </p>
       </div>
     </div>
@@ -79,7 +78,8 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapGetters, mapActions } from "vuex";
+import { setTimeout } from "timers";
 
 export default {
   name: "LoginForm",
@@ -89,18 +89,20 @@ export default {
       import(/* webpackChunkName: "AuthAlertCard" */ "@/components/globalComps/AuthComps/AuthAlertCard.vue")
   },
 
+  computed: {
+    ...mapGetters(["getAuthUser"])
+  },
+
   data() {
     return {
       loginform: {
-        email: "sample2@email.com",
-        password: "password"
+        email: null,
+        password: null
       },
       passwordType: true,
       show_alert: false,
-      show_error: false,
-      error_msg: "",
-      alert_type: "",
-      alert_msg: ""
+      alert_type: null, //SET TO EITHER SUCCESS OR ERROR
+      alert_msg: null
     };
   },
 
@@ -114,39 +116,54 @@ export default {
     },
 
     // HANDLE LOGIN OF USERS
-    handleLogin() {
+    async handleLogin() {
       this.$refs.loginBtn.innerText = "LOGGING IN..";
-      // DISPATCH LOGIN ACTION
-      let {email,password} = this.loginform 
-      this.loginUser({
-        email,
-        password
-      })
-      .then(res => {
-        // CONDITION FOR INVALID LOGIN DETAILS
-        if (res.data.code !== 200) {
-          this.show_error = true
-          this.error_msg = res.data.message
-          this.$refs.loginBtn.innerText = "LOG IN";
-        }else{
-          // RETRIEVE DATA FROM API
-          const data = res.data.data;
-          
-          // REMOVE PREVIOUS TOKEN IF PRESENT
-          if (localStorage.getItem("gradelyAuthTken")) {
-            localStorage.removeItem("gradelyAuthToken");
-          }
-          // STORE TOKEN IN LOCAL STORAGE
-          localStorage.setItem("gradelyAuthToken",data.token)
 
-          // REDIRECT TO DASHBOARD PAGE
-          this.$router.replace({
-            path: `/${data.type}/dashboard`
-            });
-        }
-        
-      })
-      ;
+      // DISPATCH LOGIN ACTION
+      this.loginUser(this.loginform)
+        .then(response => {
+          // HANDLE A NON 200 RESPONSE ERROR
+          if (response.code !== 200) {
+            setTimeout(() => {
+              this.show_alert = true;
+              this.alert_type = "error";
+
+              // CHECK IF RESPONSE MESSAGE IS A NETWORK ERROR
+              if (response.message === "Network Error") {
+                this.alert_msg = "0ops! No internet connection, try again!";
+              } else {
+                this.alert_msg = response.message;
+              }
+              this.$refs.loginBtn.innerText = "LOG IN";
+            }, 1000);
+          }
+          // HANDLE A 200 RESPONSE ERROR
+          else {
+            this.show_alert = true;
+            this.alert_type = "success";
+            this.alert_msg = response.message;
+            this.$refs.loginBtn.innerText = "LOG IN";
+
+            // REDIRECT A USER TO DASHBOARD AFTER 1 SECOND
+            setTimeout(() => {
+              let account_type = this.getAuthUser.type;
+              let is_boarded = this.getAuthUser.is_boarded;
+
+              if (is_boarded === 0) {
+                if (account_type !== "parent") {
+                  this.$router.push(`/${account_type}/onboarding`);
+                } else {
+                  this.$router.push({ name: "ParentNewChildOnboarding" });
+                }
+              } else {
+                this.$router.push(`/${account_type}/dashboard`);
+              }
+            }, 1000);
+          }
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };

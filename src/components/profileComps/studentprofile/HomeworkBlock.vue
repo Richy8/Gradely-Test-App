@@ -73,7 +73,7 @@
       <!-- VIEW -->
       <div class="right">
         <router-link
-          :to="'/'+account_type+'/dashboard/homework/homework_review'"
+          :to="'/'+account_type+'/dashboard/homework/homework-review'"
           v-if="account_type==='parent' || account_type==='student'"
         >
           <span

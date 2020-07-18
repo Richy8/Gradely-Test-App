@@ -1,20 +1,28 @@
 <template>
   <div>
-    <form @submit.prevent="schoolSignup" class="school-signup-form">
+    <!-- SIGNUP ALERT -->
+    <SignupAlert v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></SignupAlert>
+    <!-- SIGNUP ALERT -->
+
+    <form @submit.prevent="schoolSignup" class="school-signup-form" autocomplete="off">
       <!-- FIRST NAME AND LAST NAME -->
       <div class="row">
-        <div class="alert alert-danger" v-if="show_err">
-          <li v-for="(error,index) in error_msg" :key="index">{{ error[0] }}</li>
-        </div>
         <div class="form-group col-sm-6">
           <label for class="control-label font-weight-bold text-uppercase">First Name</label>
-          <input type="text" v-model="form.first_name" class="form-control" placeholder="E.g David">
+          <input
+            type="text"
+            v-model="form.first_name"
+            required
+            class="form-control"
+            placeholder="E.g David"
+          >
         </div>
         <div class="form-group col-sm-6">
           <label for class="control-label font-weight-bold text-uppercase">Last Name (Surname)</label>
           <input
             type="text"
             v-model="form.last_name"
+            required
             class="form-control"
             placeholder="E.g Nwankwo"
           >
@@ -28,6 +36,7 @@
           type="text"
           v-model="form.school_name"
           class="form-control"
+          required
           placeholder="The Name of your school"
         >
       </div>
@@ -39,6 +48,7 @@
           type="text"
           v-model="form.country"
           class="form-control"
+          required
           placeholder="The Name of your Country"
         >
       </div>
@@ -49,6 +59,7 @@
         <input
           type="email"
           v-model="form.email"
+          required
           class="form-control"
           placeholder="E.g davidisaboy@gmail.com"
         >
@@ -62,8 +73,9 @@
             <span class="font-14 color_text">+234</span>
           </div>
           <input
-            type="text"
+            type="number"
             v-model="form.phone"
+            required
             class="form-control inputControl"
             placeholder="Enter phone number"
           >
@@ -74,8 +86,9 @@
         <label for class="control-label font-weight-bold text-uppercase">Password</label>
         <div class="input-group">
           <input
-            :type="passwordType ? 'password': 'text'"
+            :type="password_type ? 'password': 'text'"
             v-model="form.password"
+            required
             class="form-control"
             placeholder="Create a Password"
           >
@@ -103,66 +116,111 @@
 
 <script>
 import { mapActions } from "vuex";
-
+import SignupAlert from "@/components/globalComps/AuthComps/SignupAlert";
+import { setTimeout } from "timers";
 //import axios from 'axios';
 
 export default {
   name: "SignUpForm",
+
+  components: {
+    SignupAlert
+  },
+
   data() {
     return {
       form: {
-        first_name: "school",
-        last_name: "school",
-        school_name: "school name",
-        country: "nigeria",
-        email: "school@mail.com",
-        phone: "9090527304",
-        password: "password",
-        userType: "school"
+        first_name: null,
+        last_name: null,
+        school_name: null,
+        country: null,
+        email: null,
+        phone: null,
+        password: null,
+        account_type: null
       },
-      passwordType: true,
-      show_err: false,
-      error_msg: null
+      password_type: true,
+      show_alert: false,
+      alert_type: null,
+      alert_msg: null
     };
+  },
+
+  mounted() {
+    this.getAccountType();
   },
 
   methods: {
     ...mapActions(["signupUser"]),
+
     showPwd() {
       let pwd_icon = document.querySelector(".show-pwd");
-      this.passwordType = !this.passwordType;
+      this.password_type = !this.password_type;
       pwd_icon.classList.toggle("show_pass");
     },
-    async schoolSignup() {
-      if (this.form.phone[0] !== "0" && this.form.phone.length == 10) {
+
+    getAccountType() {
+      this.form.account_type = this.$route.path.split("/")[1];
+    },
+
+    validatePhone() {
+      if (this.form.phone.length > 10 || this.form.phone.length < 10) {
+        this.show_alert = true;
+        this.alert_type = "error";
+        this.alert_msg = "Please check length of phone number...";
+        return false;
+      } else {
+        this.show_alert = false;
+        this.alert_type = null;
+        this.alert_msg = null;
+
         let phone = this.form.phone.split("");
         phone.unshift("0");
         this.form.phone = phone.join("");
       }
-      this.signupUser({ ...this.form })
-        .then(res => {
-          if (res.data.code == 200) {
-            const data = res.data.data;
-            //STORE TOKEN IN LOCAL STORAGE
-            if (localStorage.getItem("gradelyAuthToken")) {
-              localStorage.removeItem("gradelyAuthToken");
-            }
-            localStorage.setItem("gradelyAuthToken", data.token);
-            //redirect to next phase
-            this.$router.replace({
-              path: `/${data.type}/${
-                !data.is_boarded ? "onboarding" : "dashboard"
-              }`
-            });
-          } else {
-            this.show_err = true;
-            this.error_msg = Object.values(res.data.data);
+    },
+
+    schoolSignup() {
+      // VLAIDATE PHONE
+      this.validatePhone();
+
+      // DISPATCH SIGNUP ACTION
+      this.signupUser(this.form)
+        .then(response => {
+          // PROCESS A NON 200 RESPONSE
+          console.log(response.code);
+
+          if (response.code !== 200) {
+            setTimeout(() => {
+              this.show_alert = true;
+              this.alert_type = "error";
+
+              // CHECK IF RESPONSE MESSAGE IS A NETWORK ERROR
+              if (response.message === "Network Error") {
+                this.alert_msg = "0ops! No internet connection, try again!";
+              } else if (response.message === "Unable to perform action") {
+                this.alert_msg =
+                  "This phone number has already been registered!";
+              } else {
+                this.alert_msg = "This email has already been registered!";
+              }
+            }, 1000);
+          }
+          // PROCESS 200 RESPONSE
+          else {
+            this.show_alert = true;
+            this.alert_type = "success";
+            this.alert_msg =
+              "Signup as school user was successful! Redirecting...";
+
+            setTimeout(() => {
+              this.$router.push({ name: "SchoolOnboarding" });
+            }, 2500);
           }
         })
         .catch(err => console.log(err));
     }
-  },
-  computed: {}
+  }
 };
 </script>
 

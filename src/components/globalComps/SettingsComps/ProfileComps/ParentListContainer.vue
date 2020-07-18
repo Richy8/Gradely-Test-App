@@ -41,7 +41,7 @@ export default {
 
   methods: {
     redirectToAddParent() {
-      this.$router.push("/student/parent_invitation");
+      this.$router.push("/student/parent-invitation");
     }
   }
 };

@@ -25,7 +25,10 @@
           <div class="col-md-8 px-0 signup-bg">
             <!-- CLOSE DIALOG -->
             <div class="pageClose dialogDismiss">
-              <button type="button" class="close_dialog cls_lg transparent_bg"></button>
+              <router-link
+                :to="{name: 'GradelySignupLander'}"
+                class="close_dialog cls_lg transparent_bg"
+              ></router-link>
             </div>
             <!-- SIGNUP BG -->
             <img v-lazy="localImg('SignupBgStudent.png')" alt="SignUpBg">

@@ -74,7 +74,7 @@
       <!-- ACCOUNT SETTINGS -->
       <div class="side-item">
         <router-link
-          :to="'/'+settings_type+'/dashboard/settings/account_settings'"
+          :to="'/'+settings_type+'/dashboard/settings/account-settings'"
           :class="{'active': account_active}"
         >
           <span class="icon icon-gear"></span>

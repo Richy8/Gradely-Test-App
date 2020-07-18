@@ -99,6 +99,18 @@
   border: 1px solid #60D2B0 !important;
 }
 
+.brand_green_light {
+  color: #ccfced !important;
+}
+
+.brand_green_light_bg {
+  background-color: #ccfced !important;
+}
+
+.border_brand_green_light {
+  border: 1px solid #ccfced !important;
+}
+
 .brand_red {
   color: #FE747D !important;
 }
@@ -655,15 +667,14 @@ svg {
 /*Font Icons*/
 @font-face {
   font-family: 'icomoon';
-  src: url("../fonts/icomoon.eot?3w71oa");
-  src: url("../fonts/icomoon.eot?3w71oa#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?3w71oa") format("truetype"), url("../fonts/icomoon.woff?3w71oa") format("woff"), url("../fonts/icomoon.svg?3w71oa#icomoon") format("svg");
+  src: url("../fonts/icomoon.eot?toq5q8");
+  src: url("../fonts/icomoon.eot?toq5q8#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?toq5q8") format("truetype"), url("../fonts/icomoon.woff?toq5q8") format("woff"), url("../fonts/icomoon.svg?toq5q8#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon' !important;
   speak: never;
   font-style: normal;
@@ -1704,6 +1715,10 @@ svg {
 
 .icon-cloud-download:before {
   content: "\e9d4";
+}
+
+.icon-college:before {
+  content: "\ea3a";
 }
 
 .icon-caret-up:before {
