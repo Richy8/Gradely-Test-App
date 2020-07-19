@@ -112,6 +112,14 @@ export default {
     view: "updateBanner"
   },
 
+  created() {
+    this.getClasses()
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => console.log(err));
+  },
+
   mounted() {
     if (this.getAuthUser.is_boarded) {
       this.welcome_dialogue = false;
@@ -121,7 +129,7 @@ export default {
   },
 
   methods: {
-    ...mapActions(["updateBoardingStatus"]),
+    ...mapActions(["updateBoardingStatus", "getClasses"]),
 
     updateBanner() {
       this.default_value = false;

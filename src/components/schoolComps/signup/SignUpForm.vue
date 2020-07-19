@@ -198,11 +198,12 @@ export default {
               // CHECK IF RESPONSE MESSAGE IS A NETWORK ERROR
               if (response.message === "Network Error") {
                 this.alert_msg = "0ops! No internet connection, try again!";
-              } else if (response.message === "Unable to perform action") {
-                this.alert_msg =
-                  "This phone number has already been registered!";
+              } else if (response.data.phone) {
+                this.alert_msg = "This phone number has already been taken!";
+              } else if (response.data.email) {
+                this.alert_msg = "This email has already been taken!";
               } else {
-                this.alert_msg = "This email has already been registered!";
+                this.alert_msg = "Internal Server Error! Contact developer";
               }
             }, 1000);
           }

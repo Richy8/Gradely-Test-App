@@ -49,6 +49,7 @@ const actions = {
         try {
             const query = await axios.post('/login', data)
             const response = query.data
+            console.log(response);
 
             //SET STATE IF VALIDATED PROPERLY
             if (response.code === 200) {
@@ -116,7 +117,6 @@ const actions = {
     async getBoardingStatus() {
         try {
             const token = localStorage.getItem("gradelyAuthToken");
-            console.log(token)
             const response = await axios.get("/general/boarding-status", {
                 headers: {
                     "Authorization": `Bearer ${token}`
