@@ -1,0 +1,45 @@
+# # docker-compose.yaml
+# version: "3"
+# services:
+#   frontend:
+#     image: webpack
+#     build:
+#       context: ./
+#     ports:
+#       - 8080:8080
+#     volumes:
+#       - ./app:/bindmount:rw
+#       # The volume is effectively hiding node_modules from the host and must be in this order
+#       - node_modules:/src/node_modules
+# volumes:
+#   node_modules:
+
+# version: '3.8'
+
+# services:
+
+#   vue:
+#     build: 
+#         context: ./
+#         dockerfile: Dockerfile
+#     container_name: gradely-vue
+#     # working_dir: /www
+#     # command: bash -c "npm install --save /0.0.0.0"
+#     command: bash -c "npm run serve --host 0.0.0.0 --port 3000"
+#     volumes:
+#       - ./:/var/www/html/
+#     ports:
+#       - 3000:3000
+
+
+version: '3'
+services:
+    web:
+        build: .
+        stdin_open: true
+        tty: true
+        ports: 
+            - "3000:3000"
+        volumes:
+            - "/app/node_modules" 
+            - ".:/app"
