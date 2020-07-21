@@ -2,7 +2,7 @@
   <div>
     <!-- BASE NAV COMPONENT -->
     <BaseNav
-      :nav_text="['Feeds', 'Members', 'Homework', 'Report']"
+      :nav_text="['Home', 'Students', 'Assesments', 'Report']"
       :nav_icon="['icon-feeds', 'icon-members', 'icon-library', 'icon-pie-chart']"
       :nav_name="['TeacherFeeds', 'TeacherMembers', 'TeacherHomework', 'TeacherReport']"
       nav_type="teacher"
@@ -16,7 +16,7 @@
 
     <!-- MOBILE BASE NAV COMPONENT -->
     <MobileBaseNav
-      :nav_text="['Feeds', 'Members', 'Homework', 'Report']"
+      :nav_text="['Home', 'Students', 'Assessments', 'Report']"
       :nav_icon="['icon-feeds', 'icon-members', 'icon-library', 'icon-pie-chart']"
       :nav_name="['TeacherFeeds', 'TeacherMembers', 'TeacherHomework', 'TeacherReport']"
     ></MobileBaseNav>

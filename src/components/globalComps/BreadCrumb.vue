@@ -23,7 +23,6 @@
               v-if="show_nav"
             >
               <div class="nav nav-left" title="Next">
-                <!-- <i class="fas fa-caret-left"></i> -->
                 <span class="icon-caret-fill-left color_grey_light"></span>
               </div>
               <div class="page">
@@ -32,7 +31,6 @@
               </div>
               <div class="nav nav-right" title="Prev">
                 <span class="icon-caret-fill-right color_grey_light"></span>
-                <!-- <i class="fas fa-caret-right"></i> -->
               </div>
             </div>
           </div>
@@ -90,7 +88,7 @@ export default {
     &::before {
       align-items: center;
       padding: 0 14px;
-      content: "\e914";
+      content: "\e9c6";
       font-family: "icomoon";
       font-weight: 600;
       font-size: 8px;

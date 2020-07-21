@@ -68,7 +68,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import BreadCrumb from "@/components/globalComps/BreadCrumb";
 import AboutMeSection from "@/components/profileComps/teacherprofile/AboutMeSection";
 import ClassAssigned from "@/components/profileComps/teacherprofile/ClassAssigned";
@@ -77,8 +76,6 @@ import Homework from "@/components/profileComps/teacherprofile/Homework";
 
 export default {
   name: "TeacherProfile",
-
-  mixins: [RenderImages],
 
   components: {
     BreadCrumb,

@@ -24,6 +24,14 @@
               </div>
             </div>
 
+            <!-- HOMEWORK TAB -->
+            <div class="page-tab w-100 d-flex justify-content-start align-items-center nowrap">
+              <div class="tab select-none active">Published</div>
+
+              <div class="tab select-none">Draft</div>
+            </div>
+            <!-- HOMEWORK TAB -->
+
             <!-- CONTENT INFO AND DEFAULT COMPONENTS -->
             <transition name="fade" mode="out-in">
               <keep-alive>

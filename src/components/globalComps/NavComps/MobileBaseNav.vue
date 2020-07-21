@@ -1,10 +1,31 @@
 <template>
   <div>
     <!-- MOBILE NAVIGATIONS BASE -->
-    <div class="mobile-nav-base index-99 w-100 h-auto white d-md-none" v-if="show_nav">
+    <div
+      class="mobile-nav-base index-99 w-100 h-auto d-md-none white"
+      v-if="show_nav && color_theme==='white'"
+    >
       <!-- NAVIGATION-->
       <div class="mobile-nav w-25 h-auto" v-for="(text, index) in nav_text" :key="index">
         <router-link :to="{name: nav_name[index]}" :class="{'active': nav_active[index]}">
+          <span class="font-22 border_grey_dark" :class="nav_icon[index]"></span>
+          <div class="nav-text font-13">{{text}}</div>
+        </router-link>
+      </div>
+      <!-- NAVIGATION -->
+    </div>
+
+    <!-- DARK THEME -->
+    <div
+      class="mobile-nav-base index-99 w-100 h-auto d-md-none black"
+      v-if="show_nav && color_theme==='black'"
+    >
+      <!-- NAVIGATION-->
+      <div class="mobile-nav w-25 h-auto" v-for="(text, index) in nav_text" :key="index">
+        <router-link
+          :to="{name: nav_name[index]}"
+          :class="[nav_active[index] ? 'dark-active' : 'border_grey_dark']"
+        >
           <span class="font-22 border_grey_dark" :class="nav_icon[index]"></span>
           <div class="nav-text font-13">{{text}}</div>
         </router-link>
@@ -25,6 +46,10 @@ export default {
     show_nav: {
       type: Boolean,
       default: true
+    },
+    color_theme: {
+      type: String,
+      default: "white"
     }
   },
 
@@ -56,6 +81,8 @@ export default {
       url === "AddStudents" ? (this.nav_active[1] = true) : "";
       url === "StudentProfile" ? (this.nav_active[1] = true) : "";
       url === "TeacherProfile" ? (this.nav_active[1] = true) : "";
+      url === "ParentCatchupVideo" ? (this.nav_active[1] = true) : "";
+      url === "ParentCatchupTutor" ? (this.nav_active[1] = true) : "";
       url === "HomeworkReview" ? (this.nav_active[2] = true) : "";
     },
 
@@ -119,6 +146,16 @@ export default {
 
     .active {
       color: #08384d !important;
+      font-weight: bold;
+      transition: all 0.3s ease-in-out;
+
+      span {
+        color: $brand_inverse !important;
+      }
+    }
+
+    .dark-active {
+      color: $brand_inverse_light !important;
       font-weight: bold;
       transition: all 0.3s ease-in-out;
 

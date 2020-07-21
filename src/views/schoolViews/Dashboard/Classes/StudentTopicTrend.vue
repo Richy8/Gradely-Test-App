@@ -8,9 +8,21 @@
         item_three="Topic Trend"
         :current_page="1"
         :total_page="1"
+        item_two="Report"
+        item_two_link="ParentReport"
+        :show_nav="false"
+        v-if="account_type==='parent' || account_type==='student'"
+      ></BreadCrumb>
+
+      <BreadCrumb
+        item_one="Andrew Oshinaga"
+        item_three="Topic Trend"
+        :current_page="1"
+        :total_page="1"
         item_two
         item_two_link
         :show_nav="false"
+        v-else
       ></BreadCrumb>
 
       <!-- STUDENTS PROFILE CONTAINER -->
@@ -21,7 +33,7 @@
             <!-- TOPIC SELECT FORM -->
             <div class="topic-list">
               <select class="form-control rounded-select rounded-5">
-                <option value="Indices" selected>Mathematics</option>
+                <option value="Indices" selected>Indices</option>
                 <option value="Number Base">Number Base</option>
                 <option value="Logarithm">Logarithm</option>
                 <option value="Variation">Variation</option>
@@ -91,6 +103,10 @@
               type="Practice"
               :score="25"
             ></ActivityScoreCard>
+
+            <!-- PAGINATION -->
+            <Pagination></Pagination>
+            <!-- PAGINATION -->
           </div>
         </div>
       </div>
@@ -110,6 +126,8 @@ export default {
     BreadCrumb,
     PerformanceChart,
     TopicTrendChart,
+    Pagination: () =>
+      import(/* webpackChunkName: "Pagination" */ "@/components/globalComps/Pagination"),
     ActivityScoreCard: () =>
       import(/* webpackChunkName: "ActivityScoreCard" */ "@/components/classComps/topicTrend/ActivityScoreCard")
   },

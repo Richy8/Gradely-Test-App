@@ -32,21 +32,33 @@
             <!-- VIDEO INFO -->
             <div class="text-uppercase title">Video Lesson</div>
             <div class="topic">Number and Number System</div>
-            <div class="d-flex justfy-content-start align-items-center nowrap">
-              <!-- TIMER -->
-              <div class="d-flex justify-content-start align-items-center nowrap duration">
-                <div class="avatar" style="margin-left:-5px;">
-                  <span class="flex-center icon-clock color_grey_dark font-20"></span>
+
+            <div class="d-flex justify-content-between align-items-center nowrap">
+              <!-- LEFT -->
+              <div class="left d-flex justify-content-start align-items-center nowrap">
+                <!-- TIMER -->
+                <div class="d-flex justify-content-start align-items-center nowrap duration">
+                  <div class="avatar" style="margin-left:-5px;">
+                    <span class="flex-center icon-clock color_grey_dark font-20"></span>
+                  </div>
+                  <div class="text font-14 color_grey_dark">13:43m</div>
                 </div>
-                <div class="text font-14 color_grey_dark">13:43m</div>
+
+                <!-- CLASS -->
+                <div class="d-flex justify-content-start align-items-center nowrap class_year">
+                  <div class="avatar">
+                    <span class="flex-center icon-briefcase color_grey_dark font-20"></span>
+                  </div>
+                  <div class="text font-14 color_grey_dark">Year 7</div>
+                </div>
               </div>
 
-              <!-- CLASS -->
-              <div class="d-flex justify-content-start align-items-center nowrap class_year">
-                <div class="avatar">
-                  <span class="flex-center icon-briefcase color_grey_dark font-20"></span>
-                </div>
-                <div class="text font-14 color_grey_dark">Year 7</div>
+              <!-- RIGHT -->
+              <div class="right">
+                <router-link to class="recommend-btn color_text rounded-20">
+                  <span class="icon-thumbs-up font-17 mr-2"></span>
+                  <span class="font-weight-bold">Recommend</span>
+                </router-link>
               </div>
             </div>
             <!-- VIDEO INFO -->
@@ -58,13 +70,10 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import ModalCover from "@/components/globalComps/ModalCover";
 
 export default {
   name: "VideoCardModal",
-
-  mixins: [RenderImages],
 
   components: {
     ModalCover
@@ -191,6 +200,14 @@ export default {
         font-size: 14px;
         line-height: 19px;
       }
+    }
+
+    .recommend-btn {
+      border: 1px solid $brand_accent;
+      background: $brand_accent_light;
+      padding: 10px 20px;
+      font-size: 12px;
+      line-height: 16px;
     }
   }
 }

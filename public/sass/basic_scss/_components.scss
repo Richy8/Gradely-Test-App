@@ -85,7 +85,7 @@
     box-sizing: border-box;
 
     &:after {
-        content: "\e93c";
+        content: "\ea0b";
         @include transform_center;
         font-family: "icomoon";
         font-weight: 600;
@@ -99,12 +99,11 @@
 }
 
 .done {
-    @include equal_min_edge(15.5);
     border: 0px solid transparent;
     background-color: $brand_inverse;
 
     &:after {
-        content: "\e900";
+        content: "\e9ac";
         color: #ffffff;
     }
 
@@ -162,7 +161,7 @@
     color: $color_grey_dark;
     background-color: white;
     box-shadow: 0 0 0 1px rgba(rgb(104, 104, 104), 0.1), 0 3px 5px 0 rgba(rgb(104, 104, 104), 0.2);
-    transition: all .6s ease-in-out;
+    transition: all .5s ease-in-out;
     animation: panel-slide-down .5s ease-in-out forwards;
     overflow: hidden;
     border: none;

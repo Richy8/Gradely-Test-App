@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="post-input-options rounded-bottom-5 color_white_bg">
+    <div class="post-input-options rounded-bottom-5">
       <!-- OPTIONS -->
       <div class="options">
         <!-- PAPERCLIP -->
@@ -14,7 +14,7 @@
         </div>
 
         <!-- IMAGE -->
-        <div class="avatar">
+        <div class="avatar" v-if="view ==='NewDiscussionInput'">
           <span class="flex-center icon-image"></span>
         </div>
 
@@ -25,13 +25,16 @@
       </div>
 
       <!-- POST BUTTON -->
-      <div class="post-button">
+      <div class="post-button d-flex justify-content-end align-items-center nowrap">
+        <!-- THRASH -->
+        <div class="icon-pack position-relative">
+          <span class="icon-thrash border_grey_dark pointer" @click="$emit('closeTypeSelected')"></span>
+        </div>
+
+        <!-- BUTTON -->
         <span
-          class="color_text rounded-20 text-capitalize"
-          :class="setButtonType"
-          v-if="comment_type"
-        >Reply</span>
-        <span class="color_text rounded-20 text-uppercase" :class="setButtonType" v-else>Create</span>
+          class="btn btn-sm color_text rounded-20 text-uppercase brand_accent_bg btn-accent"
+        >Publish</span>
       </div>
     </div>
   </div>
@@ -42,10 +45,7 @@ export default {
   name: "PostInputOptions",
 
   props: {
-    comment_type: {
-      type: Boolean,
-      default: false
-    },
+    view: String,
     disabled: {
       type: Boolean,
       default: true
@@ -66,8 +66,11 @@ export default {
 
 <style lang="scss">
 .post-input-options {
+  background: #f5f5f5;
   padding: 6px 17px;
+  border-radius: 0px 0px 5px 5px;
   @include flex_row_between_nowrap;
+  transition: all 0.5s ease-in-out;
 
   @include breakpoint_max(sm) {
     padding: 8px 15px;
@@ -82,7 +85,7 @@ export default {
 
       span {
         color: $color_grey_dark;
-        font-size: 19px;
+        font-size: 22px;
         transition: all 0.3s ease-in-out;
       }
 
@@ -95,12 +98,29 @@ export default {
   }
 
   .post-button {
-    cursor: pointer;
+    .icon-pack {
+      @include equal_min_edge(34);
+      border-right: 1px solid $border_grey;
+
+      span {
+        @include transform_center;
+        left: -3.5px;
+        font-size: 26px;
+        font-weight: 100;
+        transition: all 0.4s ease-in-out;
+
+        &:hover {
+          color: $brand_tonic !important;
+        }
+      }
+    }
+
     span {
+      margin-left: 12px;
       font-size: 12px;
-      font-weight: 500;
-      padding: 6px 16px;
-      text-shadow: 0.25px 0px, 0px 0.25px, 0.25px 0.25px;
+      font-weight: 900;
+      padding: 9px 16px;
+      // text-shadow: 0.25px 0px, 0px 0.25px, 0.25px 0.25px;
     }
   }
 }

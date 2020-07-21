@@ -63,13 +63,10 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import ModalCover from "@/components/globalComps/ModalCover";
 
 export default {
   name: "PracticeCardModal",
-
-  mixins: [RenderImages],
 
   components: {
     ModalCover

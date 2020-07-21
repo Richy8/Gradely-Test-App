@@ -47,13 +47,12 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import { mixin as clickaway } from "vue-clickaway";
 
 export default {
   name: "StudentContentCard",
 
-  mixins: [clickaway, RenderImages],
+  mixins: [clickaway],
 
   props: {
     child_img: String,

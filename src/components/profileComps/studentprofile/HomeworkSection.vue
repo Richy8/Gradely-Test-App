@@ -3,10 +3,14 @@
     <div class="homework-section-block profile-block rounded-5">
       <div class="title-row d-flex justify-content-between align-items-center nowrap">
         <!-- TITLE -->
-        <div class="title-bold color_text text-uppercase">Homework</div>
+        <div class="title-bold color_text text-uppercase" v-if="account_type!=='parent'">Homework</div>
+        <div class="title-bold color_text text-uppercase" v-else>Schoolwork history</div>
 
         <!-- COMPLETION RATE -->
-        <div class="completion-rate d-flex flex-column justify-content-center align-items-end">
+        <div
+          class="completion-rate d-flex flex-column justify-content-center align-items-end"
+          v-if="account_type!=='parent'"
+        >
           <div class="text text-right color_grey_dark">Completion Rate: 75%</div>
           <!-- PROGRESS BAR -->
           <div class="progress">
@@ -22,6 +26,7 @@
         title="Homework title goes here"
         subject="Mathematics"
         percent="none"
+        status="New"
       ></HomeworkBlock>
 
       <HomeworkBlock
@@ -30,6 +35,7 @@
         title="Homework title goes here"
         subject="English Language"
         percent="87"
+        status="Completed"
       ></HomeworkBlock>
 
       <HomeworkBlock
@@ -38,6 +44,7 @@
         title="Homework title goes here"
         subject="Social Studies"
         percent="45"
+        status="Missed"
       ></HomeworkBlock>
 
       <HomeworkBlock
@@ -45,7 +52,8 @@
         month="August"
         title="Homework title goes here"
         subject="Basic Technology"
-        percent="0"
+        percent="25"
+        status="Completed"
       ></HomeworkBlock>
 
       <HomeworkBlock
@@ -54,12 +62,14 @@
         title="Homework title goes here"
         subject="Computer Science"
         percent="8"
+        status="Missed"
       ></HomeworkBlock>
       <!-- HOMEWORK DATA COMPONENT -->
 
       <!-- SHOW MORE -->
       <div class="show-more">
-        <router-link to class="btn-link font-weight-bold">Show More</router-link>
+        <router-link to class="btn-link font-weight-bold" v-if="account_type!=='parent'">Show More</router-link>
+        <router-link to class="btn-link font-weight-bold" v-else>See All Homework</router-link>
       </div>
       <!-- SHOW MORE -->
     </div>
@@ -73,6 +83,22 @@ export default {
   components: {
     HomeworkBlock: () =>
       import(/* webpackChunkName: "HomeworkBlock" */ "@/components/profileComps/studentprofile/HomeworkBlock")
+  },
+
+  data() {
+    return {
+      account_type: ""
+    };
+  },
+
+  mounted() {
+    this.getAccountType();
+  },
+
+  methods: {
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
+    }
   }
 };
 </script>

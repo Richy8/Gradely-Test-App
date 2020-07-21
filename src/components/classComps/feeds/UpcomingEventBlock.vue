@@ -2,7 +2,15 @@
   <div>
     <div class="upcoming-event-block rounded-5 mb-4">
       <!-- BLOCK TITLE -->
-      <div class="block-title font-weight-bold text-uppercase color_white">Upcoming</div>
+      <div
+        class="block-title font-weight-bold text-uppercase color_white"
+        v-if="event_count>0"
+      >Upcoming</div>
+      <div
+        class="block-title font-weight-bold text-uppercase color_white"
+        v-else-if="event_count===0 && (account_type==='parent' || account_type==='student')"
+      >Finish Setup</div>
+      <div class="block-title font-weight-bold text-uppercase color_white" v-else>Upcoming</div>
 
       <!-- EVENTS SCHEDULES HERE -->
       <div class="event-holder-component" v-if="event_count>0">
@@ -17,8 +25,16 @@
           :key="index"
         ></EventHolder>
       </div>
-      <div class="event-holder-default-component" v-else>
+
+      <div
+        class="event-holder-default-component"
+        v-else-if="account_type==='school' || account_type==='teacher'"
+      >
         <EventHolder event_title="There are no upcoming classwork for this class."></EventHolder>
+      </div>
+
+      <div v-else>
+        <DefaultSetupBlock></DefaultSetupBlock>
       </div>
 
       <!-- EVENTS SCHEDULES HERE -->
@@ -26,18 +42,21 @@
       <!-- NEW EVENT ROW -->
       <div class="new-event-row index--9">
         <!-- CALENDAR LINK -->
-        <div class="calendar-link d-flex justify-content-start align-items-center nowrap">
+        <div
+          class="calendar-link d-flex justify-content-start align-items-center nowrap"
+          v-if="account_type==='school' || account_type==='teacher'"
+        >
           <div class="avatar calendar-icon">
             <span class="icon-calendar flex-center brand_accent font-20"></span>
           </div>
           <!-- LINK TEXT -->
           <div class="link-text font-weight-bold color_white">
-            <router-link :to="{name: 'SchoolCalendar'}">See Calendar</router-link>
+            <router-link :to="'/'+account_type+'/calendar'">See Calendar</router-link>
           </div>
         </div>
 
         <!-- ADD EVENT BUTTON -->
-        <div class="add-event">
+        <div class="add-event" v-if="account_type==='school' || account_type==='teacher'">
           <div
             class="avatar brand_accent_bg pointer index-9"
             v-on-clickaway="dropEventOptions"
@@ -75,12 +94,14 @@
 <script>
 import { mixin as clickaway } from "vue-clickaway";
 import EventHolder from "@/components/classComps/feeds/EventHolder";
+import DefaultSetupBlock from "@/components/classComps/feeds/DefaultSetupBlock";
 
 export default {
   name: "UpcomingEventBlock",
 
   components: {
-    EventHolder
+    EventHolder,
+    DefaultSetupBlock
   },
 
   mixins: [clickaway],

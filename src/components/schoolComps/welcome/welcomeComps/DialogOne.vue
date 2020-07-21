@@ -29,11 +29,9 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "DialogOne",
   props: ["banner", "display_img"],
-  mixins: [RenderImages]
 };
 </script>
 

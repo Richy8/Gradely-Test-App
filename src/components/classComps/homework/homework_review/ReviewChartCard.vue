@@ -16,6 +16,12 @@
           <div class="description color_grey_dark">Completion Rate</div>
         </div>
       </div>
+
+      <!-- HOMEWORK SETTINGS BUTTON -->
+      <div class="d-flex justify-content-center align-items-center nowrap mt-2">
+        <router-link to class="btn btn-md transparent-bg brand_navy border">Homework Settings</router-link>
+      </div>
+      <!-- HOMEWORK SETTINGS BUTTON -->
     </div>
   </div>
 </template>

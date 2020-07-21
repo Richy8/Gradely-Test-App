@@ -16,8 +16,18 @@
       <div class="options">
         <!-- DESKTOP -->
         <div class="desktop-view">
+          <!-- REMEDIAL OPTION -->
+          <div class="option" @click="toggleRemedialCard">
+            <!-- AVATAR -->
+            <div class="avatar">
+              <span class="flex-center icon-video-on brand_inverse font-22"></span>
+            </div>
+            <!-- TEXT -->
+            <div class="text">Remedial Class</div>
+          </div>
+
           <!-- VIDEO OPTION -->
-          <div class="option" @click="$emit('openVideo')">
+          <div class="option ml-4" @click="toggleVideoCard">
             <!-- AVATAR -->
             <div class="avatar">
               <span class="flex-center icon-video-card brand_tonic font-22"></span>
@@ -27,7 +37,7 @@
           </div>
 
           <!-- PRACTICE OPTION -->
-          <div class="option ml-4" @click="$emit('openPractice')">
+          <div class="option ml-4" @click="togglePracticeCard">
             <!-- AVATAR -->
             <div class="avatar">
               <span class="flex-center icon-practice-card brand_navy font-22"></span>
@@ -39,8 +49,16 @@
 
         <!-- MOBILE -->
         <div class="mobile-view d-lg-none">
+          <!-- REMEDIAL CARD -->
+          <div class="mobile-option mr-2" @click="toggleRemedialCard">
+            <div class="avatar">
+              <span class="flex-center icon-video-on brand_inverse font-20"></span>
+            </div>
+          </div>
+          <!-- REMEDIAL CARD -->
+
           <!-- VIDEO CARD -->
-          <div class="mobile-option mr-2" @click="$emit('openVideo')">
+          <div class="mobile-option mr-2" @click="toggleVideoCard">
             <div class="avatar">
               <span class="flex-center icon-video-card brand_tonic font-20"></span>
             </div>
@@ -48,7 +66,7 @@
           <!-- VIDEO CARD -->
 
           <!-- PRACTICE CARD -->
-          <div class="mobile-option ml-2" @click="$emit('openPractice')">
+          <div class="mobile-option ml-2" @click="togglePracticeCard">
             <div class="avatar">
               <span class="flex-center icon-practice-card brand_navy font-20"></span>
             </div>
@@ -57,12 +75,16 @@
         </div>
       </div>
     </div>
+
+    <!-- MODAL GOES HERE -->
+    <SingleRemedialModal v-if="remedial_card" @closeTriggered="toggleRemedialCard"></SingleRemedialModal>
+    <VideoCardModal v-if="video_card" @closeTriggered="toggleVideoCard"></VideoCardModal>
+    <PracticeCardModal v-if="practice_card" @closeTriggered="togglePracticeCard"></PracticeCardModal>
+    <!-- MODAL GOES HERE -->
   </div>
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "RecommendCard",
 
@@ -72,7 +94,14 @@ export default {
     percent_progress: Number
   },
 
-  mixins: [RenderImages],
+  components: {
+    SingleRemedialModal: () =>
+      import(/* webpackChunkName: "SingleRemedialModal" */ "@/components/modalComps/classModals/SingleRemedialModal"),
+    VideoCardModal: () =>
+      import(/* webpackChunkName: "VideoCardModal" */ "@/components/modalComps/classModals/VideoCardModal"),
+    PracticeCardModal: () =>
+      import(/* webpackChunkName: "PracticeCardModal" */ "@/components/modalComps/classModals/PracticeCardModal")
+  },
 
   watch: {
     child_img: "updateCard",
@@ -82,6 +111,9 @@ export default {
 
   data() {
     return {
+      remedial_card: false,
+      video_card: false,
+      practice_card: false,
       state_color: ""
     };
   },
@@ -99,6 +131,18 @@ export default {
       } else if (this.percent_progress <= 44) {
         this.state_color = "brand_tonic";
       }
+    },
+
+    toggleRemedialCard() {
+      this.remedial_card = !this.remedial_card;
+    },
+
+    toggleVideoCard() {
+      this.video_card = !this.video_card;
+    },
+
+    togglePracticeCard() {
+      this.practice_card = !this.practice_card;
     }
   }
 };

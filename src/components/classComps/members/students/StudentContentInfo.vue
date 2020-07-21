@@ -113,7 +113,7 @@ export default {
   methods: {
     redirectToAddStudent() {
       let account_type = this.$route.path.split("/")[1];
-      this.$router.push(`/${account_type}/dashboard/add_students`);
+      this.$router.push(`/${account_type}/dashboard/add-students`);
     }
   }
 };

@@ -35,7 +35,10 @@
 
           <!-- CLOSE DIALOG -->
           <div class="pageClose dialogDismiss">
-            <button type="button" class="close_dialog cls_lg transparent_bg"></button>
+            <router-link
+              :to="{name: 'GradelySignupLander'}"
+              class="close_dialog cls_lg transparent_bg"
+            ></router-link>
           </div>
 
           <b-col class="school-sign-up-container">
@@ -45,7 +48,7 @@
               <div class="text-info-one font-weight-bold">Create your School account</div>
               <div class="text-info-two">
                 Already have an account?
-                <a href="#" class="btn-link">Login</a>
+                <router-link :to="{name: 'GradelyLogin'}" class="btn-link">Login</router-link>
               </div>
 
               <!-- SIGNUP FORM COMPONENT -->
@@ -60,15 +63,12 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import SignUpForm from "@/components/schoolComps/signup/SignUpForm.vue";
 
 export default {
   name: "Signup",
 
   components: { SignUpForm },
-
-  mixins: [RenderImages],
 
   data() {
     return {

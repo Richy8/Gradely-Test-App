@@ -5,7 +5,7 @@
     <!-- AVERAGE SCORE DISPLAY -->
     <div class="average-score-display">
       <div class="score font-weight-bold color_text text-center">{{ average_score }}%</div>
-      <div class="score-meta text-uppercase color_grey_dark text-center">AVG. SCORE</div>
+      <div class="score-meta text-uppercase color_grey_dark text-center">{{ chart_title }}</div>
     </div>
   </div>
 </template>
@@ -20,6 +20,10 @@ export default {
 
   props: {
     average_score: Number,
+    chart_title: {
+      type: String,
+      default: "Avg. Score"
+    },
     switch_color: {
       type: Boolean,
       default: false

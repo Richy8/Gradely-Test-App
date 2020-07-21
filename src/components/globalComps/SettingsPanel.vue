@@ -6,9 +6,17 @@
         <!-- PANEL ROW -->
         <div class="panel-row d-flex justify-content-start align-items-start nowrap">
           <!-- AVATAR -->
+          <!-- SCHOOL -->
           <div class="avatar avatar-square avatar_md" v-if="panel_type==='school'">
             <div class="avatar-text color_text brand_inverse_light_bg">{{ getInitial }}</div>
           </div>
+
+          <!-- STUDENT -->
+          <div class="avatar avatar-square avatar_md" v-if="panel_type==='student'">
+            <img v-lazy="dynamicImg(student_image)" alt class="avatar-img">
+          </div>
+
+          <!-- TEACHER AND PARENT -->
           <div
             class="avatar avatar-square avatar_md"
             v-if="panel_type==='teacher' || panel_type==='parent'"
@@ -23,6 +31,10 @@
           <div class="d-flex flex-column justify-content-start align-items-start">
             <div class="name color-text font-weight-bold text-capitalize">{{ user_name }}</div>
             <div class="school color_grey_dark" v-if="panel_type==='school'">{{ school_name }}</div>
+            <div class="school color_grey_dark" v-else-if="panel_type==='student'">
+              SC:
+              <span class="font-weight-bold">{{ student_code }}</span>
+            </div>
             <div class="email color_grey_dark" v-else>{{ email }}</div>
             <router-link
               :to="'/'+panel_type+'/dashboard/settings'"
@@ -56,7 +68,7 @@
           </li>
 
           <!-- MY CALENDAR -->
-          <li v-if="panel_type==='parent' || panel_type==='teacher'">
+          <li v-if="panel_type==='parent' || panel_type==='teacher' || panel_type==='student'">
             <router-link
               :to="'/'+panel_type+'/calendar'"
               class="d-flex justify-content-start align-items-center nowrap"
@@ -75,7 +87,7 @@
           </li>
 
           <!-- MY ACCOUNT -->
-          <li>
+          <li v-if="panel_type==='school'">
             <router-link
               :to="'/'+panel_type+'/dashboard/settings/user'"
               class="d-flex justify-content-start align-items-center nowrap"
@@ -85,9 +97,23 @@
             </router-link>
           </li>
 
+          <li v-else>
+            <router-link
+              :to="'/'+panel_type+'/dashboard/settings/preferences'"
+              class="d-flex justify-content-start align-items-center nowrap"
+            >
+              <span class="icon icon-gear border_grey_dark"></span>
+              <div class="link-text">My Account</div>
+            </router-link>
+          </li>
+
           <!-- LOG OUT -->
           <li>
-            <router-link to class="d-flex justify-content-start align-items-center nowrap">
+            <router-link
+              to
+              @click.native="logout"
+              class="d-flex justify-content-start align-items-center nowrap"
+            >
               <span class="icon icon-log-out border_grey_dark"></span>
               <div class="link-text">Log Out</div>
             </router-link>
@@ -99,6 +125,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import { colors, random, shuffle, setInitial } from "@/scripts/utilities";
 
 export default {
@@ -108,6 +135,8 @@ export default {
     user_name: String,
     school_name: String,
     email: String,
+    student_image: String,
+    student_code: String,
     panel_type: String
   },
 
@@ -119,6 +148,25 @@ export default {
     setAvatarBg() {
       let shuffled = shuffle(colors);
       return shuffled[random(15, 0)];
+    }
+  },
+
+  methods: {
+    ...mapActions(["logoutUser"]),
+
+    logout() {
+      this.logoutUser()
+        .then(response => {
+          response.code === 200
+            ? this.$router.push({
+                name: "GradelyLogin",
+                params: {
+                  nextUrl: null
+                }
+              })
+            : "";
+        })
+        .catch(err => console.log(err));
     }
   }
 };

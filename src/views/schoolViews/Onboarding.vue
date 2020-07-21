@@ -29,6 +29,7 @@
 </template>
 
 <script>
+import { bgColorSetter } from "@/scripts/utilities";
 import setupForm from "@/components/schoolComps/onboarding/setupForm.vue";
 import { bgColorSetter } from "@/scripts/utilities";
 
@@ -37,10 +38,14 @@ export default {
   components: {
     setupForm
   },
+  
+  created() {},
 
   mounted() {
     bgColorSetter("#f0f0f0");
-  }
+  },
+
+  methods: {}
 };
 </script>
 

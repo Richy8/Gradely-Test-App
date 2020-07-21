@@ -1,11 +1,12 @@
 <template>
   <div>
-    <div class="navbar-section fixed-top w-100 index-9 white">
+    <div class="navbar-section fixed-top w-100 index-9" :class="color_theme">
       <!-- MOBILE TOP NAVIGATION VIEW -->
       <div
         class="container h-auto d-md-none mobile-top"
         :class="[nav_type==='class' || nav_type==='single' ? 'sub-mobile-top' : '']"
       >
+        <!-- SCHOOL -->
         <div class="row d-flex justify-content-between align-items-center nowrap">
           <!-- GEAR ICON -->
           <div class="gear-icon" v-if="nav_type==='school'">
@@ -15,8 +16,10 @@
           </div>
 
           <!-- AVATAR -->
+          <!-- PARENT AND TEACHER -->
           <div
-            class="icon rounded-5 icon__user brand_tonic_bg"
+            class="icon rounded-5 icon__user"
+            :class="[nav_type==='parent' ? 'brand_navy_bg' : 'brand_tonic_bg']"
             v-on-clickaway="onUserSlideOut"
             @click="toggleUserSettings"
             v-if="nav_type==='parent' || nav_type==='teacher'"
@@ -25,6 +28,19 @@
               class="avatar-text white-text font-10-5"
               :class="[nav_type==='parent' ? 'brand_navy_bg' : 'brand_tonic_bg']"
             >AJ</div>
+            <i class="icon-caret-fill-down color_text font-9"></i>
+          </div>
+
+          <!-- STUDENT -->
+          <div
+            class="icon rounded-5 icon__user"
+            :class="[nav_type==='student' ? 'brand_inverse_light_bg' : '']"
+            v-on-clickaway="onUserSlideOut"
+            @click="toggleUserSettings"
+            v-if="nav_type==='student'"
+          >
+            <img v-lazy="dynamicImg('MaleChild.png')" alt>
+            <i class="icon-caret-fill-down color_text font-9"></i>
           </div>
 
           <!-- GO BACK ICON -->
@@ -61,7 +77,7 @@
           <!-- BRAND LOGO -->
           <div
             class="brand-logo"
-            v-if="nav_type==='school' || nav_type==='parent' || nav_type==='teacher'"
+            v-if="nav_type==='school' || nav_type==='parent' || nav_type==='teacher' || nav_type==='student'"
           >
             <router-link :to="'/'+nav_type+'/dashboard'">
               <img :src="localImg('Gradely.png')" alt="Gradely.ng">
@@ -82,14 +98,14 @@
             </div>
 
             <!-- ICON MESSAGE -->
-            <div
+            <!-- <div
               class="icon avatar avatar-square"
               v-if="nav_type==='parent' || nav_type==='teacher'"
             >
               <router-link :to="'/'+nav_type+'/dashboard/message'">
                 <span class="icon-message brand_navy"></span>
               </router-link>
-            </div>
+            </div>-->
 
             <!-- CLASS SEARCH ICON -->
             <div
@@ -114,7 +130,7 @@
             <!-- NOTIFICATION ICON -->
             <div
               class="icon avatar avatar-square"
-              v-if="nav_type==='school' || nav_type==='parent' || nav_type==='teacher'"
+              v-if="nav_type==='school' || nav_type==='parent' || nav_type==='teacher' || nav_type==='student'"
             >
               <span class="icon-bell"></span>
               <div class="badge-circle brand_red_bg index-9"></div>
@@ -129,6 +145,8 @@
       user_name="Kunle Ajayi"
       school_name="Christland Intl"
       email="rotimi_os@gmail.com"
+      student_code="KUNLEAJA"
+      student_image="MaleChild.png"
       :panel_type="nav_type"
       v-if="slide_panel"
       @onClose="slide_panel=false"
@@ -138,6 +156,8 @@
       user_name="Anthony Joshua"
       school_name="Christland Intl"
       email="rotimi_os@gmail.com"
+      student_code="ANTHOJO"
+      student_image="MaleChild.png"
       :panel_type="nav_type"
       v-if="slide_user_panel"
       @onClose="slide_user_panel=false"
@@ -146,7 +166,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import SettingsPanel from "@/components/globalComps/SettingsPanel";
 import { mixin as clickaway } from "vue-clickaway";
 
@@ -157,6 +176,10 @@ export default {
     nav_type: {
       type: String,
       default: "school"
+    },
+    color_theme: {
+      type: String,
+      default: "white"
     }
   },
 
@@ -164,7 +187,7 @@ export default {
     SettingsPanel
   },
 
-  mixins: [clickaway, RenderImages],
+  mixins: [clickaway],
 
   watch: {
     $route: "onRouteClick"

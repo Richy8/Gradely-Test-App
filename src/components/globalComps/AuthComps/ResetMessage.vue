@@ -18,7 +18,7 @@
 
         <p class="text-left border_grey_dark info-text">
           Didn't receive any email?
-          <router-link to class="btn-link">Resend Link</router-link>
+          <router-link to @click.native="$emit('toggleEmailForm')" class="btn-link">Resend Link</router-link>
         </p>
       </div>
       <!-- BLOCK HEADER -->

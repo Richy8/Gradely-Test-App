@@ -64,6 +64,8 @@ export default {
         this.color_scheme = "brand_inverse_light_bg brand_primary";
       } else if (this.account_type === "teacher") {
         this.color_scheme = "brand_tonic_bg brand_white";
+      } else if (this.account_type === "parent") {
+        this.color_scheme = "brand_navy_bg brand_white";
       }
     },
 

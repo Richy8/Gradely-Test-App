@@ -32,12 +32,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
-  name: "AuthorCard",
-
-  mixins: [RenderImages]
+  name: "AuthorCard"
 };
 </script>
 

@@ -10,7 +10,7 @@
 
     <!-- WELCOME BLOCK -->
     <div class="welcome-block w-100 d-flex flex-column justify-content-start align-items-center">
-      <div class="welcome-title font-weight-bold brand_navy">Library of Learning Resources</div>
+      <div class="welcome-title font-weight-bold brand_navy">Tutor Interventions</div>
       <div
         class="welcome-text color_grey_dark text-center"
       >Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs.</div>
@@ -19,12 +19,27 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "DialogFive",
+
   props: ["banner", "display_img"],
-  mixins: [RenderImages]
+
+  data() {
+    return {
+      account_type: ""
+    };
+  },
+
+  mounted() {
+    this.getAccountType();
+  },
+
+  methods: {
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
+    }
+  }
 };
 </script>
 

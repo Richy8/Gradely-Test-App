@@ -15,12 +15,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "ChildListCard",
-
-  mixins: [RenderImages],
 
   props: ["img", "child_name", "class_year", "branch"],
 

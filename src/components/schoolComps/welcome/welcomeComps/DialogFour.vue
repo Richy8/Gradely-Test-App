@@ -19,12 +19,9 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "DialogFour",
   props: ["banner", "display_img"],
-  mixins: [RenderImages]
 };
 </script>
 

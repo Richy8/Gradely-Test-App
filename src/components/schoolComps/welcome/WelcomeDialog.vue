@@ -24,6 +24,13 @@
               display_img="GradelyIcon.png"
             ></DialogOne>
 
+            <DialogOne
+              v-if="current_tab === 0 && account_type === 'student'"
+              banner="StudentDialog.png"
+
+              display_img="GradelyIcon.png"
+            ></DialogOne>
+
             <DialogTwo
               v-else-if="current_tab === 1"
               banner="DisplayBanner.png"
@@ -55,10 +62,29 @@
         <div
           class="navigation-block w-100 d-flex flex-column justify-content-start align-items-center"
         >
-          <button class="btn btn-accent next-btn" @click="nextTab">Next</button>
-          <button class="btn btn-accent done-btn d-none" @click="$emit('closeDialog')">Done</button>
+          <router-link
+            :to="{name: 'ParentInvitation'}"
+            class="btn btn-accent next-btn"
+            v-if="account_type==='student'"
+          >Invite Your Parent</router-link>
+          <button class="btn btn-accent next-btn" @click="nextTab" v-else>Next</button>
 
-          <div class="navigations d-flex justify-content-center align-items-start">
+          <button
+            class="btn btn-accent done-btn d-none"
+            v-if="account_type!=='parent'"
+            @click="$emit('closeDialog')"
+          >Done</button>
+          <router-link
+            :to="{name: 'ParentNewChildOnboarding'}"
+            class="btn btn-accent done-btn d-none"
+            v-else
+            @click="$emit('closeDialog')"
+          >Add a Child</router-link>
+
+          <div
+            class="navigations d-flex justify-content-center align-items-start"
+            v-if="account_type!=='student'"
+          >
             <div
               class="nav rounded-circle border_grey_bg"
               v-for="(tab, index) in tabs"

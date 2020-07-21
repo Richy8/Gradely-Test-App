@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import ModalCover from "@/components/globalComps/ModalCover";
 
 export default {
@@ -47,8 +46,6 @@ export default {
   props: {
     account_type: String
   },
-
-  mixins: [RenderImages],
 
   components: {
     ModalCover

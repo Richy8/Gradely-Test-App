@@ -19,11 +19,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
-  name: "RequestInvoiceCard",
-  mixins: [RenderImages]
+  name: "RequestInvoiceCard"
 };
 </script>
 

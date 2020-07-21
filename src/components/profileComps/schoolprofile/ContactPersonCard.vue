@@ -86,8 +86,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "ContactPersonCard",
   props: [
@@ -99,8 +97,7 @@ export default {
     "email",
     "website",
     "img"
-  ],
-  mixins: [RenderImages]
+  ]
 };
 </script>
 

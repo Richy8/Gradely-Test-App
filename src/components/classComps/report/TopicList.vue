@@ -51,11 +51,8 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "TopicList",
-
-  mixins: [RenderImages],
 
   data() {
     return {

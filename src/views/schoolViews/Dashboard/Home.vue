@@ -61,13 +61,11 @@
 
 
 <script>
+import { mapGetters, mapActions } from "vuex";
 import SchoolBanner from "@/components/schoolComps/dashboard/home/SchoolBanner";
 import DefaultInfo from "@/components/schoolComps/dashboard/home/DefaultInfo";
 import ContentInfo from "@/components/schoolComps/dashboard/home/ContentInfo";
 import ClassStructure from "@/components/schoolComps/dashboard/home/ClassStructure";
-
-// MODAL
-import WelcomeDialogue from "@/components/schoolComps/welcome/WelcomeDialog";
 
 export default {
   name: "Home",
@@ -77,7 +75,8 @@ export default {
     DefaultInfo,
     ContentInfo,
     ClassStructure,
-    WelcomeDialogue,
+    WelcomeDialogue: () =>
+      import(/* webpackChunkName: "phonecall" */ "@/components/schoolComps/welcome/WelcomeDialog"),
     PhoneCall: () =>
       import(/* webpackChunkName: "phonecall" */ "@/components/schoolComps/dashboard/home/PhoneCall"),
     AddTeacherModal: () =>
@@ -88,12 +87,16 @@ export default {
       import(/* webpackChunkName: "classdetailsmodal" */ "@/components/modalComps/schoolModals/ClassDetailsModal")
   },
 
+  computed: {
+    ...mapGetters(["getAuthUser", "classList"])
+  },
+
   data() {
     return {
       view: ContentInfo,
       in_view: false,
       default_value: true,
-      welcome_dialogue: true,
+      welcome_dialogue: null,
       toggle_teacher_modal: false,
       toggle_branch_modal: false,
       toggle_class_modal: false,
@@ -109,11 +112,25 @@ export default {
     view: "updateBanner"
   },
 
+  created() {
+    this.getClasses()
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => console.log(err));
+  },
+
   mounted() {
-    this.updateBanner();
+    if (this.getAuthUser.is_boarded) {
+      this.welcome_dialogue = false;
+    } else {
+      this.welcome_dialogue = true;
+    }
   },
 
   methods: {
+    ...mapActions(["updateBoardingStatus", "getClasses"]),
+
     updateBanner() {
       this.default_value = false;
       this.view === "DefaultInfo" ? (this.default_value = true) : "";
@@ -132,7 +149,14 @@ export default {
     },
 
     dialogueCompleted() {
-      this.welcome_dialogue = !this.welcome_dialogue;
+      this.welcome_dialogue = false;
+      // this.updateBoardingStatus()
+      //   .then(response => {
+      //     if (response.code === 200) {
+      //       this.welcome_dialogue = false;
+      //     }
+      //   })
+      //   .catch(err => console.log(err));
     },
 
     switchSidebar() {

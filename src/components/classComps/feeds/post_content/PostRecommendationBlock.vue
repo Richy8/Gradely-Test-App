@@ -65,8 +65,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
-
 export default {
   name: "PostRecommendationBlock",
 
@@ -80,8 +78,6 @@ export default {
   props: {
     post: Object
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {

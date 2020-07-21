@@ -40,63 +40,37 @@
           <!-- COMPONENTS GOES HERE -->
           <transition name="fade" mode="out-in">
             <keep-alive>
-              <StrugglingList
-                v-if="in_view === 'StrugglingList'"
-                @toggleVideo="toggleVideoCard"
-                @togglePractice="togglePracticeCard"
-              ></StrugglingList>
+              <StrugglingList v-if="in_view === 'StrugglingList'"></StrugglingList>
 
-              <AverageList
-                v-else-if="in_view === 'AverageList'"
-                @toggleVideo="toggleVideoCard"
-                @togglePractice="togglePracticeCard"
-              ></AverageList>
+              <AverageList v-else-if="in_view === 'AverageList'"></AverageList>
 
-              <TopList
-                v-else-if="in_view === 'TopList'"
-                @toggleVideo="toggleVideoCard"
-                @togglePractice="togglePracticeCard"
-              ></TopList>
+              <TopList v-else-if="in_view === 'TopList'"></TopList>
             </keep-alive>
           </transition>
           <!-- COMPONENTS GOES HERE -->
         </div>
       </div>
     </div>
-
-    <!-- MODAL GOES HERE -->
-    <VideoCardModal v-if="video_card" @closeTriggered="toggleVideoCard"></VideoCardModal>
-    <PracticeCardModal v-if="practice_card" @closeTriggered="togglePracticeCard"></PracticeCardModal>
-    <!-- MODAL GOES HERE -->
   </div>
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 import StrugglingList from "@/components/classComps/report/StrugglingList";
 
 export default {
   name: "Recommendation",
-
-  mixins: [RenderImages],
 
   components: {
     StrugglingList,
     AverageList: () =>
       import(/* webpackChunkName: "ClassReport" */ "@/components/classComps/report/AverageList"),
     TopList: () =>
-      import(/* webpackChunkName: "ClassReport" */ "@/components/classComps/report/TopList"),
-    VideoCardModal: () =>
-      import(/* webpackChunkName: "VideoCardModal" */ "@/components/modalComps/classModals/VideoCardModal"),
-    PracticeCardModal: () =>
-      import(/* webpackChunkName: "PracticeCardModal" */ "@/components/modalComps/classModals/PracticeCardModal")
+      import(/* webpackChunkName: "ClassReport" */ "@/components/classComps/report/TopList")
   },
 
   data() {
     return {
-      in_view: "StrugglingList",
-      video_card: false,
-      practice_card: false
+      in_view: "StrugglingList"
     };
   },
 
@@ -115,14 +89,6 @@ export default {
         this.in_view = "TopList";
         event.target.classList.add("active");
       }
-    },
-
-    toggleVideoCard() {
-      this.video_card = !this.video_card;
-    },
-
-    togglePracticeCard() {
-      this.practice_card = !this.practice_card;
     }
   }
 };

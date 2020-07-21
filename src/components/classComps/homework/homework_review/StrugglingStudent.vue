@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "StrugglingStudent",
 
@@ -47,8 +46,6 @@ export default {
     total_student: Number,
     student_list: Array
   },
-
-  mixins: [RenderImages],
 
   data() {
     return {

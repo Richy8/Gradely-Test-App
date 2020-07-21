@@ -52,13 +52,13 @@
               </div>
             </div>
 
-            <!-- TOPIC PROGRESS COMPONENT -->
-            <TopicProgress></TopicProgress>
-            <!-- TOPIC PROGRESS COMPONENT -->
-
             <!-- RECOMMENDATION COMPONENTONENT -->
             <Recommendation></Recommendation>
             <!-- RECOMMENDATION COMPONENTONENT -->
+
+            <!-- TOPIC PROGRESS COMPONENT -->
+            <TopicProgress></TopicProgress>
+            <!-- TOPIC PROGRESS COMPONENT -->
           </div>
           <!-- CLASS REPORT -->
         </div>
@@ -72,16 +72,16 @@
 
 <script>
 import TeacherClassCard from "@/components/classComps/teacherSideBar/TeacherClassCard";
-import TopicProgress from "@/components/classComps/report/TopicProgress";
+import Recommendation from "@/components/classComps/report/Recommendation";
 
 export default {
   name: "Report",
 
   components: {
     TeacherClassCard,
-    TopicProgress,
-    Recommendation: () =>
-      import(/* webpackChunkName: "Recommendation" */ "@/components/classComps/report/Recommendation"),
+    Recommendation,
+    TopicProgress: () =>
+      import(/* webpackChunkName: "TopicProgress" */ "@/components/classComps/report/TopicProgress"),
     AddTeacherModal: () =>
       import(/* webpackChunkName: "AddTeacherModal" */ "@/components/modalComps/schoolModals/AddTeacherModal")
   },

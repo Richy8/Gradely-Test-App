@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "PostData",
 
@@ -54,7 +53,6 @@ export default {
     post_comment_count: Number
   },
 
-  mixins: [RenderImages]
 };
 </script>
 

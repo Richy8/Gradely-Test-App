@@ -93,6 +93,11 @@
         <p class="color_ash">Are you sure you want to continue? This action can not be undone.</p>
       </div>
 
+      <div class="delete-acct" v-if="account_type==='parent'">
+        <p>Click the button below to delete all your records; this includes your Child’s Homework scores, results, reports, posts and comments.</p>
+        <p class="color_ash">Are you sure you want to continue? This action can not be undone.</p>
+      </div>
+
       <!-- DELETE BUTTON -->
       <button
         class="btn btn-md btn-tonic-outline ml-0"

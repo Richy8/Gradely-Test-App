@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vue-headful title="School Calendar | Gradelyng" description="Description goes here"/>
+    <vue-headful :title="getPageTitle" description="Description goes here"/>
     <div class="gradely-calendar-section base-type-layout">
       <!-- PAGE TITLE -->
       <div class="container px-1">
@@ -112,6 +112,7 @@
 </template>
 
 <script>
+import { capitalizeFirstLetter } from "@/scripts/utilities";
 import { mixin as clickaway } from "vue-clickaway";
 import CalendarPlugin from "@/components/globalComps/CalendarComps/CalendarPlugin";
 import DefaultTaskBlock from "@/components/globalComps/CalendarComps/DefaultTaskBlock";
@@ -137,6 +138,7 @@ export default {
 
   data() {
     return {
+      account_type: "",
       in_view: null,
       lessons: true,
       homework: true,
@@ -150,6 +152,10 @@ export default {
   },
 
   computed: {
+    getPageTitle() {
+      return `${capitalizeFirstLetter(this.account_type)} Calendar | Gradely`;
+    },
+
     setDay() {
       return this.date_obj.getDate();
     },
@@ -164,10 +170,15 @@ export default {
   },
 
   mounted() {
+    this.getAccountType();
     this.updateView();
   },
 
   methods: {
+    getAccountType() {
+      this.account_type = this.$route.path.split("/")[1];
+    },
+
     updateView() {
       this.todo_task > 0
         ? (this.in_view = "ContentTaskBlock")

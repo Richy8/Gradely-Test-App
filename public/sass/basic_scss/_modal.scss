@@ -9,7 +9,7 @@
     height: auto;
     background: #fff;
     box-sizing: border-box;
-    border-radius: 10px;
+    // border-radius: 10px;
     overflow: auto;
     z-index: 3000;
     transition: top .5s ease-in-out;
@@ -106,6 +106,17 @@
             top: 50px;
             opacity: 1
         }
+    }
+
+    .modal-small {
+        width: 480px !important;
+
+        @include breakpoint_min_max(450, 650) {
+            width: 520px !important;
+        }
+
+        @include breakpoint_max(sm) {
+            width: 95% !important;
     }
 
     .modal-sm-md {

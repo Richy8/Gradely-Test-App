@@ -10,7 +10,7 @@
       <!-- ERROR ALERT -->
       <AuthAlertCard v-if="show_alert" :alert_type="alert_type" :alert_msg="alert_msg"></AuthAlertCard>
 
-      <form action @submit.prevent class="auth-form">
+      <form action @submit.prevent="teacherSignup" class="auth-form" autocomplete="off">
         <!-- FIRSTNAME -->
         <div class="form-group compact-row">
           <label
@@ -19,7 +19,7 @@
           >First Name</label>
           <input
             type="text"
-            v-model="form.firstname"
+            v-model="form.first_name"
             id="firstName"
             class="form-control"
             required
@@ -35,7 +35,7 @@
           >Last Name</label>
           <input
             type="text"
-            v-model="form.lastname"
+            v-model="form.last_name"
             id="lastName"
             class="form-control"
             required
@@ -50,12 +50,28 @@
             class="label-compact label-sm font-weight-bold brand_primary font-11-5"
           >Email Address</label>
           <input
-            type="text"
+            type="email"
             v-model="form.email"
             id="email"
             class="form-control"
             required
             placeholder="Enter your email address"
+          >
+        </div>
+
+        <!-- PHONE NUMBER -->
+        <div class="form-group compact-row">
+          <label
+            for="phoneNumber"
+            class="label-compact label-sm font-weight-bold brand_primary font-11-5"
+          >Phone Number</label>
+          <input
+            type="number"
+            v-model="form.phone"
+            id="phoneNumber"
+            class="form-control"
+            required
+            placeholder="Enter your phone number"
           >
         </div>
 
@@ -67,7 +83,7 @@
           >Password</label>
           <div class="input-group">
             <input
-              :type="passwordType ? 'password': 'text'"
+              :type="password_type ? 'password': 'text'"
               v-model="form.password"
               class="form-control"
               id="password"
@@ -85,8 +101,8 @@
         <div class="disclaimer-block color_grey_dark">
           <p class="text-center">
             By creating an account, you agree to our
-            <router-link :to="{name: 'GradelyForgetPassword'}" class="btn-link">Terms and coditions</router-link>&nbsp;and&nbsp;
-            <router-link :to="{name: 'GradelyForgetPassword'}" class="btn-link">Privacy Policies</router-link>
+            <router-link :to="{name: ''}" class="btn-link">Terms and coditions</router-link>&nbsp;and&nbsp;
+            <router-link :to="{name: ''}" class="btn-link">Privacy Policies</router-link>
           </p>
         </div>
 
@@ -107,6 +123,8 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "SignupForm",
 
@@ -118,23 +136,90 @@ export default {
   data() {
     return {
       form: {
-        firstname: "",
-        lastname: "",
-        email: "",
-        password: ""
+        first_name: null,
+        last_name: null,
+        email: null,
+        phone: null,
+        password: null,
+        account_type: null
       },
-      passwordType: true,
+      password_type: true,
       show_alert: false,
-      alert_type: "",
-      alert_msg: ""
+      alert_type: null,
+      alert_msg: null
     };
   },
 
+  mounted() {
+    this.getAccountType();
+  },
+
   methods: {
+    ...mapActions(["signupUser"]),
+
     showPwd() {
       let pwd_icon = document.querySelector(".show-pwd");
-      this.passwordType = !this.passwordType;
+      this.password_type = !this.password_type;
       pwd_icon.classList.toggle("show_pass");
+    },
+
+    getAccountType() {
+      this.form.account_type = this.$route.path.split("/")[1];
+    },
+
+    validatePhone() {
+      if (this.form.phone.length > 11 || this.form.phone.length < 11) {
+        this.show_alert = true;
+        this.alert_type = "error";
+        this.alert_msg = "Please check length of phone number...";
+        return false;
+      } else {
+        this.show_alert = false;
+        this.alert_type = null;
+        this.alert_msg = null;
+      }
+    },
+
+    teacherSignup() {
+      // VLAIDATE PHONE
+      this.validatePhone();
+
+      // DISPATCH SIGNUP ACTION
+      this.signupUser(this.form)
+        .then(response => {
+          console.log(response.code);
+
+          // PROCESS A NON 200 RESPONSE
+          if (response.code !== 200) {
+            setTimeout(() => {
+              this.show_alert = true;
+              this.alert_type = "error";
+
+              // CHECK IF RESPONSE MESSAGE IS A NETWORK ERROR
+              if (response.message === "Network Error") {
+                this.alert_msg = "0ops! No internet connection, try again!";
+              } else if (response.data.phone) {
+                this.alert_msg = "This phone number has already been taken!";
+              } else if (response.data.email) {
+                this.alert_msg = "This email has already been taken!";
+              } else {
+                this.alert_msg = "Internal Server Error! Contact developer";
+              }
+            }, 1000);
+          }
+          // PROCESS 200 RESPONSE
+          else {
+            this.show_alert = true;
+            this.alert_type = "success";
+            this.alert_msg =
+              "Signup as teacher user was successful! Redirecting...";
+
+            setTimeout(() => {
+              this.$router.push({ name: "TeacherOnboarding" });
+            }, 2500);
+          }
+        })
+        .catch(err => console.log(err));
     }
   }
 };

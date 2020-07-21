@@ -25,15 +25,12 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "PostVideoBlock",
 
   props: {
     post: Object
   },
-
-  mixins: [RenderImages],
 
   methods: {
     playVideo() {

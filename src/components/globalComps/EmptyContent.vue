@@ -1,12 +1,15 @@
 <template>
-  <div class="empty-list-content d-flex flex-column flex-center">
+  <div class="empty-list-content d-flex flex-column flex-center index-1">
     <!-- EMPTY IMAGE -->
     <div class="avatar avatar_xxl" :class="display_color">
       <img :src="localImg(display_img)" alt class="avatar-img">
     </div>
 
     <!-- INFO TEXT -->
-    <div class="info-text color_text text-center">{{display_text}}</div>
+    <div
+      class="info-text text-center"
+      :class="display_light_text ? 'brand_inverse_light' : 'color_tetxt'"
+    >{{display_text}}</div>
 
     <!-- CTA BUTTON -->
     <div class="btn-contain" v-if="show_button">
@@ -27,16 +30,17 @@
 </template>
 
 <script>
-import RenderImages from "@/scripts/mixins/RenderImages";
 export default {
   name: "EmptyContent",
-
-  mixins: [RenderImages],
 
   props: {
     display_img: String,
     display_color: String,
     display_text: String,
+    display_light_text: {
+      type: Boolean,
+      default: false
+    },
     button_type: {
       type: String,
       default: "emit"

@@ -2,7 +2,7 @@
   <div>
     <div class="student-profile-card white w-100 rounded-5">
       <!-- CARD OPTION -->
-      <div class="card-option">
+      <div class="card-option" v-if="card_type!=='student'">
         <div class="icon">
           <span class="icon-ellipsis-h color_grey_dark font-25"></span>
         </div>
@@ -19,8 +19,18 @@
       <!-- CLASS CODE -->
       <div class="class-code color_grey_dark text-center">{{ class_code }}</div>
 
+      <!-- MANAGE PROFILE -->
+      <router-link
+        :to="{name: 'StudentSettingsProfile'}"
+        class="manage-profile text-center btn-link"
+        v-if="card_type==='student'"
+      >Update Profile</router-link>
+
       <!-- PARENT INFO -->
-      <div class="parent-info d-flex justify-content-between align-items-center w-100">
+      <div
+        class="parent-info d-flex justify-content-between align-items-center w-100"
+        v-if="card_type!=='student'"
+      >
         <div class="left d-flex justify-content-start align-items-center nowrap">
           <!-- AVATAR -->
           <div class="avatar avatar-square avatar_sm_md">
@@ -42,9 +52,9 @@
             <div class="parent-role color_grey_dark">{{ parent_role }}</div>
           </div>
         </div>
-        <div class="right" @click="$emit('toggleMessage')">
+        <!-- <div class="right" @click="$emit('toggleMessage')">
           <span class="icon-chat font-20 border_grey_dark pointer" title="Send Message"></span>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
@@ -52,12 +62,9 @@
 
 <script>
 import { setInitial } from "@/scripts/utilities";
-import RenderImages from "@/scripts/mixins/RenderImages";
 
 export default {
   name: "StudentProfileCard",
-
-  mixins: [RenderImages],
 
   props: {
     child_img: String,
@@ -65,7 +72,8 @@ export default {
     child_name: String,
     class_code: String,
     parent_name: String,
-    parent_role: String
+    parent_role: String,
+    card_type: String
   },
 
   computed: {
@@ -128,7 +136,8 @@ export default {
     }
   }
 
-  .class-code {
+  .class-code,
+  .manage-profile {
     font-size: 14px;
     line-height: 19px;
     margin-bottom: 20px;
@@ -139,6 +148,10 @@ export default {
 
     @include breakpoint_max(md) {
       font-size: 14px;
+    }
+
+    .manage-profile {
+      margin-top: 10px;
     }
   }
 
