@@ -45,42 +45,11 @@
         <div class="row">
           <!-- PARENT DATA ROW -->
           <div class="col-12 col-sm-12 col-md-8">
-            <!-- PARENT ROW CARD COMPONENT -->
-            <ParentRowCard
-              fullname="Robius Hagrid"
-              :child_count="2"
-              email="robiushagrid@gmail.com"
-              :phone="2348131177703"
-              @openParentProfile="toggleProfileCard"
-              @toggleMessage="toggleMessageModal"
-            ></ParentRowCard>
-
-            <ParentRowCard
-              fullname="Babatunde Calebs"
-              :child_count="1"
-              email="babatundecalebs@gmail.com"
-              :phone="2348165544109"
-              @openParentProfile="toggleProfileCard"
-              @toggleMessage="toggleMessageModal"
-            ></ParentRowCard>
-
-            <ParentRowCard
-              fullname="Akinwunmi Kola"
-              :child_count="3"
-              email="akinwunmikola@gmail.com"
-              :phone="2348165544109"
-              @openParentProfile="toggleProfileCard"
-              @toggleMessage="toggleMessageModal"
-            ></ParentRowCard>
-            <ParentRowCard
-              fullname="Akinwunmi Kola"
-              :child_count="3"
-              email="akinwunmikola@gmail.com"
-              :phone="2348165544109"
-              @openParentProfile="toggleProfileCard"
-              @toggleMessage="toggleMessageModal"
-            ></ParentRowCard>
-            <!-- PARENT ROW CARD COMPONENT -->
+            <!-- PARENT COMPONENT -->
+            <transition name="fade" mode="out-in">
+              <component :is="in_view" :parents="parentList"></component>
+            </transition>
+            <!-- PARENT COMPONENT -->
           </div>
 
           <!-- REQUEST INVOICE CARD -->
@@ -90,70 +59,66 @@
             <!-- REQUEST INVOICE CARD COMPONENT -->
           </div>
         </div>
-
-        <div class="row">
-          <div class="col-12 col-sm-12 col-md-8 pagination-section">
-            <!-- PAGINATION COMPONENT -->
-            <Pagination></Pagination>
-            <!-- PAGINATION COMPONENT -->
-          </div>
-        </div>
       </div>
 
       <!-- MODAL COMPONENT -->
       <SubscribeRequestModal v-if="subscribe_form" @closeTriggered="closeSubscribeForm"></SubscribeRequestModal>
-
-      <ParentProfileCard
-        v-if="profile_card"
-        @toggleMessage="toggleMessageModal"
-        @closeTriggered="toggleProfileCard"
-      ></ParentProfileCard>
-
-      <NewMessageModal v-if="message_modal" @closeTriggered="toggleMessageModal"></NewMessageModal>
       <!-- MODAL COMPONENT -->
     </div>
   </div>
 </template>
 
 <script>
-import ParentRowCard from "@/components/schoolComps/dashboard/parent/ParentRowCard";
+import { mapGetters, mapActions } from "vuex";
+import ParentContentInfo from "@/components/schoolComps/dashboard/parent/ParentContentInfo";
+import ParentDefaultInfo from "@/components/schoolComps/dashboard/parent/ParentDefaultInfo";
 import RequestInvoiceCard from "@/components/schoolComps/dashboard/parent/RequestInvoiceCard";
-import Pagination from "@/components/globalComps/Pagination";
 
 export default {
   name: "Parent",
 
   components: {
-    ParentRowCard,
+    ParentContentInfo,
+    ParentDefaultInfo,
     RequestInvoiceCard,
-    Pagination,
     SubscribeRequestModal: () =>
-      import(/* webpackChunkName: "subscriberequestModal" */ "@/components/modalComps/schoolModals/SubscribeRequestModal"),
-    ParentProfileCard: () =>
-      import(/* webpackChunkName: "parentprofilecard" */ "@/components/modalComps/schoolModals/ParentProfileCard"),
-    NewMessageModal: () =>
-      import(/* webpackChunkName: "messagemodal" */ "@/components/modalComps/messageModals/NewMessageModal")
+      import(/* webpackChunkName: "subscriberequestModal" */ "@/components/modalComps/schoolModals/SubscribeRequestModal")
+  },
+
+  computed: {
+    ...mapGetters(["parentList"])
   },
 
   data() {
     return {
-      subscribe_form: false,
-      profile_card: false,
-      message_modal: false
+      in_view: "ParentDefaultInfo",
+      subscribe_form: false
     };
   },
 
+  created() {
+    this.getParents()
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => console.log(err));
+  },
+
+  mounted() {
+    this.switchView();
+  },
+
   methods: {
+    ...mapActions(["getParents"]),
+
     closeSubscribeForm() {
       this.subscribe_form = !this.subscribe_form;
     },
 
-    toggleProfileCard() {
-      this.profile_card = !this.profile_card;
-    },
-
-    toggleMessageModal() {
-      this.message_modal = !this.message_modal;
+    switchView() {
+      this.parentList.length > 0
+        ? (this.in_view = "ParentContentInfo")
+        : (this.in_view = "ParentDefaultInfo");
     }
   }
 };

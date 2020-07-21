@@ -5,7 +5,12 @@
       <div class="col-one d-flex flex-start">
         <!-- PARENT AVATAR -->
         <div class="avatar avatar_sm_md">
-          <div class="avatar-text white-text text-uppercase" :class="setAvatarBg">{{ getInitial }}</div>
+          <img v-lazy="dynamicImg(image)" :alt="getInitial" class="avatar-img" v-if="image">
+          <div
+            class="avatar-text white-text text-uppercase"
+            :class="setAvatarBg"
+            v-else
+          >{{ getInitial }}</div>
         </div>
 
         <!-- PARENT INFO -->
@@ -58,6 +63,7 @@ export default {
 
   props: {
     fullname: String,
+    image: String,
     child_count: Number,
     email: String,
     phone: Number

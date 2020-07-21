@@ -10,11 +10,7 @@ const RenderAssets = {
 
         dynamicVid(src) {
             return require('@/assets/video/' + src + '');
-        },
-
-        // loadFile(src) {
-        //     return require('@/assets/files/' + src + '');
-        // }
+        }
     }
 }
 

@@ -26,7 +26,14 @@
 
           <!-- OTHERS -->
           <label for="changeLogo" class="btn btn-default-outline btn-md mx-0" v-else>
-            <input type="file" class="inputFile" id="changeLogo" hidden>
+            <input
+              type="file"
+              class="inputFile"
+              id="changeLogo"
+              accept=".png, .jpg, .jpeg"
+              hidden
+              @change="changePhoto"
+            >
             <div class="d-flex flex-center">
               <div>Change Photo</div>
             </div>
@@ -43,6 +50,7 @@
 
 <script>
 import { setInitial } from "@/scripts/utilities";
+import { CLOUDINARY_UPLOAD } from "@/scripts/cloudinary";
 
 export default {
   name: "PersonalProfileCard",
@@ -64,6 +72,7 @@ export default {
     return {
       account_type: "",
       current_theme: "",
+      school_photo: null,
       theme_list: {
         school: "brand_inverse_light_bg brand_primary",
         teacher: "brand_tonic_bg brand_white",
@@ -91,6 +100,12 @@ export default {
       ) {
         this.current_theme = this.theme_list.parent;
       }
+    },
+
+    changePhoto($event) {
+      let file = $event.target.files[0];
+      this.school_photo = CLOUDINARY_UPLOAD(file);
+      console.log(this.school_photo);
     },
 
     toggleAvatarModal() {
