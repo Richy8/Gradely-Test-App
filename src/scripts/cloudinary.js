@@ -10,6 +10,7 @@ const CLOUDINARY_UPLOAD = (file) => {
     let formData = new FormData();
     formData.append('file', file);
     formData.append('upload_preset', CLOUDINARY_PRESET)
+    formData.append('folder', 'samples')
 
     axios({
         url: CLOUDINARY_API,
