@@ -88,7 +88,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getAuthUser"])
+    ...mapGetters(["getAuthUser", "classList"])
   },
 
   data() {

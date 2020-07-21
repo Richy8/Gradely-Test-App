@@ -3,7 +3,6 @@ const api_version = "v2";
 axios.defaults.baseURL = `https://apitest.gradely.ng/${api_version}`;
 
 const state = {
-    status: null,
     token: localStorage.getItem('gradelyAuthToken') || "",
     authUser: JSON.parse(localStorage.getItem('authUser') || "{}"),
 };
@@ -59,10 +58,8 @@ const actions = {
             return response;
         } catch (err) {
             localStorage.removeItem('gradelyAuthToken')
-            commit('AUTH_ERROR')
             return err;
         }
-
     },
 
 
@@ -155,8 +152,8 @@ const actions = {
 const mutations = {
     AUTH_SUCCESS: (state, response) => {
         state.authUser = response
-        state.status = "success"
         localStorage.setItem("authUser", JSON.stringify(state.authUser))
+        localStorage.timestamp = +new Date();
     },
 
     BOARD_SUCCESS: state => {
@@ -164,12 +161,7 @@ const mutations = {
         localStorage.setItem("authUser", JSON.stringify(state.authUser))
     },
 
-    AUTH_ERROR: state => {
-        state.status = "error"
-    },
-
     AUTH_LOGOUT: state => {
-        state.status = ""
         state.token = ""
         state.authUser = {}
     }

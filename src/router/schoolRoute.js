@@ -21,12 +21,12 @@ const schoolRoute = [{
         meta: {
             requiresAuth: true
         },
-        beforeEnter(to, from, next) {
-            let is_boarded = JSON.parse(localStorage.getItem('authUser')).is_boarded;
-            is_boarded === 1 ? next({
-                name: 'SchoolDashboard'
-            }) : next();
-        }
+        // beforeEnter(to, from, next) {
+        //     let is_boarded = JSON.parse(localStorage.getItem('authUser')).is_boarded;
+        //     is_boarded === 1 ? next({
+        //         name: 'SchoolDashboard'
+        //     }) : next();
+        // }
     },
     {
         path: "/school/dashboard/viewer",
