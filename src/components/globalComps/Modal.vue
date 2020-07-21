@@ -26,6 +26,7 @@ export default {
   name: "Modal",
 
   props: {
+
     modal_style: {
       type: String,
       required: false

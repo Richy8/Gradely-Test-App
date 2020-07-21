@@ -27,6 +27,7 @@
             <DialogOne
               v-if="current_tab === 0 && account_type === 'student'"
               banner="StudentDialog.png"
+
               display_img="GradelyIcon.png"
             ></DialogOne>
 

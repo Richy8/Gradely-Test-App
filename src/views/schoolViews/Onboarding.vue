@@ -31,13 +31,14 @@
 <script>
 import { bgColorSetter } from "@/scripts/utilities";
 import setupForm from "@/components/schoolComps/onboarding/setupForm.vue";
+import { bgColorSetter } from "@/scripts/utilities";
 
 export default {
   name: "Onboarding",
   components: {
     setupForm
   },
-
+  
   created() {},
 
   mounted() {

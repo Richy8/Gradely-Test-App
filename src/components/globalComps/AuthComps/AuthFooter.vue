@@ -12,8 +12,7 @@
               title="Follow us on Facebook"
               class="border_grey_dark"
             >
-              <span class="flex-center icon-facebook font-19"></span>
-            </a>
+
           </div>
 
           <!-- TWITTER -->
@@ -24,8 +23,6 @@
               title="Follow us on twitter"
               class="border_grey_dark"
             >
-              <span class="flex-center icon-twitter font-17"></span>
-            </a>
           </div>
 
           <!-- INSTAGRAM -->
@@ -36,8 +33,7 @@
               title="Follow on Instagram"
               class="border_grey_dark"
             >
-              <span class="flex-center icon-instagram font-19"></span>
-            </a>
+
           </div>
 
           <!-- LINKEDIN -->
@@ -48,8 +44,6 @@
               title="Connect on linkedIn"
               class="border_grey_dark"
             >
-              <span class="flex-center icon-linkedin font-18"></span>
-            </a>
           </div>
 
           <!-- YOUTUBE -->
@@ -60,8 +54,6 @@
               title="follow our youtube channel"
               class="border_grey_dark"
             >
-              <span class="flex-center icon-youtube font-15"></span>
-            </a>
           </div>
         </div>
 

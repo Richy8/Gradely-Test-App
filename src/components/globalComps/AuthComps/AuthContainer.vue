@@ -38,6 +38,7 @@
 </template>
 
 <script>
+
 import AuthFooter from "@/components/globalComps/AuthComps/AuthFooter";
 
 export default {
