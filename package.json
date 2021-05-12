@@ -13,7 +13,7 @@
     "axios": "^0.19.2",
     "babel-plugin-root-import": "^6.5.0",
     "bootstrap-vue": "^2.11.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "core-js": "^3.6.4",
     "mdbvue": "^6.7.0",
     "node-sass": "^4.14.1",
