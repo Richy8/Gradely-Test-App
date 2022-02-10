@@ -16,7 +16,7 @@
     "chart.js": "^2.9.3",
     "core-js": "^3.6.4",
     "mdbvue": "^6.7.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^8.0.2",
     "v-wow": "git+https://github.com/guisoares2011/vue-wow.git",
     "vue": "^2.6.11",
